@@ -5,10 +5,13 @@
  */
 package AEstrella;
 
+import java.util.ArrayList;
+import java.util.PriorityQueue;
+
 
 /**
  *
- * @author mirse
+ * @author Lucas Meirelles
  */
 public class AEstrella {
  
@@ -50,11 +53,90 @@ public class AEstrella {
     //Calcula el A*
     public int CalcularAEstrella(){
 
-        boolean encontrado = false;
-        int result = -1;
+        boolean encontrado = true;
+        int result = 1;
         
         //AQUÍ ES DONDE SE DEBE IMPLEMENTAR A*
-       
+        
+        ArrayList ListaFrontera = new ArrayList();
+        //PriorityQueue  ListaFrontera = new  PriorityQueue();
+        //PriorityQueue ListaInterior = new PriorityQueue();
+        
+        //COORDENADA TESTE
+        Coordenada coord = new Coordenada();
+        Coordenada caux = new Coordenada();
+        Coordenada caux1 = new Coordenada();
+        Coordenada atual = new Coordenada();
+        
+        
+        
+        //BUSQUEDA
+        atual.set(mundo.caballero.getX(), mundo.caballero.getY());
+        //caux.set(atual.getX()+1,atual.getY()-1);
+        //caux1.set(atual.getX()+1,atual.getY()+1);
+        
+        if(atual.getY()%2 == 1) {
+            for(int j = (atual.getX()-1); j <= (atual.getX()+1); j++){
+                for( int i = (atual.getY()-1); i <= (atual.getY()+1); i++){
+                    coord.set(j, i);
+                    
+                    caux.set(coord.getX()-1,coord.getY()+1);
+                    caux1.set(coord.getX()-1,coord.getY()+1);
+                    
+                    //System.out.println("COORD " +"(" + j+","+i+") " + coord);
+                    
+                if(mundo.getCelda(j, i) != 'b' && mundo.getCelda(j, i) != 'p' && mundo.getCelda(j, i) != 'k' && ((caux.getX() != coord.getX()) && (caux.getY() != coord.getY()))){
+                        
+                        System.out.println("COORD " +"(" + j+","+i+") " + coord);
+                        
+                        //System.out.println("EQUALS " + ();
+                        
+                        
+                        System.out.println("GET CELDA " + mundo.getCelda(j, i));
+                        ListaFrontera.add(coord);
+                    }
+                }
+            }
+            
+            
+        }
+        
+        System.err.println("CAUX: " + caux);
+        System.err.println("CAUX1: " + caux1);
+        System.out.println("\n\nLF SIZE: " + ListaFrontera.size());
+        
+        /*
+        Coordenada element = new Coordenada(); 
+        element = (Coordenada) ListaFrontera.get((ListaFrontera.size()));
+        System.out.println("\n\nLF SIZE: " + ListaFrontera.size());
+        System.out.println("\n\nLF ULTIMO ELEMENT: " + element.getX() + "," + element.getY());
+        */
+        
+        //CALCULO DA HEURISTICA
+        /*int h = 0;
+        
+        for (int j = celda.getY(); j>= mundo.dragon.getY() ; j++ ){
+            System.out.println("ENTREI J");
+            for (int i = celda.getX(); i >= mundo.dragon.getX() ; i++ ){
+                System.out.println("ENTREI I");
+                h = h + 1;
+            }
+        System.out.println("\n\nH(n) = " + h + "\n\n");
+        }*/
+        
+        System.out.println("DRAGON X: " + mundo.dragon.getX());
+        System.out.println("DRAGON Y: " + mundo.dragon.getY());
+        
+        //System.out.println("CELDA (0,0) " + mundo.getCelda(0, 0));
+        
+        //System.out.println("CAB Y-1: " + (mundo.caballero.getX()-1));
+        //System.out.println("CAB X-1: " + (mundo.caballero.getY()-1));        
+         
+        //ListaFrontera.add(mundo.getCaballero());
+        
+        
+        System.out.println("\nmundo.getCaballero(): " + mundo.getCaballero());
+        System.out.println("ITERATOR: " + ListaFrontera.iterator());
 
         //Si ha encontrado la solución, es decir, el camino, muestra las matrices camino y camino_expandidos y el número de nodos expandidos
         if(encontrado){
@@ -71,11 +153,7 @@ public class AEstrella {
         return result;
     }
     
-
-    
-    
-   
-    
+      
     //Muestra la matriz que contendrá el camino después de calcular A*
     public void mostrarCamino(){
         for (int i=0; i<mundo.tamanyo_y; i++){

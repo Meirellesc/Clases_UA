@@ -17,7 +17,7 @@
   <custom-variables>
     <var>
       <name>cmd-line-args</name>
-      <value>"mundo_01.txt"</value>
+      <value>"mundo_defecto.txt"</value>
     </var>
   </custom-variables>
 </gradle-project-properties>
