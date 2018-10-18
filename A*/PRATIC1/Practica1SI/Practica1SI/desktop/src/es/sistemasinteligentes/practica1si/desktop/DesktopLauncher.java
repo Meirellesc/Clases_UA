@@ -1,4 +1,4 @@
-    package es.sistemasinteligentes.practica1si.desktop;
+package es.sistemasinteligentes.practica1si.desktop;
 
 import AEstrella.Mundo;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;

@@ -7,6 +7,7 @@ package AEstrella;
 
 import java.util.ArrayList;
 import java.util.PriorityQueue;
+import java.util.Vector;
 
 
 /**
@@ -59,58 +60,89 @@ public class AEstrella {
         //AQUÍ ES DONDE SE DEBE IMPLEMENTAR A*
         
         ArrayList ListaFrontera = new ArrayList();
-        //PriorityQueue  ListaFrontera = new  PriorityQueue();
-        //PriorityQueue ListaInterior = new PriorityQueue();
+        ArrayList ListaInterior = new ArrayList();
         
-        //COORDENADA TESTE
-        Coordenada coord = new Coordenada();
+        //G(N) COAST 
+        int g = 0;
+        
+        //COORDINATES
+        Coordenada atual = new Coordenada();
         Coordenada caux = new Coordenada();
         Coordenada caux1 = new Coordenada();
-        Coordenada atual = new Coordenada();
         
         
         
-        //BUSQUEDA
+        
+        //-----------------------------------------BUSQUEDA-----------------------------------------//
         atual.set(mundo.caballero.getX(), mundo.caballero.getY());
-        //caux.set(atual.getX()+1,atual.getY()-1);
-        //caux1.set(atual.getX()+1,atual.getY()+1);
+        caux.set(atual.getX()+1,atual.getY());
+        caux1.set(atual.getX()-1,atual.getY());
         
+        //ADDING THE CABALLERO POSITIONING
+        ListaFrontera.add(atual);
+        
+        
+        //while(ListaFrontera.isEmpty() == false){
+            
+        //}
+        
+        //IN CASE THE ATUAL POSITION IS UNPAIRED 
         if(atual.getY()%2 == 1) {
-            for(int j = (atual.getX()-1); j <= (atual.getX()+1); j++){
+            for(int j = (atual.getX()-1); j <= (atual.getX()); j++){
                 for( int i = (atual.getY()-1); i <= (atual.getY()+1); i++){
-                    coord.set(j, i);
+                    Coordenada coord = new Coordenada(j,i);
                     
-                    caux.set(coord.getX()-1,coord.getY()+1);
-                    caux1.set(coord.getX()-1,coord.getY()+1);
-                    
-                    //System.out.println("COORD " +"(" + j+","+i+") " + coord);
-                    
-                if(mundo.getCelda(j, i) != 'b' && mundo.getCelda(j, i) != 'p' && mundo.getCelda(j, i) != 'k' && ((caux.getX() != coord.getX()) && (caux.getY() != coord.getY()))){
+                if(mundo.getCelda(j, i) != 'b' && mundo.getCelda(j, i) != 'p' && mundo.getCelda(j, i) != 'k' ){
+                        ListaFrontera.add(coord);
                         
                         System.out.println("COORD " +"(" + j+","+i+") " + coord);
-                        
-                        //System.out.println("EQUALS " + ();
-                        
-                        
                         System.out.println("GET CELDA " + mundo.getCelda(j, i));
-                        ListaFrontera.add(coord);
-                    }
                 }
+            }   
+        }
+            //Adding the exception
+            if(mundo.getCelda(caux.getX(), caux.getY()) != 'b' && mundo.getCelda(caux.getX(), caux.getY()) != 'p' && mundo.getCelda(caux.getX(), caux.getY()) != 'k'){
+                ListaFrontera.add(caux);
             }
-            
-            
+            //Increasing the coast
+            g = g +1;
+
         }
         
-        System.err.println("CAUX: " + caux);
-        System.err.println("CAUX1: " + caux1);
-        System.out.println("\n\nLF SIZE: " + ListaFrontera.size());
+        //--------------------------------------------------------------------//
         
-        /*
-        Coordenada element = new Coordenada(); 
-        element = (Coordenada) ListaFrontera.get((ListaFrontera.size()));
-        System.out.println("\n\nLF SIZE: " + ListaFrontera.size());
-        System.out.println("\n\nLF ULTIMO ELEMENT: " + element.getX() + "," + element.getY());
-        */
+        //IN CASE THE ACTUAL POSITION IS PAIRED
+        if(atual.getY()%2 == 0) {
+            for(int j = (atual.getX()); j <= (atual.getX()+1); j++){
+                for( int i = (atual.getY()-1); i <= (atual.getY()+1); i++){
+                    
+                    Coordenada coord = new Coordenada(j,i);
+                    
+                if(mundo.getCelda(j, i) != 'b' && mundo.getCelda(j, i) != 'p' && mundo.getCelda(j, i) != 'k' ){
+                        ListaFrontera.add(coord);
+                        
+                        System.out.println("COORD " +"(" + j+","+i+") " + coord);
+                        System.out.println("GET CELDA " + mundo.getCelda(j, i));
+                }
+            }   
+        }
+            //Adding the exception
+            if(mundo.getCelda(caux1.getX(), caux1.getY()) != 'b' && mundo.getCelda(caux1.getX(), caux1.getY()) != 'p' && mundo.getCelda(caux1.getX(), caux1.getY()) != 'k'){
+                ListaFrontera.add(caux1);
+            }
+        
+            g = g +1;
+            
+        }
+        //-----------------------------------------BUSQUEDA-----------------------------------------//
+        
+        
+        
+        caux = (Coordenada) ListaFrontera.get(4);
+        System.err.println("CAUX1_X: " + caux.getX());
+        System.err.println("CAUX1_y: " + caux.getY());
+     
+        camino[caux.getY()][caux.getX()] = 'X';
         
         //CALCULO DA HEURISTICA
         /*int h = 0;
@@ -124,20 +156,7 @@ public class AEstrella {
         System.out.println("\n\nH(n) = " + h + "\n\n");
         }*/
         
-        System.out.println("DRAGON X: " + mundo.dragon.getX());
-        System.out.println("DRAGON Y: " + mundo.dragon.getY());
-        
-        //System.out.println("CELDA (0,0) " + mundo.getCelda(0, 0));
-        
-        //System.out.println("CAB Y-1: " + (mundo.caballero.getX()-1));
-        //System.out.println("CAB X-1: " + (mundo.caballero.getY()-1));        
-         
-        //ListaFrontera.add(mundo.getCaballero());
-        
-        
-        System.out.println("\nmundo.getCaballero(): " + mundo.getCaballero());
-        System.out.println("ITERATOR: " + ListaFrontera.iterator());
-
+       
         //Si ha encontrado la solución, es decir, el camino, muestra las matrices camino y camino_expandidos y el número de nodos expandidos
         if(encontrado){
             //Mostrar las soluciones
