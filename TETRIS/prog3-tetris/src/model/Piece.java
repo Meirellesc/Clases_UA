@@ -1,7 +1,6 @@
 package model;
 
 import java.util.HashSet;
-import java.util.EnumSet;
 import java.util.Set;
 
 /**
@@ -12,15 +11,29 @@ import java.util.Set;
  *
  */
 public class Piece {
-
+	/**
+	 * @variable fijo
+	 */
 	private boolean fixed;
 	
+	/**
+	 * @variable simbolo de la pieza
+	 */
 	private char blockSymbol;
 	
+	/**
+	 * @variable orientación de la pieza 
+	 */
 	private Rotation orientation;
 	
+	/**
+	 * @variable zona ocupada por la pieza
+	 */
 	private static final int BOUNDING_SQUARE_SIZE = 4;
 
+	/**
+	 * @variable formato de la pieza "l"
+	 */
 	private static int shape[][] = new int[][] {
 	      //D0
 		  { 0, 0, 0, 0, 
@@ -44,39 +57,74 @@ public class Piece {
 	        0, 1, 0, 0 } 
 	};
 	      
-
+	/** [ENG] Constructor which create a Piece.
+	 *  [SPA] Constructor que crea la Pieza.
+	 *  
+	 */
 	public Piece() {
 		fixed = false;
 		blockSymbol = '▒';
 		orientation = Rotation.D0;
 	}
 	
+	/** [ENG] Copy constructor.
+	 *  [SPA] Constructor de copia.
+	 *  
+	 */
 	public Piece(Piece p) {
 		fixed = p.fixed;
 		blockSymbol = p.blockSymbol;
 		orientation = p.orientation;
 	}
 	
+	/** [ENG] Method that check if the piece is fixed or not.
+	 *  [SPA] Método que comprueba si la pieza esta fija o no. 
+	 * 
+	 * @return = true if is fixed or false if is not fixed.
+	 */
 	public boolean isFixed() { 
 		return fixed;
 	}
 	
+	/** [ENG] Method that set if the piece is fixed or not.
+	 *  [SPA] Método que establece si la pieza esta fija o no. 
+	 *   
+	 * @param f = input true if the piece are fixed. / ingresa cierto se la pieza está fija.
+	 */
 	public void setFixed(boolean f) {
 		this.fixed = f;
 	}
 	
+	/** [ENG] Method that takes the piece orientation.
+	 * 	[SPA] Método que coge la orientación de la pieza.
+	 * 
+	 * @return = la orientación de la pieza.
+	 */
 	public Rotation getOrientation() {
 		return orientation;
 	}
 	
+	/** [ENG] Method that set the piece orientation.
+	 * 	[SPA] Método que estabelece la orientación de la pieza.
+	 * 
+	 * @param r = input the orientation. / ingresa con la orientación.
+	 */
 	public void setOrientation(Rotation r) {
 		orientation =  r;
 	}
 	
+	/** [ENG] Method that takes the piece symbol.
+	 * 	[SPA] Método que coge el símbolo de la pieza.
+	 * 
+	 * @return = el símbolo de la pieza.
+	 */
 	public char getBlockSymbol() {
 		return this.blockSymbol;
 	}
 	
+	/** [ENG] Method that rotate the piece clockwise.
+	 * 	[SPA] Método que rota la pieza en sentido horário.
+	 */
 	public void rotateClockwise() {
 		if (orientation.equals(Rotation.D0)) {
 			orientation = Rotation.D270;
@@ -93,6 +141,9 @@ public class Piece {
 		
 	}
 	
+	/** [ENG] Method that rotate the piece counterclockwise.
+	 * 	[SPA] Método que rota la pieza en sentido antihorário.
+	 */
 	public void rotateCounterclockwise() {
 		if (orientation.equals(Rotation.D0)) {
 			orientation = Rotation.D90;
@@ -108,7 +159,12 @@ public class Piece {
 		}
 	}
 	
-
+	/** [ENG] Method that take the coordinates which are occupied by the piece.
+	 * 	[SPA] Método que coge las coordenadas que están ocupadas por la pieza.
+	 * 
+	 * @param c = input the coordinates / introduce com la coordenada.
+	 * @return = the Set<Coordinates> which are occupied by the piece.
+	 */
 	public Set<Coordinate> getAbsoluteCells(Coordinate c) {
 		
 		Set<Coordinate> squares = new HashSet<Coordinate>();
@@ -174,11 +230,9 @@ public class Piece {
 	
 	@Override
 	public String toString() {
-		
-		char block = getBlockSymbol();
-		
+				
 		if (orientation.ordinal() == 0) {
-			return "····\n"+ block + block + block + block + "\n····\n····\n";
+			return "····\n▒▒▒▒\n····\n····\n";
 		}
 		else if(orientation.ordinal() == 1) {
 			return "··▒·\n··▒·\n··▒·\n··▒·\n";

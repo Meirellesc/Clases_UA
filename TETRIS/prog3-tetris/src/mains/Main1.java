@@ -69,50 +69,6 @@ public class Main1 {
 		}
 
 		System.out.println("Coordinate count: " + Coordinate.getCoordinateCount());
-		
-		
-		//TEST PIECE
-		
-		Piece p1 = new Piece();
-		Piece p2 = new Piece();
-		/*
-		char p = p1.getBlockSymbol();
-		System.out.println("Ordinal 1 :  " + p1.getOrdinal());
-		p1.setOrientation(Rotation.D270);
-		System.out.println("Ordinal 2 :  " + p1.getOrdinal());
-		System.out.println("Orientation 2 :  " + p1.getOrientation());
-		
-		p1.setOrientation(Rotation.D180);
-		int a = p1.getShape();
-		System.out.println("a:  " + a);
-		
-		p1.setOrientation(Rotation.D270);
-		System.out.println("\nAbsoluteCells: \n");
-		System.out.println(p1.getAbsoluteCells(c1)); 
-		*/
-		
-		//TEST GAMEBOARD
-		Gameboard g = new Gameboard(c3);
-		
-		/*
-		g.setCellContent(c3, p1);
-		g.setCellContent(c2, p2);
-		g.getCellContent(c3);
-		g.getCellContent(c2);
-		*/
-		g.putPiece(c3, p2);
-		//System.out.println("p2 STRING: " + p2.toString());
-		g.isPlaceValid(new Coordinate(-1,-1), p1);
-		//System.out.println("g STRING: " + g.toString());
-		//g.setCellContent(c3, p2);
-		//g.getCellContent(new Coordinate(5,3));
-		//g.getCellContent(c3);
-		//System.out.println(g.getCellContent(c3));
-		
-		//g.isPlaceFree(new Coordinate(5,3), p2);
-		
-		//Game game = new Game(c2);
-		 
 	}
 
 }

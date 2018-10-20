@@ -27,6 +27,9 @@ public class Gameboard {
 	 */
 	private int width;
 	
+	/**
+	 * @variable mapa.
+	 */
 	private Map <Coordinate, Piece> gameboard = new HashMap <Coordinate, Piece> ();
 	
 	/** [ENG] Constructor which create a Coordinate and count it.
@@ -39,61 +42,95 @@ public class Gameboard {
 		width = c.getColumn();
 	}
 	
+	/** [ENG] Method that insert a piece in the game board.
+	 * 	[SPA] Método que añada una pieza al tablero.
+	 * 
+	 * @param c = input the coordinates / introduce con la coordenada.
+	 * @param p = input the piece / introduce con la pieza.
+	 */
 	public void putPiece(Coordinate c, Piece p) {
 		
 		Set<Coordinate> caux = new HashSet<Coordinate>();
 		
 		//<Set>Coordinates which the piece are occupying		
 		caux = p.getAbsoluteCells(c);
-		//System.out.println("ABS CELLS  " + p.getAbsoluteCells(c));
+
 				
 		//Inserting the piece to these coordinates
 		for (Coordinate coords : caux) {
-			//System.out.println("ADDING TO GAMEBOARD  " + coords);
 			gameboard.put(coords, p);
 		}
-		
-		//System.out.println("GB CONTAINS P: " + gameboard.containsValue(p));
-		
-		//System.out.println("GB SIZE" + gameboard.size());
-		
 	}
 	
-
+	/** [ENG] Method which check if the positions belongs to game board.
+	 * 	[SPA] Método que comprueba si las posiciones pertencen al tablero.
+	 * 
+	 * @param c = input the coordinates / introduce con la coordenada.
+	 * @param p = input the piece / introduce con la pieza. 
+	 * @return = true if its valid place and false if it is not valid place.
+	 */
 	public boolean isPlaceValid(Coordinate c, Piece p) {
 				
-		Set<Coordinate> coords = new HashSet<Coordinate>();
-		Set<Coordinate> board = new HashSet<Coordinate>();
+		Set<Coordinate> caux = new HashSet<Coordinate>();
+
+		int count = 0;
+		//Getting the piece coordinates
+		caux = p.getAbsoluteCells(c);
 		
-		coords = p.getAbsoluteCells(c);
-		System.out.println("ABS CELLS: " + p.getAbsoluteCells(c));
 		
-		for (int i = 0; i <= getHeight(); i++) {
-			for (int j = 0; j <= getWidth(); j++) {
-				board.add(new Coordinate(i,j));
+		//Checking if which coordintates belongs to game board and count it.
+		for (Coordinate coords: caux) {
+			for (int i = 0; i < getHeight(); i++) {
+				for (int j = 0; j < getWidth(); j++){
+					if (coords.equals(new Coordinate (i,j))) {
+						count += 1;
+					}
+				}
 			}
 		}
-		
-		if (board.containsAll(coords)) {
+				
+		//If count results 4, it is because all the positions belong to game board.
+		if(count == 4) {
 			return true;
-		}
-		else
-			return false;
-		
-	}
-	
-	public boolean isPlaceFree(Coordinate c, Piece p) {
-		//System.out.println("GB CONTAINS C: " + gameboard.containsKey(c));
-		
-		if (p.isFixed() == true || gameboard.containsKey(c) == true) {
-			return false;
 		}
 		else {
-			return true;
-		}
-		
+			return false;
+		}	
 	}
 	
+	/** [ENG] Method which check if the positions are empty.
+	 * 	[SPA] Método que comprueba si las posiciones están vacías.
+	 * 
+	 * @param c = input the coordinates / introduce con la coordenada.
+	 * @param p = input the piece / introduce con la pieza. 
+	 * @return = true if it is a free place and false if it is occupied.
+	 */
+	public boolean isPlaceFree(Coordinate c, Piece p) {
+		
+		Set<Coordinate> caux = new HashSet<Coordinate>();
+		
+		//Getting the piece coordinates.
+		caux = p.getAbsoluteCells(c);
+		
+		//Check if in these coordinates has a piece and if this piece is fixed.
+		for (Coordinate coords : caux) {
+			if (gameboard.containsKey(coords)) { 
+				if (gameboard.get(coords).isFixed()) {
+					return false;
+				}
+				else {
+					return true;
+				}
+			}
+		}
+		return true;
+	}
+	
+	/** [ENG] Method that remove a piece from the game board.
+	 * 	[SPA] Método que elimina la pieza del tablero. 
+	 * 
+	 * @param p = input the piece / introduce con la pieza.
+	 */
 	public void removePiece(Piece p) {
 		
 		Coordinate coords;
@@ -109,20 +146,25 @@ public class Gameboard {
 		
 	}
 	
+	/** [ENG] Method that check if in this coordinate have a piece.
+	 * 	[SPA] Método que comprueba si nesta coordenadas tienes una pieza.
+	 * 
+	 * @param c = input the coordinates / introduce con la coordenada.
+	 * @return = devuelve una referencia a la pieza contenida en la posición
+	 */
 	public Piece getCellContent(Coordinate c) {
-		
-		//System.out.println("values" + gameboard.values());
-		//System.out.println("GB CONTAINS C: " + gameboard.containsKey(c));
-		if (gameboard.containsKey(c) == true) {
-			//System.out.println("GETCELL " + gameboard.get(c));
-			//System.out.println("ENTREI IF");
+		if (gameboard.containsKey(c)) 
 			return gameboard.get(c); //return piece 
-		}
 		else
-			//System.out.println("ENTREI ELSE");
 			return null;  //return null 
 	}
 	
+	/** [ENG] Method that insert a piece reference in the game board.
+	 * 	[SPA] Método que añada una referencia de la pieza al tablero.
+	 * 
+	 * @param c = input the coordinates / introduce con la coordenada.
+	 * @param p = input the piece / introduce con la pieza. 
+	 */
 	public void setCellContent(Coordinate c, Piece p) {
 		gameboard.put(c, p);
 		

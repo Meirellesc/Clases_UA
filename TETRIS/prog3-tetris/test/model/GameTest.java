@@ -11,18 +11,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-/*
- * Busca en este fichero los test
- *
- *	testNextPiece3()
- *	testNextPiece4()
- *	testMoveCurrentPieceLeft2()
- *	testMoveCurrentPieceRight2()
- *
- *  y complétalos.
- *  ¡Recuerda eliminar las aserciones fail() para que el test no falle!
-*/
-
 /**
  * @author Lucas Meirelles
  * @version Oxygen 4.7
@@ -67,9 +55,7 @@ public class GameTest {
 	   
 		ps = openFileForWritingStudentOutput("test/files/nextpiece1.alu");
 		Game gameImposible = new Game(new Coordinate(1,4));
-		System.out.println("GAMEBOARD: \n" + gameImposible.toString());
 		saveGame(gameImposible);
-		System.out.println(gameImposible.nextPiece());
 	    assertFalse(gameImposible.nextPiece());
 		assertFalse(gameImposible.isCurrentPieceFixed());
 		assertTrue(gameImposible.isGameEnded());
@@ -90,24 +76,13 @@ public class GameTest {
 		
 		ps = openFileForWritingStudentOutput("test/files/nextpiece2.alu");
 		
-		saveGame(gameMinimal);
-		
-		System.out.println("\nGAMEMINIMAL\n" + gameMinimal.toString());
-		System.out.println("NXPC: " + gameMinimal.nextPiece() + "\n\n");
-		
+		saveGame(gameMinimal);	
 		assertTrue(gameMinimal.nextPiece());
 		saveGame(gameMinimal);
 		assertFalse(gameMinimal.isCurrentPieceFixed());
 		assertFalse(gameMinimal.isGameEnded());	
-		
-		System.out.println("\nGAMEMINIMAL\n");
-		
 		gameMinimal.moveCurrentPieceDown(); //Sacabó
 		assertFalse(gameMinimal.isGameEnded());
-		
-		System.out.println("\n\n\nSECOND NP\n\n\n" + gameMinimal.toString());
-		System.out.println("NXPC 2: " + gameMinimal.nextPiece() + "\n\n");
-		
 		assertFalse(gameMinimal.nextPiece());
 		saveGame(gameMinimal);
 		ps.close();
@@ -116,19 +91,6 @@ public class GameTest {
 		assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());
 	}
 	
-	
-	@Test
-    public void testNextPiece3() {
-
-		ps = openFileForWritingStudentOutput("test/files/nextpiece3.alu");
-		
-		saveGame(gameMinimal);
-		assertTrue(gameMinimal.nextPiece());
-		saveGame(gameMinimal);
-		assertFalse(gameMinimal.isCurrentPieceFixed());
-		assertFalse(gameMinimal.isGameEnded());
-	// ¡CREA UN TEST NUEVO!
-	//
 	// Tienes una pieza en un Tablero (2,4) donde ningún movimiento es posible.
 	// 
 	// El resultado final debe ser el del fichero test/files/nextpiece3.sol
@@ -140,35 +102,69 @@ public class GameTest {
 	// no hay pieza siguiente. Fíjate en los test anteriores (testNextPiece1 y testNextPiece2)
 	// para hacerlo.
 		
-		
-		
-		ps.close();
-		 
-		 		/* Deja como está lo que sigue */
+	@Test
+    public void testNextPiece3() {
 
+		ps = openFileForWritingStudentOutput("test/files/nextpiece3.alu");
+		
+		saveGame(gameMinimal);
+		assertTrue(gameMinimal.nextPiece());
+		saveGame(gameMinimal);
+		assertFalse(gameMinimal.isCurrentPieceFixed());
+		assertFalse(gameMinimal.isGameEnded());
+		
+		gameMinimal.moveCurrentPieceLeft();
+		assertFalse(gameMinimal.isCurrentPieceFixed());
+		assertFalse(gameMinimal.isGameEnded());
+		saveGame(gameMinimal);
+		
+		gameMinimal.moveCurrentPieceRight();
+		assertFalse(gameMinimal.isCurrentPieceFixed());
+		assertFalse(gameMinimal.isGameEnded());
+		saveGame(gameMinimal);
+		
+		gameMinimal.rotateCurrentPieceClockwise();
+		assertFalse(gameMinimal.isCurrentPieceFixed());
+		assertFalse(gameMinimal.isGameEnded());
+		saveGame(gameMinimal);
+		
+		gameMinimal.rotateCurrentPieceCounterclockwise();
+		assertFalse(gameMinimal.isCurrentPieceFixed());
+		assertFalse(gameMinimal.isGameEnded());
+		saveGame(gameMinimal);
+		
+		gameMinimal.moveCurrentPieceDown();
+		assertTrue(gameMinimal.isCurrentPieceFixed());
+		assertFalse(gameMinimal.isGameEnded());
+		saveGame(gameMinimal);
+		
+		assertFalse(gameMinimal.nextPiece());
+		assertTrue(gameMinimal.isGameEnded());
+		saveGame(gameMinimal);
+		ps.close();
+	
 		sbIn=readSolutionFromFile("test/files/nextpiece3.sol");
 		assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());
 	}
 
 	// Comprobar posicionamiento inicial correcto
-	@Test
-    public void testNextPiece4() {
-
-		ps = openFileForWritingStudentOutput("test/files/nextpiece4.alu");
-
-	// ¡CREA UN TEST NUEVO!
 	//
 	// El resultado final debe ser el del fichero test/files/nextpiece4.sol
 	//
 	// Haciendo uso de gameMinimal, el test debe comprobar que hay siguiente pieza, 
 	// que la pieza no está fija y que el juego no ha terminado. Fíjate en los test 
 	// anteriores (testNextPiece1 y testNextPiece2) para hacerlo.
+	@Test
+    public void testNextPiece4() {
 
-		ps.close();
+		ps = openFileForWritingStudentOutput("test/files/nextpiece4.alu");
 		
-		fail("¡Completa testNextPiece4()!");
+		assertTrue(gameMinimal.nextPiece());
+		assertFalse(gameMinimal.isCurrentPieceFixed());
+		assertFalse(gameMinimal.isGameEnded());
+		saveGame(gameMinimal);
+		ps.close();
 
-		/* Deja como está lo que sigue */
 		sbIn=readSolutionFromFile("test/files/nextpiece4.sol");
 		assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());
 	}
@@ -178,7 +174,7 @@ public class GameTest {
 	@Test
 	public void testMovimentsInPieceFixed() {
 		ps = openFileForWritingStudentOutput("test/files/movementsinpiecefixed.alu");
-	
+		
 		saveGame(gameMiniTest);
 		assertTrue(gameMiniTest.nextPiece());
 		for (int i=0; i<5; i++) {
@@ -266,6 +262,11 @@ public class GameTest {
 	
 	/* Movemos pieza D90 izquierda hasta chocar con otra fija sin sobrepasarla
 	   y sin poder girarla */
+	// Mira el fichero test/files/movecurrentpieceleft2.sol y genera una secuencia
+	// de movimientos y rotaciones, guardando el estado mediante saveGame(gameMiniTest)
+	// tras cada movimiento, que genere la misma salida que la del fichero. Tras todos
+	// los movimientos la pieza deberá estar fija. El número total de movimientos a realizar
+	// es de 13.
 		@Test
 	public void testMoveCurrentPieceLeft2() {
 		//Ubicamos primero la fija en la parte inferior izquierda
@@ -286,16 +287,33 @@ public class GameTest {
 		saveGame(gameMiniTest);
 		gameMiniTest.nextPiece();
 		saveGame(gameMiniTest);
-		
-		// ¡COMPLETA EL TEST!
-		// Mira el fichero test/files/movecurrentpieceleft2.sol y genera una secuencia
-		// de movimientos y rotaciones, guardando el estado mediante saveGame(gameMiniTest)
-		// tras cada movimiento, que genere la misma salida que la del fichero. Tras todos
-		// los movimientos la pieza deberá estar fija. El número total de movimientos a realizar
-		// es de 13.
-		fail("¡Completa testMoveCurrentPieceLeft2()!");
-
-		/* Deja como está lo que sigue */		
+		gameMiniTest.rotateCurrentPieceCounterclockwise();
+		saveGame(gameMiniTest);
+		gameMiniTest.moveCurrentPieceLeft();
+		saveGame(gameMiniTest);
+		gameMiniTest.moveCurrentPieceDown();
+		saveGame(gameMiniTest);
+		gameMiniTest.moveCurrentPieceLeft();
+		saveGame(gameMiniTest);
+		gameMiniTest.rotateCurrentPieceCounterclockwise();
+		saveGame(gameMiniTest);
+		gameMiniTest.moveCurrentPieceDown();
+		saveGame(gameMiniTest);
+		gameMiniTest.moveCurrentPieceLeft();
+		saveGame(gameMiniTest);
+		gameMiniTest.rotateCurrentPieceCounterclockwise();
+		saveGame(gameMiniTest);
+		gameMiniTest.rotateCurrentPieceClockwise();
+		saveGame(gameMiniTest);
+		gameMiniTest.moveCurrentPieceDown();
+		saveGame(gameMiniTest);
+		gameMiniTest.moveCurrentPieceDown();
+		saveGame(gameMiniTest);
+		gameMiniTest.moveCurrentPieceLeft();
+		saveGame(gameMiniTest);
+		gameMiniTest.rotateCurrentPieceClockwise();
+		saveGame(gameMiniTest);
+				
 		assertTrue(gameMiniTest.isCurrentPieceFixed()); //Ya es fija
 		ps.close();
 			
@@ -334,6 +352,13 @@ public class GameTest {
 	
 	/* Movemos pieza D270 derecha hasta chocar con otra fija sin sobrepasarla
 	   y sin poder girarla */
+	
+	// Mira el fichero test/files/movecurrentpieceright2.sol y genera una secuencia
+	// de movimientos y rotaciones, guardando el estado mendiante saveGame(gameMiniTest)
+	// tras cada movimiento, que genere la misma salida que la del fichero. Tras todos
+	// los movimientos la pieza deberá estar fija. El número total de movimientos a relizar
+	// es de 13.
+
 	@Test
 	public void testMoveCurrentPieceRight2() {
 		
@@ -352,16 +377,33 @@ public class GameTest {
 		saveGame(gameMiniTest);
 		gameMiniTest.nextPiece();
 		saveGame(gameMiniTest);
-		
-		// ¡COMPLETA EL TEST!
-		// Mira el fichero test/files/movecurrentpieceright2.sol y genera una secuencia
-		// de movimientos y rotaciones, guardando el estado mendiante saveGame(gameMiniTest)
-		// tras cada movimiento, que genere la misma salida que la del fichero. Tras todos
-		// los movimientos la pieza deberá estar fija. El número total de movimientos a relizar
-		// es de 13.
-		fail("¡Completa testMoveCurrentPieceRight2()!");
-		
-		/* Deja como está lo que sigue */	
+		gameMiniTest.rotateCurrentPieceClockwise();
+		saveGame(gameMiniTest);
+		gameMiniTest.moveCurrentPieceRight();
+		saveGame(gameMiniTest);
+		gameMiniTest.moveCurrentPieceDown();
+		saveGame(gameMiniTest);
+		gameMiniTest.moveCurrentPieceRight();
+		saveGame(gameMiniTest);
+		gameMiniTest.rotateCurrentPieceClockwise();
+		saveGame(gameMiniTest);
+		gameMiniTest.moveCurrentPieceDown();
+		saveGame(gameMiniTest);
+		gameMiniTest.moveCurrentPieceRight();
+		saveGame(gameMiniTest);
+		gameMiniTest.rotateCurrentPieceClockwise();
+		saveGame(gameMiniTest);
+		gameMiniTest.rotateCurrentPieceCounterclockwise();
+		saveGame(gameMiniTest);
+		gameMiniTest.moveCurrentPieceDown();
+		saveGame(gameMiniTest);
+		gameMiniTest.moveCurrentPieceDown();
+		saveGame(gameMiniTest);
+		gameMiniTest.moveCurrentPieceRight();
+		saveGame(gameMiniTest);
+		gameMiniTest.rotateCurrentPieceCounterclockwise();
+		saveGame(gameMiniTest);
+				
 		assertTrue(gameMiniTest.isCurrentPieceFixed()); //Ya es fija
 		ps.close();
 		
@@ -458,7 +500,6 @@ public class GameTest {
 				assertFalse(gameMiniTest.isCurrentPieceFixed());
 		}
 	
-		
 		assertTrue(gameMiniTest.nextPiece()); //Siguiente pieza
 		saveGame(gameMiniTest);
 		/* En la cuarta iteración la pieza se hace fija. En las cuatro siguientes
@@ -670,8 +711,10 @@ public class GameTest {
 			ps = openFileForWritingStudentOutput("test/files/rotatecounterclockwise.alu");
 			assertTrue(gameMiniTest.nextPiece()); //Pieza 
 			saveGame(gameMiniTest);	
-			gameMiniTest.rotateCurrentPieceCounterclockwise(); 
+			
+			gameMiniTest.rotateCurrentPieceCounterclockwise();
 			saveGame(gameMiniTest);
+			
 			gameMiniTest.moveCurrentPieceDown();
 			saveGame(gameMiniTest);		
 			gameMiniTest.rotateCurrentPieceCounterclockwise(); 
@@ -724,8 +767,6 @@ public class GameTest {
 		game.moveCurrentPieceRight();
 		saveGame(game);
 		game.moveCurrentPieceRight();
-		saveGame(game);
-		game.moveCurrentPieceDown();
 		saveGame(game);
 		game.moveCurrentPieceDown();
 		saveGame(game);
