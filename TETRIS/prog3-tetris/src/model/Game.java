@@ -211,12 +211,16 @@ public class Game {
 	/** [ENG] Method that create a new piece and place it on top of the game board.
 	 * 	[SPA] Método que crea una nueva pieza y la coloca en lo alto del tablero.
 	 * 
-	 * @return = true if is possible to put another piece or if the game is not ended.
+	 * @return = true if is possible to put another piece or if the game is not ended 
+	 * and false if can not put another piece or if the game is ended.
 	 */
-	public boolean nextPiece() {
+	public boolean nextPiece(String type) {
 		currentPosition = new Coordinate(0, ((board.getWidth())/2) - 2);
 		
-		currentPiece = new Piece();
+		//currentPiece = new Piece();
+		
+		new PieceFactory();
+		currentPiece = PieceFactory.createPiece(type);
 		
 		if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece)) {
 			board.putPiece(currentPosition, currentPiece);

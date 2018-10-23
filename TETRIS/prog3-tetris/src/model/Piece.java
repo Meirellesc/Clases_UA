@@ -10,7 +10,7 @@ import java.util.Set;
  * @date 28/09/2018
  *
  */
-public class Piece {
+public abstract class Piece {
 	/**
 	 * @variable fijo
 	 */
@@ -19,7 +19,7 @@ public class Piece {
 	/**
 	 * @variable simbolo de la pieza
 	 */
-	private char blockSymbol;
+	protected char blockSymbol;
 	
 	/**
 	 * @variable orientación de la pieza 
@@ -34,7 +34,7 @@ public class Piece {
 	/**
 	 * @variable formato de la pieza "l"
 	 */
-	private static int shape[][] = new int[][] {
+	/*protected static int shape[][] = new int[][] {
 	      //D0
 		  { 0, 0, 0, 0, 
 	    	1, 1, 1, 1, 
@@ -55,7 +55,7 @@ public class Piece {
 	        0, 1, 0, 0, 
 	        0, 1, 0, 0, 
 	        0, 1, 0, 0 } 
-	};
+	};*/
 	      
 	/** [ENG] Constructor which create a Piece.
 	 *  [SPA] Constructor que crea la Pieza.
@@ -63,19 +63,20 @@ public class Piece {
 	 */
 	public Piece() {
 		fixed = false;
-		blockSymbol = '▒';
+		//blockSymbol = '▒';
 		orientation = Rotation.D0;
 	}
 	
 	/** [ENG] Copy constructor.
 	 *  [SPA] Constructor de copia.
-	 *  
+	 * 
+	 * @param p = input the piece / introduce con la pieza.
 	 */
-	public Piece(Piece p) {
+	/*public Piece(Piece p) {
 		fixed = p.fixed;
 		blockSymbol = p.blockSymbol;
 		orientation = p.orientation;
-	}
+	}*/
 	
 	/** [ENG] Method that check if the piece is fixed or not.
 	 *  [SPA] Método que comprueba si la pieza esta fija o no. 
@@ -243,6 +244,17 @@ public class Piece {
 		else {
 			return "·▒··\n·▒··\n·▒··\n·▒··\n";
 		}
-	}	
+	}
 
+	//PRÁCTICA 3
+	
+	protected abstract int[][] getShape();
+
+	public abstract Piece copy();
+	
+	protected void copyAttributes(Piece p) {
+		fixed = p.fixed;
+		blockSymbol = p.blockSymbol;
+		orientation = p.orientation;
+	}
 }
