@@ -1,9 +1,15 @@
 package model.exceptions;
 
-public class GameEndedMovementException {
+@SuppressWarnings("serial")  
+public class GameEndedMovementException extends java.lang.Exception{
 
 	public GameEndedMovementException() {
-		// TODO Auto-generated constructor stub
+		
 	}
-
+	
+	public String getMessage() {
+		return " [ENG] A piece can not be moved or added to the game because the game already over" + 
+				"[SPA] Una pieza no se puede mover o añadir a la partida porque la partida ya se ha terminado";
+		
+	}
 }

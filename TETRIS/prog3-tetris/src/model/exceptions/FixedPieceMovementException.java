@@ -1,9 +1,15 @@
 package model.exceptions;
 
-public class FixedPieceMovementException {
+@SuppressWarnings("serial")  
+public class FixedPieceMovementException extends java.lang.Exception{
 
 	public FixedPieceMovementException() {
-		// TODO Auto-generated constructor stub
+		
 	}
-
+	
+	public String getMessage() {
+		return " [ENG] A piece can not be moved because its already fixed" + 
+				"[SPA] Una pieza no se puede mover porque ya está fijada";
+		
+	}
 }

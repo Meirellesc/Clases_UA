@@ -15,13 +15,13 @@ import org.junit.Test;
  * @version Oxygen 4.7
  * @date 06/10/2018
  */
-public class PieceTest {
+/*public class PieceTest {
     Piece p1;
     static ArrayList<Coordinate> coorD0, coorD90, coorD180, coorD270;
     static String sD0, sD90, sD180, sD270;
     
     
-	@BeforeClass //Se ejecuta una sola vez antes que todos los test
+	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		coorD0 = new ArrayList<Coordinate>();
 		coorD90 = new ArrayList<Coordinate>();
@@ -40,13 +40,13 @@ public class PieceTest {
 	}
 
 
-	@Before //Se ejecuta antes de cada test
+	@Before
 	public void setUp() throws Exception {
 		p1 = new Piece();
 		
 	}
 
-	@After  // Se ejecuta después de cada test
+	@After
 	public void tearDown() throws Exception {
 	}
 
@@ -54,10 +54,9 @@ public class PieceTest {
 	@Test
 	public void testPiece() {
 		assertNotNull("P no es null",p1);
-		
-		assertEquals("Orientation == D0",Rotation.D0,p1.getOrientation());
-		assertEquals("Fixed == D0",false,p1.isFixed());
-		assertEquals("BlockSymbol == ▒",'▒',p1.getBlockSymbol());		
+		assertEquals("Orientacion==D0",Rotation.D0, p1.getOrientation());
+		assertFalse("fixed == false",p1.isFixed());
+		assertEquals("Simbol == ▒",'▒',p1.getBlockSymbol());
 	}
 
 	//Test constructor copia de Pieza
@@ -66,11 +65,10 @@ public class PieceTest {
 		Piece p = new Piece(p1);
 		assertNotNull("P no es null",p);
 		assertNotSame("p != p1",p1,p);
+		assertEquals("Orientacion==D0",Rotation.D0, p.getOrientation());
+		assertFalse("fixed == false",p.isFixed());
+		assertEquals("Simbol == ▒",'▒',p.getBlockSymbol());
 		
-		assertEquals("Orientation == D0",Rotation.D0,p.getOrientation());
-		assertEquals("Fixed == D0",false,p.isFixed());
-		assertEquals("BlockSymbol == ▒",'▒',p.getBlockSymbol());
-			
 	}
 
 	//Test constructor copia de una Pieza previamente modificada.
@@ -81,11 +79,10 @@ public class PieceTest {
 		Piece p = new Piece(p1);
 		assertNotNull("P no es null",p);
 		assertNotSame("p != p1",p1,p);
+		assertEquals("Orientacion==D270",Rotation.D270, p.getOrientation());
+		assertTrue("fixed == false",p.isFixed());
+		assertEquals("Simbol == ▒",'▒',p.getBlockSymbol());
 		
-		assertEquals("Orientation == D0",Rotation.D270,p1.getOrientation());
-		assertEquals("Fixed == D0",true,p1.isFixed());
-		assertEquals("BlockSymbol == ▒",'▒',p1.getBlockSymbol());
-			
 	}
 	
 	//Tests setFixed e isFixed
@@ -102,13 +99,12 @@ public class PieceTest {
 	public void testSetGetOrientation() {
 		p1.setOrientation(Rotation.D180);
 		assertEquals("Orientation == D180",Rotation.D180,p1.getOrientation());
-		p1.setOrientation(Rotation.D0);
-		assertEquals("Orientation == D0",Rotation.D0,p1.getOrientation());
 		p1.setOrientation(Rotation.D270);
 		assertEquals("Orientation == D270",Rotation.D270,p1.getOrientation());
 		p1.setOrientation(Rotation.D90);
-		assertEquals("Orientation == D90",Rotation.D90,p1.getOrientation());		
-
+		assertEquals("Orientation == D90",Rotation.D90,p1.getOrientation());
+		p1.setOrientation(Rotation.D0);
+		assertEquals("Orientation == D0",Rotation.D0,p1.getOrientation());
 	}
 
 	//Test rotateClockwise
@@ -122,7 +118,6 @@ public class PieceTest {
 		assertEquals("Orientation == D90", Rotation.D90, p1.getOrientation());
 		p1.rotateClockwise();
 		assertEquals("Orientation == D0", Rotation.D0, p1.getOrientation());
-				
 	}
 	
 	//Test rotateCounterclockwise
@@ -136,7 +131,6 @@ public class PieceTest {
 		assertEquals("Orientation == D270", Rotation.D270, p1.getOrientation());
 		p1.rotateCounterclockwise();
 		assertEquals("Orientation == D0", Rotation.D0, p1.getOrientation());
-
 	}
 
 	//Test getAbsoluteCells para D0
@@ -147,51 +141,51 @@ public class PieceTest {
 		for (int i=0; i<4; i++){
 			assertTrue("Valores Absolutos celdas D0+c1", cells.contains(coorD0.get(i).add(c1)));
 		}
+		
 	}
 
 	//Test getAbsoluteCells para D90
 	@Test
-    public void testGetAbsoluteCellsD90() {
-		Coordinate c1 = new Coordinate(13,27);
+	public void testGetAbsoluteCellsD90() {
+		Coordinate c1 = new Coordinate(0,0);
 		p1.setOrientation(Rotation.D90);
 		Set<Coordinate> cells = p1.getAbsoluteCells(c1);
 		for (int i=0; i<4; i++){
 			assertTrue("Valores Absolutos celdas D90+c1", cells.contains(coorD90.get(i).add(c1)));
 		}
-
+		
 	}
 	
 	//Test getAbsoluteCells para D180
 	@Test
-    public void testGetAbsoluteCellsD180() {
-		Coordinate c1 = new Coordinate(13,27);
+	public void testGetAbsoluteCellsD180() {
+		Coordinate c1 = new Coordinate(300,700);
 		p1.setOrientation(Rotation.D180);
 		Set<Coordinate> cells = p1.getAbsoluteCells(c1);
 		for (int i=0; i<4; i++){
 			assertTrue("Valores Absolutos celdas D180+c1", cells.contains(coorD180.get(i).add(c1)));
 		}
-
+		
 	}
 	
 	//Test getAbsoluteCells para D270
 	@Test
-    public void testGetAbsoluteCellsD270() {
-		Coordinate c1 = new Coordinate(13,27);
+	public void testGetAbsoluteCellsD270() {
+		Coordinate c1 = new Coordinate(11,11);
 		p1.setOrientation(Rotation.D270);
 		Set<Coordinate> cells = p1.getAbsoluteCells(c1);
 		for (int i=0; i<4; i++){
-			assertTrue("Valores Absolutos celdas D270+c1", cells.contains(coorD270.get(i).add(c1)));
+			assertTrue("Valores Absolutos celdas 270+c1", cells.contains(coorD270.get(i).add(c1)));
 		}
-
+		
 	}
-
 	
 	//Test toString para D0
 	@Test
 	public void testToStringD0() {
 		assertEquals("D0 toString",sD0,p1.toString());
 	}
-
+	
 	//Test toString para D90
 	@Test
 	public void testToStringD90() {
@@ -205,12 +199,12 @@ public class PieceTest {
 		p1.setOrientation(Rotation.D180);
 		assertEquals("D180 toString",sD180,p1.toString());
 	}
-	
-	//Test toString para D270
+
+	//Test toString para 270
 	@Test
 	public void testToStringD270() {
 		p1.setOrientation(Rotation.D270);
 		assertEquals("D270 toString",sD270,p1.toString());
 	}
-
 }
+*/

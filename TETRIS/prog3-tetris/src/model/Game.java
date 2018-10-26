@@ -1,5 +1,13 @@
 package model;
 
+import model.exceptions.CollisionMovementException;
+import model.exceptions.CurrentPieceNotFixedException;
+import model.exceptions.FixedPieceMovementException;
+import model.exceptions.GameEndedMovementException;
+import model.exceptions.NoCurrentPieceException;
+import model.exceptions.OffBoardMovementException;
+import model.exceptions.WrongSizeException;
+
 /**
  * 
  * @author Lucas Meirelles
@@ -33,10 +41,12 @@ public class Game {
 	 *  [SPA] Constructor que crea el tablero con el tamaño de las coordenadas.
 	 * 
 	 * @param c = input the coordinates / introduce com la coordenada.
+	 * @throws WrongSizeException 
 	 */
-	public Game(Coordinate c) {
-		
+	public Game(Coordinate c) throws WrongSizeException {
+				
 		gameEnded = false;
+		
 		
 		for (int i = 0; i <= c.getRow(); i++) {
 			for (int j = 0; j <= c.getColumn(); j++) {
@@ -47,165 +57,276 @@ public class Game {
 	
 	/** [ENG] Method that move the piece to left.
 	 * 	[SPA] Método que mueve la pieza hacia la izquierda.
+	 * 
+	 * @throws NoCurrentPieceException 
+	 * @throws GameEndedMovementException 
+	 * @throws FixedPieceMovementException 
+	 * @throws OffBoardMovementException 
+	 * @throws CollisionMovementException 
 	 */
-	public void moveCurrentPieceLeft() {
+	public void moveCurrentPieceLeft() throws NoCurrentPieceException, GameEndedMovementException, FixedPieceMovementException, OffBoardMovementException, CollisionMovementException {
 		
 		Coordinate cadd = new Coordinate(0,-1);
 		Coordinate caux = currentPosition;
 		
-		board.removePiece(currentPiece);
-		currentPosition = currentPosition.add(cadd);
-		
-		if (!isCurrentPieceFixed() && !isGameEnded() && board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece)) {
-			board.putPiece(currentPosition, currentPiece);
+		if (currentPiece == null) { // If the first piece has not been put on the board
+			throw new NoCurrentPieceException();
+		}
+		else if (isGameEnded()) {
+			throw new GameEndedMovementException();
+		}
+		else if (isCurrentPieceFixed()) {
+			throw new FixedPieceMovementException();
+		}
+		else if (board.isPlaceValid(currentPosition, currentPiece)) { // If the new position it will be off the board
+			throw new OffBoardMovementException(currentPosition);
+		}
+		else if (board.isPlaceFree(currentPosition, currentPiece)) { // If the new position would result in a collision with another piece 
+			throw new CollisionMovementException(currentPosition);
 		}
 		else {
-			currentPosition = caux;
-			board.putPiece(currentPosition, currentPiece);
+			board.removePiece(currentPiece);
+			currentPosition = currentPosition.add(cadd);
+			
+			if (!isCurrentPieceFixed() && !isGameEnded() && board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece)) {
+				board.putPiece(currentPosition, currentPiece);
+			}
+			else {
+				currentPosition = caux;
+				board.putPiece(currentPosition, currentPiece);
+			}
 		}
+		
 			
 	}
 	
 	/** [ENG] Method that move the piece to right.
 	 * 	[SPA] Método que mueve la pieza hacia la derecha.
+	 * 
+	 * @throws NoCurrentPieceException 
+	 * @throws GameEndedMovementException 
+	 * @throws FixedPieceMovementException 
+	 * @throws OffBoardMovementException 
+	 * @throws CollisionMovementException 
 	 */
-	public void moveCurrentPieceRight() {
+	public void moveCurrentPieceRight() throws NoCurrentPieceException, GameEndedMovementException, FixedPieceMovementException, OffBoardMovementException, CollisionMovementException {
 		
 		Coordinate cadd = new Coordinate(0,1);
 		Coordinate caux = currentPosition;
 		
-		board.removePiece(currentPiece);
-		currentPosition = currentPosition.add(cadd);
-		
-		if (!isCurrentPieceFixed() && !isGameEnded() && board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece)) {
-			board.putPiece(currentPosition, currentPiece);
+		if (currentPiece == null) { // If the first piece has not been put on the board
+			throw new NoCurrentPieceException();
+		}
+		else if (isGameEnded()) {
+			throw new GameEndedMovementException();
+		}
+		else if (isCurrentPieceFixed()) {
+			throw new FixedPieceMovementException();
+		}
+		else if (board.isPlaceValid(currentPosition, currentPiece)) { // If the new position it will be off the board
+			throw new OffBoardMovementException(currentPosition);
+		}
+		else if (board.isPlaceFree(currentPosition, currentPiece)) { // If the new position would result in a collision with another piece 
+			throw new CollisionMovementException(currentPosition);
 		}
 		else {
-			currentPosition = caux;
-			board.putPiece(currentPosition, currentPiece);
+			board.removePiece(currentPiece);
+			currentPosition = currentPosition.add(cadd);
+			
+			if (!isCurrentPieceFixed() && !isGameEnded() && board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece)) {
+				board.putPiece(currentPosition, currentPiece);
+			}
+			else {
+				currentPosition = caux;
+				board.putPiece(currentPosition, currentPiece);
+			}
 		}
-	}
-	
+		
+	}	
 	
 	/** [ENG] Method that move the piece down.
 	 * 	[SPA] Método que mueve la pieza hacia abajo.
+	 * 
+	 * @throws NoCurrentPieceException 
+	 * @throws GameEndedMovementException 
+	 * @throws FixedPieceMovementException 
 	 */
-	public void moveCurrentPieceDown() {
+	public void moveCurrentPieceDown() throws NoCurrentPieceException, GameEndedMovementException, FixedPieceMovementException {
 		
 		Coordinate cadd = new Coordinate(1,0);
 		Coordinate csub = new Coordinate(-1,0);
 		Coordinate caux = currentPosition;
 		
-		board.removePiece(currentPiece);
-		currentPosition = currentPosition.add(cadd);
-		
-		
-		if(!isCurrentPieceFixed() || !isGameEnded()) {
-			if (!board.isPlaceValid(currentPosition, currentPiece) || !board.isPlaceFree(currentPosition, currentPiece)) {
-				currentPiece.setFixed(true);			
-				currentPosition = currentPosition.add(csub);
-				board.putPiece(currentPosition, currentPiece);		
+		if (currentPiece == null) { // If the first piece has not been put on the board
+			throw new NoCurrentPieceException();
+		}
+		else if (isGameEnded()) {
+			throw new GameEndedMovementException();
+		}
+		else if (isCurrentPieceFixed()) {
+			throw new FixedPieceMovementException();
+		}
+		else {
+			board.removePiece(currentPiece);
+			currentPosition = currentPosition.add(cadd);
+			
+			
+			if(!isCurrentPieceFixed() || !isGameEnded()) {
+				if (!board.isPlaceValid(currentPosition, currentPiece) || !board.isPlaceFree(currentPosition, currentPiece)) {
+					currentPiece.setFixed(true);			
+					currentPosition = currentPosition.add(csub);
+					board.putPiece(currentPosition, currentPiece);		
+				}
+				else {
+					currentPiece.setFixed(false);			
+					board.putPiece(currentPosition, currentPiece);
+				}
 			}
 			else {
-				currentPiece.setFixed(false);			
+				currentPosition = caux;
 				board.putPiece(currentPosition, currentPiece);
 			}
 		}
-		else {
-			currentPosition = caux;
-			board.putPiece(currentPosition, currentPiece);
-		}
+		
 	}
 		
 	
 			
 	/** [ENG] Method that rotate the piece counterclockwise.
 	 * 	[SPA] Método que rota la pieza en sentido antihorário.
+	 * @throws NoCurrentPieceException 
+	 * @throws GameEndedMovementException 
+	 * @throws FixedPieceMovementException 
+	 * @throws OffBoardMovementException 
+	 * @throws CollisionMovementException 
 	 */
-	public void rotateCurrentPieceCounterclockwise() {
+	public void rotateCurrentPieceCounterclockwise() throws NoCurrentPieceException, GameEndedMovementException, FixedPieceMovementException, OffBoardMovementException, CollisionMovementException {
 		
-		if (!isCurrentPieceFixed() && board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece) && !isGameEnded()) {
-			if(currentPiece.getOrientation() == Rotation.D0) {
-				currentPiece.setOrientation(Rotation.D90);
-				board.removePiece(currentPiece);
-				if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
-					board.putPiece(currentPosition, currentPiece);
-				else
-					currentPiece.setOrientation(Rotation.D0);
-					board.putPiece(currentPosition, currentPiece);
-			}
-			else if(currentPiece.getOrientation() == Rotation.D90) {
-				currentPiece.setOrientation(Rotation.D180);
-				board.removePiece(currentPiece);
-				if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
-					board.putPiece(currentPosition, currentPiece);
-				else
+		if (currentPiece == null) { // If the first piece has not been put on the board
+			throw new NoCurrentPieceException();
+		}
+		else if (isGameEnded()) {
+			throw new GameEndedMovementException();
+		}
+		else if (isCurrentPieceFixed()) {
+			throw new FixedPieceMovementException();
+		}
+		else if (board.isPlaceValid(currentPosition, currentPiece)) { // If the new position it will be off the board
+			throw new OffBoardMovementException(currentPosition);
+		}
+		else if (board.isPlaceFree(currentPosition, currentPiece)) { // If the new position would result in a collision with another piece 
+			throw new CollisionMovementException(currentPosition);
+		}
+		else {
+			if (!isCurrentPieceFixed() && board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece) && !isGameEnded()) {
+				if(currentPiece.getOrientation() == Rotation.D0) {
 					currentPiece.setOrientation(Rotation.D90);
-					board.putPiece(currentPosition, currentPiece);
-			}
-			else if(currentPiece.getOrientation() == Rotation.D180) {
-				currentPiece.setOrientation(Rotation.D270);
-				board.removePiece(currentPiece);
-				if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
-					board.putPiece(currentPosition, currentPiece);
-				else
+					board.removePiece(currentPiece);
+					if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
+						board.putPiece(currentPosition, currentPiece);
+					else
+						currentPiece.setOrientation(Rotation.D0);
+						board.putPiece(currentPosition, currentPiece);
+				}
+				else if(currentPiece.getOrientation() == Rotation.D90) {
 					currentPiece.setOrientation(Rotation.D180);
-					board.putPiece(currentPosition, currentPiece);
-			}
-			else {
-				currentPiece.setOrientation(Rotation.D0);
-				board.removePiece(currentPiece);
-				if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
-					board.putPiece(currentPosition, currentPiece);
-				else
+					board.removePiece(currentPiece);
+					if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
+						board.putPiece(currentPosition, currentPiece);
+					else
+						currentPiece.setOrientation(Rotation.D90);
+						board.putPiece(currentPosition, currentPiece);
+				}
+				else if(currentPiece.getOrientation() == Rotation.D180) {
 					currentPiece.setOrientation(Rotation.D270);
-					board.putPiece(currentPosition, currentPiece);
+					board.removePiece(currentPiece);
+					if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
+						board.putPiece(currentPosition, currentPiece);
+					else
+						currentPiece.setOrientation(Rotation.D180);
+						board.putPiece(currentPosition, currentPiece);
+				}
+				else {
+					currentPiece.setOrientation(Rotation.D0);
+					board.removePiece(currentPiece);
+					if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
+						board.putPiece(currentPosition, currentPiece);
+					else
+						currentPiece.setOrientation(Rotation.D270);
+						board.putPiece(currentPosition, currentPiece);
+				}
 			}
 		}
+		
 	}
 	
 	/** [ENG] Method that rotate the piece clockwise.
 	 * 	[SPA] Método que rota la pieza en sentido horário.
+	 * 
+	 * @throws NoCurrentPieceException 
+	 * @throws GameEndedMovementException 
+	 * @throws FixedPieceMovementException 
+	 * @throws OffBoardMovementException 
+	 * @throws CollisionMovementException 
 	 */
-	public void rotateCurrentPieceClockwise() {
-		if (!isCurrentPieceFixed() && !isGameEnded() && board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece)) {
-			if(currentPiece.getOrientation() == Rotation.D0) {
-				currentPiece.setOrientation(Rotation.D270);
-				board.removePiece(currentPiece);
-				if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
-					board.putPiece(currentPosition, currentPiece);
-				else
-					currentPiece.setOrientation(Rotation.D0);
-					board.putPiece(currentPosition, currentPiece);
-			}
-			else if(currentPiece.getOrientation() == Rotation.D270) {
-				currentPiece.setOrientation(Rotation.D180);
-				board.removePiece(currentPiece);
-				if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
-					board.putPiece(currentPosition, currentPiece);
-				else
+	public void rotateCurrentPieceClockwise() throws NoCurrentPieceException, GameEndedMovementException, FixedPieceMovementException, OffBoardMovementException, CollisionMovementException {
+		
+		if (currentPiece == null) { // If the first piece has not been put on the board
+			throw new NoCurrentPieceException();
+		}
+		else if (isGameEnded()) {
+			throw new GameEndedMovementException();
+		}
+		else if (isCurrentPieceFixed()) {
+			throw new FixedPieceMovementException();
+		}
+		else if (board.isPlaceValid(currentPosition, currentPiece)) { // If the new position it will be off the board
+			throw new OffBoardMovementException(currentPosition);
+		}
+		else if (board.isPlaceFree(currentPosition, currentPiece)) { // If the new position would result in a collision with another piece 
+			throw new CollisionMovementException(currentPosition);
+		}
+		else {
+			if (!isCurrentPieceFixed() && !isGameEnded() && board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece)) {
+				if(currentPiece.getOrientation() == Rotation.D0) {
 					currentPiece.setOrientation(Rotation.D270);
-					board.putPiece(currentPosition, currentPiece);
-			}
-			else if(currentPiece.getOrientation() == Rotation.D180) {
-				currentPiece.setOrientation(Rotation.D90);
-				board.removePiece(currentPiece);
-				if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
-					board.putPiece(currentPosition, currentPiece);
-				else
+					board.removePiece(currentPiece);
+					if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
+						board.putPiece(currentPosition, currentPiece);
+					else
+						currentPiece.setOrientation(Rotation.D0);
+						board.putPiece(currentPosition, currentPiece);
+				}
+				else if(currentPiece.getOrientation() == Rotation.D270) {
 					currentPiece.setOrientation(Rotation.D180);
-					board.putPiece(currentPosition, currentPiece);
-			}
-			else {
-				currentPiece.setOrientation(Rotation.D0);
-				board.removePiece(currentPiece);
-				if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
-					board.putPiece(currentPosition, currentPiece);
-				else
+					board.removePiece(currentPiece);
+					if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
+						board.putPiece(currentPosition, currentPiece);
+					else
+						currentPiece.setOrientation(Rotation.D270);
+						board.putPiece(currentPosition, currentPiece);
+				}
+				else if(currentPiece.getOrientation() == Rotation.D180) {
 					currentPiece.setOrientation(Rotation.D90);
-					board.putPiece(currentPosition, currentPiece);
+					board.removePiece(currentPiece);
+					if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
+						board.putPiece(currentPosition, currentPiece);
+					else
+						currentPiece.setOrientation(Rotation.D180);
+						board.putPiece(currentPosition, currentPiece);
+				}
+				else {
+					currentPiece.setOrientation(Rotation.D0);
+					board.removePiece(currentPiece);
+					if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
+						board.putPiece(currentPosition, currentPiece);
+					else
+						currentPiece.setOrientation(Rotation.D90);
+						board.putPiece(currentPosition, currentPiece);
+				}
 			}
 		}
+		
 	}
 	
 	/** [ENG] Method that create a new piece and place it on top of the game board.
@@ -213,24 +334,33 @@ public class Game {
 	 * 
 	 * @return = true if is possible to put another piece or if the game is not ended 
 	 * and false if can not put another piece or if the game is ended.
+	 * @throws GameEndedMovementException 
+	 * @throws CurrentPieceNotFixedException 
+	 * @throws NoCurrentPieceException 
 	 */
-	public boolean nextPiece(String type) {
-		currentPosition = new Coordinate(0, ((board.getWidth())/2) - 2);
+	public boolean nextPiece(String type) throws GameEndedMovementException, CurrentPieceNotFixedException, NoCurrentPieceException {
 		
-		//currentPiece = new Piece();
+		currentPosition = new Coordinate(0, ((board.getWidth())/2) - 2);
 		
 		new PieceFactory();
 		currentPiece = PieceFactory.createPiece(type);
 		
-		if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece)) {
-			board.putPiece(currentPosition, currentPiece);
-			return true;
+		if(isGameEnded()) {
+			throw new GameEndedMovementException();
+		}
+		else if (!isCurrentPieceFixed()) {
+			throw new CurrentPieceNotFixedException();
 		}
 		else {
-			gameEnded = true;
-			return false;
+			if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece)) {
+				board.putPiece(currentPosition, currentPiece);
+				return true;
+			}
+			else {
+				gameEnded = true;
+				return false;
+			}
 		}
-		
 		
 	}
 	
@@ -238,14 +368,20 @@ public class Game {
 	 *  [SPA] Método que comprueba si la pieza actual está fija o no. 
 	 * 
 	 * @return = true if is fixed or false if is not fixed.
+	 * @throws NoCurrentPieceException 
 	 */
-	public boolean isCurrentPieceFixed() {
+	public boolean isCurrentPieceFixed() throws NoCurrentPieceException {
 		
-		if(currentPiece.isFixed()) {
-			return true;
+		if (currentPiece == null) {
+			throw new NoCurrentPieceException();
 		}
 		else {
-			return false;
+			if(currentPiece.isFixed()) {
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
 	}
 	
@@ -256,6 +392,10 @@ public class Game {
 	 */
 	public boolean isGameEnded() {
 		return gameEnded;
+	}
+	
+	protected Gameboard getGameboard() {
+		return board;
 	}
 
 	@Override

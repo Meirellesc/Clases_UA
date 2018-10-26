@@ -1,6 +1,7 @@
 package model;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -31,31 +32,6 @@ public abstract class Piece {
 	 */
 	private static final int BOUNDING_SQUARE_SIZE = 4;
 
-	/**
-	 * @variable formato de la pieza "l"
-	 */
-	/*protected static int shape[][] = new int[][] {
-	      //D0
-		  { 0, 0, 0, 0, 
-	    	1, 1, 1, 1, 
-	    	0, 0, 0, 0, 
-	    	0, 0, 0, 0 },
-	      //D270
-	      { 0, 0, 1, 0,
-	        0, 0, 1, 0, 
-	        0, 0, 1, 0, 
-	        0, 0, 1, 0 },
-	      //D180
-	      { 0, 0, 0, 0, 
-	        0, 0, 0, 0, 
-	        1, 1, 1, 1, 
-	        0, 0, 0, 0 },
-	      //D90
-	      { 0, 1, 0, 0, 
-	        0, 1, 0, 0, 
-	        0, 1, 0, 0, 
-	        0, 1, 0, 0 } 
-	};*/
 	      
 	/** [ENG] Constructor which create a Piece.
 	 *  [SPA] Constructor que crea la Pieza.
@@ -93,6 +69,9 @@ public abstract class Piece {
 	 * @param f = input true if the piece are fixed. / ingresa cierto se la pieza está fija.
 	 */
 	public void setFixed(boolean f) {
+		
+		this.fixed = Objects.requireNonNull(fixed, "El parametro 'fixed' no puede ser null");
+		
 		this.fixed = f;
 	}
 	
@@ -111,6 +90,9 @@ public abstract class Piece {
 	 * @param r = input the orientation. / ingresa con la orientación.
 	 */
 	public void setOrientation(Rotation r) {
+		
+		this.orientation = Objects.requireNonNull(orientation, "El parametro 'orientation' no puede ser null");
+		
 		orientation =  r;
 	}
 	

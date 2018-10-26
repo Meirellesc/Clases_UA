@@ -3,7 +3,10 @@ package model;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
+
+import model.exceptions.WrongSizeException;
 
 import java.util.HashSet;
 
@@ -32,14 +35,32 @@ public class Gameboard {
 	 */
 	private Map <Coordinate, Piece> gameboard = new HashMap <Coordinate, Piece> ();
 	
+	private final static int MINIMUM_BOARD_HEIGHT = 4;
+	
+	private final static int MINIMUM_BOARD_WIDTH = 4;
+	
+	
+	
 	/** [ENG] Constructor which create a Coordinate and count it.
 	 *  [SPA] Constructor que crea la Coordenada y añade al total.
 	 * 
 	 * @param c = input the number of row and column / introduce el número de las filas y columnas.
+	 * @throws WrongSizeException 
 	 */
-	public Gameboard(Coordinate c) {
-		height = c.getRow();
-		width = c.getColumn();
+	public Gameboard(Coordinate c) throws WrongSizeException {
+		
+			
+		if (c.getRow() < MINIMUM_BOARD_HEIGHT) {
+			throw new WrongSizeException(c);
+		}
+		else if (c.getColumn() < MINIMUM_BOARD_WIDTH) {
+			throw new WrongSizeException(c);
+		}
+		else {
+			height = c.getRow();
+			width = c.getColumn();
+		}
+		
 	}
 	
 	/** [ENG] Method that insert a piece in the game board.

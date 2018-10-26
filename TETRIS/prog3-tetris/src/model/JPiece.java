@@ -1,7 +1,10 @@
 package model;
 
 public class JPiece extends Piece {
-
+	
+	/**
+	 * @variable formato de la pieza "J"
+	 */
 	protected static int shape[][] = new int[][] {
 	      //D0
 		  { 1, 0, 0, 0, 
@@ -28,8 +31,8 @@ public class JPiece extends Piece {
 	
 	
 	public JPiece() {		
+		super();
 		blockSymbol = '◪';
-		//super();
 	}
 	
 	@Override

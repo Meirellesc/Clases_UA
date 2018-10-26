@@ -2,6 +2,9 @@ package model;
 
 public class OPiece extends Piece {
 
+	/**
+	 * @variable formato de la pieza "O"
+	 */
 	protected static int shape[][] = new int[][] {
 	      //D0
 		  { 0, 1, 1, 0, 
@@ -28,8 +31,8 @@ public class OPiece extends Piece {
 	
 	
 	public OPiece() {		
+		super();
 		blockSymbol = '▣';
-		//super();
 	}
 	
 	@Override

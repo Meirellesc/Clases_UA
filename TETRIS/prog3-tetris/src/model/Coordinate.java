@@ -111,7 +111,8 @@ public class Coordinate {
 
 	@Override
 	public String toString() {
-		return "Coordinate [row=" + row + ", column=" + column + "]";
+		//return "Coordinate [row=" + row + ", column=" + column + "]";
+		return "[" + row + "," + column + "]";
 	}
 	
 	

@@ -1,9 +1,16 @@
 package model.exceptions;
 
-public class NoCurrentPieceException {
+@SuppressWarnings("serial")
+public class NoCurrentPieceException extends java.lang.Exception {
 
 	public NoCurrentPieceException() {
-		// TODO Auto-generated constructor stub
+		
+	}
+	
+	public String getMessage() {
+		return " [ENG] The game has not started yet, therefore, there is no current piece\n" + 
+				"[SPA] La partida no ha empezado todavía, y por tanto, no hay pieza actual";
+		
 	}
 
 }

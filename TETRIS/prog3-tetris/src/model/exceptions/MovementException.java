@@ -1,9 +1,15 @@
 package model.exceptions;
 
-public class MovementException {
+@SuppressWarnings("serial")  
+public class MovementException extends java.lang.Exception{
 
 	public MovementException() {
-		// TODO Auto-generated constructor stub
+		
 	}
-
+	
+	public String getMessage() {
+		return " [ENG] SUPERCLASS: illegal movement" + 
+				"[SPA] SUPERCLASE: Movimiento ilegal";
+		
+	}
 }

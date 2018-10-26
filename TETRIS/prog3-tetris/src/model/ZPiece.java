@@ -2,6 +2,9 @@ package model;
 
 public class ZPiece extends Piece {
 
+	/**
+	 * @variable formato de la pieza "Z"
+	 */
 	protected static int shape[][] = new int[][] {
 	      //D0
 		  { 1, 1, 0, 0, 
@@ -28,8 +31,8 @@ public class ZPiece extends Piece {
 	
 	
 	public ZPiece() {		
+		super();
 		blockSymbol = '◫';
-		//super();
 	}
 	
 	@Override
