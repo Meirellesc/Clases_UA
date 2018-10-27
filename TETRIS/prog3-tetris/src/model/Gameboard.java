@@ -209,6 +209,64 @@ public class Gameboard {
 		return this.width;
 	}
 	
+	private boolean isRowFull(int r) {
+		
+		Coordinate coords;
+		int count = 0;
+		
+		//checking all the cells of the row (r)
+		for (int i = r; i <= r; r++) {
+			for (int j = 0; j < getWidth(); j++) {
+				coords = new Coordinate(i,j);
+				if (getCellContent(coords) != null) { //condition that check if have a piece in this coordinate and count it.
+					count += 1;
+				}
+			}
+		}
+		if (count == getWidth()) { //condition that check if have a full row.
+			return true;
+		}
+		else {
+			return false;
+		}
+			
+	}
+	
+	public int firstRowFullFromBottom() {
+		
+		if(isRowFull(getHeight())) {
+			return (getHeight() - 1);
+		}
+		else 
+			return (-1);
+		
+	}
+	
+	public void clearRow(int r) {
+
+		Coordinate coords;
+		
+		for (int i = r; i<=r; i++) {
+			for(int j=0; j<= getWidth(); j++) {
+				coords = new Coordinate(i,j);
+				gameboard.remove(coords);
+			}
+		}
+		
+	}
+	
+	public void makeUpperRowsFall(int r) {
+		
+		Coordinate coords;
+			
+		for (int i = r; i <= r-1; i--) {
+			for (int j = 0; j <= getWidth(); j++) {
+				coords = new Coordinate(i,j);
+			}
+		}
+		
+	}
+	
 	
 	@Override
 	public String toString() {

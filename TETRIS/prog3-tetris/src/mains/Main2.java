@@ -4,6 +4,10 @@
 //import model.Game;
 //import model.Piece;
 //
+///**
+// * @author Lucas  Meirelles
+// * @version Oxygen 4.7
+// **/
 //public class Main2 {
 //	
 //	public static void main(String[] args) {	

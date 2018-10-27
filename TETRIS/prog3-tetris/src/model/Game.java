@@ -167,24 +167,34 @@ public class Game {
 			throw new FixedPieceMovementException();
 		}
 		else {
-			board.removePiece(currentPiece);
-			currentPosition = currentPosition.add(cadd);
+			board.removePiece(currentPiece); //remove the piece of the board.
+			currentPosition = currentPosition.add(cadd); //update the currentPosition (increasing)
 			
 			
 			if(!isCurrentPieceFixed() || !isGameEnded()) {
+				//Condition that check if the next position isn't Valid or isn't Free.
 				if (!board.isPlaceValid(currentPosition, currentPiece) || !board.isPlaceFree(currentPosition, currentPiece)) {
-					currentPiece.setFixed(true);			
-					currentPosition = currentPosition.add(csub);
-					board.putPiece(currentPosition, currentPiece);		
+								
+					currentPosition = currentPosition.add(csub); //update the currentPosition (decreasing).
+					board.putPiece(currentPosition, currentPiece); //put the piece updated (last position Valid or Free).
+					currentPiece.setFixed(true); //set piece Fixed.
+					
+					//Loop that occurs while the last row is full.
+					while (board.firstRowFullFromBottom() != -1) {
+						int row = board.firstRowFullFromBottom(); //receiving the last row.
+						board.clearRow(row); //erasing the last row.
+						board.makeUpperRowsFall(row); //moving all the rows down.
+					}
+					
 				}
 				else {
-					currentPiece.setFixed(false);			
-					board.putPiece(currentPosition, currentPiece);
+					board.putPiece(currentPosition, currentPiece); //put piece updated (the piece is falling).
+					currentPiece.setFixed(false); //set piece Not Fixed.
 				}
 			}
 			else {
-				currentPosition = caux;
-				board.putPiece(currentPosition, currentPiece);
+				currentPosition = caux; //update currentPosition to original value (the piece doesn't move).
+				board.putPiece(currentPosition, currentPiece); //put the piece on the board.
 			}
 		}
 		
@@ -344,7 +354,7 @@ public class Game {
 		
 		new PieceFactory();
 		currentPiece = PieceFactory.createPiece(type);
-		
+				
 		if(isGameEnded()) {
 			throw new GameEndedMovementException();
 		}

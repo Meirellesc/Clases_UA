@@ -10,6 +10,10 @@ import model.exceptions.NoCurrentPieceException;
 import model.exceptions.OffBoardMovementException;
 import model.exceptions.WrongSizeException;
 
+/**
+ * @author Lucas  Meirelles
+ * @version Oxygen 4.7
+ **/
 public class Main3 {
 
 	public static void main(String[] args) throws WrongSizeException {
