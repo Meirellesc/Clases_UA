@@ -1,7 +1,7 @@
 package model.exceptions;
 
 @SuppressWarnings("serial")  
-public class FixedPieceMovementException extends java.lang.Exception{
+public class FixedPieceMovementException extends MovementException {
 
 	public FixedPieceMovementException() {
 		

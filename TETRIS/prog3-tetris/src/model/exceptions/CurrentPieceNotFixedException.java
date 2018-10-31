@@ -1,7 +1,7 @@
 package model.exceptions;
 
 @SuppressWarnings("serial")  
-public class CurrentPieceNotFixedException extends java.lang.Exception {
+public class CurrentPieceNotFixedException extends TetrisException {
 
 	public CurrentPieceNotFixedException() {
 

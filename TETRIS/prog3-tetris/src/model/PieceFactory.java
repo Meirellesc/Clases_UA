@@ -7,7 +7,7 @@ public class PieceFactory {
 	}
 	
 	public static Piece createPiece(String c) {
-				
+		
 		if(c == "I") {
 			IPiece p = new IPiece();
 			return p;
@@ -32,13 +32,13 @@ public class PieceFactory {
 			TPiece p = new TPiece();
 			return p;
 		}
-		else if (c == "Z") {
+		else {//(c == "Z") {
 			ZPiece p = new ZPiece();
 			return p;
 		}
-		else {
+		/*else {
 			return null;
-		}
+		}*/
 	}
 
 }

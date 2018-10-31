@@ -46,8 +46,7 @@ public class Game {
 	public Game(Coordinate c) throws WrongSizeException {
 				
 		gameEnded = false;
-		
-		
+				
 		for (int i = 0; i <= c.getRow(); i++) {
 			for (int j = 0; j <= c.getColumn(); j++) {
 				board = new Gameboard(new Coordinate(i,j));
@@ -178,6 +177,8 @@ public class Game {
 					currentPosition = currentPosition.add(csub); //update the currentPosition (decreasing).
 					board.putPiece(currentPosition, currentPiece); //put the piece updated (last position Valid or Free).
 					currentPiece.setFixed(true); //set piece Fixed.
+					
+					System.out.println("FIXEI!!");
 					
 					//Loop that occurs while the last row is full.
 					while (board.firstRowFullFromBottom() != -1) {
@@ -354,11 +355,11 @@ public class Game {
 		
 		new PieceFactory();
 		currentPiece = PieceFactory.createPiece(type);
-				
+
 		if(isGameEnded()) {
 			throw new GameEndedMovementException();
 		}
-		else if (!isCurrentPieceFixed()) {
+		else if (isCurrentPieceFixed()) {
 			throw new CurrentPieceNotFixedException();
 		}
 		else {

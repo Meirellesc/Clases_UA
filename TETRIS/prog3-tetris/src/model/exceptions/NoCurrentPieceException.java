@@ -1,7 +1,7 @@
 package model.exceptions;
 
 @SuppressWarnings("serial")
-public class NoCurrentPieceException extends java.lang.Exception {
+public class NoCurrentPieceException extends TetrisException {
 
 	public NoCurrentPieceException() {
 		

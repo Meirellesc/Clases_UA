@@ -53,13 +53,14 @@ public class Main3 {
 		} catch (OffBoardMovementException e) {
 			System.out.println("The piece cannot be moved off the board.");
 		} catch (CollisionMovementException e) {
-			System.out
-					.println("The piece cannot be moved to an occupied cell.");
+			System.out.println("The piece cannot be moved to an occupied cell.");
 		} catch (NoCurrentPieceException e) {
 			System.out.println("Ops! The game has not started yet!");
 		} catch (CurrentPieceNotFixedException e) {
 			System.out.println("Ops! The current piece is not fixed yet!");
 		}
+		System.out.println("FIM!");
+		
 	}
 
 }

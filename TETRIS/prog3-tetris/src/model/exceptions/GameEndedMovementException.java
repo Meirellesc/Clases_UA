@@ -1,8 +1,7 @@
 package model.exceptions;
 
 @SuppressWarnings("serial")  
-public class GameEndedMovementException extends java.lang.Exception{
-
+public class GameEndedMovementException extends MovementException {
 	public GameEndedMovementException() {
 		
 	}

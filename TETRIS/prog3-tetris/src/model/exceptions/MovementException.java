@@ -1,7 +1,7 @@
 package model.exceptions;
 
 @SuppressWarnings("serial")  
-public class MovementException extends java.lang.Exception{
+public class MovementException extends TetrisException {
 
 	public MovementException() {
 		

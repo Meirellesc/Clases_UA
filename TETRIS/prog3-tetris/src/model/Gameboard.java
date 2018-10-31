@@ -48,18 +48,18 @@ public class Gameboard {
 	 * @throws WrongSizeException 
 	 */
 	public Gameboard(Coordinate c) throws WrongSizeException {
-		
 			
-		if (c.getRow() < MINIMUM_BOARD_HEIGHT) {
-			throw new WrongSizeException(c);
-		}
-		else if (c.getColumn() < MINIMUM_BOARD_WIDTH) {
+		/*if (c.getRow() < MINIMUM_BOARD_HEIGHT || c.getColumn() < MINIMUM_BOARD_WIDTH) {
 			throw new WrongSizeException(c);
 		}
 		else {
 			height = c.getRow();
 			width = c.getColumn();
-		}
+		}*/
+		
+		height = c.getRow();
+		width = c.getColumn();
+		
 		
 	}
 	
@@ -209,7 +209,7 @@ public class Gameboard {
 		return this.width;
 	}
 	
-	private boolean isRowFull(int r) {
+	private boolean isRowFull(int r) throws java.lang.IllegalArgumentException{
 		
 		Coordinate coords;
 		int count = 0;

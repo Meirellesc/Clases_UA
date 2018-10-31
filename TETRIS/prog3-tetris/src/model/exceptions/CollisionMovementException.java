@@ -3,7 +3,7 @@ package model.exceptions;
 import model.Coordinate;
 
 @SuppressWarnings("serial")  
-public class CollisionMovementException  extends java.lang.Exception{
+public class CollisionMovementException  extends MovementException {
 
 	public CollisionMovementException (Coordinate c) {
 		

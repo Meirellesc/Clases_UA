@@ -3,7 +3,7 @@ package model.exceptions;
 import model.Coordinate;
 
 @SuppressWarnings("serial")  
-public class OffBoardMovementException extends java.lang.Exception{
+public class OffBoardMovementException extends MovementException {
 
 	//private Coordinate c;
 	

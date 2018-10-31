@@ -1,949 +1,492 @@
-//package model;
-//
-//import static org.junit.Assert.*;
-//
-//import java.io.File;
-//import java.io.FileNotFoundException;
-//import java.io.PrintStream;
-//import java.util.Scanner;
-//
-//import org.junit.Before;
-//import org.junit.BeforeClass;
-//import org.junit.Test;
-//
-///**
-// * @author Lucas Meirelles
-// * @version Oxygen 4.7
-// * @date 13/10/2018
-// */
-//public class GameTestP3 {
-//	Game gameMinimal, gameMiniTest;
-//	StringBuilder sbIn = new StringBuilder();
-//	StringBuilder sbOut = new StringBuilder();
-//	PrintStream ps;
-//	
-//	@BeforeClass  //Se ejecuta una sola vez antes que todos los test
-//	public static void setUpBeforeClass() throws Exception {
-//		
-//	}
-//
-//	@Before //Se ejecuta antes de cada test
-//	public void setUp() throws Exception {
-//		gameMinimal = new Game(new Coordinate(2,4));
-//		gameMiniTest = new Game (new Coordinate (7,5));
-//		sbIn = new StringBuilder();
-//		sbOut = new StringBuilder();
-//	}
-//
-//
-//	//Prueba del constructor Game. Debe construir un board
-//	@Test
-//	public void testGame() {
-//		//Comprobamos que board ha sido iniciada.
-//		Game game = new Game(new Coordinate(7,10));
-//		try {
-//			game.toString();
-//		} catch (NullPointerException e) {
-//			fail ("Error: board está a NULL");
-//		}
-//		assertFalse("gameEnded == false ",game.isGameEnded());
-//	}
-//	
-//	//Tablero donde no se puede poner ninguna pieza inicial
-//	@Test
-//	public void testNextPiece1() {
-//	   
-//		ps = openFileForWritingStudentOutput("test/files/nextpiece1.alu");
-//		Game gameImposible = new Game(new Coordinate(1,4));
-//		saveGame(gameImposible);
-//	    assertFalse(gameImposible.nextPiece("I"));
-//		assertFalse(gameImposible.isCurrentPieceFixed());
-//		assertTrue(gameImposible.isGameEnded());
-//		saveGame(gameImposible);
-//		ps.close();
-//			
-//		sbIn=readSolutionFromFile("test/files/nextpiece1.sol");
-//		assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());
-//	}
-//	
-//	
-//	/* Tablero (2,4) con solo una posición posible inicial para la pieza
-//	 * Movimientos imposibles.
-//	 */
-//	
-//	@Test
-//	public void testNextPiece2()  {
-//		
-//		ps = openFileForWritingStudentOutput("test/files/nextpiece2.alu");
-//		
-//		saveGame(gameMinimal);	
-//		assertTrue(gameMinimal.nextPiece("I"));
-//		saveGame(gameMinimal);
-//		assertFalse(gameMinimal.isCurrentPieceFixed());
-//		assertFalse(gameMinimal.isGameEnded());	
-//		gameMinimal.moveCurrentPieceDown(); //Sacabó
-//		assertFalse(gameMinimal.isGameEnded());
-//		assertFalse(gameMinimal.nextPiece("I"));
-//		saveGame(gameMinimal);
-//		ps.close();
-//		
-//		sbIn=readSolutionFromFile("test/files/nextpiece2.sol");
-//		assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());
-//	}
-//	
-//	// Tienes una pieza en un Tablero (2,4) donde ningún movimiento es posible.
-//	// 
-//	// El resultado final debe ser el del fichero test/files/nextpiece3.sol
-//	//
-//	// Haciendo uso de gameMinimal, el test debe comprobar que la pieza no puede moverse 
-//	// a la izquierda ni a la derecha ni reotars en nigún sentido, que no está fija y 
-//	// que el juego no acaba hasta que no se  mueve hacia abajo. 
-//	// Comprueba que tras mover la pieza hacia abajo se fija, el juego acaba y 
-//	// no hay pieza siguiente. Fíjate en los test anteriores (testNextPiece1 y testNextPiece2)
-//	// para hacerlo.
-//		
-//	@Test
-//    public void testNextPiece3() {
-//
-//		ps = openFileForWritingStudentOutput("test/files/nextpiece3.alu");
-//		
-//		saveGame(gameMinimal);
-//		assertTrue(gameMinimal.nextPiece("I"));
-//		saveGame(gameMinimal);
-//		assertFalse(gameMinimal.isCurrentPieceFixed());
-//		assertFalse(gameMinimal.isGameEnded());
-//		
-//		gameMinimal.moveCurrentPieceLeft();
-//		assertFalse(gameMinimal.isCurrentPieceFixed());
-//		assertFalse(gameMinimal.isGameEnded());
-//		saveGame(gameMinimal);
-//		
-//		gameMinimal.moveCurrentPieceRight();
-//		assertFalse(gameMinimal.isCurrentPieceFixed());
-//		assertFalse(gameMinimal.isGameEnded());
-//		saveGame(gameMinimal);
-//		
-//		gameMinimal.rotateCurrentPieceClockwise();
-//		assertFalse(gameMinimal.isCurrentPieceFixed());
-//		assertFalse(gameMinimal.isGameEnded());
-//		saveGame(gameMinimal);
-//		
-//		gameMinimal.rotateCurrentPieceCounterclockwise();
-//		assertFalse(gameMinimal.isCurrentPieceFixed());
-//		assertFalse(gameMinimal.isGameEnded());
-//		saveGame(gameMinimal);
-//		
-//		gameMinimal.moveCurrentPieceDown();
-//		assertTrue(gameMinimal.isCurrentPieceFixed());
-//		assertFalse(gameMinimal.isGameEnded());
-//		saveGame(gameMinimal);
-//		
-//		assertFalse(gameMinimal.nextPiece("I"));
-//		assertTrue(gameMinimal.isGameEnded());
-//		saveGame(gameMinimal);
-//		ps.close();
-//	
-//		sbIn=readSolutionFromFile("test/files/nextpiece3.sol");
-//		assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());
-//	}
-//
-//	// Comprobar posicionamiento inicial correcto
-//	//
-//	// El resultado final debe ser el del fichero test/files/nextpiece4.sol
-//	//
-//	// Haciendo uso de gameMinimal, el test debe comprobar que hay siguiente pieza, 
-//	// que la pieza no está fija y que el juego no ha terminado. Fíjate en los test 
-//	// anteriores (testNextPiece1 y testNextPiece2) para hacerlo.
-//	@Test
-//    public void testNextPiece4() {
-//
-//		ps = openFileForWritingStudentOutput("test/files/nextpiece4.alu");
-//		
-//		assertTrue(gameMinimal.nextPiece("I"));
-//		assertFalse(gameMinimal.isCurrentPieceFixed());
-//		assertFalse(gameMinimal.isGameEnded());
-//		saveGame(gameMinimal);
-//		ps.close();
-//
-//		sbIn=readSolutionFromFile("test/files/nextpiece4.sol");
-//		assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());
-//	}
-//		
-//	
-//	//Intentamos mover pieza fija.
-//	@Test
-//	public void testMovimentsInPieceFixed() {
-//		ps = openFileForWritingStudentOutput("test/files/movementsinpiecefixed.alu");
-//		
-//		saveGame(gameMiniTest);
-//		assertTrue(gameMiniTest.nextPiece("I"));
-//		for (int i=0; i<5; i++) {
-//			gameMiniTest.moveCurrentPieceDown();
-//			saveGame(gameMiniTest);
-//		}
-//		assertFalse(gameMiniTest.isCurrentPieceFixed());
-//		gameMiniTest.moveCurrentPieceDown(); //La hacemos fija
-//		assertTrue(gameMiniTest.isCurrentPieceFixed());
-//		for (int i=0; i<5; i++) {
-//			gameMiniTest.moveCurrentPieceLeft();
-//			gameMiniTest.rotateCurrentPieceClockwise();
-//			gameMiniTest.moveCurrentPieceRight();
-//			gameMiniTest.rotateCurrentPieceCounterclockwise();
-//			saveGame(gameMiniTest);
-//		}
-//		ps.close();
-//		
-//		sbIn=readSolutionFromFile("test/files/movementsinpiecefixed.sol");
-//		assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());	
-//	}
-//
-//	
-//	//Intentamos mover pieza con partida terminada.
-//	@Test
-//	public void testMovimentsInGameEnded() {
-//		ps = openFileForWritingStudentOutput("test/files/movementsingameended.alu");
-//	
-//		saveGame(gameMiniTest);
-//		assertTrue(gameMiniTest.nextPiece("I"));
-//		gameMiniTest.rotateCurrentPieceCounterclockwise();
-//		saveGame(gameMiniTest);
-//		for (int i=0; i<4; i++) {
-//			gameMiniTest.moveCurrentPieceDown();
-//			saveGame(gameMiniTest);
-//		}
-//		assertTrue(gameMiniTest.isCurrentPieceFixed());
-//		
-//		assertTrue(gameMiniTest.nextPiece("I"));
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();
-//		saveGame(gameMiniTest);
-//		assertTrue(gameMiniTest.nextPiece("I"));
-//		gameMiniTest.moveCurrentPieceDown();
-//		saveGame(gameMiniTest);
-//		assertFalse(gameMiniTest.nextPiece("I"));
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceRight();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceRight();
-//		saveGame(gameMiniTest);
-//		ps.close();
-//		
-//		sbIn=readSolutionFromFile("test/files/movementsingameended.sol");
-//		assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());	
-//	}
-//	
-//	/* Movemos pieza D90 izquierda hasta lateral sin sobrepasarlo y 
-//	 * sin poder girarla */
-//	@Test
-//	public void testMoveCurrentPieceLeft1() {
-//	
-//		ps = openFileForWritingStudentOutput("test/files/movecurrentpieceleft1.alu");
-//		saveGame(gameMiniTest);
-//		assertTrue(gameMiniTest.nextPiece("I"));
-//		saveGame(gameMiniTest);
-//		gameMiniTest.rotateCurrentPieceCounterclockwise();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceLeft();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceLeft(); //no debe pasar el borde
-//		saveGame(gameMiniTest);
-//		gameMiniTest.rotateCurrentPieceCounterclockwise(); //no giro a D180
-//		saveGame(gameMiniTest);
-//		gameMiniTest.rotateCurrentPieceClockwise(); //no giro a D0
-//		saveGame(gameMiniTest);
-//		ps.close();
-//		
-//		sbIn=readSolutionFromFile("test/files/movecurrentpieceleft1.sol");
-//		assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());	
-//		
-//	}
-//	
-//	/* Movemos pieza D90 izquierda hasta chocar con otra fija sin sobrepasarla
-//	   y sin poder girarla */
-//	// Mira el fichero test/files/movecurrentpieceleft2.sol y genera una secuencia
-//	// de movimientos y rotaciones, guardando el estado mediante saveGame(gameMiniTest)
-//	// tras cada movimiento, que genere la misma salida que la del fichero. Tras todos
-//	// los movimientos la pieza deberá estar fija. El número total de movimientos a realizar
-//	// es de 13.
-//		@Test
-//	public void testMoveCurrentPieceLeft2() {
-//		//Ubicamos primero la fija en la parte inferior izquierda
-//		//assertTrue(gameMiniProbes.nextPiece());
-//		
-//		gameMiniTest.nextPiece("I");
-//		gameMiniTest.rotateCurrentPieceCounterclockwise();
-//		gameMiniTest.moveCurrentPieceLeft();
-//		gameMiniTest.moveCurrentPieceDown();
-//		gameMiniTest.moveCurrentPieceDown();
-//		gameMiniTest.moveCurrentPieceDown();
-//		gameMiniTest.moveCurrentPieceDown();
-//		assertTrue(gameMiniTest.isCurrentPieceFixed());
-//			
-//		ps = openFileForWritingStudentOutput("test/files/movecurrentpieceleft2.alu");
-//		//Probamos ahora con una nueva pieza
-//	
-//		saveGame(gameMiniTest);
-//		gameMiniTest.nextPiece("I");
-//		saveGame(gameMiniTest);
-//		gameMiniTest.rotateCurrentPieceCounterclockwise();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceLeft();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceLeft();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.rotateCurrentPieceCounterclockwise();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceLeft();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.rotateCurrentPieceCounterclockwise();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.rotateCurrentPieceClockwise();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceLeft();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.rotateCurrentPieceClockwise();
-//		saveGame(gameMiniTest);
-//				
-//		assertTrue(gameMiniTest.isCurrentPieceFixed()); //Ya es fija
-//		ps.close();
-//			
-//		sbIn=readSolutionFromFile("test/files/movecurrentpieceleft2.sol");
-//		assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());	
-//	}
-//	
-//	
-//    /* Movemos pieza D270 derecha hasta lateral sin sobrepasarlo y 
-//		 * sin poder girarla */	
-//	@Test
-//	public void testMoveCurrentPieceRight1() {
-//		ps = openFileForWritingStudentOutput("test/files/movecurrentpieceright1.alu");
-//		
-//		saveGame(gameMiniTest);
-//		assertTrue(gameMiniTest.nextPiece("I"));
-//		saveGame(gameMiniTest);
-//		gameMiniTest.rotateCurrentPieceClockwise();
-//		saveGame(gameMiniTest);
-//		
-//		gameMiniTest.moveCurrentPieceRight();
-//		saveGame(gameMiniTest);
-//		
-//		gameMiniTest.moveCurrentPieceRight(); //no debe pasar el borde
-//		saveGame(gameMiniTest);
-//		gameMiniTest.rotateCurrentPieceCounterclockwise(); //no giro a D0
-//		saveGame(gameMiniTest);
-//		gameMiniTest.rotateCurrentPieceClockwise(); //no giro a D180
-//		saveGame(gameMiniTest);
-//		ps.close();
-//		
-//		sbIn=readSolutionFromFile("test/files/movecurrentpieceright1.sol");
-//		assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());	
-//		
-//	}
-//	
-//	/* Movemos pieza D270 derecha hasta chocar con otra fija sin sobrepasarla
-//	   y sin poder girarla */
-//	
-//	// Mira el fichero test/files/movecurrentpieceright2.sol y genera una secuencia
-//	// de movimientos y rotaciones, guardando el estado mendiante saveGame(gameMiniTest)
-//	// tras cada movimiento, que genere la misma salida que la del fichero. Tras todos
-//	// los movimientos la pieza deberá estar fija. El número total de movimientos a relizar
-//	// es de 13.
-//
-//	@Test
-//	public void testMoveCurrentPieceRight2() {
-//		
-//		gameMiniTest.nextPiece("I");
-//		gameMiniTest.rotateCurrentPieceCounterclockwise();
-//		gameMiniTest.moveCurrentPieceRight();
-//		gameMiniTest.moveCurrentPieceRight();
-//		gameMiniTest.moveCurrentPieceDown();
-//		gameMiniTest.moveCurrentPieceDown();
-//		gameMiniTest.moveCurrentPieceDown();
-//		gameMiniTest.moveCurrentPieceDown();
-//		assertTrue(gameMiniTest.isCurrentPieceFixed());		
-//		
-//		ps = openFileForWritingStudentOutput("test/files/movecurrentpieceright2.alu");
-//		//Probamos ahora con una nueva pieza
-//		saveGame(gameMiniTest);
-//		gameMiniTest.nextPiece("I");
-//		saveGame(gameMiniTest);
-//		gameMiniTest.rotateCurrentPieceClockwise();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceRight();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceRight();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.rotateCurrentPieceClockwise();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceRight();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.rotateCurrentPieceClockwise();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.rotateCurrentPieceCounterclockwise();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceRight();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.rotateCurrentPieceCounterclockwise();
-//		saveGame(gameMiniTest);
-//				
-//		assertTrue(gameMiniTest.isCurrentPieceFixed()); //Ya es fija
-//		ps.close();
-//		
-//		sbIn=readSolutionFromFile("test/files/movecurrentpieceright2.sol");
-//		assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());	
-//	}
-//
-//	/* Movemos una pieza hasta ponerla encima de una fija. La desplazamos
-//	 * a la derecha hasta que pueda bajar en la unica posición que queda.
-//	 * Al bajar llena la última fila.
-//	 */
-//	@Test
-//	public void testMoveCurrentPieceDown1() {
-//
-//		//Ubicamos primero la fija en la parte inferior izquierda
-//		
-//		gameMiniTest.nextPiece("I");
-//		gameMiniTest.moveCurrentPieceDown();
-//		gameMiniTest.moveCurrentPieceDown();
-//		gameMiniTest.moveCurrentPieceDown();
-//		gameMiniTest.moveCurrentPieceDown();
-//		gameMiniTest.moveCurrentPieceDown();
-//		gameMiniTest.moveCurrentPieceDown();
-//		assertTrue(gameMiniTest.isCurrentPieceFixed());
-//		
-//		/* Situamos una nueva pieza girada D90 en la parte izquierda justo encima 
-//		 * de la fija. La desplazamos a la derecha hasta llegar a la altura del único hueco
-//		 * libre y la bajamos hasta hacerla fija y rellenando la última fila del tablero.
-//		 */
-//		ps = openFileForWritingStudentOutput("test/files/movecurrentpiecedown1.alu");
-//		
-//		saveGame(gameMiniTest);
-//		gameMiniTest.nextPiece("I");
-//		saveGame(gameMiniTest);
-//		gameMiniTest.rotateCurrentPieceCounterclockwise();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceLeft();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown(); //La ponemos encima de la fija
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceRight();
-//		saveGame(gameMiniTest);
-//		
-//		gameMiniTest.moveCurrentPieceRight();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceRight();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceRight(); //La ponemos justo encima del hueco libre
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown(); //Llenamos la última fila
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown(); //Se hace fija
-//		assertTrue(gameMiniTest.isCurrentPieceFixed());
-//		ps.close();
-//		
-//		sbIn=readSolutionFromFile("test/files/movecurrentpiecedown1.sol");
-//		assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());	
-//	}
-//
-//	/* Bajamos piezas horizontales formando un castillo de piezas hasta que el juego
-//	 * acaba por no poderse poner más piezas. */
-//	
-//	@Test
-//	public void testMoveCurrentPieceDown2() {
-//
-//		ps = openFileForWritingStudentOutput("test/files/movecurrentpiecedown2.alu");
-//		
-//		assertTrue(gameMiniTest.nextPiece("I"));
-//		saveGame(gameMiniTest);
-//		/* En la sexta iteración la pieza se hace fija. En las dos siguientes
-//		 * no pasa nada*/
-//		for (int i=0; i<8; i++) { 
-//			gameMiniTest.moveCurrentPieceDown();
-//			saveGame(gameMiniTest);
-//			if (i>=5)
-//				assertTrue(gameMiniTest.isCurrentPieceFixed());
-//			else 
-//				assertFalse(gameMiniTest.isCurrentPieceFixed());
-//		}
-//		assertTrue(gameMiniTest.isCurrentPieceFixed());
-//		
-//		assertTrue(gameMiniTest.nextPiece("I")); //Siguiente pieza
-//		saveGame(gameMiniTest);
-//		/* En la quinta iteración la pieza se hace fija. En las tres siguientes
-//		 * no pasa nada*/
-//		for (int i=0; i<8; i++) { 
-//			gameMiniTest.moveCurrentPieceDown();
-//			saveGame(gameMiniTest);
-//			if (i>=4)
-//				assertTrue(gameMiniTest.isCurrentPieceFixed());
-//			else 
-//				assertFalse(gameMiniTest.isCurrentPieceFixed());
-//		}
-//	
-//		assertTrue(gameMiniTest.nextPiece("I")); //Siguiente pieza
-//		saveGame(gameMiniTest);
-//		/* En la cuarta iteración la pieza se hace fija. En las cuatro siguientes
-//		 * no pasa nada*/
-//		for (int i=0; i<8; i++) { 
-//			gameMiniTest.moveCurrentPieceDown();
-//			saveGame(gameMiniTest);
-//			if (i>=3)
-//				assertTrue(gameMiniTest.isCurrentPieceFixed());
-//			else 
-//				assertFalse(gameMiniTest.isCurrentPieceFixed());
-//		}
-//		
-//		assertTrue(gameMiniTest.nextPiece("I")); //Siguiente pieza
-//		saveGame(gameMiniTest);
-//		/* En la tercera iteración la pieza se hace fija. En las cinco siguientes
-//		 * no pasa nada*/
-//		for (int i=0; i<8; i++) { 
-//			gameMiniTest.moveCurrentPieceDown();
-//			saveGame(gameMiniTest);
-//			if (i>=2)
-//				assertTrue(gameMiniTest.isCurrentPieceFixed());
-//			else 
-//				assertFalse(gameMiniTest.isCurrentPieceFixed());
-//		}
-//		
-//		assertTrue(gameMiniTest.nextPiece("I")); //Siguiente pieza
-//		saveGame(gameMiniTest);
-//		
-//		/* En la segunda iteración la pieza se hace fija. En las seis siguientes
-//		 * no pasa nada*/
-//		for (int i=0; i<8; i++) { 
-//			gameMiniTest.moveCurrentPieceDown();
-//			saveGame(gameMiniTest);
-//			if (i>=1)
-//				assertTrue(gameMiniTest.isCurrentPieceFixed());
-//			else 
-//				assertFalse(gameMiniTest.isCurrentPieceFixed());
-//		}
-//		
-//		assertTrue(gameMiniTest.nextPiece("I")); //Siguiente pieza
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();//Aquí se hace fija
-//		assertTrue(gameMiniTest.isCurrentPieceFixed());
-//		gameMiniTest.moveCurrentPieceDown(); //No hace nada ya es fija
-//		gameMiniTest.moveCurrentPieceDown(); //No hace nada ya es fija
-//		
-//		assertFalse(gameMiniTest.nextPiece("I")); //Siguiente pieza no se puede poner
-//		//Se hace fija y se acaba la partida.
-//		saveGame(gameMiniTest);
-//		assertTrue(gameMiniTest.isGameEnded());
-//		gameMiniTest.moveCurrentPieceDown(); //No hace nada ya es fija
-//		gameMiniTest.moveCurrentPieceDown(); //No hace nada ya es fija
-//		saveGame(gameMiniTest);
-//		ps.close();
-//		
-//		sbIn=readSolutionFromFile("test/files/movecurrentpiecedown2.sol");
-//		assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());	
-//	}
-//	
-//	/* Girando y moviendo colocamos 5 piezas verticales en las 4 últimas filas llenándolas. 
-//	 * La siguientes piezas que aparecen no las podemos girar y las bajamos hasta que acaba 
-//	 * el juego.
-//	 */
-//	@Test
-//	public void testMoveCurrentPieceDown3() {
-//		ps = openFileForWritingStudentOutput("test/files/movecurrentpiecedown3.alu");
-//
-//		assertTrue(gameMiniTest.nextPiece("I")); //Pieza 1
-//		saveGame(gameMiniTest);
-//		gameMiniTest.rotateCurrentPieceCounterclockwise();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceLeft();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();//Limita con el fondo del tablero
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown(); //Se hace fija
-//		
-//		assertTrue(gameMiniTest.nextPiece("I")); //Pieza  2
-//		saveGame(gameMiniTest);
-//		gameMiniTest.rotateCurrentPieceCounterclockwise(); 
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();//Limita con el fondo del tablero
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown(); //Se hace fija
-//		
-//		assertTrue(gameMiniTest.nextPiece("I")); //Pieza 3
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceRight();
-//		saveGame(gameMiniTest);	
-//		gameMiniTest.rotateCurrentPieceClockwise();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceRight();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();
-//		saveGame(gameMiniTest);	
-//		gameMiniTest.moveCurrentPieceDown();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();//Limita con el fondo del tablero
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown(); //Se hace fija
-//		
-//		assertTrue(gameMiniTest.nextPiece("I")); //Pieza 4
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceRight();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.rotateCurrentPieceClockwise();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();//Limita con el fondo del tablero
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown(); //Se hace fija
-//		
-//		assertTrue(gameMiniTest.nextPiece("I")); //Pieza 5
-//		saveGame(gameMiniTest);
-//		gameMiniTest.rotateCurrentPieceClockwise();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();
-//		saveGame(gameMiniTest);	
-//		gameMiniTest.moveCurrentPieceDown();//Limita con el fondo del tablero
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown(); //Se hace fija
-//		
-//		assertTrue(gameMiniTest.nextPiece("I")); //Pieza 6
-//		saveGame(gameMiniTest);
-//		gameMiniTest.rotateCurrentPieceCounterclockwise(); //No se puede
-//		gameMiniTest.rotateCurrentPieceClockwise(); //No se puede
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceRight();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.rotateCurrentPieceCounterclockwise(); //No se puede
-//		saveGame(gameMiniTest);	
-//		gameMiniTest.rotateCurrentPieceClockwise(); //No se puede
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown(); //Limite con las 5 piezas fijas
-//		saveGame(gameMiniTest);	
-//		gameMiniTest.moveCurrentPieceDown(); //Se hace fija
-//		
-//		assertTrue(gameMiniTest.nextPiece("I")); //Pieza 7 limite con pieza 6
-//		saveGame(gameMiniTest);
-//		gameMiniTest.rotateCurrentPieceCounterclockwise(); //No se puede
-//		gameMiniTest.rotateCurrentPieceClockwise(); //No se puede
-//		saveGame(gameMiniTest);	
-//		gameMiniTest.moveCurrentPieceDown(); //Se hace fija
-//		
-//		assertFalse(gameMiniTest.nextPiece("I")); //Pieza 8 no se puede poner
-//		saveGame(gameMiniTest);
-//		assertTrue(gameMiniTest.isGameEnded());
-//		ps.close();
-//		
-//		sbIn=readSolutionFromFile("test/files/movecurrentpiecedown3.sol");
-//		assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());
-//	}
-//		
-//	//Rotamos continuamente una pieza  y la bajamos hasta el final del tablero
-//	@Test
-//	public void testRotateClockwise() {
-//		
-//		ps = openFileForWritingStudentOutput("test/files/rotateclockwise.alu");
-//		assertTrue(gameMiniTest.nextPiece("I")); //Pieza 
-//		saveGame(gameMiniTest);	
-//		gameMiniTest.rotateCurrentPieceClockwise(); 
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();
-//		saveGame(gameMiniTest);		
-//		gameMiniTest.rotateCurrentPieceClockwise(); 
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.rotateCurrentPieceClockwise(); 
-//		saveGame(gameMiniTest);
-//		gameMiniTest.rotateCurrentPieceClockwise(); 
-//		saveGame(gameMiniTest);
-//		gameMiniTest.moveCurrentPieceDown();
-//		saveGame(gameMiniTest);
-//		for (int i=0; i<4; i++) { //Giro completo
-//			gameMiniTest.rotateCurrentPieceClockwise(); 
-//			saveGame(gameMiniTest);
-//		}
-//		gameMiniTest.moveCurrentPieceDown();
-//		saveGame(gameMiniTest);
-//		gameMiniTest.rotateCurrentPieceClockwise(); //No se puede girar
-//		saveGame(gameMiniTest);
-//		assertFalse (gameMiniTest.isCurrentPieceFixed());
-//		assertFalse(gameMiniTest.isGameEnded());
-//		ps.close();
-//		
-//		sbIn=readSolutionFromFile("test/files/rotateclockwise.sol");
-//		assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());
-//	}
-//
-//	//Rotamos continuamente una pieza  y la bajamos hasta el final del tablero
-//		@Test
-//		public void testRotateCounterclockwise() {
-//			
-//			ps = openFileForWritingStudentOutput("test/files/rotatecounterclockwise.alu");
-//			assertTrue(gameMiniTest.nextPiece("I")); //Pieza 
-//			saveGame(gameMiniTest);	
-//			
-//			gameMiniTest.rotateCurrentPieceCounterclockwise();
-//			saveGame(gameMiniTest);
-//			
-//			gameMiniTest.moveCurrentPieceDown();
-//			saveGame(gameMiniTest);		
-//			gameMiniTest.rotateCurrentPieceCounterclockwise(); 
-//			saveGame(gameMiniTest);
-//			gameMiniTest.moveCurrentPieceDown();
-//			saveGame(gameMiniTest);
-//			gameMiniTest.rotateCurrentPieceCounterclockwise(); 
-//			saveGame(gameMiniTest);
-//			gameMiniTest.rotateCurrentPieceCounterclockwise(); 
-//			saveGame(gameMiniTest);
-//			gameMiniTest.moveCurrentPieceDown();
-//			saveGame(gameMiniTest);
-//			gameMiniTest.rotateCurrentPieceClockwise(); //No se puede
-//			saveGame(gameMiniTest);
-//			for (int i=0; i<4; i++) { //Giro completo
-//				gameMiniTest.rotateCurrentPieceCounterclockwise(); 
-//				saveGame(gameMiniTest);
-//			}
-//			assertFalse (gameMiniTest.isCurrentPieceFixed());
-//			gameMiniTest.moveCurrentPieceDown();
-//			saveGame(gameMiniTest);
-//			assertTrue(gameMiniTest.isCurrentPieceFixed());
-//			
-//			gameMiniTest.rotateCurrentPieceCounterclockwise(); //No se puede girar
-//			saveGame(gameMiniTest);
-//			assertFalse(gameMiniTest.isGameEnded());
-//			ps.close();
-//			
-//			sbIn=readSolutionFromFile("test/files/rotatecounterclockwise.sol");
-//			assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());
-//		}
-//	
-//	@Test
-//	public void testMainP2() {
-//	
-//		Game game= new Game(new Coordinate(7, 10));
-//		ps = openFileForWritingStudentOutput("test/files/mainP2.alu");
-//		
-//		saveGame(game);
-//		game.nextPiece("I");
-//		saveGame(game);
-//		game.rotateCurrentPieceClockwise();
-//		saveGame(game);
-//		game.rotateCurrentPieceCounterclockwise();
-//		saveGame(game);
-//		game.rotateCurrentPieceCounterclockwise();
-//		saveGame(game);
-//		game.moveCurrentPieceLeft();
-//		saveGame(game);
-//		game.moveCurrentPieceRight();
-//		saveGame(game);
-//		game.moveCurrentPieceRight();
-//		saveGame(game);
-//		game.moveCurrentPieceDown();
-//		saveGame(game);
-//		game.moveCurrentPieceDown();
-//		saveGame(game);
-//		game.moveCurrentPieceDown();
-//		saveGame(game);
-//		game.moveCurrentPieceDown();
-//		saveGame(game);
-//		assertTrue(game.isCurrentPieceFixed());
-//		
-//		sbIn=readSolutionFromFile("test/files/mainP2.sol");
-//		assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());
-//	}
-//	
-//	@Test
-//	public void testPartida1() {
-//	
-//		Game game= new Game(new Coordinate(7, 10));
-//		ps = openFileForWritingStudentOutput("test/files/partida1.alu");
-//		saveGame(game);
-//		game.nextPiece("I"); //Pieza 1
-//		saveGame(game);
-//		for (int i=0; i<3; i++) {
-//			game.moveCurrentPieceLeft(); 
-//		}
-//		saveGame(game);
-//		for (int i=0; i<5; i++) { //La bajamos hasta el límite
-//			game.moveCurrentPieceDown();
-//		}
-//		saveGame(game);
-//		for (int i=0; i<6; i++) {
-//			game.moveCurrentPieceRight(); //La movemos sobre la última fila
-//		}
-//		saveGame(game);
-//		game.moveCurrentPieceDown(); //Fija pieza
-//		saveGame(game);
-//		
-//		game.nextPiece("I"); //Pieza 2
-//		saveGame(game);
-//		for (int i=0; i<4; i++) { //La bajamos hasta limite con pieza 1
-//			game.moveCurrentPieceDown();
-//		}
-//		saveGame(game);
-//		game.moveCurrentPieceDown(); //Fija por impedimento de la pieza 1
-//		saveGame(game);
-//		
-//		game.nextPiece("I"); //Pieza 3
-//		saveGame(game);
-//		for (int i=0; i<3; i++) {
-//			game.moveCurrentPieceRight(); 
-//		}
-//		saveGame(game);
-//		for (int i=0; i<4; i++) { //La bajamos hasta hacerla fija
-//			game.moveCurrentPieceDown();
-//		}
-//		saveGame(game);
-//		
-//		game.nextPiece("I"); //Pieza 4
-//		saveGame(game);
-//		game.moveCurrentPieceLeft();
-//		saveGame(game);
-//		for (int i=0; i<4; i++) { //La bajamos hasta hacerla fija
-//			game.moveCurrentPieceDown();
-//		}
-//		saveGame(game);
-//		
-//		game.nextPiece("I"); //Pieza 5
-//		saveGame(game);
-//		for (int i=0; i<3; i++) { //La movemos hasta el límite izquierdo
-//			game.moveCurrentPieceLeft(); 
-//		}
-//		saveGame(game);
-//		game.rotateCurrentPieceCounterclockwise();
-//		saveGame(game);
-//		for (int i=0; i<3; i++) { //La bajamos hasta límite inferior
-//			game.moveCurrentPieceDown();
-//		}
-//		saveGame(game);
-//		game.moveCurrentPieceLeft();
-//		saveGame(game);
-//		game.moveCurrentPieceDown(); //Pieza fija
-//		saveGame(game);
-//		
-//		game.nextPiece("I"); //Pieza 6
-//		saveGame(game);
-//		game.rotateCurrentPieceClockwise();
-//		saveGame(game);
-//		for (int i=0; i<4; i++) { //La movemos hasta el único hueco bajo la pieza
-//			game.moveCurrentPieceLeft(); 
-//		}
-//		saveGame(game);
-//		for (int i=0; i<3; i++) { //La bajamos hasta límite inferior
-//			game.moveCurrentPieceDown();
-//		}
-//		saveGame(game);
-//		game.moveCurrentPieceDown(); //La hacemos fija
-//		saveGame(game);
-//		
-//		game.nextPiece("I"); //Pieza 7
-//		saveGame(game);
-//		for (int i=0; i<3; i++) { //La movemos hasta límite derecho
-//			game.moveCurrentPieceRight();
-//		}
-//		saveGame(game);
-//		for (int i=0; i<3; i++) { //La bajamos hasta hacerla fija 
-//			game.moveCurrentPieceDown();
-//		}
-//		saveGame(game);
-//		
-//		game.nextPiece("I"); //Pieza 8
-//		saveGame(game);
-//		game.moveCurrentPieceDown();
-//		saveGame(game);
-//		for (int i=0; i<3; i++) { //La movemos hasta límite izquierdo
-//			game.moveCurrentPieceLeft();
-//		}
-//		saveGame(game);
-//		game.moveCurrentPieceDown(); //La hacemos fija
-//		saveGame(game);
-//		
-//		game.nextPiece("I"); //Pieza 9
-//		saveGame(game);
-//		game.rotateCurrentPieceCounterclockwise();
-//		saveGame(game);
-//		game.moveCurrentPieceRight();
-//		saveGame(game);
-//		game.moveCurrentPieceLeft();
-//		saveGame(game);
-//		game.moveCurrentPieceDown(); //La hacemos fija
-//		saveGame(game);
-//		
-//		game.nextPiece("I"); //No se puede poner
-//		saveGame(game);
-//		assertTrue(game.isGameEnded()); //Fin de partida
-//		ps.close();
-//		
-//		sbIn=readSolutionFromFile("test/files/partida1.sol");
-//		assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());
-//	}
-//	
-//	
-///* *****************************
-// * FUNCIONES DE APOYO
-// * *****************************/
-//	
-//	//Abre un fichero para escribir los tableros que genera el alumno.
-//	private PrintStream openFileForWritingStudentOutput (String fichero) {
-//			PrintStream s=null;
-//			try {
-//				s = new PrintStream(fichero);
-//			} catch (FileNotFoundException e) {
-//
-//				e.printStackTrace();
-//			}
-//			return s;
-//		}
-//		
-//	//Lee la solución de un fichero y la devuelve en un StringBuilder	
-//	private StringBuilder readSolutionFromFile(String file) {
-//		Scanner sc=null;
-//		try {
-//				sc = new Scanner(new File(file));
-//		} catch (FileNotFoundException e) {
-//				e.printStackTrace();
-//		}
-//		StringBuilder sb = new StringBuilder();
-//		while (sc.hasNext()) 
-//			sb.append(sc.nextLine()+"\n");			
-//		sc.close();
-//		return (sb);
-//	}
-//	
-//	/* Almacena la partida en un fichero como un string para el alumno,
-//	   y en un StringBuilder para compararla luego con la solución */
-//	private void saveGame(Game game) {
-//		sbOut.append(game.toString()+"\n");
-//		ps.println(game.toString());
-//	}
-//}
+package model;
+
+import static org.junit.Assert.*;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+import java.util.Scanner;
+
+import model.exceptions.TetrisException;
+
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+/* 
+ * 
+ *  
+ *  Busca los comentarios con la cadena "TODO" para saber qué tests has de completar. Como en la práctica 
+ *  anterior, la mayoría de estos tests van generando en un fichero de texto (con extensión .alu) las diferentes 
+ *  configuraciones de tablero obtenidas al ir jugando al juego y grabando los estados intermedios del tablero 
+ *  con saveGame. Recuerda que la salida esperada está en un fichero con el mismo nombre pero extensión .sol.   
+ *  
+ *  
+ */
+
+public class GameTestP3 {
+    Game game;
+    Piece p[];
+    StringBuilder sbIn = new StringBuilder();
+	StringBuilder sbOut = new StringBuilder();
+	PrintStream ps;
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+	}
+
+	@Before
+	public void setUp() throws Exception {
+		sbIn = new StringBuilder();
+		sbOut = new StringBuilder();
+		game = new Game(new Coordinate(9,5));
+		p = new Piece[7];
+		p[0] = PieceFactory.createPiece("I");
+		p[1] = PieceFactory.createPiece("J");
+		p[2] = PieceFactory.createPiece("L");
+		p[3] = PieceFactory.createPiece("O");
+		p[4] = PieceFactory.createPiece("S");
+		p[5] = PieceFactory.createPiece("T");
+		p[6] = PieceFactory.createPiece("Z");
+		for (int i=0; i<7; i++) p[i].setFixed(true);
+	}
+    
+	
+	
+	//Elimina linea del fondo llena
+	@Test
+	public void testMoveCurrentPieceDown1() {
+		ps = openFileForWritingStudentOutput("test/files/P3/testMoveCurrentPieceDown1.alu");
+		Gameboard gb = game.getGameboard();
+		Piece p = PieceFactory.createPiece("I");
+		p.setFixed(true);
+		for (int i=1; i<gb.getWidth(); i++)
+		gb.setCellContent(new Coordinate(gb.getHeight()-1,i), p);
+		saveGame(game);
+		try {
+			game.nextPiece("Z");
+			saveGame(game);
+			game.rotateCurrentPieceCounterclockwise();
+			saveGame(game);
+			for (int i=0; i<7; i++)
+							game.moveCurrentPieceDown();
+		} catch (TetrisException e) {
+			fail("Error: se produjo la excepción "+e.getClass().getSimpleName());
+		}
+		saveGame(game);
+		ps.close();
+		
+		sbIn=readSolutionFromFile("test/files/P3/testMoveCurrentPieceDown1.sol");
+		assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());
+	}
+	
+	//Eliminación 4 primeras lineas llenas desde el fondo
+	@Test
+	public void testMoveCurrentPieceDown2() {
+		ps = openFileForWritingStudentOutput("test/files/P3/testMoveCurrentPieceDown2.alu");
+		Gameboard gb = game.getGameboard();
+		Piece p = PieceFactory.createPiece("O");
+		p.setFixed(true);
+		for (int i=5; i<gb.getHeight();  i++)
+			for (int j=1; j<gb.getWidth();j++)
+					gb.setCellContent(new Coordinate(i,j), p);
+		saveGame(game);
+		
+		// TODO: reproduce la partida del fichero P3/testMoveCurrentPieceDown2.sol; mueve una pieza de
+		// tipo I para que caiga por la primera columna de forma que haga que se llenen y borren las 4 líneas
+		// del fondo del tablero.
+		
+		fail("¡Completa el test!");
+
+		ps.close();
+		
+		sbIn=readSolutionFromFile("test/files/P3/testMoveCurrentPieceDown2.sol");
+		assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());
+		
+	}
+	
+	//Eliminación fila del fondo llena y bajan las de arriba
+	@Test
+	public void testMoveCurrentPieceDown3() {
+			ps = openFileForWritingStudentOutput("test/files/P3/testMoveCurrentPieceDown3.alu");
+			prepareGameboard(game);
+			saveGame(game);
+			try {
+				game.nextPiece("I");
+				saveGame(game);
+				game.rotateCurrentPieceCounterclockwise();	
+				saveGame(game);
+				game.moveCurrentPieceLeft();
+				saveGame(game);
+				for (int i=0; i<6; i++){
+								game.moveCurrentPieceDown();
+								saveGame(game);
+				}
+				assertTrue(game.isCurrentPieceFixed());
+			} catch (TetrisException e) {
+				fail("Error: se produjo la excepción "+e.getClass().getSimpleName());
+			}
+			ps.close();
+			
+			sbIn=readSolutionFromFile("test/files/P3/testMoveCurrentPieceDown3.sol");
+			assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());
+			
+		}
+	
+	//Eliminación fila intermedia llena y bajan las de arriba
+	@Test
+	public void testMoveCurrentPieceDown4() {
+			ps = openFileForWritingStudentOutput("test/files/P3/testMoveCurrentPieceDown4.alu");
+			Gameboard gb = game.getGameboard();
+			prepareGameboard(game);
+			gb.setCellContent(new Coordinate(7,0),p[4]);
+			gb.setCellContent(new Coordinate(6,1), p[3]);
+			saveGame(game);
+			try {
+				game.nextPiece("I");
+				saveGame(game);
+				game.rotateCurrentPieceCounterclockwise();	
+				saveGame(game);
+				game.moveCurrentPieceLeft();
+				saveGame(game);
+				for (int i=0; i<4; i++){
+								game.moveCurrentPieceDown();
+								saveGame(game);
+				}
+				assertTrue(game.isCurrentPieceFixed());
+			} catch (TetrisException e) {
+				fail("Error: se produjo la excepción "+e.getClass().getSimpleName());
+			}
+			ps.close();
+			
+			sbIn=readSolutionFromFile("test/files/P3/testMoveCurrentPieceDown4.sol");
+			assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());
+			
+		}
+	
+	//Eliminación 2 filas intermedias separadas llenas y bajan las de arriba
+	@Test
+	public void testMoveCurrentPieceDown5() {
+			ps = openFileForWritingStudentOutput("test/files/P3/testMoveCurrentPieceDown5.alu");
+			Gameboard gb = game.getGameboard();
+			prepareGameboard(game);
+			gb.setCellContent(new Coordinate(7,0),p[4]);
+			gb.setCellContent(new Coordinate(6,1), p[3]);
+			gb.setCellContent(new Coordinate(4,4), p[5]);
+			saveGame(game);
+
+			// TODO: reproduce la partida del fichero P3/testMoveCurrentPieceDown5.sol; mueve una pieza de
+			// tipo I para que caiga por la primera columna de forma que haga que se llenen 2 líneas
+			// y caigan las de arriba.
+			
+			fail("¡Completa el test!");
+			
+			ps.close();
+			
+			sbIn=readSolutionFromFile("test/files/P3/testMoveCurrentPieceDown5.sol");
+			assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());
+		
+		}
+		
+	//Eliminación 4 filas inferiores  llenas y bajan las de arriba
+	@Test
+	public void testMoveCurrentPieceDown6() {
+			ps = openFileForWritingStudentOutput("test/files/P3/testMoveCurrentPieceDown6.alu");
+			Gameboard gb = game.getGameboard();
+			prepareGameboard(game);
+			gb.setCellContent(new Coordinate(5,2),p[4]);
+			gb.setCellContent(new Coordinate(6,1), p[3]);
+			gb.setCellContent(new Coordinate(7,4), p[5]);
+			saveGame(game);
+			try {
+				game.nextPiece("I");
+				saveGame(game);
+				game.rotateCurrentPieceCounterclockwise();	
+				saveGame(game);
+				game.moveCurrentPieceLeft();
+				saveGame(game);
+				for (int i=0; i<6; i++){
+								game.moveCurrentPieceDown();
+								saveGame(game);
+				}
+				assertTrue(game.isCurrentPieceFixed());
+			} catch (TetrisException e) {
+				fail("Error: se produjo la excepción "+e.getClass().getSimpleName());
+			}
+			ps.close();
+			
+			sbIn=readSolutionFromFile("test/files/P3/testMoveCurrentPieceDown6.sol");
+			assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());
+		
+	}
+	
+	//Eliminación 3 filas  llenas y bajan las de arriba
+	@Test
+	public void testMoveCurrentPieceDown7() {
+			ps = openFileForWritingStudentOutput("test/files/P3/testMoveCurrentPieceDown7.alu");
+			Gameboard gb = game.getGameboard();
+			prepareGameboard(game);
+			gb.setCellContent(new Coordinate(5,2),p[4]);
+			gb.setCellContent(new Coordinate(6,1), p[3]);
+			gb.setCellContent(new Coordinate(4,4), p[5]);
+			saveGame(game);
+			
+
+			// TODO: reproduce la partida del fichero P3/testMoveCurrentPieceDown7.sol; mueve una pieza de
+			// tipo I para que caiga por la primera columna de forma que haga que se llenen 3 líneas
+			// y caigan las de arriba.
+			
+			fail("¡Completa el test!");
+			
+			ps.close();
+			
+			sbIn=readSolutionFromFile("test/files/P3/testMoveCurrentPieceDown7.sol");
+			assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());
+		
+	}
+	
+	//Partida de tetris
+	@Test
+	public void testPartida1() {
+		ps = openFileForWritingStudentOutput("test/files/P3/testPartida1.alu");
+		try {
+			saveGame(game);
+			game.nextPiece("J");
+			saveGame(game);
+			for (int i=0; i<8; i++)	game.moveCurrentPieceDown();
+			saveGame(game);
+			game.nextPiece("J");
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			for (int i=0; i<7; i++) game.moveCurrentPieceDown();
+			saveGame(game);
+			game.nextPiece("L");
+			saveGame(game);
+			game.rotateCurrentPieceCounterclockwise();
+			saveGame(game);
+			for (int i=0; i<3; i++) game.moveCurrentPieceRight();
+			saveGame(game);
+			for (int i=0; i<7; i++) game.moveCurrentPieceDown();
+			saveGame(game);
+			//se llenaron las filas 7 y 8 y se eliminaron
+			game.nextPiece("O");
+			saveGame(game);
+			for (int i=0; i<2; i++) game.moveCurrentPieceRight();
+			saveGame(game);
+			for (int i=0; i<7; i++)	game.moveCurrentPieceDown();
+			saveGame(game);
+			game.nextPiece("J");
+			saveGame(game);
+			for (int i=0; i<8; i++) game.moveCurrentPieceDown();
+			saveGame(game);
+			//se llenó y eliminó fila 8
+			game.nextPiece("I");
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			for (int i=0; i<6; i++)	game.moveCurrentPieceDown();
+			saveGame(game);
+			game.nextPiece("O");
+			saveGame(game);
+			game.moveCurrentPieceLeft();
+			saveGame(game);
+			for (int i=0; i<7; i++) game.moveCurrentPieceDown();
+			saveGame(game);		
+			//se llenó y eliminó la fila 7
+	
+			game.nextPiece("L");
+			saveGame(game);
+			game.rotateCurrentPieceCounterclockwise();
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			for (int i=0; i<6; i++)	game.moveCurrentPieceDown();
+			saveGame(game);
+			game.nextPiece("I");
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			for (int i=0; i<5; i++) game.moveCurrentPieceDown();
+			saveGame(game);
+			game.nextPiece("O");
+			saveGame(game);
+			game.moveCurrentPieceLeft();
+			saveGame(game);
+			for (int i=0; i<7; i++) game.moveCurrentPieceDown();
+			saveGame(game);
+			//se llenaron y eliminaron las fila 6 y 7
+			
+			game.nextPiece("I");
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			for (int i=0; i<5; i++) game.moveCurrentPieceDown();
+			saveGame(game);
+			game.nextPiece("I");
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			game.moveCurrentPieceDown();
+			saveGame(game);
+			game.nextPiece("Z");
+			saveGame(game);
+			//Fin de la partida
+			assertTrue(game.isGameEnded());
+			
+		} catch (TetrisException e) {
+			fail("Error: se produjo la excepción "+e.getClass().getSimpleName());
+		}
+		ps.close();
+		
+		sbIn=readSolutionFromFile("test/files/P3/testPartida1.sol");
+		assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());
+	
+	}
+	@Test
+	public void testPartida2() {
+		ps = openFileForWritingStudentOutput("test/files/P3/testPartida2.alu");
+		Gameboard gb = game.getGameboard();
+		Piece piece = PieceFactory.createPiece("O");
+		piece.setFixed(true);
+		gb.setCellContent(new Coordinate(8,0), piece);
+		saveGame(game);
+		
+		// TODO: completar este test te puede llevar más tiempo que otros de esta práctica; 
+		// reproduce la partida de P3/testPartida2.sol.
+		
+		fail("¡Completa el test!");
+		
+		ps.close();
+		
+		sbIn=readSolutionFromFile("test/files/P3/testPartida2.sol");
+		assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());
+	
+	}
+	
+	
+	//Partida de tetris
+	@Test
+	public void testPartida3() {
+		ps = openFileForWritingStudentOutput("test/files/P3/testPartida3.alu");
+		Gameboard gb = game.getGameboard();
+		Piece p = PieceFactory.createPiece("O");
+		p.setFixed(true);
+		gb.setCellContent(new Coordinate(9,0), p);
+		saveGame(game);
+		
+		// TODO: completar este test te puede llevar más tiempo que otros de esta práctica; 
+		// reproduce la partida de P3/testPartida3.sol.
+		
+		fail("¡Completa el test!");
+		
+		ps.close();
+		
+		sbIn=readSolutionFromFile("test/files/P3/testPartida3.sol");
+		assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());
+	
+	}	
+			
+	//Partida de tetris
+	@Test
+	public void testPartida4() {
+		ps = openFileForWritingStudentOutput("test/files/P3/testPartida4.alu");
+		Gameboard gb = game.getGameboard();
+		Piece p = PieceFactory.createPiece("O");
+		p.setFixed(true);
+		gb.setCellContent(new Coordinate(8,1), p);
+		gb.setCellContent(new Coordinate(8,3), p);
+		gb.setCellContent(new Coordinate(7,3), p);
+		saveGame(game);
+
+		// TODO: completar este test te puede llevar más tiempo que otros de esta práctica; 
+		// reproduce la partida de P3/testPartida4.sol.
+		
+		fail("¡Completa el test!");
+
+		ps.close();
+		
+		sbIn=readSolutionFromFile("test/files/P3/testPartida4.sol");
+		assertEquals("solucion == alumno",sbIn.toString().trim(),sbOut.toString().trim());
+	
+	}
+	
+	
+	
+	
+	/* *****************************
+	 * FUNCIONES DE APOYO
+	 * *****************************/
+		
+	//Abre un fichero para escribir los tableros que genera el alumno.
+	private PrintStream openFileForWritingStudentOutput (String fichero) {
+			PrintStream s=null;
+			try {
+				s = new PrintStream(fichero);
+			} catch (FileNotFoundException e) {
+					e.printStackTrace();
+			}
+			return s;
+	}
+		
+	//Lee la solución de un fichero y la devuelve en un StringBuilder	
+	private StringBuilder readSolutionFromFile(String file) {
+		Scanner sc=null;
+		try {
+				sc = new Scanner(new File(file));
+		} catch (FileNotFoundException e) {
+				e.printStackTrace();
+		}
+		StringBuilder sb = new StringBuilder();
+		while (sc.hasNext()) 
+			sb.append(sc.nextLine()+"\n");			
+		sc.close();
+		return (sb);
+	}
+		
+	/* Almacena la partida en un fichero como un string para el alumno,
+	   y en un StringBuilder para compararla luego con la solución */
+	private void saveGame(Game game) {
+		sbOut.append(game.toString()+"\n");
+		ps.println(game.toString());
+	}
+	
+	private void prepareGameboard (Game game) {
+		Gameboard gb = game.getGameboard();
+		gb.setCellContent(new Coordinate(1,4), p[0]);
+		gb.setCellContent(new Coordinate(2,2), p[1]);
+		gb.setCellContent(new Coordinate(2,3), p[5]);
+		gb.setCellContent(new Coordinate(2,4), p[2]);
+		gb.setCellContent(new Coordinate(3,2), p[4]);
+		gb.setCellContent(new Coordinate(3,3), p[4]);
+		gb.setCellContent(new Coordinate(4,1), p[3]);
+		gb.setCellContent(new Coordinate(4,2), p[3]);
+		gb.setCellContent(new Coordinate(4,3), p[6]);
+		gb.setCellContent(new Coordinate(5,1), p[2]);
+		gb.setCellContent(new Coordinate(5,3), p[2]);
+		gb.setCellContent(new Coordinate(5,4), p[3]);
+		gb.setCellContent(new Coordinate(6,2), p[3]);
+		gb.setCellContent(new Coordinate(6,3), p[3]);
+		gb.setCellContent(new Coordinate(6,4), p[6]);
+		gb.setCellContent(new Coordinate(7,1), p[4]);
+		gb.setCellContent(new Coordinate(7,2), p[1]);
+		gb.setCellContent(new Coordinate(7,3), p[2]);
+		gb.setCellContent(new Coordinate(8,1), p[3]);
+		gb.setCellContent(new Coordinate(8,2), p[0]);
+		gb.setCellContent(new Coordinate(8,3), p[0]);
+		gb.setCellContent(new Coordinate(8,4), p[4]);		
+	}
+
+}
+
+
+
