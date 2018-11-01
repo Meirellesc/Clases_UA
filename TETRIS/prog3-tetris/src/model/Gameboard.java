@@ -49,18 +49,13 @@ public class Gameboard {
 	 */
 	public Gameboard(Coordinate c) throws WrongSizeException {
 			
-		/*if (c.getRow() < MINIMUM_BOARD_HEIGHT || c.getColumn() < MINIMUM_BOARD_WIDTH) {
+		if (c.getRow() < MINIMUM_BOARD_HEIGHT || c.getColumn() < MINIMUM_BOARD_WIDTH) {
 			throw new WrongSizeException(c);
 		}
 		else {
 			height = c.getRow();
 			width = c.getColumn();
-		}*/
-		
-		height = c.getRow();
-		width = c.getColumn();
-		
-		
+		}
 	}
 	
 	/** [ENG] Method that insert a piece in the game board.
@@ -209,7 +204,12 @@ public class Gameboard {
 		return this.width;
 	}
 	
+	
+	//PRACTICA 3
+	
 	private boolean isRowFull(int r) throws java.lang.IllegalArgumentException{
+		
+		//I HAVE TO CHECK IF "R" IS INSIDE THE GAME BOARD??
 		
 		Coordinate coords;
 		int count = 0;

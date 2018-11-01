@@ -89,16 +89,11 @@ public class GameTestP2 {
 		saveGame(gameMinimal);
 		assertTrue(gameMinimal.nextPiece("I"));
 		saveGame(gameMinimal);
-		
-		System.out.println("GAME: \n" + gameMinimal.toString());
-		
 		assertFalse(gameMinimal.isCurrentPieceFixed());
 		assertFalse(gameMinimal.isGameEnded());	
 		gameMinimal.moveCurrentPieceDown();
 		gameMinimal.moveCurrentPieceDown();//Sacabó
-		
-		System.out.println("GAME: \n" + gameMinimal.toString());
-		
+		assertFalse(gameMinimal.isCurrentPieceFixed());
 		assertFalse(gameMinimal.isGameEnded());
 		try {
 				assertFalse(gameMinimal.nextPiece("I"));

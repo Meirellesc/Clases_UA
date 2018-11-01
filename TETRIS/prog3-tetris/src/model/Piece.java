@@ -70,7 +70,7 @@ public abstract class Piece {
 	 */
 	public void setFixed(boolean f) {
 		
-		this.fixed = Objects.requireNonNull(fixed, "El parametro 'fixed' no puede ser null");
+		//this.fixed = Objects.requireNonNull(fixed, "El parametro 'fixed' no puede ser null");
 		
 		this.fixed = f;
 	}
@@ -176,6 +176,42 @@ public abstract class Piece {
 							squares.add(coords); //adding coordinates to squares
 						}
 					}
+					else if(getBlockSymbol() == '▧') {
+						if((i==row_ini && j==column_ini+2) || (i==row_ini+1 && j>=column_ini && j<=column_ini+2) ) {
+							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
+							squares.add(coords); //adding coordinates to squares
+						}
+					}
+					else if(getBlockSymbol() == '▣') {
+						if((i==row_ini && j>=column_ini+1 && j<=column_ini+2) || (i==row_ini+1 && j>=column_ini+1 && j<=column_ini+2) ) {
+							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
+							squares.add(coords); //adding coordinates to squares
+						}
+					}
+					else if(getBlockSymbol() == '▣') {
+						if((i==row_ini && j>=column_ini+1 && j<=column_ini+2) || (i==row_ini+1 && j>=column_ini+1 && j<=column_ini+2) ) {
+							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
+							squares.add(coords); //adding coordinates to squares
+						}
+					}
+					else if(getBlockSymbol() == '▦') {
+						if((i==row_ini && j>=column_ini+1 && j<=column_ini+2) || (i==row_ini+1 && j>=column_ini && j<=column_ini+1) ) {
+							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
+							squares.add(coords); //adding coordinates to squares
+						}
+					}
+					else if(getBlockSymbol() == '▤') {
+						if((i==row_ini && j==column_ini+1) || (i==row_ini+1 && j>=column_ini && j<=column_ini+2) ) {
+							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
+							squares.add(coords); //adding coordinates to squares
+						}
+					}
+					else {
+						if((i==row_ini && j>=column_ini && j<=column_ini+1) || (i==row_ini+1 && j>=column_ini+1 && j<=column_ini+2) ) {
+							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
+							squares.add(coords); //adding coordinates to squares
+						}
+					}
 				}
 			}
 		}
@@ -192,6 +228,30 @@ public abstract class Piece {
 					}
 					else if(getBlockSymbol() == '◪') {
 						if((i>=row_ini && i<=row_ini+2 && j==column_ini+1) || (i==row_ini+2 && j==column_ini)) {
+							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
+							squares.add(coords); //adding coordinates to squares
+						}
+					}
+					else if(getBlockSymbol() == '▧') {
+						if((i==row_ini && j==column_ini) || (i>=row_ini && i<=row_ini+2 && j==column_ini+1) ) {
+							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
+							squares.add(coords); //adding coordinates to squares
+						}
+					}
+					else if(getBlockSymbol() == '▦') {
+						if((i>=row_ini && i<=row_ini+1 && j==column_ini) || (i>=row_ini+1 && i<=row_ini+2 && j==column_ini+1)) {
+							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
+							squares.add(coords); //adding coordinates to squares
+						}
+					}
+					else if(getBlockSymbol() == '▤') {
+						if((i>=row_ini && i<=row_ini+2 && j==column_ini+1) || (i==row_ini+1 && j==column_ini)) {
+							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
+							squares.add(coords); //adding coordinates to squares
+						}
+					}
+					else {
+						if((i>=row_ini+1 && i<=row_ini+2 && j==column_ini) || (i>=row_ini && i<=row_ini+1 && j==column_ini+1)) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares
 						}
@@ -217,6 +277,36 @@ public abstract class Piece {
 							squares.add(coords); //adding coordinates to squares
 						}
 					}
+					else if(getBlockSymbol() == '▧') {
+						if((i==row_ini+2 && j==column_ini) || (i==row_ini+1 && j>=column_ini && j<=column_ini+2) ) {
+							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
+							squares.add(coords); //adding coordinates to squares
+						}
+					}
+					else if(getBlockSymbol() == '▣') {
+						if((i==row_ini && j>=column_ini+1 && j<=column_ini+2) || (i==row_ini+1 && j>=column_ini+1 && j<=column_ini+2) ) {
+							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
+							squares.add(coords); //adding coordinates to squares
+						}
+					}
+					else if(getBlockSymbol() == '▦') {
+						if((i==row_ini+1 && j>=column_ini+1 && j<=column_ini+2) || (i==row_ini+2 && j>=column_ini && j<=column_ini+1) ) {
+							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
+							squares.add(coords); //adding coordinates to squares
+						}
+					}
+					else if(getBlockSymbol() == '▤') {
+						if((i==row_ini+2 && j==column_ini+1) || (i==row_ini+1 && j>=column_ini && j<=column_ini+2) ) {
+							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
+							squares.add(coords); //adding coordinates to squares
+						}
+					}
+					else {
+						if((i==row_ini+1 && j>=column_ini && j<=column_ini+1) || (i==row_ini+2 && j>=column_ini+1 && j<=column_ini+2) ) {
+							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
+							squares.add(coords); //adding coordinates to squares
+						}
+					}
 										
 				}
 			}
@@ -236,6 +326,36 @@ public abstract class Piece {
 						if ((i>=row_ini && i<=row_ini+2 && j==column_ini+1) || (i==row_ini && j==column_ini+2)) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares	
+						}
+					}
+					else if(getBlockSymbol() == '▧') {
+						if((i==row_ini+2 && j==column_ini+2) || (i>=row_ini && i<=row_ini+2 && j==column_ini+1) ) {
+							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
+							squares.add(coords); //adding coordinates to squares
+						}
+					}
+					else if(getBlockSymbol() == '▣') {
+						if((i==row_ini && j>=column_ini+1 && j<=column_ini+2) || (i==row_ini+1 && j>=column_ini+1 && j<=column_ini+2) ) {
+							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
+							squares.add(coords); //adding coordinates to squares
+						}
+					}
+					else if(getBlockSymbol() == '▦') {
+						if((i>=row_ini && i<=row_ini+1 && j==column_ini+1) || (i>=row_ini+1 && i<=row_ini+2 && j==column_ini+2)) {
+							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
+							squares.add(coords); //adding coordinates to squares
+						}
+					}
+					else if(getBlockSymbol() == '▤') {
+						if((i>=row_ini && i<=row_ini+2 && j==column_ini+1) || (i==row_ini+1 && j==column_ini+2)) {
+							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
+							squares.add(coords); //adding coordinates to squares
+						}
+					}
+					else {
+						if((i>=row_ini+1 && i<=row_ini+2 && j==column_ini+1) || (i>=row_ini && i<=row_ini+1 && j==column_ini+2)) {
+							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
+							squares.add(coords); //adding coordinates to squares
 						}
 					}
 				}
@@ -259,7 +379,8 @@ public abstract class Piece {
 	
 	@Override
 	public String toString() {
-	
+		
+		//PIECE I
 		if (getBlockSymbol() == '▒') {
 			if (orientation.ordinal() == 0) {
 				return "····\n▒▒▒▒\n····\n····\n";
@@ -274,6 +395,7 @@ public abstract class Piece {
 				return "·▒··\n·▒··\n·▒··\n·▒··\n";
 			}
 		}
+		//PIECE J
 		else if (getBlockSymbol() == '◪') {
 			if (orientation.ordinal() == 0) {
 				return "◪···\n◪◪◪·\n····\n····\n";
@@ -288,9 +410,10 @@ public abstract class Piece {
 				return "·◪··\n·◪··\n◪◪··\n····\n";
 			}
 		}
+		//PIECE L
 		else if (getBlockSymbol() == '▧') {
 			if (orientation.ordinal() == 0) {
-				return "··▧·\n····\n····\n····\n";
+				return "··▧·\n▧▧▧·\n····\n····\n";
 			}
 			else if(orientation.ordinal() == 1) {
 				return "·▧··\n·▧··\n·▧▧·\n····\n";
@@ -302,9 +425,11 @@ public abstract class Piece {
 				return "▧▧··\n·▧··\n·▧··\n····\n";
 			}
 		}
+		//PIECE O
 		else if (getBlockSymbol() == '▣') {
 			return "·▣▣·\n·▣▣·\n····\n····\n";
 		}
+		//PIECE S
 		else if (getBlockSymbol() == '▦') {
 			if (orientation.ordinal() == 0) {
 				return "·▦▦·\n▦▦··\n····\n····\n";
@@ -319,6 +444,7 @@ public abstract class Piece {
 				return "▦···\n▦▦··\n·▦··\n····\n";
 			}
 		}
+		//PIECE T
 		else if (getBlockSymbol() == '▤') {
 			if (orientation.ordinal() == 0) {
 				return "·▤··\n▤▤▤·\n····\n····\n";
@@ -333,6 +459,7 @@ public abstract class Piece {
 				return "·▤··\n▤▤··\n·▤··\n····\n";
 			}
 		}
+		//PIECE Z
 		else {
 			if (orientation.ordinal() == 0) {
 				return "◫◫··\n·◫◫·\n····\n····\n";

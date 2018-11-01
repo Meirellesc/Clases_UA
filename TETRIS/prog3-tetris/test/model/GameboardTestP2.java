@@ -22,7 +22,7 @@ import org.junit.Test;
 
 
 /**
- * @author jgonzalo
+ * @author Lucas Meirelles
  *
  */
 public class GameboardTestP2 {

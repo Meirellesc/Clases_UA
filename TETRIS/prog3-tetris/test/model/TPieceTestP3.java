@@ -18,7 +18,11 @@ import org.junit.Test;
  *  
  */
 
-
+/**
+ * 
+ * @author Lucas Meirelles
+ *
+ */
 public class TPieceTestP3 {
     Piece p1;
     static ArrayList<Coordinate> coorD0, coorD90, coorD180, coorD270;

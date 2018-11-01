@@ -77,10 +77,10 @@ public class Game {
 		else if (isCurrentPieceFixed()) {
 			throw new FixedPieceMovementException();
 		}
-		else if (board.isPlaceValid(currentPosition, currentPiece)) { // If the new position it will be off the board
+		else if (!board.isPlaceValid(currentPosition, currentPiece)) { // If the new position it will be off the board
 			throw new OffBoardMovementException(currentPosition);
 		}
-		else if (board.isPlaceFree(currentPosition, currentPiece)) { // If the new position would result in a collision with another piece 
+		else if (!board.isPlaceFree(currentPosition, currentPiece)) { // If the new position would result in a collision with another piece 
 			throw new CollisionMovementException(currentPosition);
 		}
 		else {
@@ -122,10 +122,10 @@ public class Game {
 		else if (isCurrentPieceFixed()) {
 			throw new FixedPieceMovementException();
 		}
-		else if (board.isPlaceValid(currentPosition, currentPiece)) { // If the new position it will be off the board
+		else if (!board.isPlaceValid(currentPosition, currentPiece)) { // If the new position it will be off the board
 			throw new OffBoardMovementException(currentPosition);
 		}
-		else if (board.isPlaceFree(currentPosition, currentPiece)) { // If the new position would result in a collision with another piece 
+		else if (!board.isPlaceFree(currentPosition, currentPiece)) { // If the new position would result in a collision with another piece 
 			throw new CollisionMovementException(currentPosition);
 		}
 		else {
@@ -173,12 +173,12 @@ public class Game {
 			if(!isCurrentPieceFixed() || !isGameEnded()) {
 				//Condition that check if the next position isn't Valid or isn't Free.
 				if (!board.isPlaceValid(currentPosition, currentPiece) || !board.isPlaceFree(currentPosition, currentPiece)) {
-								
+					
+					currentPiece.setFixed(true); //set piece Fixed.
 					currentPosition = currentPosition.add(csub); //update the currentPosition (decreasing).
 					board.putPiece(currentPosition, currentPiece); //put the piece updated (last position Valid or Free).
-					currentPiece.setFixed(true); //set piece Fixed.
 					
-					System.out.println("FIXEI!!");
+					//System.out.println("FIXEI!!");
 					
 					//Loop that occurs while the last row is full.
 					while (board.firstRowFullFromBottom() != -1) {
@@ -222,10 +222,10 @@ public class Game {
 		else if (isCurrentPieceFixed()) {
 			throw new FixedPieceMovementException();
 		}
-		else if (board.isPlaceValid(currentPosition, currentPiece)) { // If the new position it will be off the board
+		else if (!board.isPlaceValid(currentPosition, currentPiece)) { // If the new position it will be off the board
 			throw new OffBoardMovementException(currentPosition);
 		}
-		else if (board.isPlaceFree(currentPosition, currentPiece)) { // If the new position would result in a collision with another piece 
+		else if (!board.isPlaceFree(currentPosition, currentPiece)) { // If the new position would result in a collision with another piece 
 			throw new CollisionMovementException(currentPosition);
 		}
 		else {
@@ -291,10 +291,10 @@ public class Game {
 		else if (isCurrentPieceFixed()) {
 			throw new FixedPieceMovementException();
 		}
-		else if (board.isPlaceValid(currentPosition, currentPiece)) { // If the new position it will be off the board
+		else if (!board.isPlaceValid(currentPosition, currentPiece)) { // If the new position it will be off the board
 			throw new OffBoardMovementException(currentPosition);
 		}
-		else if (board.isPlaceFree(currentPosition, currentPiece)) { // If the new position would result in a collision with another piece 
+		else if (!board.isPlaceFree(currentPosition, currentPiece)) { // If the new position would result in a collision with another piece 
 			throw new CollisionMovementException(currentPosition);
 		}
 		else {
@@ -353,16 +353,20 @@ public class Game {
 		
 		currentPosition = new Coordinate(0, ((board.getWidth())/2) - 2);
 		
-		new PieceFactory();
-		currentPiece = PieceFactory.createPiece(type);
-
-		if(isGameEnded()) {
+		//new PieceFactory();
+		//currentPiece = PieceFactory.createPiece(type);
+		
+		if(isGameEnded() && nextPiece(type)) {
 			throw new GameEndedMovementException();
 		}
-		else if (isCurrentPieceFixed()) {
+		else if (currentPiece != null && !isCurrentPieceFixed()) {
 			throw new CurrentPieceNotFixedException();
 		}
 		else {
+			
+			new PieceFactory();
+			currentPiece = PieceFactory.createPiece(type);
+			
 			if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece)) {
 				board.putPiece(currentPosition, currentPiece);
 				return true;

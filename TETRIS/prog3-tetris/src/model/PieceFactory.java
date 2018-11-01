@@ -32,13 +32,13 @@ public class PieceFactory {
 			TPiece p = new TPiece();
 			return p;
 		}
-		else {//(c == "Z") {
+		else if (c == "Z") {
 			ZPiece p = new ZPiece();
 			return p;
 		}
-		/*else {
+		else {
 			return null;
-		}*/
+		}
 	}
 
 }

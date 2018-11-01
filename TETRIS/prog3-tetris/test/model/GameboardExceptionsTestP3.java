@@ -44,8 +44,15 @@ public class GameboardExceptionsTestP3 {
 		// TODO: ¡completa el test! Crea un tablero de forma similar a como se hace en 
 		// testGameBoardConstructorExceptions1, pero con un número de columnas incorrecto y
 		// comprueba que se lanza la excepción adecuada.
-				
-		fail("¡Completa el test!");	
+		
+		try {
+			gb = new Gameboard(new Coordinate(5,3));
+			fail("Error: no se lanzó la excepción WrongSizeException");
+		} catch (WrongSizeException e) {
+			assertNotNull(e.getMessage());
+		} catch (Exception e) {
+			fail ("Error: se lanzó la excepción "+e.getClass().getSimpleName());
+		}
 	}
 
 	@Test
@@ -54,7 +61,14 @@ public class GameboardExceptionsTestP3 {
 		// TODO: ¡completa el test! Crea un tablero de forma similar a como se hace en 
 		// testGameBoardConstructorExceptions1, pero con tamaño (0,0).
 						
-		fail("¡Completa el test!");	
+		try {
+			gb = new Gameboard(new Coordinate(0,0));
+			fail("Error: no se lanzó la excepción WrongSizeException");
+		} catch (WrongSizeException e) {
+			assertNotNull(e.getMessage());
+		} catch (Exception e) {
+			fail ("Error: se lanzó la excepción "+e.getClass().getSimpleName());
+		}
 	}
 		
 	@Test
@@ -64,14 +78,21 @@ public class GameboardExceptionsTestP3 {
 		// testGameBoardConstructorExceptions1, pero esta vez con un tamaño correcto.
 		// Haz que el test falle si el constructor de Gameboard devuelve alguna excepción.
 					
-		fail("¡Completa el test!");	
+		try {
+			gb = new Gameboard(new Coordinate(4,4));
+			//fail("Error: no se lanzó la excepción WrongSizeException");
+		//} catch (WrongSizeException e) {
+			//assertNotNull(e.getMessage());
+		} catch (Exception e) {
+			fail ("Error: se lanzó la excepción "+e.getClass().getSimpleName());
+		}	
 	}
 	
 	
 	/* Un test pasa si no falla en ningún punto. */
 	@Test
 	public void testGameBoardclearRowExceptions1() {
-		try {		
+		try {
 			gb1.clearRow(6);
 		} catch (IllegalArgumentException e) {
 			
@@ -85,9 +106,13 @@ public class GameboardExceptionsTestP3 {
 
 		// TODO: repite un test como el de testGameBoardclearRowExceptions1, pero intentando
 		// borrar una fila negativa.
-		
-		fail("¡Completa el test!");	
-
+		try {
+			gb1.clearRow(-1);
+		} catch (IllegalArgumentException e) {
+			
+		} catch (Exception e) {
+			fail ("Error: se lanzó la excepción "+e.getClass().getSimpleName());
+		}
 	}
 		
 	@Test
@@ -95,8 +120,14 @@ public class GameboardExceptionsTestP3 {
 		
 		// TODO: escribe un test que falle si al llamar a gb1.clearRow con algunas de las filas
 		// vacías, este método devolviera cualquier tipo de excepción.
-		
-		fail("¡Completa el test!");
+		try {
+			gb1.clearRow(1);
+			gb1.clearRow(3);
+		} catch (IllegalArgumentException e) {
+			fail ("Error: se lanzó la excepción "+e.getClass().getSimpleName());
+		} catch (Exception e) {
+			fail ("Error: se lanzó la excepción "+e.getClass().getSimpleName());
+		}
 	}
 
 		
