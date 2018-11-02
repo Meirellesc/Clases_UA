@@ -16,6 +16,11 @@ import org.junit.Test;
  *  
  */
 
+/**
+ * 
+ * @author Lucas Meirelles
+ *
+ */
 public class GameboardExceptionsTestP3 {
     
     Gameboard gb, gb1;
@@ -159,6 +164,12 @@ public class GameboardExceptionsTestP3 {
 		// TODO: prueba gb1.makeUpperRowsFall con algunas filas que no hagan que el método lance
 		// ninguna excepción. Haz que este test falle si se lanza alguna.
 		
-		fail("¡Completa el test!");
+		try {		
+			gb1.makeUpperRowsFall(5);
+		} catch (IllegalArgumentException e) {
+			fail ("Error: se lanzó la excepción "+e.getClass().getSimpleName());
+		} catch (Exception e) {
+			fail ("Error: se lanzó la excepción "+e.getClass().getSimpleName());
+		}
 	}
 }

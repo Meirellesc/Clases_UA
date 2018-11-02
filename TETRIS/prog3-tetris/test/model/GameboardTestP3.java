@@ -38,28 +38,43 @@ public class GameboardTestP3 {
 	@Test
 	public void testFirstRowFullFromBottom1() {
 		//Ninguna pieza es fija
+		
+		System.out.println(gb.toString());
 		assertEquals(-1,gb.firstRowFullFromBottom());
 		gb.setCellContent(new Coordinate(3,6), p[6]);
+		System.out.println(gb.toString());
 		assertEquals(-1,gb.firstRowFullFromBottom());
 		gb.setCellContent(new Coordinate(2,0), p[0]);
+		System.out.println(gb.toString());
 		assertEquals(-1,gb.firstRowFullFromBottom());
 		gb.setCellContent(new Coordinate(3,0), p[0]);
+		System.out.println(gb.toString());
 		assertEquals(-1,gb.firstRowFullFromBottom());	
-		
+		System.out.println(gb.toString());
 	}
 	
 	@Test
 	public void testFirstRowFullFromBottom2() {
 		
 		// Hacemos fijas todas las piezas:
-		for (int i=0; i<7; i++)
+		for (int i=0; i<7; i++) {
 					p[i].setFixed(true);
-	
+		}
+		
 		// TODO: ¡completa el test! Copia todas las líneas del método testFirstRowFullFromBottom1 
 		// y cambia los valores esperados de las aserciones (primer argumento) por los correctos.
-		
-		fail("¡Completa el test!");	
-		
+		System.out.println(gb.toString());
+		assertEquals(-1,gb.firstRowFullFromBottom());
+		gb.setCellContent(new Coordinate(3,6), p[6]);
+		System.out.println(gb.toString());
+		assertEquals(-1,gb.firstRowFullFromBottom());
+		gb.setCellContent(new Coordinate(2,0), p[0]);
+		System.out.println(gb.toString());
+		assertEquals(2,gb.firstRowFullFromBottom());
+		gb.setCellContent(new Coordinate(3,0), p[0]);
+		System.out.println(gb.toString());
+		assertEquals(3,gb.firstRowFullFromBottom());	
+		System.out.println(gb.toString());
 	}
 		
 
@@ -74,16 +89,28 @@ public class GameboardTestP3 {
 	@Test
 	public void testMakeUpperRowsFall1() {
 		Gameboard gbaux = fullGameboard();
+		System.err.println("gBAUX:\n" + gbaux.toString());
 		gb.makeUpperRowsFall(0); //No pasa nada
+		System.err.println("gB start:\n" + gb.toString());
 		Coordinate c;
 		for (int i=0; i<gb.getHeight(); i++) 
 			for (int j=0; j<gb.getWidth(); j++) {
 				c = new Coordinate(i,j);
 				assertEquals(gbaux.getCellContent(c), gb.getCellContent(c));
 			}
+		
+		System.err.println("gB 0: \n" + gb.toString());
 		gb.makeUpperRowsFall(1);
+		
+		System.err.println("gB 1: \n" + gb.toString());
+		
 		gb.makeUpperRowsFall(2);
+		
+		System.err.println("gB 2: \n" + gb.toString());
+		
 		gb.makeUpperRowsFall(3);
+		
+		System.err.println("gB 3: \n" + gb.toString());
 		for (int i=0; i<gb.getHeight(); i++) 
 			for (int j=0; j<gb.getWidth(); j++) {
 				c = new Coordinate(i,j);
@@ -102,15 +129,28 @@ public class GameboardTestP3 {
 					c=new Coordinate(i,j);
 					if (i!=3) gbaux.setCellContent(c, p[i]);
 				}
+			
+			System.out.println("gB: \n" + gbaux.toString());
 			gbaux.makeUpperRowsFall(0); //No pasa nada
+			System.out.println("gB 0: \n" + gbaux.toString());
 			gbaux.makeUpperRowsFall(1);
+			System.out.println("gB 1: \n" + gbaux.toString());
 			gbaux.makeUpperRowsFall(2);
+			System.out.println("gB 2: \n" + gbaux.toString());
 			gbaux.makeUpperRowsFall(3);
+			System.out.println("gB 3: \n" + gbaux.toString());
 			
 			// TODO: comprueba con gbaux.getCellContent que todas las filas de gbaux están vacías,
 			// excepto una de ellas (determina cuál); comprueba con gbaux.getCellContent que la fila no
 			// vacía tiene las piezas que corresponde.
-
+			for (int i=0; i<gbaux.getHeight(); i++) { 
+				for (int j=0; j<gbaux.getWidth(); j++) {
+					c = new Coordinate(i,j);
+					if (i==3) assertEquals(p[0], gbaux.getCellContent(c));
+					else  assertNull(gbaux.getCellContent(c));
+				}		
+			}
+			
 		} catch (WrongSizeException e) {
 			fail("Error: se lanzó la excepción "+e.getClass().getSimpleName());
 		}

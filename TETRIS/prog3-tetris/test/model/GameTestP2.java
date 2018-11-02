@@ -712,7 +712,6 @@ public class GameTestP2 {
 		gameMiniTest.moveCurrentPieceDown();//Limita con el fondo del tablero
 		saveGame(gameMiniTest);
 		gameMiniTest.moveCurrentPieceDown(); //Se hace fija
-		
 		assertTrue(gameMiniTest.nextPiece("I")); //Pieza  2
 		saveGame(gameMiniTest);
 		gameMiniTest.rotateCurrentPieceCounterclockwise(); 
@@ -724,7 +723,6 @@ public class GameTestP2 {
 		gameMiniTest.moveCurrentPieceDown();//Limita con el fondo del tablero
 		saveGame(gameMiniTest);
 		gameMiniTest.moveCurrentPieceDown(); //Se hace fija
-		
 		assertTrue(gameMiniTest.nextPiece("I")); //Pieza 3
 		saveGame(gameMiniTest);
 		gameMiniTest.moveCurrentPieceRight();
@@ -740,7 +738,6 @@ public class GameTestP2 {
 		gameMiniTest.moveCurrentPieceDown();//Limita con el fondo del tablero
 		saveGame(gameMiniTest);
 		gameMiniTest.moveCurrentPieceDown(); //Se hace fija
-		
 		assertTrue(gameMiniTest.nextPiece("I")); //Pieza 4
 		saveGame(gameMiniTest);
 		gameMiniTest.moveCurrentPieceRight();
@@ -768,23 +765,37 @@ public class GameTestP2 {
 		gameMiniTest.moveCurrentPieceDown(); //Se hace fija*/
 		
 		assertTrue(gameMiniTest.nextPiece("I")); //Pieza 6
+		
+		//System.out.println("PIEZA 6: \n" + gameMiniTest.toString());
+		
 		saveGame(gameMiniTest);
+		
+		//I INVERTED THE ROTATES AND WORKS
 		try {
-		gameMiniTest.rotateCurrentPieceCounterclockwise(); //No se puede
 		gameMiniTest.rotateCurrentPieceClockwise(); //No se puede
+		System.out.println("NO PUEDE CLK: \n" + gameMiniTest.toString());	
+		gameMiniTest.rotateCurrentPieceCounterclockwise(); //No se puede
+		System.out.println("NO PUEDE COUNTERCLK: \n" + gameMiniTest.toString());
 		} catch (CollisionMovementException e){
 			
 		}
 		saveGame(gameMiniTest);
 		gameMiniTest.moveCurrentPieceRight();
+		//System.out.println("PIEZA 6 RIGHT: \n" + gameMiniTest.toString());
 		saveGame(gameMiniTest);
 		gameMiniTest.rotateCurrentPieceCounterclockwise(); //No se puede
+		System.out.println("PIEZA 6 COUNTERCLK: \n" + gameMiniTest.toString());
 		saveGame(gameMiniTest);	
 		gameMiniTest.rotateCurrentPieceClockwise(); //No se puede
+		System.out.println("PIEZA 6 CLK: \n" + gameMiniTest.toString());
 		saveGame(gameMiniTest);
 		gameMiniTest.moveCurrentPieceDown(); //Limite con las 5 piezas fijas
+		
+		System.out.println("PIEZA 6 DOWN: \n" + gameMiniTest.toString());
 		saveGame(gameMiniTest);	
 		gameMiniTest.moveCurrentPieceDown(); //Se hace fija
+		
+		System.out.println("PIEZA 6 DOWN + FIJA: \n" + gameMiniTest.toString());
 		
 		assertTrue(gameMiniTest.nextPiece("I")); //Pieza 7 limite con pieza 6
 		saveGame(gameMiniTest);

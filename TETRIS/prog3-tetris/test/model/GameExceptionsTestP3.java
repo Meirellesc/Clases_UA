@@ -47,15 +47,27 @@ public class GameExceptionsTestP3 {
 
 		// TODO: prueba otras llamadas al constructor de Game que lancen excepciones por motivos
 		// diferentes al del método testGameConstructorExceptions1
-
-		fail("¡Completa el test!");
+		try {
+			g = new Game(new Coordinate(4,3));
+			fail("Error: no se lanzó la excepción WrongSizeException");
+		} catch (WrongSizeException e) {
+			assertNotNull(e.getMessage());
+		} catch (Exception e) {
+			fail ("Error: se lanzó la excepción "+e.getClass().getSimpleName());
+		}
 	}
 
 	@Test
 	public void testGameBoardConstructorExceptions3() {
 		// TODO: prueba otras llamadas al constructor de Game que lancen excepciones
-
-		fail("¡Completa el test!");
+		try {
+			g = new Game(new Coordinate(3,-1));
+			fail("Error: no se lanzó la excepción WrongSizeException");
+		} catch (WrongSizeException e) {
+			assertNotNull(e.getMessage());
+		} catch (Exception e) {
+			fail ("Error: se lanzó la excepción "+e.getClass().getSimpleName());
+		}
 	}
 
 	
@@ -248,7 +260,10 @@ public class GameExceptionsTestP3 {
 		try {
 			g1.nextPiece("I");
 			g1.rotateCurrentPieceClockwise();
+			System.out.println("G1: \n" + g1.toString());
 			g1.moveCurrentPieceDown(); //No está fija
+			
+			System.out.println("G1: \n" + g1.toString());
 	
 		} catch (TetrisException e) {
 			fail ("Error: se lanzó la excepción "+e.getClass().getSimpleName());
@@ -262,11 +277,18 @@ public class GameExceptionsTestP3 {
 		} catch (TetrisException e) {
 			fail ("Error: se lanzó la excepción "+e.getClass().getSimpleName());
 		}
+		
+			
 			
 		try {
+			//IF I GO DOWN ONE MORE TIME WORKS
+			//g1.moveCurrentPieceDown();
 			g1.moveCurrentPieceDown(); //Fijamos la pieza
+			System.out.println("G1 DOWN: \n" + g1.toString());
 			g1.nextPiece("I"); //Se acaba la partida
+			System.out.println("G1 NEW PIECE: \n" + g1.toString());
 		} catch (TetrisException e) {
+			System.out.println("ERROU!!");
 			fail ("Error: se lanzó la excepción "+e.getClass().getSimpleName());
 		} 
 		

@@ -46,12 +46,9 @@ public class Game {
 	public Game(Coordinate c) throws WrongSizeException {
 				
 		gameEnded = false;
+		
+		board = new Gameboard(c);
 				
-		for (int i = 0; i <= c.getRow(); i++) {
-			for (int j = 0; j <= c.getColumn(); j++) {
-				board = new Gameboard(new Coordinate(i,j));
-			}
-		}
 	}
 	
 	/** [ENG] Method that move the piece to left.
@@ -83,20 +80,17 @@ public class Game {
 		else if (!board.isPlaceFree(currentPosition, currentPiece)) { // If the new position would result in a collision with another piece 
 			throw new CollisionMovementException(currentPosition);
 		}
-		else {
-			board.removePiece(currentPiece);
-			currentPosition = currentPosition.add(cadd);
-			
-			if (!isCurrentPieceFixed() && !isGameEnded() && board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece)) {
-				board.putPiece(currentPosition, currentPiece);
-			}
-			else {
-				currentPosition = caux;
-				board.putPiece(currentPosition, currentPiece);
-			}
-		}
 		
-			
+		board.removePiece(currentPiece);
+		currentPosition = currentPosition.add(cadd);
+		
+		if (!isCurrentPieceFixed() && !isGameEnded() && board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece)) {
+			board.putPiece(currentPosition, currentPiece);
+		}
+		else {
+			currentPosition = caux;
+			board.putPiece(currentPosition, currentPiece);
+		}
 	}
 	
 	/** [ENG] Method that move the piece to right.
@@ -128,19 +122,17 @@ public class Game {
 		else if (!board.isPlaceFree(currentPosition, currentPiece)) { // If the new position would result in a collision with another piece 
 			throw new CollisionMovementException(currentPosition);
 		}
-		else {
-			board.removePiece(currentPiece);
-			currentPosition = currentPosition.add(cadd);
-			
-			if (!isCurrentPieceFixed() && !isGameEnded() && board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece)) {
-				board.putPiece(currentPosition, currentPiece);
-			}
-			else {
-				currentPosition = caux;
-				board.putPiece(currentPosition, currentPiece);
-			}
-		}
 		
+		board.removePiece(currentPiece);
+		currentPosition = currentPosition.add(cadd);
+		
+		if (!isCurrentPieceFixed() && !isGameEnded() && board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece)) {
+			board.putPiece(currentPosition, currentPiece);
+		}
+		else {
+			currentPosition = caux;
+			board.putPiece(currentPosition, currentPiece);
+		}		
 	}	
 	
 	/** [ENG] Method that move the piece down.
@@ -152,24 +144,45 @@ public class Game {
 	 */
 	public void moveCurrentPieceDown() throws NoCurrentPieceException, GameEndedMovementException, FixedPieceMovementException {
 		
+		if (currentPiece == null) { // If the first piece has not been put on the board
+			System.out.println("currentPiece null (DOWN)");
+			throw new NoCurrentPieceException();
+		}
+		else if (isGameEnded()) {
+			System.out.println("game over (DOWN)");
+			throw new GameEndedMovementException();
+		}
+		else if (isCurrentPieceFixed()) {
+			System.out.println("currentPiece fixed (DOWN)");
+			throw new FixedPieceMovementException();
+		}
+		
 		Coordinate cadd = new Coordinate(1,0);
 		Coordinate csub = new Coordinate(-1,0);
 		Coordinate caux = currentPosition;
 		
-		if (currentPiece == null) { // If the first piece has not been put on the board
-			throw new NoCurrentPieceException();
+		board.removePiece(currentPiece); //remove the piece of the board.
+		currentPosition = currentPosition.add(cadd); //update the currentPosition (increasing)
+		
+		if (!board.isPlaceValid(currentPosition, currentPiece) || !board.isPlaceFree(currentPosition, currentPiece)) {
+			System.out.println("FIXEI!!");
+			currentPosition = currentPosition.add(csub); //update the currentPosition (decreasing).
+			board.putPiece(currentPosition, currentPiece); //put the piece updated (last position Valid or Free).
+			currentPiece.setFixed(true); //set piece Fixed.
 		}
-		else if (isGameEnded()) {
-			throw new GameEndedMovementException();
-		}
-		else if (isCurrentPieceFixed()) {
-			throw new FixedPieceMovementException();
+		else if (board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece)) {
+			System.out.println("CAINDO!!");
+			board.putPiece(currentPosition, currentPiece); //put piece updated (the piece is falling).
+			currentPiece.setFixed(false); //set piece Not Fixed.
 		}
 		else {
-			board.removePiece(currentPiece); //remove the piece of the board.
-			currentPosition = currentPosition.add(cadd); //update the currentPosition (increasing)
+			System.out.println("NAO POSSO MAIS MAS NAO FIXEI!");
+			currentPosition = caux; //update currentPosition to original value (the piece doesn't move).
+			board.putPiece(currentPosition, currentPiece); //put the piece on the board.
+		}
 			
 			
+			/*
 			if(!isCurrentPieceFixed() || !isGameEnded()) {
 				//Condition that check if the next position isn't Valid or isn't Free.
 				if (!board.isPlaceValid(currentPosition, currentPiece) || !board.isPlaceFree(currentPosition, currentPiece)) {
@@ -178,7 +191,7 @@ public class Game {
 					currentPosition = currentPosition.add(csub); //update the currentPosition (decreasing).
 					board.putPiece(currentPosition, currentPiece); //put the piece updated (last position Valid or Free).
 					
-					//System.out.println("FIXEI!!");
+					System.out.println("FIXEI!!");
 					
 					//Loop that occurs while the last row is full.
 					while (board.firstRowFullFromBottom() != -1) {
@@ -189,15 +202,16 @@ public class Game {
 					
 				}
 				else {
+					System.out.println("CAINDO!!");
 					board.putPiece(currentPosition, currentPiece); //put piece updated (the piece is falling).
 					currentPiece.setFixed(false); //set piece Not Fixed.
 				}
 			}
 			else {
+				System.out.println("NAO POSSO MAIS MAS NAO FIXEI!");
 				currentPosition = caux; //update currentPosition to original value (the piece doesn't move).
 				board.putPiece(currentPosition, currentPiece); //put the piece on the board.
-			}
-		}
+			}*/
 		
 	}
 		
@@ -228,46 +242,46 @@ public class Game {
 		else if (!board.isPlaceFree(currentPosition, currentPiece)) { // If the new position would result in a collision with another piece 
 			throw new CollisionMovementException(currentPosition);
 		}
-		else {
-			if (!isCurrentPieceFixed() && board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece) && !isGameEnded()) {
-				if(currentPiece.getOrientation() == Rotation.D0) {
-					currentPiece.setOrientation(Rotation.D90);
-					board.removePiece(currentPiece);
-					if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
-						board.putPiece(currentPosition, currentPiece);
-					else
-						currentPiece.setOrientation(Rotation.D0);
-						board.putPiece(currentPosition, currentPiece);
-				}
-				else if(currentPiece.getOrientation() == Rotation.D90) {
-					currentPiece.setOrientation(Rotation.D180);
-					board.removePiece(currentPiece);
-					if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
-						board.putPiece(currentPosition, currentPiece);
-					else
-						currentPiece.setOrientation(Rotation.D90);
-						board.putPiece(currentPosition, currentPiece);
-				}
-				else if(currentPiece.getOrientation() == Rotation.D180) {
-					currentPiece.setOrientation(Rotation.D270);
-					board.removePiece(currentPiece);
-					if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
-						board.putPiece(currentPosition, currentPiece);
-					else
-						currentPiece.setOrientation(Rotation.D180);
-						board.putPiece(currentPosition, currentPiece);
-				}
-				else {
+		
+		if (!isCurrentPieceFixed() && board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece) && !isGameEnded()) {
+			if(currentPiece.getOrientation() == Rotation.D0) {
+				currentPiece.setOrientation(Rotation.D90);
+				board.removePiece(currentPiece);
+				if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
+					board.putPiece(currentPosition, currentPiece);
+				else
 					currentPiece.setOrientation(Rotation.D0);
-					board.removePiece(currentPiece);
-					if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
-						board.putPiece(currentPosition, currentPiece);
-					else
-						currentPiece.setOrientation(Rotation.D270);
-						board.putPiece(currentPosition, currentPiece);
-				}
+					board.putPiece(currentPosition, currentPiece);
+			}
+			else if(currentPiece.getOrientation() == Rotation.D90) {
+				currentPiece.setOrientation(Rotation.D180);
+				board.removePiece(currentPiece);
+				if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
+					board.putPiece(currentPosition, currentPiece);
+				else
+					currentPiece.setOrientation(Rotation.D90);
+					board.putPiece(currentPosition, currentPiece);
+			}
+			else if(currentPiece.getOrientation() == Rotation.D180) {
+				currentPiece.setOrientation(Rotation.D270);
+				board.removePiece(currentPiece);
+				if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
+					board.putPiece(currentPosition, currentPiece);
+				else
+					currentPiece.setOrientation(Rotation.D180);
+					board.putPiece(currentPosition, currentPiece);
+			}
+			else {
+				currentPiece.setOrientation(Rotation.D0);
+				board.removePiece(currentPiece);
+				if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
+					board.putPiece(currentPosition, currentPiece);
+				else
+					currentPiece.setOrientation(Rotation.D270);
+					board.putPiece(currentPosition, currentPiece);
 			}
 		}
+		
 		
 	}
 	
@@ -297,46 +311,45 @@ public class Game {
 		else if (!board.isPlaceFree(currentPosition, currentPiece)) { // If the new position would result in a collision with another piece 
 			throw new CollisionMovementException(currentPosition);
 		}
-		else {
-			if (!isCurrentPieceFixed() && !isGameEnded() && board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece)) {
-				if(currentPiece.getOrientation() == Rotation.D0) {
-					currentPiece.setOrientation(Rotation.D270);
-					board.removePiece(currentPiece);
-					if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
-						board.putPiece(currentPosition, currentPiece);
-					else
-						currentPiece.setOrientation(Rotation.D0);
-						board.putPiece(currentPosition, currentPiece);
-				}
-				else if(currentPiece.getOrientation() == Rotation.D270) {
-					currentPiece.setOrientation(Rotation.D180);
-					board.removePiece(currentPiece);
-					if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
-						board.putPiece(currentPosition, currentPiece);
-					else
-						currentPiece.setOrientation(Rotation.D270);
-						board.putPiece(currentPosition, currentPiece);
-				}
-				else if(currentPiece.getOrientation() == Rotation.D180) {
-					currentPiece.setOrientation(Rotation.D90);
-					board.removePiece(currentPiece);
-					if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
-						board.putPiece(currentPosition, currentPiece);
-					else
-						currentPiece.setOrientation(Rotation.D180);
-						board.putPiece(currentPosition, currentPiece);
-				}
-				else {
+		if (!isCurrentPieceFixed() && !isGameEnded() && board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece)) {
+			if(currentPiece.getOrientation() == Rotation.D0) {
+				currentPiece.setOrientation(Rotation.D270);
+				board.removePiece(currentPiece);
+				if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
+					board.putPiece(currentPosition, currentPiece);
+				else
 					currentPiece.setOrientation(Rotation.D0);
-					board.removePiece(currentPiece);
-					if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
-						board.putPiece(currentPosition, currentPiece);
-					else
-						currentPiece.setOrientation(Rotation.D90);
-						board.putPiece(currentPosition, currentPiece);
-				}
+					board.putPiece(currentPosition, currentPiece);
+			}
+			else if(currentPiece.getOrientation() == Rotation.D270) {
+				currentPiece.setOrientation(Rotation.D180);
+				board.removePiece(currentPiece);
+				if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
+					board.putPiece(currentPosition, currentPiece);
+				else
+					currentPiece.setOrientation(Rotation.D270);
+					board.putPiece(currentPosition, currentPiece);
+			}
+			else if(currentPiece.getOrientation() == Rotation.D180) {
+				currentPiece.setOrientation(Rotation.D90);
+				board.removePiece(currentPiece);
+				if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
+					board.putPiece(currentPosition, currentPiece);
+				else
+					currentPiece.setOrientation(Rotation.D180);
+					board.putPiece(currentPosition, currentPiece);
+			}
+			else {
+				currentPiece.setOrientation(Rotation.D0);
+				board.removePiece(currentPiece);
+				if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece))
+					board.putPiece(currentPosition, currentPiece);
+				else
+					currentPiece.setOrientation(Rotation.D90);
+					board.putPiece(currentPosition, currentPiece);
 			}
 		}
+		
 		
 	}
 	
@@ -356,27 +369,27 @@ public class Game {
 		//new PieceFactory();
 		//currentPiece = PieceFactory.createPiece(type);
 		
-		if(isGameEnded() && nextPiece(type)) {
+		if(isGameEnded()) {
 			throw new GameEndedMovementException();
 		}
+		
 		else if (currentPiece != null && !isCurrentPieceFixed()) {
+			System.out.println("currentPiece not fixed (NEXTPIECE) ");
 			throw new CurrentPieceNotFixedException();
 		}
-		else {
-			
-			new PieceFactory();
-			currentPiece = PieceFactory.createPiece(type);
-			
-			if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece)) {
-				board.putPiece(currentPosition, currentPiece);
-				return true;
-			}
-			else {
-				gameEnded = true;
-				return false;
-			}
-		}
+					
+		new PieceFactory();
+		currentPiece = PieceFactory.createPiece(type);
 		
+		if(board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece)) {
+			board.putPiece(currentPosition, currentPiece);
+			return true;
+		}
+		else {
+			gameEnded = true;
+			return false;
+		}
+				
 	}
 	
 	/** [ENG] Method that check if the current piece is fixed or not.
@@ -390,13 +403,11 @@ public class Game {
 		if (currentPiece == null) {
 			throw new NoCurrentPieceException();
 		}
+		if(currentPiece.isFixed()) {
+			return true;
+		}
 		else {
-			if(currentPiece.isFixed()) {
-				return true;
-			}
-			else {
-				return false;
-			}
+			return false;
 		}
 	}
 	
@@ -423,7 +434,27 @@ public class Game {
 			for (int j = 0; j < board.getWidth(); j++) {
 				coords = new Coordinate(i,j);
 				if (board.getCellContent(coords) != null) {
-					boards.append("▒");
+					if (currentPiece.getBlockSymbol() == '▒') {
+						boards.append("▒");
+					}
+					else if (currentPiece.getBlockSymbol() == '◪') {
+						boards.append("◪");
+					}
+					else if (currentPiece.getBlockSymbol() == '▧') {
+						boards.append("▧");
+					}
+					else if (currentPiece.getBlockSymbol() == '▣') {
+						boards.append("▣");
+					}
+					else if (currentPiece.getBlockSymbol() == '▦') {
+						boards.append("▦");
+					}
+					else if (currentPiece.getBlockSymbol() == '▤') {
+						boards.append("▤");
+					}
+					else {
+						boards.append("◫");
+					}	
 				}
 				else
 					boards.append("·");

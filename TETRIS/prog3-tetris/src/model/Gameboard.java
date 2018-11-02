@@ -48,14 +48,14 @@ public class Gameboard {
 	 * @throws WrongSizeException 
 	 */
 	public Gameboard(Coordinate c) throws WrongSizeException {
-			
+		
+		Objects.requireNonNull(c, "Cannot be null");
+		
 		if (c.getRow() < MINIMUM_BOARD_HEIGHT || c.getColumn() < MINIMUM_BOARD_WIDTH) {
 			throw new WrongSizeException(c);
 		}
-		else {
 			height = c.getRow();
 			width = c.getColumn();
-		}
 	}
 	
 	/** [ENG] Method that insert a piece in the game board.
@@ -207,22 +207,28 @@ public class Gameboard {
 	
 	//PRACTICA 3
 	
-	private boolean isRowFull(int r) throws java.lang.IllegalArgumentException{
+	private boolean isRowFull(int r) {
 		
-		//I HAVE TO CHECK IF "R" IS INSIDE THE GAME BOARD??
+		//Checking if "r" is a valid row.
+		if (r > getHeight() || r <= -1) {
+			throw new java.lang.IllegalArgumentException();
+		}
 		
 		Coordinate coords;
+		Piece p;
 		int count = 0;
+		int i = r;
 		
 		//checking all the cells of the row (r)
-		for (int i = r; i <= r; r++) {
-			for (int j = 0; j < getWidth(); j++) {
-				coords = new Coordinate(i,j);
-				if (getCellContent(coords) != null) { //condition that check if have a piece in this coordinate and count it.
-					count += 1;
-				}
-			}
+		for (int j = 0; j < getWidth(); j++) {
+			coords = new Coordinate(i,j);
+			p = getCellContent(coords);
+			if ( p != null && p.isFixed()) { //condition that check if have a fixed piece in this coordinate and count it.
+				count += 1;
 		}
+			
+		}
+		System.out.println("COUNT: " + count);
 		if (count == getWidth()) { //condition that check if have a full row.
 			return true;
 		}
@@ -234,16 +240,26 @@ public class Gameboard {
 	
 	public int firstRowFullFromBottom() {
 		
-		if(isRowFull(getHeight())) {
-			return (getHeight() - 1);
-		}
-		else 
-			return (-1);
+		int r = getHeight();
 		
+		while (r >= 0) {
+			System.out.println("CONTANDO: " + r);
+			if(isRowFull(r)) {
+				System.out.println("TA FULL: " + (r));
+				return (r);
+			}
+			r = r-1;
+		}
+		return -1;	
 	}
 	
 	public void clearRow(int r) {
 
+		//Checking if "r" is a valid row.
+		if (r > getHeight() || r <= -1) {
+			throw new java.lang.IllegalArgumentException();
+		}
+		
 		Coordinate coords;
 		
 		for (int i = r; i<=r; i++) {
@@ -257,12 +273,29 @@ public class Gameboard {
 	
 	public void makeUpperRowsFall(int r) {
 		
+		//Checking if "r" is a valid row.
+		if (r > getHeight() || r <= -1) {
+			throw new java.lang.IllegalArgumentException();
+		}
+		
 		Coordinate coords;
+		Coordinate down = new Coordinate(1,0);
+		Piece p;
 			
-		for (int i = r; i <= r-1; i--) {
+		//for (int i = r; i < 0; i--) {
+		while (r > 0) {
+			
 			for (int j = 0; j <= getWidth(); j++) {
-				coords = new Coordinate(i,j);
+				coords = new Coordinate((r-1),j);
+				p = getCellContent(coords);
+				//System.out.println("DESCENDO A FILA " + r);
+				if ( p != null) {
+					gameboard.remove(coords, p);
+					coords = coords.add(down);
+					gameboard.put(coords, p);
+				}
 			}
+		r = r-1;
 		}
 		
 	}
@@ -274,12 +307,27 @@ public class Gameboard {
 		StringBuilder board = new StringBuilder();
 		
 		Coordinate coords;
+		Piece p;
 		
 		for (int i = 0; i < getHeight(); i++) {
 			for (int j = 0; j < getWidth(); j++) {
 				coords = new Coordinate(i,j);
-				if (getCellContent(coords) != null) {
-					board.append("▒");
+				p = getCellContent(coords);
+				if ( p != null) {
+					if (p.getBlockSymbol() == '▒')
+						board.append("▒");
+					else if (p.getBlockSymbol() == '◪')
+						board.append("◪");
+					else if (p.getBlockSymbol() == '▧')
+						board.append("▧");
+					else if (p.getBlockSymbol() == '▣')
+						board.append("▣");
+					else if (p.getBlockSymbol() == '▦')
+						board.append("▦");
+					else if (p.getBlockSymbol() == '▤')
+						board.append("▤");
+					else 
+						board.append("◫");
 				}
 				else
 					board.append("·");
