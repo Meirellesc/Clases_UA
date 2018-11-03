@@ -62,9 +62,6 @@ public class Game {
 	 */
 	public void moveCurrentPieceLeft() throws NoCurrentPieceException, GameEndedMovementException, FixedPieceMovementException, OffBoardMovementException, CollisionMovementException {
 		
-		Coordinate cadd = new Coordinate(0,-1);
-		Coordinate caux = currentPosition;
-		
 		if (currentPiece == null) { // If the first piece has not been put on the board
 			throw new NoCurrentPieceException();
 		}
@@ -74,22 +71,31 @@ public class Game {
 		else if (isCurrentPieceFixed()) {
 			throw new FixedPieceMovementException();
 		}
-		else if (!board.isPlaceValid(currentPosition, currentPiece)) { // If the new position it will be off the board
-			throw new OffBoardMovementException(currentPosition);
-		}
-		else if (!board.isPlaceFree(currentPosition, currentPiece)) { // If the new position would result in a collision with another piece 
-			throw new CollisionMovementException(currentPosition);
-		}
-		
-		board.removePiece(currentPiece);
-		currentPosition = currentPosition.add(cadd);
-		
-		if (!isCurrentPieceFixed() && !isGameEnded() && board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece)) {
-			board.putPiece(currentPosition, currentPiece);
-		}
 		else {
-			currentPosition = caux;
-			board.putPiece(currentPosition, currentPiece);
+			
+			Coordinate cadd = new Coordinate(0,-1);
+			Coordinate caux = currentPosition;
+			
+			currentPosition = currentPosition.add(cadd);
+			
+			if (!board.isPlaceValid(currentPosition, currentPiece)) { // If the new position it will be off the board
+				throw new OffBoardMovementException(currentPosition);
+			}
+			else if (!board.isPlaceFree(currentPosition, currentPiece)) { // If the new position would result in a collision with another piece
+				System.err.println("COLIDIU LEFT");
+				throw new CollisionMovementException(currentPosition);
+			}
+			
+			//currentPosition = currentPosition.add(cadd);
+			board.removePiece(currentPiece);
+			
+			if (!isCurrentPieceFixed() && !isGameEnded() && board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece)) {
+				board.putPiece(currentPosition, currentPiece);
+			}
+			else {
+				currentPosition = caux;
+				board.putPiece(currentPosition, currentPiece);
+			}
 		}
 	}
 	
@@ -104,35 +110,41 @@ public class Game {
 	 */
 	public void moveCurrentPieceRight() throws NoCurrentPieceException, GameEndedMovementException, FixedPieceMovementException, OffBoardMovementException, CollisionMovementException {
 		
-		Coordinate cadd = new Coordinate(0,1);
-		Coordinate caux = currentPosition;
-		
 		if (currentPiece == null) { // If the first piece has not been put on the board
 			throw new NoCurrentPieceException();
 		}
-		else if (isGameEnded()) {
-			throw new GameEndedMovementException();
-		}
-		else if (isCurrentPieceFixed()) {
-			throw new FixedPieceMovementException();
-		}
-		else if (!board.isPlaceValid(currentPosition, currentPiece)) { // If the new position it will be off the board
-			throw new OffBoardMovementException(currentPosition);
-		}
-		else if (!board.isPlaceFree(currentPosition, currentPiece)) { // If the new position would result in a collision with another piece 
-			throw new CollisionMovementException(currentPosition);
-		}
-		
-		board.removePiece(currentPiece);
-		currentPosition = currentPosition.add(cadd);
-		
-		if (!isCurrentPieceFixed() && !isGameEnded() && board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece)) {
-			board.putPiece(currentPosition, currentPiece);
-		}
 		else {
-			currentPosition = caux;
-			board.putPiece(currentPosition, currentPiece);
-		}		
+			Coordinate cadd = new Coordinate(0,1);
+			Coordinate caux = currentPosition;
+			
+			currentPosition = currentPosition.add(cadd);
+			
+			if (isGameEnded()) {
+				throw new GameEndedMovementException();
+			}
+			else if (isCurrentPieceFixed()) {
+				throw new FixedPieceMovementException();
+			}
+			else if (!board.isPlaceValid(currentPosition, currentPiece)) { // If the new position it will be off the board
+				throw new OffBoardMovementException(currentPosition);
+			}
+			else if (!board.isPlaceFree(currentPosition, currentPiece)) { // If the new position would result in a collision with another piece
+				System.err.println("COLIDIU RIGHT");
+				throw new CollisionMovementException(currentPosition);
+			}
+			
+			
+			board.removePiece(currentPiece);
+			//currentPosition = currentPosition.add(cadd);
+			
+			if (!isCurrentPieceFixed() && !isGameEnded() && board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece)) {
+				board.putPiece(currentPosition, currentPiece);
+			}
+			else {
+				currentPosition = caux;
+				board.putPiece(currentPosition, currentPiece);
+			}
+		}
 	}	
 	
 	/** [ENG] Method that move the piece down.
@@ -156,30 +168,38 @@ public class Game {
 			System.out.println("currentPiece fixed (DOWN)");
 			throw new FixedPieceMovementException();
 		}
-		
+				
 		Coordinate cadd = new Coordinate(1,0);
 		Coordinate csub = new Coordinate(-1,0);
 		Coordinate caux = currentPosition;
 		
-		board.removePiece(currentPiece); //remove the piece of the board.
 		currentPosition = currentPosition.add(cadd); //update the currentPosition (increasing)
+		board.removePiece(currentPiece); //remove the piece of the board.
 		
 		if (!board.isPlaceValid(currentPosition, currentPiece) || !board.isPlaceFree(currentPosition, currentPiece)) {
-			System.out.println("FIXEI!!");
+			System.out.println("FIXED!!");
 			currentPosition = currentPosition.add(csub); //update the currentPosition (decreasing).
 			board.putPiece(currentPosition, currentPiece); //put the piece updated (last position Valid or Free).
 			currentPiece.setFixed(true); //set piece Fixed.
+			
+			//Loop that occurs while the last row is full.
+			while (board.firstRowFullFromBottom() != -1) {
+				int row = board.firstRowFullFromBottom(); //receiving the last row.
+				board.clearRow(row); //erasing the last row.
+				board.makeUpperRowsFall(row); //moving all the rows down.
+			}
 		}
 		else if (board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece)) {
-			System.out.println("CAINDO!!");
+			System.out.println("FALLING!!");
 			board.putPiece(currentPosition, currentPiece); //put piece updated (the piece is falling).
 			currentPiece.setFixed(false); //set piece Not Fixed.
 		}
 		else {
-			System.out.println("NAO POSSO MAIS MAS NAO FIXEI!");
+			System.out.println("LIMIT - NOT FIXED!");
 			currentPosition = caux; //update currentPosition to original value (the piece doesn't move).
 			board.putPiece(currentPosition, currentPiece); //put the piece on the board.
 		}
+	
 			
 			
 			/*
@@ -364,11 +384,6 @@ public class Game {
 	 */
 	public boolean nextPiece(String type) throws GameEndedMovementException, CurrentPieceNotFixedException, NoCurrentPieceException {
 		
-		currentPosition = new Coordinate(0, ((board.getWidth())/2) - 2);
-		
-		//new PieceFactory();
-		//currentPiece = PieceFactory.createPiece(type);
-		
 		if(isGameEnded()) {
 			throw new GameEndedMovementException();
 		}
@@ -377,7 +392,9 @@ public class Game {
 			System.out.println("currentPiece not fixed (NEXTPIECE) ");
 			throw new CurrentPieceNotFixedException();
 		}
-					
+		
+		currentPosition = new Coordinate(0, ((board.getWidth())/2) - 2);
+		
 		new PieceFactory();
 		currentPiece = PieceFactory.createPiece(type);
 		
@@ -429,30 +446,32 @@ public class Game {
 	
 		StringBuilder boards = new StringBuilder();
 		Coordinate coords;
+		Piece p;
 		
 		for (int i = 0; i < board.getHeight(); i++) {
 			for (int j = 0; j < board.getWidth(); j++) {
 				coords = new Coordinate(i,j);
-				if (board.getCellContent(coords) != null) {
-					if (currentPiece.getBlockSymbol() == '▒') {
+				p = board.getCellContent(coords);
+				if (p != null) {
+					if (p.getBlockSymbol() == '▒') { // PIECE I
 						boards.append("▒");
 					}
-					else if (currentPiece.getBlockSymbol() == '◪') {
+					else if (p.getBlockSymbol() == '◪') { // PIECE J
 						boards.append("◪");
 					}
-					else if (currentPiece.getBlockSymbol() == '▧') {
+					else if (p.getBlockSymbol() == '▧') { // PIECE L
 						boards.append("▧");
 					}
-					else if (currentPiece.getBlockSymbol() == '▣') {
+					else if (p.getBlockSymbol() == '▣') { // PIECE O
 						boards.append("▣");
 					}
-					else if (currentPiece.getBlockSymbol() == '▦') {
+					else if (p.getBlockSymbol() == '▦') { // PIECE S
 						boards.append("▦");
 					}
-					else if (currentPiece.getBlockSymbol() == '▤') {
+					else if (p.getBlockSymbol() == '▤') { // PIECE T
 						boards.append("▤");
 					}
-					else {
+					else { // PIECE Z
 						boards.append("◫");
 					}	
 				}

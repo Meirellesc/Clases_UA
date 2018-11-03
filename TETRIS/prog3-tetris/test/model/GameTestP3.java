@@ -62,17 +62,23 @@ public class GameTestP3 {
 		for (int i=1; i<gb.getWidth(); i++)
 		gb.setCellContent(new Coordinate(gb.getHeight()-1,i), p);
 		saveGame(game);
+		
+		System.out.println(gb.toString());
+		
 		try {
 			game.nextPiece("Z");
 			saveGame(game);
+			System.out.println(gb.toString());
 			game.rotateCurrentPieceCounterclockwise();
 			saveGame(game);
+			System.out.println(gb.toString());
 			for (int i=0; i<7; i++)
 							game.moveCurrentPieceDown();
 		} catch (TetrisException e) {
 			fail("Error: se produjo la excepción "+e.getClass().getSimpleName());
 		}
 		saveGame(game);
+		System.out.println(gb.toString());
 		ps.close();
 		
 		sbIn=readSolutionFromFile("test/files/P3/testMoveCurrentPieceDown1.sol");

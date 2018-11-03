@@ -164,49 +164,43 @@ public abstract class Piece {
 		if(index == 0) {
 			for (int i = row_ini; i <= row_ini+3; i++) {
 				for(int j = column_ini; j <= column_ini+3; j++) {
-					if (getBlockSymbol() == '▒') {
+					if (getBlockSymbol() == '▒') { // PIECE I
 						if((i==row_ini+1)&&(j>=column_ini)&&(j<=column_ini+3)) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares	
 						}
 					}
-					else if(getBlockSymbol() == '◪') {
+					else if(getBlockSymbol() == '◪') { // PIECE J
 						if((i==row_ini && j==column_ini) || (i==row_ini+1 && j>=column_ini && j<=column_ini+2) ) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares
 						}
 					}
-					else if(getBlockSymbol() == '▧') {
+					else if(getBlockSymbol() == '▧') { // PIECE L
 						if((i==row_ini && j==column_ini+2) || (i==row_ini+1 && j>=column_ini && j<=column_ini+2) ) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares
 						}
 					}
-					else if(getBlockSymbol() == '▣') {
+					else if(getBlockSymbol() == '▣') { // PIECE O
 						if((i==row_ini && j>=column_ini+1 && j<=column_ini+2) || (i==row_ini+1 && j>=column_ini+1 && j<=column_ini+2) ) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares
 						}
 					}
-					else if(getBlockSymbol() == '▣') {
-						if((i==row_ini && j>=column_ini+1 && j<=column_ini+2) || (i==row_ini+1 && j>=column_ini+1 && j<=column_ini+2) ) {
-							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
-							squares.add(coords); //adding coordinates to squares
-						}
-					}
-					else if(getBlockSymbol() == '▦') {
+					else if(getBlockSymbol() == '▦') { // PIECE S
 						if((i==row_ini && j>=column_ini+1 && j<=column_ini+2) || (i==row_ini+1 && j>=column_ini && j<=column_ini+1) ) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares
 						}
 					}
-					else if(getBlockSymbol() == '▤') {
+					else if(getBlockSymbol() == '▤') { // PIECE T
 						if((i==row_ini && j==column_ini+1) || (i==row_ini+1 && j>=column_ini && j<=column_ini+2) ) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares
 						}
 					}
-					else {
+					else { // PIECE Z
 						if((i==row_ini && j>=column_ini && j<=column_ini+1) || (i==row_ini+1 && j>=column_ini+1 && j<=column_ini+2) ) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares
@@ -220,37 +214,43 @@ public abstract class Piece {
 		else if(index == 3) {
 			for (int i = row_ini; i <= row_ini+3; i++) {
 				for(int j = column_ini; j <= column_ini+3; j++) {
-					if (getBlockSymbol() == '▒') {
+					if (getBlockSymbol() == '▒') { // PIECE I
 						if((i>=row_ini)&&(i<=row_ini+3)&&(j==column_ini+1)) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares	
 						}
 					}
-					else if(getBlockSymbol() == '◪') {
+					else if(getBlockSymbol() == '◪') { // PIECE J
 						if((i>=row_ini && i<=row_ini+2 && j==column_ini+1) || (i==row_ini+2 && j==column_ini)) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares
 						}
 					}
-					else if(getBlockSymbol() == '▧') {
+					else if(getBlockSymbol() == '▧') { // PIECE L
 						if((i==row_ini && j==column_ini) || (i>=row_ini && i<=row_ini+2 && j==column_ini+1) ) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares
 						}
 					}
-					else if(getBlockSymbol() == '▦') {
+					else if(getBlockSymbol() == '▣') { // PIECE O
+						if((i==row_ini && j>=column_ini+1 && j<=column_ini+2) || (i==row_ini+1 && j>=column_ini+1 && j<=column_ini+2) ) {
+							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
+							squares.add(coords); //adding coordinates to squares
+						}
+					}
+					else if(getBlockSymbol() == '▦') { // PIECE S
 						if((i>=row_ini && i<=row_ini+1 && j==column_ini) || (i>=row_ini+1 && i<=row_ini+2 && j==column_ini+1)) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares
 						}
 					}
-					else if(getBlockSymbol() == '▤') {
+					else if(getBlockSymbol() == '▤') { // PIECE T
 						if((i>=row_ini && i<=row_ini+2 && j==column_ini+1) || (i==row_ini+1 && j==column_ini)) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares
 						}
 					}
-					else {
+					else { // PIECE Z
 						if((i>=row_ini+1 && i<=row_ini+2 && j==column_ini) || (i>=row_ini && i<=row_ini+1 && j==column_ini+1)) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares
@@ -265,43 +265,43 @@ public abstract class Piece {
 		else if(index == 2) {
 			for (int i = row_ini; i <= row_ini+3; i++) {
 				for(int j = column_ini; j <= column_ini+3; j++) {
-					if (getBlockSymbol() == '▒') {
+					if (getBlockSymbol() == '▒') { // PIECE I
 						if((i==row_ini+2)&&(j>=column_ini)&&(j<=column_ini+3)) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares	
 						}
 					}
-					else if(getBlockSymbol() == '◪') {
+					else if(getBlockSymbol() == '◪') { // PIECE J
 						if((i==row_ini+2 && j==column_ini+2) || (i==row_ini+1 && j>=column_ini && j<=column_ini+2) ) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares
 						}
 					}
-					else if(getBlockSymbol() == '▧') {
+					else if(getBlockSymbol() == '▧') { // PIECE L
 						if((i==row_ini+2 && j==column_ini) || (i==row_ini+1 && j>=column_ini && j<=column_ini+2) ) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares
 						}
 					}
-					else if(getBlockSymbol() == '▣') {
+					else if(getBlockSymbol() == '▣') { // PIECE O
 						if((i==row_ini && j>=column_ini+1 && j<=column_ini+2) || (i==row_ini+1 && j>=column_ini+1 && j<=column_ini+2) ) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares
 						}
 					}
-					else if(getBlockSymbol() == '▦') {
+					else if(getBlockSymbol() == '▦') { // PIECE S
 						if((i==row_ini+1 && j>=column_ini+1 && j<=column_ini+2) || (i==row_ini+2 && j>=column_ini && j<=column_ini+1) ) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares
 						}
 					}
-					else if(getBlockSymbol() == '▤') {
+					else if(getBlockSymbol() == '▤') { // PIECE T
 						if((i==row_ini+2 && j==column_ini+1) || (i==row_ini+1 && j>=column_ini && j<=column_ini+2) ) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares
 						}
 					}
-					else {
+					else { // PIECE Z
 						if((i==row_ini+1 && j>=column_ini && j<=column_ini+1) || (i==row_ini+2 && j>=column_ini+1 && j<=column_ini+2) ) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares
@@ -316,43 +316,43 @@ public abstract class Piece {
 		else {
 			for (int i = row_ini; i <= row_ini+3; i++) {
 				for(int j = column_ini; j <= column_ini+3; j++) {
-					if (getBlockSymbol() == '▒') {
+					if (getBlockSymbol() == '▒') { // PIECE I
 						if((i>=row_ini)&&(i<=row_ini+3)&&(j==column_ini+2)) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares	
 						}
 					}
-					else if(getBlockSymbol() == '◪') {
+					else if(getBlockSymbol() == '◪') { // PIECE J
 						if ((i>=row_ini && i<=row_ini+2 && j==column_ini+1) || (i==row_ini && j==column_ini+2)) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares	
 						}
 					}
-					else if(getBlockSymbol() == '▧') {
+					else if(getBlockSymbol() == '▧') { // PIECE L
 						if((i==row_ini+2 && j==column_ini+2) || (i>=row_ini && i<=row_ini+2 && j==column_ini+1) ) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares
 						}
 					}
-					else if(getBlockSymbol() == '▣') {
+					else if(getBlockSymbol() == '▣') { // PIECE O
 						if((i==row_ini && j>=column_ini+1 && j<=column_ini+2) || (i==row_ini+1 && j>=column_ini+1 && j<=column_ini+2) ) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares
 						}
 					}
-					else if(getBlockSymbol() == '▦') {
+					else if(getBlockSymbol() == '▦') { // PIECE S
 						if((i>=row_ini && i<=row_ini+1 && j==column_ini+1) || (i>=row_ini+1 && i<=row_ini+2 && j==column_ini+2)) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares
 						}
 					}
-					else if(getBlockSymbol() == '▤') {
+					else if(getBlockSymbol() == '▤') { // PIECE T
 						if((i>=row_ini && i<=row_ini+2 && j==column_ini+1) || (i==row_ini+1 && j==column_ini+2)) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares
 						}
 					}
-					else {
+					else { // PIECE Z
 						if((i>=row_ini+1 && i<=row_ini+2 && j==column_ini+1) || (i>=row_ini && i<=row_ini+1 && j==column_ini+2)) {
 							coords = new Coordinate(i,j); //getting the coordinates that will be occupied by D0
 							squares.add(coords); //adding coordinates to squares

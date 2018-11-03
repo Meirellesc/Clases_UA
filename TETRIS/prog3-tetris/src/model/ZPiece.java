@@ -36,8 +36,8 @@ public class ZPiece extends Piece {
 	}
 	
 	@Override
-	public IPiece copy() {
-		IPiece p = new IPiece();
+	public ZPiece copy() {
+		ZPiece p = new ZPiece();
 		p.copyAttributes(this);
 		return p;
 	}

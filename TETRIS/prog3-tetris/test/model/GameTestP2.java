@@ -302,27 +302,35 @@ public class GameTestP2 {
 		gameMiniTest.moveCurrentPieceDown();
 		gameMiniTest.moveCurrentPieceDown();
 		assertTrue(gameMiniTest.isCurrentPieceFixed());
-			
+		
+		System.out.println(gameMiniTest.toString());
+		
 		ps = openFileForWritingStudentOutput("test/files/P2/movecurrentpieceleft2.alu");
 		//Probamos ahora con una nueva pieza
 		saveGame(gameMiniTest);
 		gameMiniTest.nextPiece("I");
 		saveGame(gameMiniTest);
+		System.out.println(gameMiniTest.toString());
 		gameMiniTest.rotateCurrentPieceCounterclockwise();
 		saveGame(gameMiniTest);
+		System.out.println(gameMiniTest.toString());
 		try {
 			gameMiniTest.moveCurrentPieceLeft(); //no debe moverse
 		} catch (CollisionMovementException e) {
 			
 		}
+		System.out.println(gameMiniTest.toString());
 		saveGame(gameMiniTest);
-		gameMiniTest.moveCurrentPieceDown(); //bajamos pieza
+		gameMiniTest.moveCurrentPieceRight(); 
+		//gameMiniTest.moveCurrentPieceDown(); //bajamos pieza
 		saveGame(gameMiniTest);
+		System.out.println(gameMiniTest.toString());
 		try {
 		gameMiniTest.moveCurrentPieceLeft(); //no debe moverse
 		} catch (CollisionMovementException e){
 			
 		}
+		System.out.println(gameMiniTest.toString());
 		saveGame(gameMiniTest);
 		try {
 			gameMiniTest.rotateCurrentPieceCounterclockwise(); //no debe girar
@@ -330,8 +338,10 @@ public class GameTestP2 {
 			
 		}
 		saveGame(gameMiniTest);
+		System.out.println("ANTES DOWN\n" + gameMiniTest.toString());
 		gameMiniTest.moveCurrentPieceDown(); //bajamos pieza
 		saveGame(gameMiniTest);
+		System.out.println("DESPUÉS DOWN\n" + gameMiniTest.toString());
 		try {
 			gameMiniTest.moveCurrentPieceLeft(); //no debe moverse
 		}catch (CollisionMovementException e) {
@@ -772,16 +782,16 @@ public class GameTestP2 {
 		
 		//I INVERTED THE ROTATES AND WORKS
 		try {
-		gameMiniTest.rotateCurrentPieceClockwise(); //No se puede
-		System.out.println("NO PUEDE CLK: \n" + gameMiniTest.toString());	
 		gameMiniTest.rotateCurrentPieceCounterclockwise(); //No se puede
 		System.out.println("NO PUEDE COUNTERCLK: \n" + gameMiniTest.toString());
+		gameMiniTest.rotateCurrentPieceClockwise(); //No se puede
+		System.out.println("NO PUEDE CLK: \n" + gameMiniTest.toString());
 		} catch (CollisionMovementException e){
 			
 		}
 		saveGame(gameMiniTest);
 		gameMiniTest.moveCurrentPieceRight();
-		//System.out.println("PIEZA 6 RIGHT: \n" + gameMiniTest.toString());
+		System.out.println("PIEZA 6 RIGHT: \n" + gameMiniTest.toString());
 		saveGame(gameMiniTest);
 		gameMiniTest.rotateCurrentPieceCounterclockwise(); //No se puede
 		System.out.println("PIEZA 6 COUNTERCLK: \n" + gameMiniTest.toString());

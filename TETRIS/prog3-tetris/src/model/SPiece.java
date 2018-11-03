@@ -36,8 +36,8 @@ public class SPiece extends Piece {
 	}
 	
 	@Override
-	public IPiece copy() {
-		IPiece p = new IPiece();
+	public SPiece copy() {
+		SPiece p = new SPiece();
 		p.copyAttributes(this);
 		return p;
 	}

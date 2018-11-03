@@ -17,6 +17,11 @@ import org.junit.Test;
  *  
  */
 
+/**
+ * 
+ * @author Lucas Meirelles
+ *
+ */
 public class GameExceptionsTestP3 {
 
 	Game g, g1;
@@ -78,8 +83,17 @@ public class GameExceptionsTestP3 {
 		// TODO: sin colocar ninguna pieza en g1, invoca todos los métodos que mueven
 		// o rotan la pieza actual y comprueba que lanzan las excepciones correctas.
 
-		fail("¡Completa el test!");
-
+		try {
+			g1.moveCurrentPieceLeft();
+			g1.moveCurrentPieceRight();
+			g1.moveCurrentPieceDown();
+			g1.rotateCurrentPieceClockwise();
+			g1.rotateCurrentPieceCounterclockwise();
+		} catch (NoCurrentPieceException e){
+			assertNotNull(e.getMessage());
+		} catch (Exception e) {
+			fail ("Error: se lanzó la excepción "+e.getClass().getSimpleName());
+		}
 	}
 	
 	/*Excepcion GameEndedMovementException al mover o rotar en partida acabada.
@@ -115,8 +129,38 @@ public class GameExceptionsTestP3 {
 		}
 
 		// TODO: repite lo anterior con los otros movimientos y rotaciones.
-
-		fail("¡Completa el test!");
+		try {
+			g1.moveCurrentPieceLeft();
+			fail("Error: no se lanzó la excepción GameEndedMovementException");
+		} catch (GameEndedMovementException e) {
+			assertNotNull(e.getMessage());
+		} catch (TetrisException e) {
+			fail ("Error: se lanzó la excepción "+e.getClass().getSimpleName());
+		}
+		try {
+			g1.moveCurrentPieceRight();
+			fail("Error: no se lanzó la excepción GameEndedMovementException");
+		} catch (GameEndedMovementException e) {
+			assertNotNull(e.getMessage());
+		} catch (TetrisException e) {
+			fail ("Error: se lanzó la excepción "+e.getClass().getSimpleName());
+		}
+		try {
+			g1.rotateCurrentPieceClockwise();
+			fail("Error: no se lanzó la excepción GameEndedMovementException");
+		} catch (GameEndedMovementException e) {
+			assertNotNull(e.getMessage());
+		} catch (TetrisException e) {
+			fail ("Error: se lanzó la excepción "+e.getClass().getSimpleName());
+		}
+		try {
+			g1.rotateCurrentPieceCounterclockwise();
+			fail("Error: no se lanzó la excepción GameEndedMovementException");
+		} catch (GameEndedMovementException e) {
+			assertNotNull(e.getMessage());
+		} catch (TetrisException e) {
+			fail ("Error: se lanzó la excepción "+e.getClass().getSimpleName());
+		}
 
 		
 	}
@@ -140,8 +184,18 @@ public class GameExceptionsTestP3 {
 		
 		// TODO: comprueba que se lanza las excepción correcta al intentar mover o rotar
 		// la pieza actual.
-
-		fail("¡Completa el test!");
+		try {
+			g1.moveCurrentPieceDown();
+			g1.moveCurrentPieceLeft();
+			g1.moveCurrentPieceRight();
+			g1.rotateCurrentPieceClockwise();
+			g1.rotateCurrentPieceCounterclockwise();
+		} catch (FixedPieceMovementException e) {
+			assertNotNull(e.getMessage());
+		} catch (TetrisException e) {
+			fail ("Error: Se lanzó la excepción "+e.getClass().getSimpleName());
+		}
+		
 
 	}
 
@@ -157,8 +211,7 @@ public class GameExceptionsTestP3 {
 			for (int i=0; i<3; i++) { 
 				g1.moveCurrentPieceRight(); 
 				g1.moveCurrentPieceDown();
-			} 
-			
+			}
 			g1.nextPiece("Z");
 			g1.rotateCurrentPieceCounterclockwise();
 			for (int i=0; i<3; i++) g1.moveCurrentPieceRight(); 
@@ -170,7 +223,7 @@ public class GameExceptionsTestP3 {
 		try {
 			g1.moveCurrentPieceRight(); //debe lanzar excepción
 			fail("Error: no se lanzó la excepción OffBoardMovementException");
-		} catch (OffBoardMovementException  e) {
+		} catch (OffBoardMovementException e) { //OffBoardMovementException  e) {
 			assertNotNull(e.getMessage());
 		} catch (TetrisException e) {
 			fail ("Error: se lanzó la excepción "+e.getClass().getSimpleName());
@@ -248,8 +301,39 @@ public class GameExceptionsTestP3 {
 		// TODO: coloca un par de piezas y ve moviéndolas hasta que caigan al fondo del tablero
 		// y queden fijas; a continuación mueve y rota la pieza actual y comprueba que se lanza
 		// CollisionMovementException y no otra excepción.
-
-		fail("¡Completa el test!");	
+		try {
+			//ADDING THE FISRT PIECE AND FIXING IT.
+			g1.nextPiece("Z");
+			g1.rotateCurrentPieceCounterclockwise();
+			//Bajamos la pieza a la parte inferior derecha del tablero
+			for (int i=0; i<3; i++) { 
+				g1.moveCurrentPieceRight(); 
+				g1.moveCurrentPieceDown();
+			}
+			//ADDING THE SECOND PIECE AND FIXING IT.
+			g1.nextPiece("S");
+			g1.rotateCurrentPieceClockwise();
+			g1.moveCurrentPieceLeft();
+			for (int i=0; i<3; i++) g1.moveCurrentPieceDown();
+			
+			//ADDING THE THIRD PIECE.
+			g1.nextPiece("T");
+			g1.moveCurrentPieceRight();
+			g1.moveCurrentPieceDown();
+		} catch (TetrisException e) {
+			fail("Error: se lanzó la excepción "+e.getClass().getSimpleName());
+		}
+		
+		try {
+			g1.moveCurrentPieceRight();
+			g1.moveCurrentPieceLeft();
+			g1.rotateCurrentPieceClockwise();
+			g1.rotateCurrentPieceCounterclockwise();
+		} catch (CollisionMovementException e) {
+			assertNotNull(e.getMessage());
+		} catch (TetrisException e) {
+			fail("Error: se lanzó la excepción "+e.getClass().getSimpleName());
+		}
 	}	
 	
 	/* Excepciones CurrentPieceNotFixedException y GameEndedMovementException
@@ -260,11 +344,7 @@ public class GameExceptionsTestP3 {
 		try {
 			g1.nextPiece("I");
 			g1.rotateCurrentPieceClockwise();
-			System.out.println("G1: \n" + g1.toString());
 			g1.moveCurrentPieceDown(); //No está fija
-			
-			System.out.println("G1: \n" + g1.toString());
-	
 		} catch (TetrisException e) {
 			fail ("Error: se lanzó la excepción "+e.getClass().getSimpleName());
 		}
@@ -278,17 +358,10 @@ public class GameExceptionsTestP3 {
 			fail ("Error: se lanzó la excepción "+e.getClass().getSimpleName());
 		}
 		
-			
-			
 		try {
-			//IF I GO DOWN ONE MORE TIME WORKS
-			//g1.moveCurrentPieceDown();
 			g1.moveCurrentPieceDown(); //Fijamos la pieza
-			System.out.println("G1 DOWN: \n" + g1.toString());
 			g1.nextPiece("I"); //Se acaba la partida
-			System.out.println("G1 NEW PIECE: \n" + g1.toString());
 		} catch (TetrisException e) {
-			System.out.println("ERROU!!");
 			fail ("Error: se lanzó la excepción "+e.getClass().getSimpleName());
 		} 
 		
@@ -300,8 +373,11 @@ public class GameExceptionsTestP3 {
 	public void testGame_isCurrentPieceFixedException() {
 
 		// TODO: escribe pruebas para comprobar que se lanza correctamente NoCurrentPieceException
-
-		fail("¡Completa el test!");	
-		
+		try {
+			g1.isCurrentPieceFixed();
+			fail ("Error: no se lanzó la excepción NoCurrentPieceException");
+		} catch (NoCurrentPieceException e) {
+			assertNotNull(e.getMessage());
+		}
 	}
 }
