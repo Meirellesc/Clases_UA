@@ -101,8 +101,21 @@ public class GameTestP3 {
 		// tipo I para que caiga por la primera columna de forma que haga que se llenen y borren las 4 líneas
 		// del fondo del tablero.
 		
-		fail("¡Completa el test!");
-
+		try {
+			game.nextPiece("I");
+			saveGame(game);
+			game.rotateCurrentPieceCounterclockwise();
+			saveGame(game);
+			game.moveCurrentPieceLeft();
+			saveGame(game);
+			for(int i = 0; i<= 5; i++) {
+				game.moveCurrentPieceDown();
+				saveGame(game);
+			}
+		} catch (TetrisException e) {
+			fail("Error: se lanzo una excepción"); 
+		}
+		
 		ps.close();
 		
 		sbIn=readSolutionFromFile("test/files/P3/testMoveCurrentPieceDown2.sol");
@@ -179,12 +192,25 @@ public class GameTestP3 {
 			gb.setCellContent(new Coordinate(6,1), p[3]);
 			gb.setCellContent(new Coordinate(4,4), p[5]);
 			saveGame(game);
-
+			
 			// TODO: reproduce la partida del fichero P3/testMoveCurrentPieceDown5.sol; mueve una pieza de
 			// tipo I para que caiga por la primera columna de forma que haga que se llenen 2 líneas
 			// y caigan las de arriba.
 			
-			fail("¡Completa el test!");
+			try {
+				game.nextPiece("I");
+				saveGame(game);
+				game.rotateCurrentPieceCounterclockwise();
+				saveGame(game);
+				game.moveCurrentPieceLeft();
+				saveGame(game);
+				for (int i = 0; i<= 3;i++) {
+					game.moveCurrentPieceDown();
+					saveGame(game);
+				}
+			} catch(TetrisException e) {
+				fail("Error: se lanzo alguna excepción!");
+			}
 			
 			ps.close();
 			
@@ -241,7 +267,20 @@ public class GameTestP3 {
 			// tipo I para que caiga por la primera columna de forma que haga que se llenen 3 líneas
 			// y caigan las de arriba.
 			
-			fail("¡Completa el test!");
+			try {
+				game.nextPiece("I");
+				saveGame(game);
+				game.rotateCurrentPieceCounterclockwise();
+				saveGame(game);
+				game.moveCurrentPieceLeft();
+				saveGame(game);
+				for(int i=0; i<=5; i++) {
+					game.moveCurrentPieceDown();
+					saveGame(game);
+				}
+			} catch(TetrisException e) {
+				fail("Error: se lanzo alguna excepción!");
+			}
 			
 			ps.close();
 			
@@ -367,11 +406,149 @@ public class GameTestP3 {
 		gb.setCellContent(new Coordinate(8,0), piece);
 		saveGame(game);
 		
+		System.out.println(gb.toString());
 		// TODO: completar este test te puede llevar más tiempo que otros de esta práctica; 
 		// reproduce la partida de P3/testPartida2.sol.
 		
-		fail("¡Completa el test!");
-		
+		try {
+			game.nextPiece("L");
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			System.err.println(gb.toString());
+			for(int i=0; i<=7; i++) { //SS
+				game.moveCurrentPieceDown();
+			}
+			game.nextPiece("T");
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			for(int i=0; i<=5; i++) {//SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			game.moveCurrentPieceDown();
+			saveGame(game);
+			game.nextPiece("O");
+			saveGame(game);
+			game.moveCurrentPieceLeft(); //SS
+			for(int i=0; i<=6; i++) {//SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			saveGame(game);
+			saveGame(game);
+			//3S
+			game.nextPiece("Z");
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			for(int i=0; i<=5; i++) {//SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			game.moveCurrentPieceDown();
+			saveGame(game);
+			game.nextPiece("J");
+			saveGame(game);
+			game.rotateCurrentPieceCounterclockwise();
+			saveGame(game);
+			for(int i=0; i<=4; i++) {//ss
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("Z");
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			for(int i=0; i<=5; i++) {//ss
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("J");
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			game.moveCurrentPieceLeft();
+			saveGame(game);
+			for(int i=0; i<=3; i++) { //ss
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("T");
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			for(int i=0; i<=3; i++) {//ss
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("I");
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			for(int i=0; i<=5; i++) {//ss
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("O");
+			saveGame(game);
+			for(int i=0; i<=5; i++) {//ss
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("T");
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			game.rotateCurrentPieceCounterclockwise();
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			for(int i=0; i<=5; i++) {//ss
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("I");
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			for(int i=0; i<=2; i++) {//ss
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("L");
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			game.moveCurrentPieceDown();
+			saveGame(game);
+			saveGame(game);
+		}catch(TetrisException e) {
+			fail("Error: se lanzo alguna excepción!!");
+		}
+		System.out.println(gb.toString());
 		ps.close();
 		
 		sbIn=readSolutionFromFile("test/files/P3/testPartida2.sol");
