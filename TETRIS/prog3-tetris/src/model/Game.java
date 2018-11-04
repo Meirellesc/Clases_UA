@@ -157,15 +157,15 @@ public class Game {
 	public void moveCurrentPieceDown() throws NoCurrentPieceException, GameEndedMovementException, FixedPieceMovementException {
 		
 		if (currentPiece == null) { // If the first piece has not been put on the board
-			System.out.println("currentPiece null (DOWN)");
+			//System.out.println("currentPiece null (DOWN)");
 			throw new NoCurrentPieceException();
 		}
 		else if (isGameEnded()) {
-			System.out.println("game over (DOWN)");
+			//System.out.println("game over (DOWN)");
 			throw new GameEndedMovementException();
 		}
 		else if (isCurrentPieceFixed()) {
-			System.out.println("currentPiece fixed (DOWN)");
+			//System.out.println("currentPiece fixed (DOWN)");
 			throw new FixedPieceMovementException();
 		}
 				
@@ -177,7 +177,7 @@ public class Game {
 		board.removePiece(currentPiece); //remove the piece of the board.
 		
 		if (!board.isPlaceValid(currentPosition, currentPiece) || !board.isPlaceFree(currentPosition, currentPiece)) {
-			System.out.println("FIXED!!");
+			//System.out.println("FIXED!!");
 			currentPosition = currentPosition.add(csub); //update the currentPosition (decreasing).
 			board.putPiece(currentPosition, currentPiece); //put the piece updated (last position Valid or Free).
 			currentPiece.setFixed(true); //set piece Fixed.
@@ -190,12 +190,12 @@ public class Game {
 			}
 		}
 		else if (board.isPlaceValid(currentPosition, currentPiece) && board.isPlaceFree(currentPosition, currentPiece)) {
-			System.out.println("FALLING!!");
+			//System.out.println("FALLING!!");
 			board.putPiece(currentPosition, currentPiece); //put piece updated (the piece is falling).
 			currentPiece.setFixed(false); //set piece Not Fixed.
 		}
 		else {
-			System.out.println("LIMIT - NOT FIXED!");
+			//System.out.println("LIMIT - NOT FIXED!");
 			currentPosition = caux; //update currentPosition to original value (the piece doesn't move).
 			board.putPiece(currentPosition, currentPiece); //put the piece on the board.
 		}

@@ -228,7 +228,6 @@ public class Gameboard {
 		}
 			
 		}
-		System.out.println("COUNT: " + count);
 		if (count == getWidth()) { //condition that check if have a full row.
 			return true;
 		}
@@ -243,9 +242,7 @@ public class Gameboard {
 		int r = getHeight();
 		
 		while (r >= 0) {
-			System.out.println("CONTANDO: " + r);
 			if(isRowFull(r)) {
-				System.out.println("TA FULL: " + (r));
 				return (r);
 			}
 			r = r-1;

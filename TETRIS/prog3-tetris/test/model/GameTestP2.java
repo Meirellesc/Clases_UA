@@ -319,10 +319,10 @@ public class GameTestP2 {
 		} catch (CollisionMovementException e) {
 			
 		}
-		System.out.println(gameMiniTest.toString());
 		saveGame(gameMiniTest);
-		gameMiniTest.moveCurrentPieceRight(); 
-		//gameMiniTest.moveCurrentPieceDown(); //bajamos pieza
+		System.out.println("BEFORE DOWN\n" + gameMiniTest.toString());
+		gameMiniTest.moveCurrentPieceDown(); //bajamos pieza
+		System.out.println("AFTER DOWN\n" + gameMiniTest.toString());
 		saveGame(gameMiniTest);
 		System.out.println(gameMiniTest.toString());
 		try {
@@ -338,10 +338,8 @@ public class GameTestP2 {
 			
 		}
 		saveGame(gameMiniTest);
-		System.out.println("ANTES DOWN\n" + gameMiniTest.toString());
 		gameMiniTest.moveCurrentPieceDown(); //bajamos pieza
 		saveGame(gameMiniTest);
-		System.out.println("DESPUÉS DOWN\n" + gameMiniTest.toString());
 		try {
 			gameMiniTest.moveCurrentPieceLeft(); //no debe moverse
 		}catch (CollisionMovementException e) {
@@ -779,6 +777,7 @@ public class GameTestP2 {
 		//System.out.println("PIEZA 6: \n" + gameMiniTest.toString());
 		
 		saveGame(gameMiniTest);
+		System.out.println("PIECE I: \n" + gameMiniTest.toString());
 		
 		//I INVERTED THE ROTATES AND WORKS
 		try {
@@ -794,19 +793,12 @@ public class GameTestP2 {
 		System.out.println("PIEZA 6 RIGHT: \n" + gameMiniTest.toString());
 		saveGame(gameMiniTest);
 		gameMiniTest.rotateCurrentPieceCounterclockwise(); //No se puede
-		System.out.println("PIEZA 6 COUNTERCLK: \n" + gameMiniTest.toString());
 		saveGame(gameMiniTest);	
 		gameMiniTest.rotateCurrentPieceClockwise(); //No se puede
-		System.out.println("PIEZA 6 CLK: \n" + gameMiniTest.toString());
 		saveGame(gameMiniTest);
 		gameMiniTest.moveCurrentPieceDown(); //Limite con las 5 piezas fijas
-		
-		System.out.println("PIEZA 6 DOWN: \n" + gameMiniTest.toString());
 		saveGame(gameMiniTest);	
 		gameMiniTest.moveCurrentPieceDown(); //Se hace fija
-		
-		System.out.println("PIEZA 6 DOWN + FIJA: \n" + gameMiniTest.toString());
-		
 		assertTrue(gameMiniTest.nextPiece("I")); //Pieza 7 limite con pieza 6
 		saveGame(gameMiniTest);
 		try {

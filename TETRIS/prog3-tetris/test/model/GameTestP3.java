@@ -7,6 +7,9 @@ import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.Scanner;
 
+import model.exceptions.CurrentPieceNotFixedException;
+import model.exceptions.GameEndedMovementException;
+import model.exceptions.NoCurrentPieceException;
 import model.exceptions.TetrisException;
 
 import org.junit.Before;
@@ -63,22 +66,17 @@ public class GameTestP3 {
 		gb.setCellContent(new Coordinate(gb.getHeight()-1,i), p);
 		saveGame(game);
 		
-		System.out.println(gb.toString());
-		
 		try {
 			game.nextPiece("Z");
 			saveGame(game);
-			System.out.println(gb.toString());
 			game.rotateCurrentPieceCounterclockwise();
 			saveGame(game);
-			System.out.println(gb.toString());
 			for (int i=0; i<7; i++)
 							game.moveCurrentPieceDown();
 		} catch (TetrisException e) {
 			fail("Error: se produjo la excepción "+e.getClass().getSimpleName());
 		}
 		saveGame(game);
-		System.out.println(gb.toString());
 		ps.close();
 		
 		sbIn=readSolutionFromFile("test/files/P3/testMoveCurrentPieceDown1.sol");
@@ -405,8 +403,7 @@ public class GameTestP3 {
 		piece.setFixed(true);
 		gb.setCellContent(new Coordinate(8,0), piece);
 		saveGame(game);
-		
-		System.out.println(gb.toString());
+	
 		// TODO: completar este test te puede llevar más tiempo que otros de esta práctica; 
 		// reproduce la partida de P3/testPartida2.sol.
 		
@@ -416,7 +413,6 @@ public class GameTestP3 {
 			game.moveCurrentPieceRight();
 			game.moveCurrentPieceRight();
 			saveGame(game);
-			System.err.println(gb.toString());
 			for(int i=0; i<=7; i++) { //SS
 				game.moveCurrentPieceDown();
 			}
@@ -544,11 +540,11 @@ public class GameTestP3 {
 			saveGame(game);
 			game.moveCurrentPieceDown();
 			saveGame(game);
-			saveGame(game);
 		}catch(TetrisException e) {
 			fail("Error: se lanzo alguna excepción!!");
 		}
-		System.out.println(gb.toString());
+		
+		saveGame(game);
 		ps.close();
 		
 		sbIn=readSolutionFromFile("test/files/P3/testPartida2.sol");
@@ -570,8 +566,188 @@ public class GameTestP3 {
 		// TODO: completar este test te puede llevar más tiempo que otros de esta práctica; 
 		// reproduce la partida de P3/testPartida3.sol.
 		
-		fail("¡Completa el test!");
-		
+		try {
+			game.nextPiece("I");
+			saveGame(game);
+			for(int i=0; i<=7; i++) { //SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("S");
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			game.moveCurrentPieceRight(); //ss
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			for(int i=0; i<=6; i++) { //SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("O");
+			saveGame(game);
+			game.moveCurrentPieceLeft();
+			saveGame(game);
+			for(int i=0; i<=7; i++) { //SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("S");
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			for(int i=0; i<=4; i++) { //SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			game.moveCurrentPieceDown();
+			saveGame(game);
+			game.nextPiece("Z");
+			saveGame(game);
+			for(int i=0; i<=5; i++) { //SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("T");
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			for(int i=0; i<=3; i++) { //SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("L");
+			saveGame(game);
+			game.rotateCurrentPieceCounterclockwise();
+			saveGame(game);
+			game.moveCurrentPieceRight(); //ss
+			game.moveCurrentPieceRight(); //ss
+			game.moveCurrentPieceRight(); 
+			saveGame(game);
+			for(int i=0; i<=3; i++) { //SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("T");
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			game.moveCurrentPieceLeft();
+			saveGame(game);
+			for(int i=0; i<=3; i++) { //SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("O");
+			saveGame(game);
+			game.moveCurrentPieceRight(); //ss
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			for(int i=0; i<=3; i++) { //SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("S");
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			for(int i=0; i<=3; i++) { //SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("Z");
+			saveGame(game);
+			game.rotateCurrentPieceCounterclockwise();
+			saveGame(game);
+			for(int i=0; i<=3; i++) { //SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("L");
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			for(int i=0; i<=2; i++) { //SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("I");
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			for(int i=0; i<=2; i++) { //SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("J");
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			game.moveCurrentPieceLeft();
+			saveGame(game);
+			for(int i=0; i<=4; i++) { //SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("L");
+			saveGame(game);
+			game.rotateCurrentPieceCounterclockwise();
+			saveGame(game);
+			game.moveCurrentPieceRight(); //ss
+			game.moveCurrentPieceRight(); //ss
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			for(int i=0; i<=4; i++) { //SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("J");
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			for(int i=0; i<=5; i++) { //SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("I");
+			saveGame(game);
+			game.rotateCurrentPieceCounterclockwise();
+			saveGame(game);
+			for(int i=0; i<=4; i++) { //SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("O");
+			saveGame(game);
+			for(int i=0; i<=2; i++) { //SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("O");
+			saveGame(game);
+			game.moveCurrentPieceDown();
+			saveGame(game);
+			game.nextPiece("I");
+		}catch(GameEndedMovementException e) {
+			assertNotNull("Se lanzo la excepción GameEndedMovementException",e);
+		}catch(TetrisException e) {
+			fail("Error: se lanzo alguna excepción!");
+		}
+		saveGame(game);
 		ps.close();
 		
 		sbIn=readSolutionFromFile("test/files/P3/testPartida3.sol");
@@ -594,8 +770,80 @@ public class GameTestP3 {
 		// TODO: completar este test te puede llevar más tiempo que otros de esta práctica; 
 		// reproduce la partida de P3/testPartida4.sol.
 		
-		fail("¡Completa el test!");
-
+		try {
+			game.nextPiece("O");
+			saveGame(game);
+			for(int i=0; i<=6; i++) { //SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("I");
+			saveGame(game);
+			game.rotateCurrentPieceCounterclockwise();
+			saveGame(game);
+			game.moveCurrentPieceLeft();
+			saveGame(game);
+			for(int i=0; i<=5; i++) { //SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("J");
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			for(int i=0; i<=4; i++) { //SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("T");
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			for(int i=0; i<=3; i++) { //SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("S");
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			game.rotateCurrentPieceClockwise();
+			saveGame(game);
+			for(int i=0; i<=2; i++) { //SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("I");
+			saveGame(game);
+			game.rotateCurrentPieceCounterclockwise();
+			saveGame(game);
+			game.moveCurrentPieceLeft();
+			saveGame(game);
+			for(int i=0; i<=1; i++) { //SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("Z");
+			saveGame(game);
+			game.moveCurrentPieceRight();
+			saveGame(game);
+			for(int i=0; i<=1; i++) { //SS
+				game.moveCurrentPieceDown();
+			}
+			saveGame(game);
+			game.nextPiece("I");
+		} catch(GameEndedMovementException e) {
+			assertNotNull("Se lanzo la excepción GameEndedMovementException", e);
+		} catch(TetrisException e) {
+			fail("Error: se lanzo alguna excepción!");
+		}
+		saveGame(game);
 		ps.close();
 		
 		sbIn=readSolutionFromFile("test/files/P3/testPartida4.sol");
