@@ -484,3 +484,21 @@ public class Game {
 	}
 	
 }
+/*
+Good evening Felipe,
+
+I have some questions about the Third Assignment, specifically in the JUnit Tests. [I'm uploading some photos to help your analysis] 
+
+1º: GameExceptionsTestP3 -> testGame_moveRotateCurrentPieceExceptions1();
+Can I do the test using one "try" for every movements or should I separate the "try" for each movement and "catch" them separately ??
+
+2º: GameTestP2 -> testMoveCurrentPieceLeft2();
+I do not  know what is happening, but I guess have a bug in the JUnit. 
+
+For example, in this test, when use "gameMiniTest.moveCurrentPieceDown();" in some part of the test (you can see better in the photo), the piece just go to the left and in a impossible way!!  I already download the tests again and update my tests, also I checked my methods a lot of times and for me its correct, because all the "P3 tests" it works normally!! 
+
+Well, if have some idea what is happening, because it is just missing this test to finish.
+
+Thank you,
+Lucas.*/
+

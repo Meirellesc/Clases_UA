@@ -89,9 +89,10 @@ public class GameExceptionsTestP3 {
 			g1.moveCurrentPieceDown();
 			g1.rotateCurrentPieceClockwise();
 			g1.rotateCurrentPieceCounterclockwise();
+			fail ("Error: no se lanzó la excepción NoCurrentPieceException");
 		} catch (NoCurrentPieceException e){
 			assertNotNull(e.getMessage());
-		} catch (Exception e) {
+		} catch (TetrisException e) {
 			fail ("Error: se lanzó la excepción "+e.getClass().getSimpleName());
 		}
 	}

@@ -303,17 +303,13 @@ public class GameTestP2 {
 		gameMiniTest.moveCurrentPieceDown();
 		assertTrue(gameMiniTest.isCurrentPieceFixed());
 		
-		System.out.println(gameMiniTest.toString());
-		
 		ps = openFileForWritingStudentOutput("test/files/P2/movecurrentpieceleft2.alu");
 		//Probamos ahora con una nueva pieza
 		saveGame(gameMiniTest);
 		gameMiniTest.nextPiece("I");
 		saveGame(gameMiniTest);
-		System.out.println(gameMiniTest.toString());
 		gameMiniTest.rotateCurrentPieceCounterclockwise();
 		saveGame(gameMiniTest);
-		System.out.println(gameMiniTest.toString());
 		try {
 			gameMiniTest.moveCurrentPieceLeft(); //no debe moverse
 		} catch (CollisionMovementException e) {
@@ -324,13 +320,11 @@ public class GameTestP2 {
 		gameMiniTest.moveCurrentPieceDown(); //bajamos pieza
 		System.out.println("AFTER DOWN\n" + gameMiniTest.toString());
 		saveGame(gameMiniTest);
-		System.out.println(gameMiniTest.toString());
 		try {
 		gameMiniTest.moveCurrentPieceLeft(); //no debe moverse
 		} catch (CollisionMovementException e){
 			
 		}
-		System.out.println(gameMiniTest.toString());
 		saveGame(gameMiniTest);
 		try {
 			gameMiniTest.rotateCurrentPieceCounterclockwise(); //no debe girar
