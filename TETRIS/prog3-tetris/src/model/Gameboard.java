@@ -35,8 +35,14 @@ public class Gameboard {
 	 */
 	private Map <Coordinate, Piece> gameboard = new HashMap <Coordinate, Piece> ();
 	
+	/**
+	 * @variable tamanyo mínimo de la altura.
+	 */
 	private final static int MINIMUM_BOARD_HEIGHT = 4;
 	
+	/**
+	 * tamanyo minímo de la anchura.
+	 */
 	private final static int MINIMUM_BOARD_WIDTH = 4;
 	
 	
@@ -205,8 +211,14 @@ public class Gameboard {
 	}
 	
 	
-	//PRACTICA 3
+	//----------PRACTICA 3----------
 	
+	/** [ENG] Method that check if the row indicated as parameter is full. 
+	 * 	[SPA] Método que verifica si la fila indicada cómo parámetro está llena.
+	 * 
+	 * @param r = row
+	 * @return true if the row is full or false if the row is not full.
+	 */
 	private boolean isRowFull(int r) {
 		
 		//Checking if "r" is a valid row.
@@ -237,6 +249,11 @@ public class Gameboard {
 			
 	}
 	
+	/** [ENG] Method that takes the value of the first full row, counting upwards up from the bottom of the board.
+	 * 	[SPA] Método que coge el valor de la primera fila llena, contando hacia arriba desde el fondo del tablero.
+	 * 
+	 * @return the number of the row.
+	 */
 	public int firstRowFullFromBottom() {
 		
 		int r = getHeight();
@@ -250,6 +267,11 @@ public class Gameboard {
 		return -1;	
 	}
 	
+	/** [ENG] Method that eliminates all the coordinates of the row put of a parameter.
+	 * 	[SPA] Método que elimina todas las coordenadas de la fila puesta cómo parámetro.
+	 * 
+	 * @param r = row.
+	 */
 	public void clearRow(int r) {
 
 		//Checking if "r" is a valid row.
@@ -268,6 +290,11 @@ public class Gameboard {
 		
 	}
 	
+	/** [ENG] Method that moves a row down all the pieces that are above the row indicated by the parameter.
+	 * 	[SPA] Método que mueve una fila hacia abajo todas las piezas que están por encima de la fila indicada por el parámetro.
+	 * 
+	 * @param r = row.
+	 */
 	public void makeUpperRowsFall(int r) {
 		
 		//Checking if "r" is a valid row.

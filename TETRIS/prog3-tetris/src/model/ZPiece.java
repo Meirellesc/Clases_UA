@@ -1,5 +1,12 @@
 package model;
 
+/**
+ * 
+ * @author Lucas Meirelles
+ * @version Oxygen 4.7
+ * @date 07/11/2018
+ *
+ */
 public class ZPiece extends Piece {
 
 	/**
@@ -28,20 +35,30 @@ public class ZPiece extends Piece {
 	    	0, 0, 0, 0 } 
 	};
 	
-	
-	
+	/** [ENG] Constructor which create a Piece Z.
+	 *  [SPA] Constructor que crea la Pieza Z.
+	 *  
+	 */
 	public ZPiece() {		
 		super();
 		blockSymbol = '◫';
 	}
 	
+	/** [ENG] Method that copy the piece Z.
+	 *  [SPA] Método que copia la pieza Z.
+	 *  
+	 */
 	@Override
 	public ZPiece copy() {
 		ZPiece p = new ZPiece();
 		p.copyAttributes(this);
 		return p;
 	}
-	
+
+	/** [ENG] Method that take the shape of piece Z.
+	 *  [SPA] Método que coge la forma de la pieza Z.
+	 *  
+	 */
 	@Override
 	protected int[][] getShape() {
 	    return shape;

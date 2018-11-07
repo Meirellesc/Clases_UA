@@ -39,20 +39,8 @@ public abstract class Piece {
 	 */
 	public Piece() {
 		fixed = false;
-		//blockSymbol = '▒';
 		orientation = Rotation.D0;
 	}
-	
-	/** [ENG] Copy constructor.
-	 *  [SPA] Constructor de copia.
-	 * 
-	 * @param p = input the piece / introduce con la pieza.
-	 */
-	/*public Piece(Piece p) {
-		fixed = p.fixed;
-		blockSymbol = p.blockSymbol;
-		orientation = p.orientation;
-	}*/
 	
 	/** [ENG] Method that check if the piece is fixed or not.
 	 *  [SPA] Método que comprueba si la pieza esta fija o no. 
@@ -365,12 +353,27 @@ public abstract class Piece {
 		return squares;		
 	}
 
-	//PRÁCTICA 3
+	//----------PRÁCTICA 3----------
 	
+	/** [ENG] Method that take the shape of a piece.
+	 *  [SPA] Método que coge la forma de una pieza.
+	 * 
+	 * @return the shape of a piece.
+	 */
 	protected abstract int[][] getShape();
 
+	/** [ENG] Method that copy a piece.
+	 *  [SPA] Método que copia una pieza.
+	 *  
+	 *  @return the copy of the piece.
+	 */
 	public abstract Piece copy();
 	
+	/** [ENG] Method that copy the values of all instance attributes declared in Piece.
+	 *  [SPA] Método que copia los valores de todos los atributos de instancia declarados en Piece.
+	 *  
+	 *  @param p = Piece.
+	 */
 	protected void copyAttributes(Piece p) {
 		fixed = p.fixed;
 		blockSymbol = p.blockSymbol;

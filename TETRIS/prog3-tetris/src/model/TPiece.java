@@ -1,5 +1,12 @@
 package model;
 
+/**
+ * 
+ * @author Lucas Meirelles
+ * @version Oxygen 4.7
+ * @date 07/11/2018
+ *
+ */
 public class TPiece extends Piece {
 
 	/**
@@ -28,13 +35,19 @@ public class TPiece extends Piece {
 	    	0, 0, 0, 0 } 
 	};
 	
-	
-	
+	/** [ENG] Constructor which create a Piece T.
+	 *  [SPA] Constructor que crea la Pieza T.
+	 *  
+	 */
 	public TPiece() {		
 		super();
 		blockSymbol = '▤';
 	}
 	
+	/** [ENG] Method that copy the piece T.
+	 *  [SPA] Método que copia la pieza T.
+	 *  
+	 */
 	@Override
 	public TPiece copy() {
 		TPiece p = new TPiece();
@@ -42,6 +55,11 @@ public class TPiece extends Piece {
 		return p;
 	}
 	
+
+	/** [ENG] Method that take the shape of piece T.
+	 *  [SPA] Método que coge la forma de la pieza T.
+	 *  
+	 */
 	@Override
 	protected int[][] getShape() {
 	    return shape;
