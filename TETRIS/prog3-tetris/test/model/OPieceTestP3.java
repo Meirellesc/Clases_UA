@@ -114,9 +114,7 @@ public class OPieceTestP3 {
 		Coordinate c1 = new Coordinate(0,0);
 		p1.setOrientation(Rotation.D90);
 		Set<Coordinate> cells = p1.getAbsoluteCells(c1);
-		System.out.println("ABS: " + p1.getAbsoluteCells(c1));
 		for (int i=0; i<4; i++){
-			System.out.println("TRUE: " + coorD90.get(i).add(c1));
 			assertTrue("Valores Absolutos celdas D90+c1", cells.contains(coorD90.get(i).add(c1)));
 		}
 		

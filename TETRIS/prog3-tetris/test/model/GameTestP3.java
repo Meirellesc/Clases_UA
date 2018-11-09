@@ -27,6 +27,11 @@ import org.junit.Test;
  *  
  */
 
+/**
+ * 
+ * @author Lucas Meirelles
+ *
+ */
 public class GameTestP3 {
     Game game;
     Piece p[];

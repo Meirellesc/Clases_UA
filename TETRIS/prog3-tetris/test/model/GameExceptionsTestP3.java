@@ -89,12 +89,21 @@ public class GameExceptionsTestP3 {
 			g1.moveCurrentPieceDown();
 			g1.rotateCurrentPieceClockwise();
 			g1.rotateCurrentPieceCounterclockwise();
-			fail ("Error: no se lanzó la excepción NoCurrentPieceException");
+			fail ("Error: no se lanzó la excepción NoCurrentPieceException o otras.");
 		} catch (NoCurrentPieceException e){
 			assertNotNull(e.getMessage());
-		} catch (TetrisException e) {
+		} catch (GameEndedMovementException e) {
+			assertNotNull(e.getMessage());
+		} catch (FixedPieceMovementException e) {
+			assertNotNull(e.getMessage());
+		} catch (OffBoardMovementException e) {
+			assertNotNull(e.getMessage());
+		} catch (CollisionMovementException e) {
+			assertNotNull(e.getMessage());
+		} catch (Exception e) {
 			fail ("Error: se lanzó la excepción "+e.getClass().getSimpleName());
 		}
+		
 	}
 	
 	/*Excepcion GameEndedMovementException al mover o rotar en partida acabada.

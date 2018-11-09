@@ -85,9 +85,6 @@ public class GameboardExceptionsTestP3 {
 					
 		try {
 			gb = new Gameboard(new Coordinate(4,4));
-			//fail("Error: no se lanzó la excepción WrongSizeException");
-		//} catch (WrongSizeException e) {
-			//assertNotNull(e.getMessage());
 		} catch (Exception e) {
 			fail ("Error: se lanzó la excepción "+e.getClass().getSimpleName());
 		}	

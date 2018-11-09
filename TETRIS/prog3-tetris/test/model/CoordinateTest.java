@@ -6,9 +6,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
-@author jgonzalo
-@date 10/09/2014
- **/
+ * 
+ * @author Lucas Meirelles
+ *
+ */
 public class CoordinateTest {
 	Coordinate c;
 	
