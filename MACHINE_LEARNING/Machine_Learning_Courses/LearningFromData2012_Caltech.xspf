@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<playlist xmlns="http://xspf.org/ns/0/" xmlns:vlc="http://www.videolan.org/vlc/playlist/ns/0/" version="1">
+	<title>Lista de reproducción</title>
+	<trackList>
+		<track>
+			<location>http://www.youtube.com/watch?v=mbyG85GZ0PI&amp;hd=1</location>
+			<title>Lecture 01 - The Learning Problem</title>
+			<creator>Yaser Abu-Mostafa</creator>
+			<album>Learning From Data - Caltech 2012</album>
+			<image>http://i2.ytimg.com/vi/mbyG85GZ0PI/default.jpg</image>
+			<duration>4887248</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>0</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://www.youtube.com/watch?v=MEG35RDD7RA&amp;hd=1</location>
+			<title>Lecture 02 - Is Learning Feasible?</title>
+			<creator>Yaser Abu-Mostafa</creator>
+			<album>Learning From Data - Caltech 2012</album>
+			<image>http://i2.ytimg.com/vi/MEG35RDD7RA/default.jpg</image>
+			<duration>4608103</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>1</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://www.youtube.com/watch?v=FIbVs5GbBlQ&amp;hd=1</location>
+			<title>Lecture 03 - The Linear Model I</title>
+			<creator>Yaser Abu-Mostafa</creator>
+			<album>Learning From Data - Caltech 2012</album>
+			<image>http://i3.ytimg.com/vi/FIbVs5GbBlQ/default.jpg</image>
+			<duration>4783516</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>2</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://www.youtube.com/watch?v=L_0efNkdGMc&amp;hd=1</location>
+			<title>Lecture 04 - Error and Noise</title>
+			<creator>Yaser Abu-Mostafa</creator>
+			<album>Learning From Data - Caltech 2012</album>
+			<image>http://i1.ytimg.com/vi/L_0efNkdGMc/default.jpg</image>
+			<duration>4701700</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>3</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://www.youtube.com/watch?v=SEYAnnLazMU&amp;hd=1</location>
+			<title>Lecture 05 - Training Versus Testing</title>
+			<creator>Yaser Abu-Mostafa</creator>
+			<album>Learning From Data - Caltech 2012</album>
+			<image>http://i4.ytimg.com/vi/SEYAnnLazMU/default.jpg</image>
+			<duration>4617246</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>4</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://www.youtube.com/watch?v=6FWRijsmLtE&amp;hd=1</location>
+			<title>Lecture 06 - Theory of Generalization</title>
+			<creator>Yaser Abu-Mostafa</creator>
+			<album>Learning From Data - Caltech 2012</album>
+			<image>http://i3.ytimg.com/vi/6FWRijsmLtE/default.jpg</image>
+			<duration>4691408</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>5</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://www.youtube.com/watch?v=Dc0sr0kdBVI&amp;hd=1</location>
+			<title>Lecture 07 - The VC Dimension</title>
+			<creator>Yaser Abu-Mostafa</creator>
+			<album>Learning From Data - Caltech 2012</album>
+			<image>http://i1.ytimg.com/vi/Dc0sr0kdBVI/default.jpg</image>
+			<duration>4410853</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>6</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://www.youtube.com/watch?v=zrEyxfl2-a8&amp;hd=1</location>
+			<title>Lecture 08 - Bias-Variance Tradeoff</title>
+			<creator>Yaser Abu-Mostafa</creator>
+			<album>Learning From Data - Caltech 2012</album>
+			<image>http://i3.ytimg.com/vi/zrEyxfl2-a8/default.jpg</image>
+			<duration>4610376</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>7</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://www.youtube.com/watch?v=qSTHZvN8hzs&amp;hd=1</location>
+			<title>Lecture 09 - The Linear Model II</title>
+			<creator>Yaser Abu-Mostafa</creator>
+			<album>Learning From Data - Caltech 2012</album>
+			<image>http://i2.ytimg.com/vi/qSTHZvN8hzs/default.jpg</image>
+			<duration>5233423</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>8</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://www.youtube.com/watch?v=Ih5Mr93E-2c&amp;hd=1</location>
+			<title>Lecture 10 - Neural Networks</title>
+			<creator>Yaser Abu-Mostafa</creator>
+			<album>Learning From Data - Caltech 2012</album>
+			<image>http://i2.ytimg.com/vi/Ih5Mr93E-2c/default.jpg</image>
+			<duration>5115767</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>9</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://www.youtube.com/watch?v=EQWr3GGCdzw&amp;hd=1</location>
+			<title>Lecture 11 - Overfitting</title>
+			<creator>Yaser Abu-Mostafa</creator>
+			<album>Learning From Data - Caltech 2012</album>
+			<image>http://i2.ytimg.com/vi/EQWr3GGCdzw/default.jpg</image>
+			<duration>4788766</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>10</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://www.youtube.com/watch?v=I-VfYXzC5ro&amp;hd=1</location>
+			<title>Lecture 12 - Regularization</title>
+			<creator>Yaser Abu-Mostafa</creator>
+			<album>Learning From Data - Caltech 2012</album>
+			<image>http://i2.ytimg.com/vi/I-VfYXzC5ro/default.jpg</image>
+			<duration>4513436</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>11</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://www.youtube.com/watch?v=o7zzaKd0Lkk&amp;hd=1</location>
+			<title>Lecture 13 - Validation</title>
+			<creator>Yaser Abu-Mostafa</creator>
+			<album>Learning From Data - Caltech 2012</album>
+			<image>http://i4.ytimg.com/vi/o7zzaKd0Lkk/default.jpg</image>
+			<duration>5171330</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>12</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://www.youtube.com/watch?v=eHsErlPJWUU&amp;hd=1</location>
+			<title>Lecture 14 - Support Vector Machines</title>
+			<creator>Yaser Abu-Mostafa</creator>
+			<album>Learning From Data - Caltech 2012</album>
+			<image>http://i2.ytimg.com/vi/eHsErlPJWUU/default.jpg</image>
+			<duration>4455104</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>13</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://www.youtube.com/watch?v=XUj5JbQihlU&amp;hd=1</location>
+			<title>Lecture 15 - Kernel Methods</title>
+			<creator>Yaser Abu-Mostafa</creator>
+			<album>Learning From Data - Caltech 2012</album>
+			<image>http://i1.ytimg.com/vi/XUj5JbQihlU/default.jpg</image>
+			<duration>4698905</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>14</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://www.youtube.com/watch?v=O8CfrnOPtLc&amp;hd=1</location>
+			<title>Lecture 16 - Radial Basis Functions</title>
+			<creator>Yaser Abu-Mostafa</creator>
+			<album>Learning From Data - Caltech 2012</album>
+			<image>http://i4.ytimg.com/vi/O8CfrnOPtLc/default.jpg</image>
+			<duration>4927842</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>15</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://www.youtube.com/watch?v=EZBUDG12Nr0&amp;hd=1</location>
+			<title>Lecture 17 - Three Learning Principles</title>
+			<creator>Yaser Abu-Mostafa</creator>
+			<album>Learning From Data - Caltech 2012</album>
+			<image>http://i2.ytimg.com/vi/EZBUDG12Nr0/default.jpg</image>
+			<duration>4577331</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>16</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://www.youtube.com/watch?v=ihLwJPHkMRY&amp;hd=1</location>
+			<title>Lecture 18 - Epilogue</title>
+			<creator>Yaser Abu-Mostafa</creator>
+			<album>Learning From Data - Caltech 2012</album>
+			<image>http://i2.ytimg.com/vi/ihLwJPHkMRY/default.jpg</image>
+			<duration>4167783</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>17</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+	</trackList>
+	<extension application="http://www.videolan.org/vlc/playlist/0">
+			<vlc:item tid="0"/>
+			<vlc:item tid="1"/>
+			<vlc:item tid="2"/>
+			<vlc:item tid="3"/>
+			<vlc:item tid="4"/>
+			<vlc:item tid="5"/>
+			<vlc:item tid="6"/>
+			<vlc:item tid="7"/>
+			<vlc:item tid="8"/>
+			<vlc:item tid="9"/>
+			<vlc:item tid="10"/>
+			<vlc:item tid="11"/>
+			<vlc:item tid="12"/>
+			<vlc:item tid="13"/>
+			<vlc:item tid="14"/>
+			<vlc:item tid="15"/>
+			<vlc:item tid="16"/>
+			<vlc:item tid="17"/>
+	</extension>
+</playlist>

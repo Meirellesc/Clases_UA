@@ -1,0 +1,1364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<playlist xmlns="http://xspf.org/ns/0/" xmlns:vlc="http://www.videolan.org/vlc/playlist/ns/0/" version="1">
+	<title>Lista de reproducción</title>
+	<trackList>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F01.1-V3-Introduction-Welcome%20%5B349787be%5D%20.mp4</location>
+			<title>[T1] Introduction - [V1] Welcome</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>414755</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>0</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F01.2-V2-Introduction-WhatIsMachineLearning%20%5B740a616f%5D%20.mp4</location>
+			<title>[T1] Introduction - [V2] What is Machine Learning?</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>434005</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>1</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F01.3-V2-Introduction-SupervisedLearning%20%5Ba5339935%5D%20.mp4</location>
+			<title>[T1] Introduction - [V3] Supervised Learning</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>749134</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>2</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F01.4-V2-Introduction-UnsupervisedLearning-FairUse%20%5B06e89390%5D%20.mp4</location>
+			<title>[T1] Introduction - [V4] Unsupervised Learning</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>853682</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>3</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F02.1-V2-LinearRegressionWithOneVariable-ModelRepresentation%20%5Bae9a08cd%5D%20.mp4</location>
+			<title>[T2] Linear Regression with one variable - [V1] Model Representation</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>490011</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>4</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F02.2-V2-LinearRegressionWithOneVariable-CostFunction%20%5B660f6a42%5D%20.mp4</location>
+			<title>[T2] Linear Regression with one variable - [V2] Cost Function</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>492287</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>5</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F02.3-V2-LinearRegressionWithOneVariable-CostFunctionIntuitionI%20%5B14f8b4c6%5D%20.mp4</location>
+			<title>[T2] Linear Regression with one variable - [V3] Cost Function: Intuition I</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>669223</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>6</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F02.4-V2-LinearRegressionWithOneVariable-CostFunctionIntuitionII%20%5Bd4dbfc6b%5D%20.mp4</location>
+			<title>[T2] Linear Regression with one variable - [V4] Cost Function: Intuition II</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>528022</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>7</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F02.5-V2-LinearRegressionWithOneVariable-GradientDescent%20%5B6567191d%5D%20.mp4</location>
+			<title>[T2] Linear Regression with one variable - [V5] Gradient Descent</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>690214</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>8</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F02.6-V2-LinearRegressionWithOneVariable-GradientDescentIntuition%20%5B745759b2%5D%20.mp4</location>
+			<title>[T2] Linear Regression with one variable - [V6] Gradient Descent Intuition</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>710903</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>9</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F02.7-V2-LinearRegressionWithOneVariable-GradientDescentForLinearRegression%20%5B1e591f9e%5D%20.mp4</location>
+			<title>[T2] Linear Regression with one variable - [V7] Gradient Descent for Linear Regression</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>620786</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>10</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F02.8-V2-What%27sNext%20%5B63b0d8fb%5D%20.mp4</location>
+			<title>[T2] Linear Regresion with one variable - [V8] What&#39;s Next</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>349902</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>11</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F03.1-V2-LinearAlgebraReview%28Optional%29-MatricesAndVectors%20%5B1ab3af94%5D%20.mp4</location>
+			<title>[T3] Linear Algebra Review - [V1] Matrices and Vectors </title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>525097</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>12</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F03.2-V2-LinearAlgebraReview%28Optional%29-AdditionAndScalarMultiplication%20%5B4025d47f%5D%20.mp4</location>
+			<title>[T3] Linear Algebra Review - [V2] Addition and Scalar Multiplication</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>413873</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>13</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F03.3-V2-LinearAlgebraReview%28Optional%29-MatrixVectorMultiplication%20%5B2680a946%5D%20.mp4</location>
+			<title>[T3] Linear Algebra Review - [V3] Matrix-Vector Multiplication</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>819177</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>14</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F03.4-V2-LinearAlgebraReview%28Optional%29-MatrixMatrixMultiplication%20%5B58f54cb9%5D%20.mp4</location>
+			<title>[T3] Linear Algebra Review - [V4] Matrix-Matrix Multiplication</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>669432</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>15</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F03.5-V2-LinearAlgebraReview%28Optional%29-MatrixMultiplicationProperties%20%5B19e69b74%5D%20.mp4</location>
+			<title>[T3] Linear Algebra Review - [V5] Matrix Multiplication Properties </title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>542326</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>16</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F03.6-V2-LinearAlgebraReview%28Optional%29-InverseAndTranspose%20%5B6ab45893%5D%20.mp4</location>
+			<title>[T3] Linear Algebra Review - [V6] Inverse and Transpose</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>672984</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>17</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F04.1-LinearRegressionWithMultipleVariables-MultipleFeatures%20%5Ba24453af%5D%20.mp4</location>
+			<title>[T4] Linear Regression with Multiple Variables - [V1] Multiple Features</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>502109</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>18</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F04.2-LinearRegressionWithMultipleVariables-GradientDescentForMultipleVariables%20%5B20fd175b%5D%20.mp4</location>
+			<title>[T4] Linear Regression with Multiple Variables - [V2] Gradient Descent for Multiple Variables</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>304623</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>19</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F04.3-LinearRegressionWithMultipleVariables-GradientDescentInPracticeIFeatureScaling%20%5Bca6f4929%5D%20.mp4</location>
+			<title>[T4] Linear Regression with Multiple Variables - [V3] Gradient Descent in Practice I: Feature Scaling</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>531993</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>20</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F04.4-LinearRegressionWithMultipleVariables-GradientDescentInPracticeIILearningRate%20%5B86a26c44%5D%20.mp4</location>
+			<title>[T4] Linear Regression with Multiple Variables - [V4] Gradient Descent in Practice II: Learning Rate</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>538425</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>21</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F04.5-LinearRegressionWithMultipleVariables-FeaturesAndPolynomialRegression%20%5Bf5001f7a%5D%20.mp4</location>
+			<title>[T4] Linear Regression with Multiple Variables - [V5] Features and Polinomial Regression</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>459268</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>22</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F04.6-V2-LinearRegressionWithMultipleVariables-NormalEquation%20%5Bfc248f4f%5D%20.mp4</location>
+			<title>[T4] Linear Regression with Multiple Variables - [V6] Normal Equation</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>977839</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>23</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F04.7-LinearRegressionWithMultipleVariables-NormalEquationNonInvertibility%28Optional%29%20%5Bd59294be%5D%20.mp4</location>
+			<title>[T4] Linear Regression with Multiple Variables - [V7] Normal Equation and Non-invertibility</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>358911</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>24</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F05.1-OctaveTutorial-BasicOperations%20%5Bf8239093%5D%20.mp4</location>
+			<title>[T5] Octave Tutorial - [V1] Basic Operations</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>839030</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>25</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F05.2-OctaveTutorial-MovingDataAround%20%5Bea2e435d%5D%20.mp4</location>
+			<title>[T5] Octave Tutorial - [V2] Moving Data Around</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>967344</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>26</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F05.3-OctaveTutorial-ComputingOnData%20%5B444d7904%5D%20.mp4</location>
+			<title>[T5] Octave Tutorial - [V3] Computing on Data</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>794936</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>27</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F05.4-OctaveTutorial-PlottingData%20%5B654f85b1%5D%20.mp4</location>
+			<title>[T5] Octave Tutorial - [V4] Plotting Data</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>578177</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>28</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F05.5-OctaveTutorial-ForWhileIfStatementsAndFunctions%20%5B59bfa638%5D%20.mp4</location>
+			<title>[T5] Octave Tutorial - [V5] For, while, if Statements and Functions</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>775919</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>29</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F05.6-OctaveTutorial-Vectorization%20%5Bafc3b723%5D%20.mp4</location>
+			<title>[T5] Octave Tutorial - [V6] Vectorization</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>828140</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>30</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F05.7-OctaveTutorial-WorkingOnAndSubmittingProgrammingExercises%20%5B0b4f8e09%5D%20.mp4</location>
+			<title>[T5] Octave Tutorial - [V7] Working on and Submitting Programming Exercises</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>213253</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>31</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F06.1-LogisticRegression-Classification%20%5B72c323a1%5D%20.mp4</location>
+			<title>[T6] Logistic Regression - [V1] Classification</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>488502</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>32</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F06.2-LogisticRegression-HypothesisRepresentation%20%5Be32ae992%5D%20.mp4</location>
+			<title>[T6] Logistic Regression - [V2] Hypothesis Representation</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>444593</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>33</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F06.3-LogisticRegression-DecisionBoundary%20%5B43ae7200%5D%20.mp4</location>
+			<title>[T6] Logistic Regression - [V3] Decision Boundary</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>889789</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>34</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F06.4-LogisticRegression-CostFunction%20%5B262bed4a%5D%20.mp4</location>
+			<title>[T6] Logistic Regression - [V4] Cost Function</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>685755</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>35</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F06.5-LogisticRegression-SimplifiedCostFunctionAndGradientDescent%20%5B4b4b3d20%5D%20.mp4</location>
+			<title>[T6] Logistic Regression - [V5] Simplified Cost Function and Gradient Descent</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>614818</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>36</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F06.6-LogisticRegression-AdvancedOptimization%20%5B31951c1a%5D%20.mp4</location>
+			<title>[T6] Logistic Regression - [V6] Advanced Optimization</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>846554</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>37</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F06.7-LogisticRegression-MultiClassClassificationOneVsAll%20%5B93f8557d%5D%20.mp4</location>
+			<title>[T6] Logistic Regression - [V7] Multiclass classification: One-vs-all</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>375281</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>38</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F07.1-Regularization-TheProblemOfOverfitting%20%5Bb0cf6d84%5D%20.mp4</location>
+			<title>[T7] Regularization - [V1] The problem of overfitting</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>582636</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>39</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F07.2-Regularization-CostFunction%20%5Bb71a1778%5D%20.mp4</location>
+			<title>[T7] Regularization - [V2] Cost Function</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>610825</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>40</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F07.3-Regularization-RegularizedLinearRegression%20%5B05c50c92%5D%20.mp4</location>
+			<title>[T7] Regularization - [V3] Regularized Linear Regression</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>640221</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>41</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F07.4-Regularization-RegularizedLogisticRegression%20%5B8337e0b5%5D%20.mp4</location>
+			<title>[T7] Regularization - [V4] Regularized Logistic Regression</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>513812</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>42</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F08.1-NeuralNetworksRepresentation-NonLinearHypotheses-new%20%5Bb7e73ec6%5D%20.mp4</location>
+			<title>[T8] Neural Networks: Representation - [V1] Non-linear Hypothesis</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>575948</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>43</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F08.2-NeuralNetworksRepresentation-NeuronsAndTheBrain%20%5B23021c25%5D%20.mp4</location>
+			<title>[T8] Neural Networks: Representation - [V2] Neurons and the Brain</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>467395</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>44</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F08.3-NeuralNetworksRepresentation-ModelRepresentationI%20%5Be89f5fed%5D%20.mp4</location>
+			<title>[T8] Neural Networks: Representation - [V3] Model Representation I</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>721189</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>45</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F08.4-NeuralNetworksRepresentation-ModelRepresentationII%20%5B4693f48e%5D%20.mp4</location>
+			<title>[T8] Neural Networks: Representation - [V4] Model Representation II</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>706003</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>46</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F08.5-NeuralNetworksRepresentation-ExamplesAndIntuitionsI%20%5B11f3cf0d%5D%20.mp4</location>
+			<title>[T8] Neural Networks: Representation - [V5] Examples and Intuitions I</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>435584</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>47</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F08.6-NeuralNetworksRepresentation-ExamplesAndIntuitionsII%20%5B59a2c8be%5D%20.mp4</location>
+			<title>[T8] Neural Networks: Representation - [V6] Examples and Intuitions II</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>620043</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>48</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F08.7-NeuralNetworksRepresentation-MultiClassClassification%20%5Bab10440f%5D%20.mp4</location>
+			<title>[T8] Neural Networks: Representation - [V7] Multi-class Classification</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>231294</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>49</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F09.1-NeuralNetworksLearning-CostFunction%20%5Bdcdf9099%5D%20.mp4</location>
+			<title>[T9] Neural Networks: Learning - [V1] Cost Function</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>403215</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>50</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F09.2-NeuralNetworksLearning-BackpropagationAlgorithm%20%5B068c1e7d%5D%20.mp4</location>
+			<title>[T9] Neural Networks: Learning - [V2] Backpropagation Algorithm</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>719308</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>51</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F09.3-NeuralNetworksLearning-BackpropagationIntuition%20%5B2234a6eb%5D%20.mp4</location>
+			<title>[T9] Neural Networks: Learning - [V3] Backpropagation Intuition</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>764192</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>52</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F09.3-NeuralNetworksLearning-ImplementationNoteUnrollingParameters%20%5Bded4d150%5D%20.mp4</location>
+			<title>[T9] Neural Networks: Learning - [V4] Implementation Note: Unrolling Parameters</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>467581</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>53</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F09.4-NeuralNetworksLearning-GradientChecking%20%5B916f58c7%5D%20.mp4</location>
+			<title>[T9] Neural Networks: Learning - [V5] Gradient Checking</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>697481</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>54</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F09.5-NeuralNetworksLearning-RandomInitialization%20%5B600478f6%5D%20.mp4</location>
+			<title>[T9] Neural Networks: Learning - [V6] Random Initialization</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>411458</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>55</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F09.7-NeuralNetworksLearning-PuttingItTogether%20%5B88017fe1%5D%20.mp4</location>
+			<title>[T9] Neural Networks: Learning - [V7] Putting it together</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>803666</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>56</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F09.8-NeuralNetworksLearning-AutonomousDrivingExample%20%5B6910bead%5D%20.mp4</location>
+			<title>[T9] Neural Networks: Learning - [V8] Autonomous Driving Example</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>390134</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>57</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F10.1-AdviceForApplyingMachineLearning-DecidingWhatToTryNext%20%5B20f70615%5D%20.mp4</location>
+			<title>[T10] Advice for Applying Machine Learning - [V1] Deciding What to Try Next</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>350529</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>58</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F10.2-AdviceForApplyingMachineLearning-EvaluatingAHypothesis%20%5B2c60faa1%5D%20.mp4</location>
+			<title>[T10] Advice for Applying Machine Learning - [V2] Evaluating a Hypothesis</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>455112</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>59</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F10.3-AdviceForApplyingMachineLearning-ModelSelectionAndTrainValidationTestSets%20%5Be9fc88b0%5D%20.mp4</location>
+			<title>[T10] Advice for Applying Machine Learning - [V3] Model Selection and Train/Validation/Test Sets</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>723256</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>60</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F10.4-AdviceForApplyingMachineLearning-DiagnosingBiasVsVariance%20%5B08943405%5D%20.mp4</location>
+			<title>[T10] Advice for Applying Machine Learning - [V4] Diagnosis Bias vs Variance</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>462333</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>61</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F10.5-AdviceForApplyingMachineLearning-RegularizationAndBiasVariance%20%5B4de9cdc9%5D%20.mp4</location>
+			<title>[T10] Advice for Applying Machine Learning - [V5] Regularization and Bias/Variance</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>680159</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>62</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F10.6-AdviceForApplyingMachineLearning-LearningCurves%20%5Bf92bfd83%5D%20.mp4</location>
+			<title>[T10] Advice for Applying Machine Learning - [V6] Learning Curves</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>713457</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>63</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F10.7-AdviceForApplyingMachineLearning-DecidingWhatToDoNextRevisited%20%5B6b8f5a3d%5D%20.mp4</location>
+			<title>[T10] Advice for Applying Machine Learning - [V7] Deciding What to Try Next (Revisited)</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>410018</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>64</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F11.1-MachineLearningSystemDesign-PrioritizingWhatToWorkOn%20%5B082377e4%5D%20.mp4</location>
+			<title>[T11] Machine Learning System Design - [V1] Prioritizing What to Work on: Spam Classification Example</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>569749</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>65</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F11.2-MachineLearningSystemDesign-ErrorAnalysis%20%5B2df3e9c6%5D%20.mp4</location>
+			<title>[T11] Machine Learning System Design - [V2] Error Analisis</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>791987</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>66</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F11.3-MachineLearningSystemDesign-ErrorMetricsForSkewedClasses%20%5B002f7781%5D%20.mp4</location>
+			<title>[T11] Machine Learning System Design - [V3] Error Metrics for Skewed Classes</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>695763</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>67</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F11.4-MachineLearningSystemDesign-TradingOffPrecisionAndRecall%20%5Bc86559c1%5D%20.mp4</location>
+			<title>[T11] Machine Learning System Design - [V4] Trading off Precision and Recall</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>845648</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>68</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F11.5-MachineLearningSystemDesign-DataForMachineLearning%20%5B80fd913a%5D%20.mp4</location>
+			<title>[T11] Machine Learning System Design - [V5] Data for Machine Learning</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>669501</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>69</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F12.1-SupportVectorMachines-OptimizationObjective%20%5Bac72aa6a%5D%20.mp4</location>
+			<title>[T12] Support Vector Machines - [V1] Optimization Objective</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>887119</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>70</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F12.2-SupportVectorMachines-LargeMarginIntuition%20%5B6bbd49bc%5D%20.mp4</location>
+			<title>[T12] Support Vector Machines - [V2] Large Margin Intuition</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>636250</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>71</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F12.3-SupportVectorMachines-MathematicsBehindLargeMarginClassificationOptional%20%5Be752ef05%5D%20.mp4</location>
+			<title>[T12] Support Vector Machines - [V3] The Mathematics Behind Large Margin Classification</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>1181780</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>72</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F12.4-SupportVectorMachines-KernelsI%20%5Bed0a2c8f%5D%20.mp4</location>
+			<title>[T12] Support Vector Machines - [V4] Kernels I</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>944751</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>73</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F12.5-SupportVectorMachines-KernelsII%20%5B3c01be3b%5D%20.mp4</location>
+			<title>[T12] Support Vector Machines - [V5] Kernels II</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>943195</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>74</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F12.6-SupportVectorMachines-UsingAnSVM%20%5B637d984c%5D%20.mp4</location>
+			<title>[T12] Support Vector Machines - [V6] Using an SVM</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>1262818</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>75</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F14.1-Clustering-UnsupervisedLearningIntroduction%20%5Bfc27d12a%5D%20.mp4</location>
+			<title>[T14] Clustering - [V1] Unsupervised Learning Introduction</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>196999</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>76</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F14.2-Clustering-KMeansAlgorithm%20%5B46416a29%5D%20.mp4</location>
+			<title>[T14] Clustering - [V2] K-Means Algorithm</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>752536</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>77</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F14.3-Clustering-OptimizationObjective%20%5B8111d4b0%5D%20.mp4</location>
+			<title>[T14] Clustering - [V3] Optimization Objective</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>424624</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>78</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F14.4-Clustering-RandomInitialization%20%5Bb43c18e2%5D%20.mp4</location>
+			<title>[T14] Clustering - [V4] Random Initialization</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>469229</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>79</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F14.5-Clustering-ChoosingTheNumberOfClusters%20%5B51618d68%5D%20.mp4</location>
+			<title>[T14] Clustering - [V5] Choosing the Number of Clusters</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>502248</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>80</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F15.1-DimensionalityReduction-MotivationIDataCompression%20%5B33089151%5D%20.mp4</location>
+			<title>[T15] Dimensionality Reduction - [V1] Motivation I: Data Compression</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>609733</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>81</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F15.2-DimensionalityReduction-MotivationIIVisualization%20%5B04aae62d%5D%20.mp4</location>
+			<title>[T15] Dimensionality Reduction - [V2] Motivation II: Data Visualization</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>327588</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>82</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F15.3-DimensionalityReduction-PrincipalComponentAnalysisProblemFormulation%20%5Bb022183f%5D%20.mp4</location>
+			<title>[T15] Dimensionality Reduction - [V3] Principal Component Analysis: Problem Formulation </title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>545600</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>83</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F15.4-DimensionalityReduction-PrincipalComponentAnalysisAlgorithm%20%5B7b04ace6%5D%20.mp4</location>
+			<title>[T15] Dimensionality Reduction - [V4] Principal Component Analysis Algorithm</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>913984</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>84</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F15.5-DimensionalityReduction-ChoosingTheNumberOfPrincipalComponents%20%5Be0424ecc%5D%20.mp4</location>
+			<title>[T15] Dimensionality Reduction - [V5] Choosing the Number of Principal Components</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>630283</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>85</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F15.6-DimensionalityReduction-ReconstructionFromCompressedRepresentation%20%5B0edcf027%5D%20.mp4</location>
+			<title>[T15] Dimensionality Reduction - [V6] Reconstruction from Compressed Representation</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>234151</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>86</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F15.7-DimensionalityReduction-AdviceForApplyingPCA%20%5B60babd1d%5D%20.mp4</location>
+			<title>[T15] Dimensionality Reduction - [V7] Advice for Applying PCA</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>768558</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>87</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F16.1-AnomalyDetection-ProblemMotivation-V1%20%5B7592356e%5D%20.mp4</location>
+			<title>[T16] Anomaly Detection - [V1] Problem Motivation</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>458246</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>88</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F16.2-AnomalyDetection-GaussianDistribution%20%5B7df43b36%5D%20.mp4</location>
+			<title>[T16] Anomaly Detection - [V2] Gaussian Distribution</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>627543</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>89</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F16.3-AnomalyDetection-Algorithm%20%5Bcc8b59b6%5D%20.mp4</location>
+			<title>[T16] Anomaly Detection - [V3] Algorithm</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>722768</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>90</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F16.4-AnomalyDetection-DevelopingAndEvaluatingAnAnomalyDetectionSystem%20%5B44bd5709%5D%20.mp4</location>
+			<title>[T16] Anomaly Detection - [V4] Developing and Evaluating an Anomaly Detection System</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>787714</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>91</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F16.5-AnomalyDetection-AnomalyDetectionVsSupervisedLearning-V1%20%5B4cfab774%5D%20.mp4</location>
+			<title>[T16] Anomaly Detection - [V5] Anomaly Detection vs Supervised Learning</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>456087</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>92</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F16.6-AnomalyDetection-ChoosingWhatFeaturesToUse%20%5Bcec1dce1%5D%20.mp4</location>
+			<title>[T16] Anomaly Detection - [V6] Choosing What Features to Use</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>737188</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>93</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F16.7-AnomalyDetection-MultivariateGaussianDistribution-OPTIONAL%20%5B970061ee%5D%20.mp4</location>
+			<title>[T16] Anomaly Detection - [V7] Multivariate Gaussian Distribution</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>825841</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>94</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F16.8-AnomalyDetection-AnomalyDetectionUsingTheMultivariateGaussianDistribution-OPTIONAL%20%5B52b190c2%5D%20.mp4</location>
+			<title>[T16] Anomaly Detection - [V8] Anomaly Detection Using Multivariate Gaussian Distribution</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>843349</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>95</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F17.1-RecommenderSystems-ProblemFormulation%20%5B98ae049f%5D%20.mp4</location>
+			<title>[T17] Recommender Systems - [V1] Problem Formulation</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>474570</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>96</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F17.2-RecommenderSystems-ContentBasedRecommendations%20%5B6b0c765d%5D%20.mp4</location>
+			<title>[T17] Recommender Systems - [V2] Content-Based Recommendations</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>871585</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>97</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F17.3-RecommenderSystems-CollaborativeFiltering-V1%20%5B3f7fe172%5D%20.mp4</location>
+			<title>[T17] Recommender Systems - [V3] Collaborative Filtering</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>614609</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>98</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F17.4-RecommenderSystems-CollaborativeFilteringAlgorithm%20%5Bc1c9aefc%5D%20.mp4</location>
+			<title>[T17] Recommender Systems - [V4] Collaborative Filtering Algorithm</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>506892</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>99</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F17.5-RecommenderSystems-VectorizationLowRankMatrixFactorization%20%5B3e267e29%5D%20.mp4</location>
+			<title>[T17] Recommender Systems - [V5] Vectorization: Low Rank Matrix Factorization</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>507914</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>100</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F17.6-RecommenderSystems-ImplementationalDetailMeanNormalization%20%5B6646a7de%5D%20.mp4</location>
+			<title>[T17] Recommender Systems - [V6] Implementation Detail: Mean Normalization</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>510816</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>101</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F18.1-LargeScaleMachineLearning-LearningWithLargeDatasets%20%5Bcb90c036%5D%20.mp4</location>
+			<title>[T18] Large Scale Machine Learning - [V1] Learning with Large Datasets</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>344979</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>102</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F18.2-LargeScaleMachineLearning-StochasticGradientDescent%20%5Ba745a8f2%5D%20.mp4</location>
+			<title>[T18] Large Scale Machine Learning - [V2] Stochastic Gradient Descent</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>799115</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>103</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F18.3-LargeScaleMachineLearning-MiniBatchGradientDescent%20%5B2f2b8e41%5D%20.mp4</location>
+			<title>[T18] Large Scale Machine Learning - [V3] Mini-batch Gradient Descent</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>377952</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>104</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F18.4-LargeScaleMachineLearning-StochasticGradientDescentConvergence%20%5B27505c90%5D%20.mp4</location>
+			<title>[T18] Large Scale Machine Learning - [V4] Stochastic Gradient Descent Convergence</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>691468</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>105</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F18.5-LargeScaleMachineLearning-OnlineLearning%20%5B2d6cb30e%5D%20.mp4</location>
+			<title>[T18] Large Scale Machine Learning - [V5] Online Learning</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>770787</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>106</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F18.6-LargeScaleMachineLearning-MapReduceAndDataParallelism%20%5B894acac6%5D%20.mp4</location>
+			<title>[T18] Large Scale Machine Learning - [V6] Map Reduce and Data Parallelism</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>848620</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>107</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F19.1-ApplicationExamplePhotoOCR-ProblemDescriptionAndPipeline%20%5Bbce7dccc%5D%20.mp4</location>
+			<title>[T19] Application Example: Photo OCR - [V1] Problem Description and Pipeline</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>422232</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>108</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F19.2-ApplicationExamplePhotoOCR-SlidingWindows%20%5Baf6fe83d%5D%20.mp4</location>
+			<title>[T19] Application Example: Photo OCR - [V2] Sliding Windows</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>879990</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>109</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F19.3-ApplicationExamplePhotoOCR-GettingLotsOfDataArtificialDataSynthesis%20%5Bafbe4358%5D%20.mp4</location>
+			<title>[T19] Application Example: Photo OCR - [V3] Getting Lots of Data: Artificial Data Synthesis</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>980022</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>110</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F19.4-ApplicationExamplePhotoOCR-CeilingAnalysisWhatPartOfThePipelineToWorkOnNext%20%5Bd450baec%5D%20.mp4</location>
+			<title>[T19] Application Example: Photo OCR - [V4] Ceiling Analysis: What Part of The Pipeline to Work on Next</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>830694</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>111</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://d396qusza40orc.cloudfront.net/ml/recoded_videos%2F20.1-Conclusion-SummaryAndThankYou%20%5B65392641%5D%20.mp4</location>
+			<title>[T20] Conclusion: Summary and Thank You</title>
+			<creator>Andrew NG</creator>
+			<album>Coursera - Stanford - ML2012</album>
+			<duration>281934</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>112</vlc:id>
+				<vlc:option>network-caching=3000</vlc:option>
+			</extension>
+		</track>
+	</trackList>
+	<extension application="http://www.videolan.org/vlc/playlist/0">
+			<vlc:item tid="0"/>
+			<vlc:item tid="1"/>
+			<vlc:item tid="2"/>
+			<vlc:item tid="3"/>
+			<vlc:item tid="4"/>
+			<vlc:item tid="5"/>
+			<vlc:item tid="6"/>
+			<vlc:item tid="7"/>
+			<vlc:item tid="8"/>
+			<vlc:item tid="9"/>
+			<vlc:item tid="10"/>
+			<vlc:item tid="11"/>
+			<vlc:item tid="12"/>
+			<vlc:item tid="13"/>
+			<vlc:item tid="14"/>
+			<vlc:item tid="15"/>
+			<vlc:item tid="16"/>
+			<vlc:item tid="17"/>
+			<vlc:item tid="18"/>
+			<vlc:item tid="19"/>
+			<vlc:item tid="20"/>
+			<vlc:item tid="21"/>
+			<vlc:item tid="22"/>
+			<vlc:item tid="23"/>
+			<vlc:item tid="24"/>
+			<vlc:item tid="25"/>
+			<vlc:item tid="26"/>
+			<vlc:item tid="27"/>
+			<vlc:item tid="28"/>
+			<vlc:item tid="29"/>
+			<vlc:item tid="30"/>
+			<vlc:item tid="31"/>
+			<vlc:item tid="32"/>
+			<vlc:item tid="33"/>
+			<vlc:item tid="34"/>
+			<vlc:item tid="35"/>
+			<vlc:item tid="36"/>
+			<vlc:item tid="37"/>
+			<vlc:item tid="38"/>
+			<vlc:item tid="39"/>
+			<vlc:item tid="40"/>
+			<vlc:item tid="41"/>
+			<vlc:item tid="42"/>
+			<vlc:item tid="43"/>
+			<vlc:item tid="44"/>
+			<vlc:item tid="45"/>
+			<vlc:item tid="46"/>
+			<vlc:item tid="47"/>
+			<vlc:item tid="48"/>
+			<vlc:item tid="49"/>
+			<vlc:item tid="50"/>
+			<vlc:item tid="51"/>
+			<vlc:item tid="52"/>
+			<vlc:item tid="53"/>
+			<vlc:item tid="54"/>
+			<vlc:item tid="55"/>
+			<vlc:item tid="56"/>
+			<vlc:item tid="57"/>
+			<vlc:item tid="58"/>
+			<vlc:item tid="59"/>
+			<vlc:item tid="60"/>
+			<vlc:item tid="61"/>
+			<vlc:item tid="62"/>
+			<vlc:item tid="63"/>
+			<vlc:item tid="64"/>
+			<vlc:item tid="65"/>
+			<vlc:item tid="66"/>
+			<vlc:item tid="67"/>
+			<vlc:item tid="68"/>
+			<vlc:item tid="69"/>
+			<vlc:item tid="70"/>
+			<vlc:item tid="71"/>
+			<vlc:item tid="72"/>
+			<vlc:item tid="73"/>
+			<vlc:item tid="74"/>
+			<vlc:item tid="75"/>
+			<vlc:item tid="76"/>
+			<vlc:item tid="77"/>
+			<vlc:item tid="78"/>
+			<vlc:item tid="79"/>
+			<vlc:item tid="80"/>
+			<vlc:item tid="81"/>
+			<vlc:item tid="82"/>
+			<vlc:item tid="83"/>
+			<vlc:item tid="84"/>
+			<vlc:item tid="85"/>
+			<vlc:item tid="86"/>
+			<vlc:item tid="87"/>
+			<vlc:item tid="88"/>
+			<vlc:item tid="89"/>
+			<vlc:item tid="90"/>
+			<vlc:item tid="91"/>
+			<vlc:item tid="92"/>
+			<vlc:item tid="93"/>
+			<vlc:item tid="94"/>
+			<vlc:item tid="95"/>
+			<vlc:item tid="96"/>
+			<vlc:item tid="97"/>
+			<vlc:item tid="98"/>
+			<vlc:item tid="99"/>
+			<vlc:item tid="100"/>
+			<vlc:item tid="101"/>
+			<vlc:item tid="102"/>
+			<vlc:item tid="103"/>
+			<vlc:item tid="104"/>
+			<vlc:item tid="105"/>
+			<vlc:item tid="106"/>
+			<vlc:item tid="107"/>
+			<vlc:item tid="108"/>
+			<vlc:item tid="109"/>
+			<vlc:item tid="110"/>
+			<vlc:item tid="111"/>
+			<vlc:item tid="112"/>
+	</extension>
+</playlist>
