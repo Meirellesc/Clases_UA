@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package model;
 
 import static org.junit.Assert.*;
@@ -10,19 +13,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-/* 
- * 
- * 
- * Los tests de esta clase son iguales a los de la práctica 2, excepto porque se ha sustituido las expresiones
- * new Piece() por new IPiece() y las llamadas al constructor de copia de Piece por llamadas al método copy.
- * No hay tests que completar en esta clase.
- * 
- * 
- */
-
-
 /**
- * @author Lucas Meirelles
+ * @author jgonzalo
  *
  */
 public class GameboardTestP2 {

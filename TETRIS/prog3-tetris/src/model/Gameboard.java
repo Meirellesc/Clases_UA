@@ -10,8 +10,6 @@ import model.exceptions.WrongSizeException;
 
 import java.util.HashSet;
 
-
-
 /**
  * 
  * @author Lucas Meirelles

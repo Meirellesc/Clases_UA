@@ -10,21 +10,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-/* 
- * 
- * 
- * Los tests de esta clase son iguales a los de la práctica 2, excepto porque se ha sustituido las expresiones
- * new Piece() por new IPiece() y las llamadas al constructor de copia de Piece por llamadas al método copy.
- * No hay tests que completar en esta clase.
- * 
- * 
- */
-
-/**
- * 
- * @author Lucas Meirelles
- *
- */
 public class PieceTestP2 {
     Piece p1;
     static ArrayList<Coordinate> coorD0, coorD90, coorD180, coorD270;

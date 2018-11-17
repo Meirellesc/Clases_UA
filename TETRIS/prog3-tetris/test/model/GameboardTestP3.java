@@ -7,24 +7,10 @@ import model.exceptions.WrongSizeException;
 import org.junit.Before;
 import org.junit.Test;
 
-/* 
- * 
- *  
- *  Busca los comentarios con la cadena "TODO" para saber qué tests has de completar. 
- *  
- *  
- */
-
-/**
- * 
- * @author Lucas Meirelles
- *
- */
 public class GameboardTestP3 {
 	Gameboard gb;
 	Piece p[],ip, jp, lp, op, sp, tp, zp;
 
-	/* Se ejecuta antes de cada test */
 	@Before
 	public void setUp() throws Exception {
 		p = new Piece[7];
@@ -37,13 +23,14 @@ public class GameboardTestP3 {
 		p[6] = PieceFactory.createPiece("Z");
 		gb = new Gameboard(new Coordinate(4,7));
 		gb = fullGameboard();
+		
+		
 	}
 
 	
 	@Test
 	public void testFirstRowFullFromBottom1() {
 		//Ninguna pieza es fija
-		
 		assertEquals(-1,gb.firstRowFullFromBottom());
 		gb.setCellContent(new Coordinate(3,6), p[6]);
 		assertEquals(-1,gb.firstRowFullFromBottom());
@@ -51,25 +38,23 @@ public class GameboardTestP3 {
 		assertEquals(-1,gb.firstRowFullFromBottom());
 		gb.setCellContent(new Coordinate(3,0), p[0]);
 		assertEquals(-1,gb.firstRowFullFromBottom());	
+		
 	}
-	
 	@Test
 	public void testFirstRowFullFromBottom2() {
 		
-		// Hacemos fijas todas las piezas:
-		for (int i=0; i<7; i++) {
+		//Hacemos fijas a todas las piezas
+		for (int i=0; i<7; i++)
 					p[i].setFixed(true);
-		}
 		
-		// TODO: ¡completa el test! Copia todas las líneas del método testFirstRowFullFromBottom1 
-		// y cambia los valores esperados de las aserciones (primer argumento) por los correctos.
 		assertEquals(-1,gb.firstRowFullFromBottom());
-		gb.setCellContent(new Coordinate(3,6), p[6]);
-		assertEquals(-1,gb.firstRowFullFromBottom());
+		gb.setCellContent(new Coordinate(0,6), p[6]);
+		assertEquals(0,gb.firstRowFullFromBottom());
 		gb.setCellContent(new Coordinate(2,0), p[0]);
 		assertEquals(2,gb.firstRowFullFromBottom());
 		gb.setCellContent(new Coordinate(3,0), p[0]);
-		assertEquals(3,gb.firstRowFullFromBottom());
+		assertEquals(3,gb.firstRowFullFromBottom());	
+		
 	}
 		
 
@@ -116,27 +101,19 @@ public class GameboardTestP3 {
 			gbaux.makeUpperRowsFall(1);
 			gbaux.makeUpperRowsFall(2);
 			gbaux.makeUpperRowsFall(3);
-			
-			// TODO: comprueba con gbaux.getCellContent que todas las filas de gbaux están vacías,
-			// excepto una de ellas (determina cuál); comprueba con gbaux.getCellContent que la fila no
-			// vacía tiene las piezas que corresponde.
-			for (int i=0; i<gbaux.getHeight(); i++) { 
+			for (int i=0; i<gbaux.getHeight(); i++) 
 				for (int j=0; j<gbaux.getWidth(); j++) {
 					c = new Coordinate(i,j);
 					if (i==3) assertEquals(p[0], gbaux.getCellContent(c));
 					else  assertNull(gbaux.getCellContent(c));
-				}		
-			}
-			
+				}	
 		} catch (WrongSizeException e) {
 			fail("Error: se lanzó la excepción "+e.getClass().getSimpleName());
 		}
 	}
 	
 	
-	// Funciones auxiliares
-	
-	/* fullGameboard rellena el tablero con diferentes tetrominos que no forman piezas válidas. */
+	//Funciones auxiliares
 	private Gameboard fullGameboard () {
 		Gameboard gb=null;
 		try {
@@ -151,7 +128,6 @@ public class GameboardTestP3 {
 		} catch (WrongSizeException e) {
 			fail("Error: se lanzó la excepción "+e.getClass().getSimpleName());
 		}
-		//System.out.println(gb.toString())
 		return gb;
 	}
 }

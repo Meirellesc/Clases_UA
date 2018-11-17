@@ -20,22 +20,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-/* 
- * 
- * 
- * Los tests de este fichero son como los de la práctica 2, excepto porque ahora se indica explícitamente 
- * que la siguiente pieza sea de tipo "I" y se rodea cada llamada a los métodos que han pasado a lanzar
- * excepciones con el try/catch correspondiente. Los ficheros con las partidas correctas se han movido 
- * a la carpeta test/files/p2. No hay tests que completar en esta clase.
- * 
- * 
- */
-
-/**
- * 
- * @author Lucas Meirelles
- *
- */
 public class GameTestP2 {
 	Game gameMinimal, gameMiniTest;
 	StringBuilder sbIn = new StringBuilder();
@@ -98,7 +82,6 @@ public class GameTestP2 {
 		assertFalse(gameMinimal.isGameEnded());	
 		gameMinimal.moveCurrentPieceDown();
 		gameMinimal.moveCurrentPieceDown();//Sacabó
-		assertFalse(gameMinimal.isCurrentPieceFixed());
 		assertFalse(gameMinimal.isGameEnded());
 		try {
 				assertFalse(gameMinimal.nextPiece("I"));
@@ -307,7 +290,7 @@ public class GameTestP2 {
 		gameMiniTest.moveCurrentPieceDown();
 		gameMiniTest.moveCurrentPieceDown();
 		assertTrue(gameMiniTest.isCurrentPieceFixed());
-		
+			
 		ps = openFileForWritingStudentOutput("test/files/P2/movecurrentpieceleft2.alu");
 		//Probamos ahora con una nueva pieza
 		saveGame(gameMiniTest);
@@ -717,6 +700,7 @@ public class GameTestP2 {
 		gameMiniTest.moveCurrentPieceDown();//Limita con el fondo del tablero
 		saveGame(gameMiniTest);
 		gameMiniTest.moveCurrentPieceDown(); //Se hace fija
+		
 		assertTrue(gameMiniTest.nextPiece("I")); //Pieza  2
 		saveGame(gameMiniTest);
 		gameMiniTest.rotateCurrentPieceCounterclockwise(); 
@@ -772,7 +756,7 @@ public class GameTestP2 {
 		gameMiniTest.moveCurrentPieceDown(); //Se hace fija*/
 		
 		assertTrue(gameMiniTest.nextPiece("I")); //Pieza 6
-		saveGame(gameMiniTest);	
+		saveGame(gameMiniTest);
 		try {
 		gameMiniTest.rotateCurrentPieceCounterclockwise(); //No se puede
 		gameMiniTest.rotateCurrentPieceClockwise(); //No se puede

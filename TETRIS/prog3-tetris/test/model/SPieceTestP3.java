@@ -10,19 +10,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-/*
- * 
- *  
- *  No hay tests que completar en esta clase.
- *  
- *  
- */
-
-/**
- * 
- * @author Lucas Meirelles
- *
- */
 public class SPieceTestP3 {
     Piece p1;
     static ArrayList<Coordinate> coorD0, coorD90, coorD180, coorD270;

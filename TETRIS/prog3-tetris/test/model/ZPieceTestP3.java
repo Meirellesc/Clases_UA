@@ -10,26 +10,11 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-/*
- * 
- * 
- * Añade los tests de esta clase inspirándote en los de la clase JPieceTestP3. Ambas clases se 
- * parecerán mucho, pero pon especial atención al método setUpBeforeClass donde sí puede haber
- * múltiples diferencias.
- * 
- * 
- */
-
-/**
- * 
- * @author Lucas Meirelles
- *
- */
 public class ZPieceTestP3 {
     Piece p1;
     static ArrayList<Coordinate> coorD0, coorD90, coorD180, coorD270;
     static String sD0, sD90, sD180, sD270;
-    static char symbol = '◪';
+    static char symbol;
     
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -38,20 +23,34 @@ public class ZPieceTestP3 {
 		coorD180 = new ArrayList<Coordinate>();
 		coorD270 = new ArrayList<Coordinate>();
 		symbol = '◫';
-		for (int i=0; i < 2; i++) {
-			coorD0.add(new Coordinate(0,i));
-			coorD0.add(new Coordinate(1,i+1));
-			coorD270.add(new Coordinate(i+1,1));
-			coorD270.add(new Coordinate(i,2));
-			coorD180.add(new Coordinate(1,i));
-			coorD180.add(new Coordinate(2,i+1));
-			coorD90.add(new Coordinate(i+1,0));
-			coorD90.add(new Coordinate(i,1));
+		for (int i=0; i < 3; i++) {
+			for (int j=0; j<3; j++)	{
+				if (i==0)
+			 	 switch (j) {
+					case 1: coorD90.add(new Coordinate(i,j));
+					case 0:	coorD0.add(new Coordinate(i,j));
+							break;
+					case 2: coorD270.add(new Coordinate(i,j)); 
+				}
+				else if (i==1)
+					switch (j) {
+					case 1: coorD0.add(new Coordinate(i,j));
+							coorD270.add(new Coordinate(i,j));
+					case 0: coorD180.add(new Coordinate(i,j));
+							coorD90.add(new Coordinate(i,j));
+							break;
+					case 2: coorD270.add(new Coordinate(i,j));
+						    coorD0.add(new Coordinate(i,j));
+					}
+				else if (i==2) {
+					coorD90.add(new Coordinate(i,0));
+					coorD270.add(new Coordinate(i,1));
+					coorD180.add(new Coordinate(i,1));
+					coorD180.add(new Coordinate(i,2));
+					        
+				}
+			}
 		}
-		coorD0.add(new Coordinate(0,2));
-		coorD270.add(new Coordinate(2,2));
-		coorD180.add(new Coordinate(2,0));
-		coorD90.add(new Coordinate(0,0));
 		
 		 sD0 = "◫◫··\n·◫◫·\n····\n····\n";
 		 sD270 = "··◫·\n·◫◫·\n·◫··\n····\n";
@@ -79,7 +78,7 @@ public class ZPieceTestP3 {
 		assertEquals("Symbol == "+symbol,symbol,p1.getBlockSymbol());
 	}
 
-	//Test  copia de ZPieza
+	//Test  copia de JPieza
 	@Test
 	public void testCopyZPiece1() {
 		Piece p = p1.copy();
@@ -101,7 +100,7 @@ public class ZPieceTestP3 {
 		assertNotSame("p != p1",p1,p);
 		assertEquals("Orientacion==D270",Rotation.D270, p.getOrientation());
 		assertTrue("fixed == false",p.isFixed());
-		assertEquals("Symbol == ◫",'◫',p.getBlockSymbol());
+		assertEquals("Symbol == "+symbol,symbol,p.getBlockSymbol());
 		
 	}
 	
@@ -155,13 +154,14 @@ public class ZPieceTestP3 {
 	//Test toString para Todas rotaciones
 	@Test
 	public void testToStringRotations() {
+		
 		assertEquals("D0 toString",sD0,p1.toString());
-		p1.rotateCounterclockwise();
-		assertEquals("D90 toString",sD90,p1.toString());
-		p1.rotateCounterclockwise();
+		p1.rotateClockwise();
+		assertEquals("D270 toString",sD270,p1.toString());		
+		p1.rotateClockwise();
 		assertEquals("D180 toString",sD180,p1.toString());
-		p1.rotateCounterclockwise();
-		assertEquals("D270 toString",sD270,p1.toString());
+		p1.rotateClockwise();
+		assertEquals("D90 toString",sD90,p1.toString());
+		
 	}
 }
-

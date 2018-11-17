@@ -6,11 +6,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-/**
- * 
- * @author Lucas Meirelles
- *
- */
 public class PieceFactoryTestP3 {
 
 	@BeforeClass

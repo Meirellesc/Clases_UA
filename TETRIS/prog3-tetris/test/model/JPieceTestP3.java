@@ -10,19 +10,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-/*
- * 
- *  
- *  No hay tests que completar en esta clase.
- *  
- *  
- */
-
-/**
- * 
- * @author Lucas Meirelles
- *
- */
 public class JPieceTestP3 {
     Piece p1;
     static ArrayList<Coordinate> coorD0, coorD90, coorD180, coorD270;
@@ -36,7 +23,7 @@ public class JPieceTestP3 {
 		coorD180 = new ArrayList<Coordinate>();
 		coorD270 = new ArrayList<Coordinate>();
 		symbol = '◪';
-		for (int i=0; i <3; i++) {
+		for (int i=0; i < 3; i++) {
 			coorD0.add(new Coordinate(1,i));
 			coorD270.add(new Coordinate(i,1));
 			coorD180.add(new Coordinate(1,i));
@@ -103,7 +90,7 @@ public class JPieceTestP3 {
 	@Test
 	public void testGetAbsoluteCellsD0() {
 		Coordinate c1 = new Coordinate(13,27);
-		Set<Coordinate> cells = p1.getAbsoluteCells(c1);	
+		Set<Coordinate> cells = p1.getAbsoluteCells(c1);
 		for (int i=0; i<4; i++){
 			assertTrue("Valores Absolutos celdas D0+c1", cells.contains(coorD0.get(i).add(c1)));
 		}

@@ -10,26 +10,11 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-/*
- * 
- * 
- * Añade los tests de esta clase inspirándote en los de la clase JPieceTestP3. Ambas clases se 
- * parecerán mucho, pero pon especial atención al método setUpBeforeClass donde sí puede haber
- * múltiples diferencias.
- * 
- * 
- */
-
-/**
- * 
- * @author Lucas Meirelles
- *
- */
 public class LPieceTestP3 {
     Piece p1;
     static ArrayList<Coordinate> coorD0, coorD90, coorD180, coorD270;
     static String sD0, sD90, sD180, sD270;
-    static char symbol = '◪';
+    static char symbol;
     
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -38,7 +23,7 @@ public class LPieceTestP3 {
 		coorD180 = new ArrayList<Coordinate>();
 		coorD270 = new ArrayList<Coordinate>();
 		symbol = '▧';
-		for (int i=0; i <3; i++) {
+		for (int i=0; i < 3; i++) {
 			coorD0.add(new Coordinate(1,i));
 			coorD270.add(new Coordinate(i,1));
 			coorD180.add(new Coordinate(1,i));
@@ -68,16 +53,16 @@ public class LPieceTestP3 {
 
 	//Test del constructor por defecto de Pieza.
 	@Test
-	public void testLPiece() {
+	public void testJPiece() {
 		assertNotNull("P no es null",p1);
 		assertEquals("Orientacion==D0",Rotation.D0, p1.getOrientation());
 		assertFalse("fixed == false",p1.isFixed());
 		assertEquals("Symbol == "+symbol,symbol,p1.getBlockSymbol());
 	}
 
-	//Test  copia de LPieza
+	//Test  copia de JPieza
 	@Test
-	public void testCopyLPiece1() {
+	public void testCopyJPiece1() {
 		Piece p = p1.copy();
 		assertNotNull("P no es null",p);
 		assertNotSame("p != p1",p1,p);
@@ -89,7 +74,7 @@ public class LPieceTestP3 {
 
 	//Test copia de una Pieza previamente modificada.
 	@Test
-	public void testCopyLPiece2() {
+	public void testCopyJPiece2() {
 		p1.setOrientation(Rotation.D270);
 		p1.setFixed(true);
 		Piece p = p1.copy();
@@ -97,7 +82,7 @@ public class LPieceTestP3 {
 		assertNotSame("p != p1",p1,p);
 		assertEquals("Orientacion==D270",Rotation.D270, p.getOrientation());
 		assertTrue("fixed == false",p.isFixed());
-		assertEquals("Symbol == ▧",'▧',p.getBlockSymbol());
+		assertEquals("Symbol == "+symbol,symbol,p.getBlockSymbol());
 		
 	}
 	
@@ -157,7 +142,6 @@ public class LPieceTestP3 {
 		p1.rotateCounterclockwise();
 		assertEquals("D180 toString",sD180,p1.toString());
 		p1.rotateCounterclockwise();
-		assertEquals("D270 toString",sD270,p1.toString());
+		assertEquals("D270 toString",sD270,p1.toString());		
 	}
 }
-

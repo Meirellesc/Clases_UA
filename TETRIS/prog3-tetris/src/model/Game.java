@@ -439,7 +439,8 @@ public class Game {
 	 * 
 	 * @return the game board.
 	 */
-	protected Gameboard getGameboard() {
+	//protected Gameboard getGameboard() {
+	public Gameboard getGameboard() {
 		return board;
 	}
 
