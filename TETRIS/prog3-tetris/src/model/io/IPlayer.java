@@ -1,5 +1,7 @@
 package model.io;
 
+import java.io.FileNotFoundException;
+
 import model.exceptions.io.TetrisIOException;
 
 /**
@@ -30,5 +32,5 @@ public interface IPlayer {
 	
 	public static final String VALID_MOVES = "IJLOSTZ↻↺→←↓";
 	
-	public char nextMove() throws TetrisIOException;
+	public char nextMove() throws TetrisIOException, FileNotFoundException;
 }
