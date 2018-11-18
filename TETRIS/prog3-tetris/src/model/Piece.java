@@ -75,7 +75,7 @@ public abstract class Piece {
 	 * @param r = input the orientation. / ingresa con la orientación.
 	 */
 	public void setOrientation(Rotation r) {
-		this.orientation = Objects.requireNonNull(orientation, "El parametro 'orientation' no puede ser null");
+		r = Objects.requireNonNull(r, "El parametro 'orientation (r)' no puede ser null");
 		
 		orientation =  r;
 	}

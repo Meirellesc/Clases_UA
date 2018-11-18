@@ -1,5 +1,8 @@
 package mains;
 
+import java.io.FileNotFoundException;
+
+import model.exceptions.WrongSizeException;
 import model.exceptions.io.TetrisIOException;
 import model.io.GamePlay;
 import model.io.IVisualizer;
@@ -9,15 +12,18 @@ import model.io.PlayerFactory;
 
 public class Main4 {
 
-	public static void main(String[] args) throws TetrisIOException {
+	//=====================CHANGED!!!=====================> "FILENOTFOUNDWXCEPTION"
+	
+	public static void main(String[] args) throws TetrisIOException, FileNotFoundException, WrongSizeException {
 		String output= "console";
+		//String output= "window";
 
 		playTheGame("2001", output);
-		playTheGame("Iâ†“â†“â†“â†ºâ†’â†’â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“Tâ†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“", output);
-		playTheGame("Iâ†ºâ†’â†»â†’â†’â†’â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“Iâ†â†â†â†â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“"
-				+ "Iâ†ºâ†’â†»â†’â†’â†’â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“Iâ†â†â†â†â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“"
-		//		+ "Iâ†â†â†â†â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“Oâ†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“", output); //main en svn
-			+ "Oâ†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“â†“", output); // main en wiki
+		playTheGame("I↓↓↓↺→→↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓T↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓", output);
+		playTheGame("I↺→↻→→→↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓I←←←←↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓"
+				+ "I↺→↻→→→↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓I←←←←↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓"
+		//		+ "I←←←←↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓O↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓", output); //main en svn
+			+ "O↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓", output); // main en wiki
 
 		playTheGame("players/player1.txt", output);
 
@@ -28,8 +34,9 @@ public class Main4 {
 		// playTheGame("", output);
 	}
 
+	//=====================CHANGED!!!=====================> "FILENOTFOUNDWXCEPTION"
 	static void playTheGame(String input, String output)
-			throws TetrisIOException {
+			throws TetrisIOException, FileNotFoundException, WrongSizeException {
 		System.out.println("New game!");
 		IPlayer player = PlayerFactory.createPlayer(input);
 		IVisualizer visualizer = VisualizerFactory.createVisualizer(output);

@@ -1,6 +1,12 @@
 package model.io;
 
+import java.io.FileNotFoundException;
+import java.util.Objects;
+
+import model.Coordinate;
 import model.Game;
+import model.exceptions.WrongSizeException;
+import model.exceptions.io.TetrisIOException;
 
 /**
  * 
@@ -22,11 +28,35 @@ public class GamePlay {
 	IVisualizer visualizer;
 	
 	
-	public GamePlay(IPlayer p,IVisualizer v) {
+	//ASK ABOUT THE EXCEPTIONS ???
+	
+	public GamePlay(IPlayer p,IVisualizer v) throws WrongSizeException {
+	
+		p = Objects.requireNonNull(p, "El parametro 'player (p)' no puede ser null.");
+		v = Objects.requireNonNull(v, "El parametro 'visualizer (v)' no puede ser null.");
 		
+		player = p;
+		visualizer = v;
+		
+		Coordinate c = new Coordinate(TETRIS_BOARD_STANDARD_HEIGHT,TETRIS_BOARD_STANDARD_WIDTH);
+		game = new Game(c);
+		
+		v.setGame(game);
 	}
 	
-	public void play() {
+	public void play() throws TetrisIOException, FileNotFoundException {
 		
+		char move;
+		
+		visualizer.show();
+        move = player.nextMove();
+        while (move != IPlayer.LAST_MOVE) {
+        	
+        	//execute move...
+        	// catch exceptions...
+        	visualizer.show();
+        	move = player.nextMove();
+        }
+        
 	}
 }

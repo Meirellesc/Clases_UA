@@ -1,5 +1,9 @@
 package model.io;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
 /**
  * 
  * @author Lucas Meirelles
@@ -14,20 +18,27 @@ public class PlayerFactory {
 	}
 	
 	private static boolean isLong(String s) {
+		
+		if (Long.parseLong(s) > 0) { //I have to check with which number???
+			return true;
+		}
 		return false;
 	}
 	
-	public static IPlayer createPlayer(String s) {
-		/*if ((s.contains(".")) || (s.contains("/")) || (s.contains("\"+"))) {
+	public static IPlayer createPlayer(String s) throws FileNotFoundException {
 		
-			new BufferedReader(new FileReader(moves))
-			IPlayer pf = new PlayerFile(s);
-			return pf;
+		IPlayer p = null;
+		
+		if (s.startsWith("/") || s.equals("moves")) { //Probably have to add more conditions to check
+			p = new PlayerFile(new BufferedReader(new FileReader(s)));
+			return p;
 		}
-		else if (s.equals("moves")) {
-			
+		else if (isLong(s)){
+			p = new PlayerRandom(Long.parseLong(s));
+			return p;
 		}
-		*/
-		return null; //!!! 
+		else
+			p = new PlayerString(s);
+			return p; 
 	}
 }

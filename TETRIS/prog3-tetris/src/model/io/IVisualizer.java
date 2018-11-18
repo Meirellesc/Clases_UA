@@ -1,6 +1,7 @@
 package model.io;
 
 import model.Game;
+import model.exceptions.WrongSizeException;
 
 /**
  * 
@@ -11,7 +12,7 @@ import model.Game;
  */
 public interface IVisualizer {
 
-	public void setGame(Game g);
+	public void setGame(Game g) throws WrongSizeException;
 	
 	public void show();
 }

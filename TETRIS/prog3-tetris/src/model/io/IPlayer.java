@@ -13,8 +13,6 @@ import model.exceptions.io.TetrisIOException;
  */
 public interface IPlayer {
 
-	public static final char LAST_MOVE = '●';
-	
 	public static final char NEXT_PIECE_I = 'I';
 	public static final char NEXT_PIECE_J = 'J';
 	public static final char NEXT_PIECE_L = 'L';
@@ -29,6 +27,8 @@ public interface IPlayer {
 	public static final char MOVE_RIGHT = '→';
 	public static final char MOVE_LEFT = '←';
 	public static final char MOVE_DOWN = '↓';
+	
+	public static final char LAST_MOVE = '●';
 	
 	public static final String VALID_MOVES = "IJLOSTZ↻↺→←↓";
 	
