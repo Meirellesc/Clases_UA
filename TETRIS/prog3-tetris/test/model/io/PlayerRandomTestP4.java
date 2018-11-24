@@ -6,8 +6,13 @@ import model.exceptions.io.TetrisIOException;
 
 import org.junit.Test;
 
-//2 TEST A COMPLETAR
-
+/**
+ * 
+ * @author Lucas Meirelles
+ * @version Oxygen 4.7
+ * @date 23/11/2018
+ *
+ */
 public class PlayerRandomTestP4 {
 
 	static final String moves1="S↓↓↓↓↻↓↓→↓↓↓↓↓↓↓←↓↓↓↓↓↓↓●↺↻↓↓↺↺↓↓↓↓→↺↓↺→";
@@ -20,9 +25,11 @@ public class PlayerRandomTestP4 {
 		try {
 			//TODO Introduce el código que compruebe que la sucesión de caracteres 
 			//que proporciona plr.nextMove() coincide con los de la cadena moves1.
-			plr.nextMove(); //instrucción a incluir
-			fail ("¡Completa el test!");
-		
+			//plr.nextMove(); instrucción a incluir
+			
+			for (int i=0; i<moves1.length(); i++) {
+				assertEquals(moves1.charAt(i),plr.nextMove());
+			}
 		} catch (TetrisIOException e) {
 			fail("Error: se lanzo la excepcion "+e.getClass().getSimpleName());
 		}
@@ -34,9 +41,11 @@ public class PlayerRandomTestP4 {
 		try {
 		    //TODO Introduce el código que compruebe que la sucesión de caracteres que proporciona 
 			// plr.nextMove() coincide con los de la cadena moves2.
-			plr.nextMove(); //instrucción a incluir
-			fail ("¡Completa el test!");
-		
+			//plr.nextMove(); //instrucción a incluir
+			
+			for (int i=0; i<moves2.length();i++) {
+				assertEquals(moves2.charAt(i),plr.nextMove());
+			}
 		} catch (TetrisIOException e) {
 			fail("Error: se lanzo la excepcion "+e.getClass().getSimpleName());
 		}

@@ -2,6 +2,8 @@ package model.io;
 
 import java.util.Random;
 
+import model.exceptions.io.TetrisIOException;
+
 /**
  * 
  * @author Lucas Meirelles
@@ -18,13 +20,13 @@ public class PlayerRandom implements IPlayer{
 	private int downCounter = 0;
 	
 	public PlayerRandom(long l) {
-		Random random = new Random(); //I don't know if its necessary 'new'.
-        random.setSeed(l);
+        random = new Random();
+		random.setSeed(l);
 	}
 	
 	
 	@Override
-	public char nextMove() {
+	public char nextMove() throws TetrisIOException {
 		
 		if (nextPutPiece) {
 			int r1 = random.nextInt(8);

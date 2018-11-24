@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
+import model.exceptions.io.TetrisIOException;
+
 /**
  * 
  * @author Lucas Meirelles
@@ -12,7 +14,7 @@ import java.io.FileReader;
  *
  */
 public class PlayerFactory {
-
+	
 	public PlayerFactory() {
 		
 	}
@@ -25,13 +27,14 @@ public class PlayerFactory {
 		return false;
 	}
 	
-	public static IPlayer createPlayer(String s) throws FileNotFoundException {
+	public static IPlayer createPlayer(String s) throws TetrisIOException, FileNotFoundException {
 		
 		IPlayer p = null;
 		
-		if (s.startsWith("/") || s.equals("moves")) { //Probably have to add more conditions to check
+		if (s.contains("/")|| s.contains(".")) { //Probably have to add more conditions to check
 			p = new PlayerFile(new BufferedReader(new FileReader(s)));
 			return p;
+			
 		}
 		else if (isLong(s)){
 			p = new PlayerRandom(Long.parseLong(s));

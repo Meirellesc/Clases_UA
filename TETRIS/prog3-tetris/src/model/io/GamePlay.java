@@ -1,6 +1,5 @@
 package model.io;
 
-import java.io.FileNotFoundException;
 import java.util.Objects;
 
 import model.Coordinate;
@@ -44,7 +43,7 @@ public class GamePlay {
 		v.setGame(game);
 	}
 	
-	public void play() throws TetrisIOException, FileNotFoundException {
+	public void play() throws TetrisIOException {
 		
 		char move;
 		

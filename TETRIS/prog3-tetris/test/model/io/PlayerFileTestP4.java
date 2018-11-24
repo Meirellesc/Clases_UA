@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+
 import model.exceptions.io.TetrisIOException;
 
 import org.junit.Before;
@@ -23,11 +25,13 @@ public class PlayerFileTestP4 {
 	}
 	
 	@Test
-	public void testNextMove() {
+	public void testNextMove(){
 		NewPlayerFile("test/files/P4/testNextMove.in");
 	
 		try {
 			for (int i=0; i<m1.length(); i++) {
+				
+				System.out.println("Check: " + m1.charAt(i) + "\n" + "Player: " + pf.nextMove());
 				assertEquals(m1.charAt(i),pf.nextMove());
 			}
 			assertEquals(IPlayer.LAST_MOVE,pf.nextMove());

@@ -25,13 +25,11 @@ public class VisualizerConsole implements IVisualizer{
 	public void setGame(Game g) throws WrongSizeException {
 		g = Objects.requireNonNull(g, "El parametro 'game (g)' no puede ser null.");
 		
-		game = g;
-		
-		Coordinate c = new Coordinate(GamePlay.TETRIS_BOARD_STANDARD_HEIGHT, GamePlay.TETRIS_BOARD_STANDARD_WIDTH);
-		if(c.getRow()<20 || c.getColumn() <10) {
-			throw new WrongSizeException(c);
+		if(g.getGameboard().getHeight() < 20 || g.getGameboard().getWidth() <10) {
+			throw new WrongSizeException(new Coordinate(g.getGameboard().getHeight(),g.getGameboard().getWidth()));
 		}
 		
+		game = g;
 	}
 
 	@Override

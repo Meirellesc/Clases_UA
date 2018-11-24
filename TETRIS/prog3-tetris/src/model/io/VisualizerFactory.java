@@ -1,5 +1,7 @@
 package model.io;
 
+import java.util.Objects;
+
 import model.exceptions.io.TetrisIOException;
 
 /**
@@ -16,6 +18,8 @@ public class VisualizerFactory {
 	}
 	
 	public static IVisualizer createVisualizer(String s) throws TetrisIOException {
+		
+		s = Objects.requireNonNull(s, "El parametro 'createVisualizer(s)' no puede ser null!");
 		
 		IVisualizer v;
 		

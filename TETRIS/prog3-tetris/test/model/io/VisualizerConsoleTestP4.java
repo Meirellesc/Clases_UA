@@ -1,5 +1,5 @@
 package model.io;
-// 2 TEST A REALIZAR
+
 import static org.junit.Assert.*;
 
 import java.io.BufferedOutputStream;
@@ -17,6 +17,13 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+/**
+ * 
+ * @author Lucas Meirelles
+ * @version Oxygen 4.7
+ * @date 23/11/2018
+ *
+ */
 public class VisualizerConsoleTestP4 {
 	Game game,gamerr1, gamerr2;
 	@BeforeClass
@@ -46,20 +53,24 @@ public class VisualizerConsoleTestP4 {
 		}
 	}
 
-	@Test(/*añade lo que debe ir aquí*/)
+	@Test(expected=WrongSizeException.class)//(/*añade lo que debe ir aquí*/)
 	public void testSetGameWrongSizeException1() throws WrongSizeException  {
 	
 	//TODO Añade el código donde el método setGame de VisualizerConsole lance la excepcion 
 	// WrongSizeException cuando asigne gamerr1 a un objeto VisualizerConsole
-		fail ("¡Realiza el test!");
+		
+		VisualizerConsole vc = new VisualizerConsole();
+		vc.setGame(gamerr1);
 	}
 	
-	@Test(/*añade lo que debe ir aquí*/)
+	@Test(expected=WrongSizeException.class)//(/*añade lo que debe ir aquí*/)
 	public void testSetGameWrongSizeException2() throws WrongSizeException  {
 	
    //TODO Añade el código donde el método setGame de VisualizerConsole lance la excepcion 
 	// WrongSizeException cuando asigne gamerr2 a un objeto VisualizerConsole
-		fail ("¡Realiza el test!");
+		
+		VisualizerConsole vc = new VisualizerConsole();
+		vc.setGame(gamerr2);
     }
 	
 	@Test
