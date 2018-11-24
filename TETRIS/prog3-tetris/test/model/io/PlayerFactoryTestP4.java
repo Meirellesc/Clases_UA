@@ -2,15 +2,13 @@ package model.io;
 
 import static org.junit.Assert.*;
 
-import java.io.FileNotFoundException;
-
 import model.exceptions.io.TetrisIOException;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-
+//5 TEST A REALIZAR
 
 public class PlayerFactoryTestP4 {
 
@@ -31,8 +29,6 @@ public class PlayerFactoryTestP4 {
 			assertEquals("PlayerFile",ip.getClass().getSimpleName());
 		} catch (TetrisIOException e) {
 			fail("Error: se lanzo la excepcion "+e.getClass().getSimpleName());
-		} catch (FileNotFoundException e) {
-			fail("Error: se lanzo la excepcion "+e.getClass().getSimpleName());
 		}
 	}
 	
@@ -51,9 +47,6 @@ public class PlayerFactoryTestP4 {
 			assertEquals("PlayerFile",ip.getClass().getSimpleName());
 		} catch (TetrisIOException e) {
 			fail("Error: se lanzo la excepcion "+e.getClass().getSimpleName());
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 	}
 
@@ -65,9 +58,6 @@ public class PlayerFactoryTestP4 {
 			assertEquals("PlayerRandom",ip.getClass().getSimpleName());
 		} catch (TetrisIOException e) {
 			fail("Error: se lanzo la excepcion "+e.getClass().getSimpleName());
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 	}
 	
@@ -99,15 +89,7 @@ public class PlayerFactoryTestP4 {
 	//TODO
         //Crea un test para que lance una excepcion TetrisIOException cuando a createPlayer se pasa un
         // fichero que no existe.
-		try {
-			IPlayer ip=PlayerFactory.createPlayer("test/noexist");
-			assertEquals("PlayerFile",ip.getClass().getSimpleName());
-			fail("Error: no se lanzo la excepcion ");
-		} catch (TetrisIOException e) {
-			System.out.println("LANÇEI");
-		} catch (FileNotFoundException e) {
-			System.out.println("LANÇEI DOS");
-		}
+		fail("¡Completar test!");
 		
 	}
 		

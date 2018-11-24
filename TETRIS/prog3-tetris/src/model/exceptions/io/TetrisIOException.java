@@ -10,7 +10,7 @@ import model.exceptions.*;
  *
  */
 @SuppressWarnings("serial")  
-public class TetrisIOException extends TetrisException{
+public class TetrisIOException extends TetrisException {
 
 	private String message;
 	
