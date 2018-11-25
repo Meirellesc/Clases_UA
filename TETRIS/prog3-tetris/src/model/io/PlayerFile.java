@@ -39,7 +39,7 @@ public class PlayerFile implements IPlayer{
 				content = br.readLine();
 				line = content.split("\\s+");
 				
-					
+				////Checking if have a instruction which is not "VALID".	
 				if((line.length == 2) && (line[currentLine].equals("put") && line[currentLine+1].equals("I") || line[currentLine].equals("put") && line[currentLine+1].equals("J") 
 				|| line[currentLine].equals("put") && line[currentLine+1].equals("L") || line[currentLine].equals("put") && line[currentLine+1].equals("O") 
 				|| line[currentLine].equals("put") && line[currentLine+1].equals("S") || line[currentLine].equals("put") && line[currentLine+1].equals("T")
@@ -49,9 +49,6 @@ public class PlayerFile implements IPlayer{
 							
 					count = 1;
 				}
-				//System.out.println("Count: " + count);
-				//System.out.println("LINELGT" + line.length);
-
 				if (count != 1) {
 					throw new TetrisIOException("Have a INVALID instruction, check again the file!!");
 				}

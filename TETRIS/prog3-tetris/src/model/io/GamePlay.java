@@ -1,5 +1,6 @@
 package model.io;
 
+import java.io.IOException;
 import java.util.Objects;
 
 import model.Coordinate;
@@ -43,7 +44,7 @@ public class GamePlay {
 		v.setGame(game);
 	}
 	
-	public void play() throws TetrisIOException {
+	public void play() throws TetrisIOException, IOException {
 		
 		char move;
 		
