@@ -6,10 +6,6 @@ package mains;
 import java.util.ArrayList;
 
 import model.Coordinate;
-import model.Game;
-import model.Piece;
-import model.Rotation;
-import model.Gameboard;
 
 /**
  * @author Lucas  Meirelles

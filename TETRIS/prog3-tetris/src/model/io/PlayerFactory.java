@@ -20,17 +20,14 @@ public class PlayerFactory {
 		
 	}
 	
-	private static boolean isLong(String s) {
-		
-		//IT'S RIGHT TO VERIFY IF A NUMBER IS LONG??
-		
-		try {
-			if (Long.parseLong(s) > (Long.MIN_VALUE) && Long.parseLong(s) < (Long.MAX_VALUE)) { //I have to check with which number???
-				return true;
-			}
-		}catch(NumberFormatException e) {
-		}
+	private static boolean isLong(String s) {	
+	try {
+		Long.parseLong(s);
+		return true;
+			
+	}catch(NumberFormatException e) {
 		return false;
+	}	
 	}
 	
 	
@@ -39,8 +36,6 @@ public class PlayerFactory {
 		s = Objects.requireNonNull(s, "El parametro 'createPlayer(s)' no puede ser null!");
 		
 		IPlayer p;
-		
-		//IT'S RIGHT TO CREATE THE PLAYERFILE THIS WAY??
 		
 		if (s.contains("/")|| s.contains(".")) { //Probably have to add more conditions to check
 			try {

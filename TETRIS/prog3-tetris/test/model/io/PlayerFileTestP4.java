@@ -29,8 +29,7 @@ public class PlayerFileTestP4 {
 
 	}
 	
-	//I DON'T UNDERSTAND [testNextMoveIOException1/2/3/4] ---> " comprueba que tras las sucesivas ejecuciones de nextMove() 
-	// al llegar a esta línea (y solo en ésta)"
+	
 	
 	@Test
 	public void testNextMove(){
@@ -66,6 +65,7 @@ public class PlayerFileTestP4 {
 	    }
 	}
 	
+	
 	@Test
 	public void testNextMoveIOException1() {
 		//TODO Crea un fichero "test/files/P4/testNextMoveIOException1.in", con lineas donde se pongan piezas y realicen 
@@ -74,12 +74,10 @@ public class PlayerFileTestP4 {
 		// al llegar a esta línea (y solo en ésta) lanza la excepción TetrisIOException
 		
 		NewPlayerFile("test/files/P4/testNextMoveIOException1.in");
-	    
 	    try {
-	    	for(int i=0; i<10; i++) {
-	    		assertEquals(m2.charAt(i), pf.nextMove());
+	    	for(int i=0; i<27; i++) {
+	    		pf.nextMove();
 	    	}
-	    	assertEquals(TetrisIOException.class, pf.nextMove());
 	    	fail("Error,no se lanzó la excepción TetrisIOException");
 	    }catch(TetrisIOException e) {
 	    	
@@ -95,10 +93,9 @@ public class PlayerFileTestP4 {
 		NewPlayerFile("test/files/P4/testNextMoveIOException2.in");
 	    
 	    try {
-	    	for(int i=0; i<5; i++) {
-	    		assertEquals(m2.charAt(i), pf.nextMove());
+	    	for(int i=0; i<25; i++) {
+	    		pf.nextMove();
 	    	}
-	    	assertEquals(TetrisIOException.class, pf.nextMove());
 	    	fail("Error,no se lanzó la excepción TetrisIOException");
 	    }catch(TetrisIOException e) {
 	    	
@@ -114,10 +111,9 @@ public class PlayerFileTestP4 {
 		NewPlayerFile("test/files/P4/testNextMoveIOException3.in");
 	    
 	    try {
-	    	for(int i=0; i<5; i++) {
-	    		assertEquals(m2.charAt(i), pf.nextMove());
+	    	for(int i=0; i<25; i++) {
+	    		pf.nextMove();
 	    	}
-	    	assertEquals(TetrisIOException.class, pf.nextMove());
 	    	fail("Error,no se lanzó la excepción TetrisIOException");
 	    }catch(TetrisIOException e) {
 	    	
@@ -133,10 +129,9 @@ public class PlayerFileTestP4 {
 		NewPlayerFile("test/files/P4/testNextMoveIOException4.in");
 	    
 	    try {
-	    	for(int i=0; i<5; i++) {
-	    		assertEquals(m2.charAt(i), pf.nextMove());
+	    	for(int i=0; i<25; i++) {
+	    		pf.nextMove();
 	    	}
-	    	assertEquals(TetrisIOException.class, pf.nextMove());
 	    	fail("Error,no se lanzó la excepción TetrisIOException");
 	    }catch(TetrisIOException e) {
 	    	

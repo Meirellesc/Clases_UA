@@ -5,6 +5,12 @@ import java.util.Objects;
 
 import model.Coordinate;
 import model.Game;
+import model.exceptions.CollisionMovementException;
+import model.exceptions.CurrentPieceNotFixedException;
+import model.exceptions.FixedPieceMovementException;
+import model.exceptions.GameEndedMovementException;
+import model.exceptions.NoCurrentPieceException;
+import model.exceptions.OffBoardMovementException;
 import model.exceptions.WrongSizeException;
 import model.exceptions.io.TetrisIOException;
 
@@ -27,10 +33,7 @@ public class GamePlay {
 	
 	IVisualizer visualizer;
 	
-	
-	//ASK ABOUT THE EXCEPTIONS ???
-	
-	public GamePlay(IPlayer p,IVisualizer v) throws WrongSizeException {
+	public GamePlay(IPlayer p,IVisualizer v) {
 	
 		p = Objects.requireNonNull(p, "El parametro 'player (p)' no puede ser null.");
 		v = Objects.requireNonNull(v, "El parametro 'visualizer (v)' no puede ser null.");
@@ -38,25 +41,79 @@ public class GamePlay {
 		player = p;
 		visualizer = v;
 		
-		Coordinate c = new Coordinate(TETRIS_BOARD_STANDARD_HEIGHT,TETRIS_BOARD_STANDARD_WIDTH);
-		game = new Game(c);
+		try {
+			Coordinate c = new Coordinate(TETRIS_BOARD_STANDARD_HEIGHT,TETRIS_BOARD_STANDARD_WIDTH);
+			game = new Game(c);
+			
+			v.setGame(game);
+		}catch(WrongSizeException e) {
+			throw new RuntimeException(e);
+		}
 		
-		v.setGame(game);
 	}
 	
-	public void play() throws TetrisIOException, IOException {
+	public void play() throws TetrisIOException {
 		
 		char move;
 		
-		visualizer.show();
-        move = player.nextMove();
-        while (move != IPlayer.LAST_MOVE) {
-        	
-        	//execute move...
-        	// catch exceptions...
-        	visualizer.show();
-        	move = player.nextMove();
+		try {
+			
+			visualizer.show();
+	        move = player.nextMove();
+	        
+	        while (move != IPlayer.LAST_MOVE) {
+	        	
+	        	//Instructions that create a piece.
+	        	try {
+		        	if(move == IPlayer.NEXT_PIECE_I) {
+		        		game.nextPiece("I");
+		        	}
+		        	else if (move == IPlayer.NEXT_PIECE_J) {
+		        		game.nextPiece("J");
+		        	}
+		        	else if (move == IPlayer.NEXT_PIECE_L) {
+		        		game.nextPiece("L");
+		        	}
+		        	else if (move == IPlayer.NEXT_PIECE_O) {
+		        		game.nextPiece("O");
+		        	}
+		        	else if (move == IPlayer.NEXT_PIECE_S) {
+		        		game.nextPiece("S");
+		        	}
+		        	else if (move == IPlayer.NEXT_PIECE_T) {
+		        		game.nextPiece("T");
+		        	}
+		        	else if (move == IPlayer.NEXT_PIECE_J) {
+		        		game.nextPiece("J");
+		        	}
+		        	else if(move == IPlayer.MOVE_LEFT) {
+	        			game.moveCurrentPieceLeft();
+	        		}
+	        		else if(move == IPlayer.MOVE_RIGHT) {
+	        			game.moveCurrentPieceRight();
+	        		}
+	        		else if (move == IPlayer.MOVE_DOWN) {
+						game.moveCurrentPieceDown();
+					}
+	        		else if (move == IPlayer.ROTATE_CLOCKWISE) {
+	        			game.rotateCurrentPieceClockwise();
+	        		}
+	        		else if(move == IPlayer.ROTATE_COUNTERCLOCKWISE) {
+	        			game.rotateCurrentPieceCounterclockwise();
+	        		}
+				}catch(OffBoardMovementException | CollisionMovementException | FixedPieceMovementException e) {
+					        		       	
+	        	}catch(NoCurrentPieceException | CurrentPieceNotFixedException e){
+	        		throw new TetrisIOException("Don't have a current Piece or the current Piece isn't fixed yet!!");
+	        	}catch(GameEndedMovementException e) {
+	        		return;
+	        	}
+	        		
+	        	visualizer.show();
+	        	move = player.nextMove();
+	        }
+        }catch(IOException e) {
+        	throw new TetrisIOException("Error!");
         }
-        
 	}
 }

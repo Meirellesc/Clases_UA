@@ -1,0 +1,38 @@
+**********************
+**TRAINED PERCEPTRON** 
+**********************
+
+Objective: achieve the ball. -> No impuerta!!
+
+*********************
+[INPUT] (X)
+
+datas recived from game ??
+
+-ball position
+-bar position 
+-velocity bar
+.
+.
+.
+
+*********************
+[DATA_SET] : datos.csv
+
+
+*********************
+[HYPOTHESIS] : h(input) ??
+
+
+*********************
+[OUTPUTS] (Y)
+
+2 VECTORS:
+VECTOR A -> [1] PRESS UP
+			[0(-1)] DON'T PRESS UP
+
+
+VECTOR B -> [1] PRESS DOWN
+			[0(-1)] DON'T PRESS DOWN
+*********************
+
