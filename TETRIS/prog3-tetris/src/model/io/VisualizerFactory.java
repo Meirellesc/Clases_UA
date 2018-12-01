@@ -23,8 +23,7 @@ public class VisualizerFactory {
 		
 		IVisualizer v;
 		
-		//if (s.equals("window")) {
-		if (s.equals("console")) {
+		if (s.equals("console") || s.equals("window")) {
 			v = new VisualizerConsole();
 			return v;
 		}

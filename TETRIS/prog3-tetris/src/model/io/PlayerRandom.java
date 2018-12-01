@@ -31,6 +31,7 @@ public class PlayerRandom implements IPlayer{
 		if (nextPutPiece) {
 			int r1 = random.nextInt(8);
 			nextPutPiece = false;
+			downCounter = 0;
 			
 			if(r1 == 0) {
 				return NEXT_PIECE_I;
@@ -75,7 +76,7 @@ public class PlayerRandom implements IPlayer{
 		}
 		else {
 			downCounter += 1;
-			if (downCounter == GamePlay.TETRIS_BOARD_STANDARD_HEIGHT) {
+			if (downCounter >= GamePlay.TETRIS_BOARD_STANDARD_HEIGHT) {
 				nextPutPiece = true;
 			}
 			return MOVE_DOWN;

@@ -44,7 +44,6 @@ public class GamePlay {
 		try {
 			Coordinate c = new Coordinate(TETRIS_BOARD_STANDARD_HEIGHT,TETRIS_BOARD_STANDARD_WIDTH);
 			game = new Game(c);
-			
 			v.setGame(game);
 		}catch(WrongSizeException e) {
 			throw new RuntimeException(e);
@@ -83,8 +82,8 @@ public class GamePlay {
 		        	else if (move == IPlayer.NEXT_PIECE_T) {
 		        		game.nextPiece("T");
 		        	}
-		        	else if (move == IPlayer.NEXT_PIECE_J) {
-		        		game.nextPiece("J");
+		        	else if (move == IPlayer.NEXT_PIECE_Z) {
+		        		game.nextPiece("Z");
 		        	}
 		        	else if(move == IPlayer.MOVE_LEFT) {
 	        			game.moveCurrentPieceLeft();
@@ -102,7 +101,7 @@ public class GamePlay {
 	        			game.rotateCurrentPieceCounterclockwise();
 	        		}
 				}catch(OffBoardMovementException | CollisionMovementException | FixedPieceMovementException e) {
-					        		       	
+					     		       	
 	        	}catch(NoCurrentPieceException | CurrentPieceNotFixedException e){
 	        		throw new TetrisIOException("Don't have a current Piece or the current Piece isn't fixed yet!!");
 	        	}catch(GameEndedMovementException e) {
@@ -112,7 +111,7 @@ public class GamePlay {
 	        	visualizer.show();
 	        	move = player.nextMove();
 	        }
-        }catch(IOException e) {
+        }catch(IOException e) {  
         	throw new TetrisIOException("Error!");
         }
 	}

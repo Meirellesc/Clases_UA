@@ -1,8 +1,5 @@
 package mains;
 
-import java.io.FileNotFoundException;
-
-import model.exceptions.WrongSizeException;
 import model.exceptions.io.TetrisIOException;
 import model.io.GamePlay;
 import model.io.IVisualizer;
@@ -10,13 +7,17 @@ import model.io.IPlayer;
 import model.io.VisualizerFactory;
 import model.io.PlayerFactory;
 
+/**
+ * 
+ * @author Lucas Meirelles
+ * @version Oxygen 4.7
+ * @date 01/12/2018
+ *
+ */
 public class Main4 {
 
-	//=====================CHANGED!!!=====================> "FILENOTFOUNDWXCEPTION"
-	
-	public static void main(String[] args) throws TetrisIOException, FileNotFoundException, WrongSizeException {
+	public static void main(String[] args) throws TetrisIOException {
 		String output= "console";
-		//String output= "window";
 
 		playTheGame("2001", output);
 		playTheGame("I↓↓↓↺→→↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓T↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓", output);
@@ -34,10 +35,8 @@ public class Main4 {
 		// playTheGame("", output);
 	}
 
-	//=====================CHANGED!!!=====================> "FILENOTFOUNDWXCEPTION"
-	
 	static void playTheGame(String input, String output)
-			throws TetrisIOException, FileNotFoundException, WrongSizeException {
+			throws TetrisIOException {
 		System.out.println("New game!");
 		IPlayer player = PlayerFactory.createPlayer(input);
 		IVisualizer visualizer = VisualizerFactory.createVisualizer(output);
