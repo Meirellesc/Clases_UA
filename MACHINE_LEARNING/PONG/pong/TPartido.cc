@@ -555,7 +555,11 @@ unsigned h(unsigned wn, const double* st) {
    for(unsigned i=0; i < s_kinputs-1; i++)
       hval += st[i] * s_w[wn][i];
 
+      //h(x) += x(n) * w
+
    return (hval + s_w[wn][s_kinputs-1] > 0) ? 1 : 0;
+
+      // if h(x) + 
 }
 
 double
