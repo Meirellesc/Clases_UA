@@ -7,7 +7,7 @@ Objective: achieve the ball. -> No impuerta!!
 *********************
 [INPUT] (X)
 
-datas recived from game ??
+datas received from game:
 
 1)player_velocity_y
 2)enemy_position
@@ -17,19 +17,19 @@ datas recived from game ??
 6)ball_velocity_x
 7)ball_velocity_y
 
-8)press_up
-9)press_down
-
 *********************
 [DATA_SET] : datos.csv
 
 
 *********************
-[HYPOTHESIS] : h(input) ??
+[HYPOTHESIS] : h(input)?? // h(x)??
 
 
 *********************
 [OUTPUTS] (Y)
+
+8)press_up
+9)press_down
 
 2 VECTORS:
 VECTOR A -> [1] PRESS UP
