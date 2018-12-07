@@ -10,8 +10,6 @@ import model.exceptions.WrongSizeException;
 
 import java.util.HashSet;
 
-
-
 /**
  * 
  * @author Lucas Meirelles
@@ -55,7 +53,7 @@ public class Gameboard {
 	 */
 	public Gameboard(Coordinate c) throws WrongSizeException {
 		
-		Objects.requireNonNull(c, "Cannot be null");
+		c = Objects.requireNonNull(c, "El parametro 'coordinate (c)' no puede ser null");
 		
 		if (c.getRow() < MINIMUM_BOARD_HEIGHT || c.getColumn() < MINIMUM_BOARD_WIDTH) {
 			throw new WrongSizeException(c);

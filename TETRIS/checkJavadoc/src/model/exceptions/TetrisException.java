@@ -18,7 +18,7 @@ public class TetrisException extends java.lang.Exception {
 
 	}
 	
-	/** [ENG] Method that returns a String which describe the reason  of the exception that is throwing.
+	/** [ENG] Method that returns a String which describe the reason of the exception that is throwing.
 	 *  [SPA] Método que devolverá una cadena que describirá la razón de la excepción que se está lanzando.
 	 * 
 	 * @return the message.
