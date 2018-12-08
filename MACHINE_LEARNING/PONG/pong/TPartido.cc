@@ -534,7 +534,7 @@ TPartido::Saque (int Dir)
 // * Controla las paletas de la maquina.                 //
 ///////////////////////////////////////////////////////////
 const unsigned s_kinputs = s_N_EstadosJuego-1;
-double s_w[12][s_kinputs] = {
+double s_w[24][s_kinputs] = {
      { 644.2, -166.251, 12.0085, -27.3286, 99.5423, -74.4238, -1198.33, -128 }
    , { -2.6, 51.8678, 1.00819, -30.6251, 85.5748, -9.01556, 2.74653, -1 }
    , { 199.8,  0, 0, -8.7441, -43.5157, -135.701, -451.175 }
@@ -555,11 +555,7 @@ unsigned h(unsigned wn, const double* st) {
    for(unsigned i=0; i < s_kinputs-1; i++)
       hval += st[i] * s_w[wn][i];
 
-      //h(x) += x(n) * w
-
    return (hval + s_w[wn][s_kinputs-1] > 0) ? 1 : 0;
-
-      // if h(x) + 
 }
 
 double

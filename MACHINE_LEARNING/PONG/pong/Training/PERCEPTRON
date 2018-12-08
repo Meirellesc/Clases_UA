@@ -1,0 +1,103 @@
+**********************
+**TRAINED PERCEPTRON** 
+**********************
+
+Objective: achieve the ball. -> No impuerta!!
+
+*********************
+[INPUT] (X)
+
+datas received from game:
+
+1)player_velocity_y
+2)enemy_position
+3)enemy_velocity_y
+4)ball_position_x
+5)ball_position_y
+6)ball_velocity_x
+7)ball_velocity_y
+
+*********************
+[DATA_SET] : datos.csv
+
+
+*********************
+[HYPOTHESIS] : h(input)?? // h(x)??
+
+
+*********************
+[OUTPUTS] (Y)
+
+8)press_up
+9)press_down
+
+2 VECTORS:
+VECTOR A -> [1] PRESS UP
+			[0(-1)] DON'T PRESS UP
+
+
+VECTOR B -> [1] PRESS DOWN
+			[0(-1)] DON'T PRESS DOWN
+*********************
+
+DOUBTS HOW TO IMPLEMENT
+
+1. Is a function linear separable ??
+2. The number of weights are random?? (for 0 > 100...10000)
+3. Can I just use the PLA or is it better to use the "Linear Regression" to have a initial condition to start my learning?? 
+
+*********************
+IDEAS
+
+f -> X,Y ??
+
+X : datos.csv
+Y : press up/down
+
+1) calculate the first weight :  w(t+1) = w(t) + [x(t)*y(t)];
+
+2) verify the equation :  w(t)*x(t) = y(t);
+
+3) if (2) not equal, recalculate the weights (1) -> ONLY FOR THE MISCLASSIFIED POINTS;
+
+4) when finished... g->X,Y !!
+
+*********************
+CODE IDEA:
+
+//RECEIVING THE DATASET
+vector_x[];
+vector_y[];
+vector_w[];
+
+
+w[0] = x[0]*y[0]; //THE FIRST WEIGHT HAS TO BE RANDOM??
+g = false; 		  //START WITH G FALSE.
+
+
+while(g == false){
+	
+	//CALCULATING THE WEIGHTS.
+	for(i=1;i <= vector_x_size ;i++){
+		w[i] = w[i-1] + (x[i]*y[i]);
+	}
+
+	//CHECKING IF ALL WEIGHTS ARE CORRECTS AND COUNT IT.
+	for(j=0;j <= vector_x_size ;j++){
+		if((w[j]*x[j]) == y[j]){
+			count += 1;
+		}
+	}
+	
+	//IF HAVE SOME WEIGHT WRONG THEN RECALCULATE THE WEIGHTS(g=false).
+	if(count != vector_x_size){
+		w[0] += w[0]; //PROBABLY IS WRONG????
+	}
+
+	//IF ALL WEIGHTS ARE RIGHT -> FOUND A "G" FUNCTION.
+	else{  
+		g = true;
+	}	
+}
+
+return vector_w[];
