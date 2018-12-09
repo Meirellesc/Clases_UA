@@ -11,7 +11,7 @@ import model.io.GamePlay;
  */
 public class TimeScore extends Score{
 
-	TimeScore(String s, GamePlay g) {
+	public TimeScore(String s, GamePlay g) {
 		super(s, g);
 	}
 	

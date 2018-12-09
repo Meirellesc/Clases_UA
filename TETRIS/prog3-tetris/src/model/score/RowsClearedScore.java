@@ -11,7 +11,7 @@ import model.io.GamePlay;
  */
 public class RowsClearedScore extends Score {
 
-	RowsClearedScore(String s, GamePlay g) {
+	public RowsClearedScore(String s, GamePlay g) {
 		super(s, g);
 	}
 	

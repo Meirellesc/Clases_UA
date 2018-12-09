@@ -1,5 +1,7 @@
 package model.score;
 
+import java.util.Objects;
+
 import model.io.GamePlay;
 
 /**
@@ -9,7 +11,7 @@ import model.io.GamePlay;
  * @date --/--/2018
  *
  */
-public class Score {
+public abstract class Score {
 
 	protected GamePlay gamePlay;
 	
@@ -20,21 +22,27 @@ public class Score {
 	
 	Score(String s, GamePlay g){
 		
+		s = Objects.requireNonNull(s, "El parametro 'String(s)' no puede ser null!");
+		g = Objects.requireNonNull(g, "El parametro 'String(s)' no puede ser null!");
+		
+		name = s; //Player's name
+		gamePlay = g;
+		
+		score = getScoring();
 	}
 	
 	public String toString() {
-		return null;
+		return (name + ":" + score);
 	}
 	
 	public String getName() {
-		return null;
+		return (name);
 	}
 	
-	public int getScoring() {
-		return 0;
-	}
+	public abstract int getScoring();
 	
 	public int compareTo(Score sc) {
+		//HAVE TO USE "COMPARABLE" ??
 		return 0;
 	}
 
