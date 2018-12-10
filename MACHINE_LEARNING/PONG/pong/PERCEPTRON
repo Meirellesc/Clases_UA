@@ -51,7 +51,7 @@ IDEAS
 
 f -> X,Y ??
 
-X : datos.csv
+X : datos
 Y : press up/down
 
 1) calculate the first weight :  w(t+1) = w(t) + [x(t)*y(t)];
@@ -90,7 +90,7 @@ while(g == false){
 	}
 	
 	//IF HAVE SOME WEIGHT WRONG THEN RECALCULATE THE WEIGHTS(g=false).
-	if(count != vector_x_size){
+	if(count != vector_x_size){* []
 		w[0] += w[0]; //PROBABLY IS WRONG????
 	}
 
@@ -101,3 +101,43 @@ while(g == false){
 }
 
 return vector_w[];
+
+*********************
+
+//------------------------CODE 2.0------------------------\\ 
+
+//RECEIVING THE DATASET
+
+doble vector_x[][];	//Input
+doble vector_y[][];	//Output //-> Have to change all "Zeros" to "-1"?? 
+doble vector_w[][];	//Weights //-> INIT ALL ZEROS
+doble vector_h[][];	//Model //-> INIT ALL ZEROS
+
+
+//APPLYING THE FORMULA -> H(X) = SIGN[SUM(Xi.Wi)]
+
+for (int i=0; i<vector_x.size ; i++){
+	for (int j=0 ; j<=7 ; j++){
+		if ((vector_x[i][j] * vector_w[i][j]) > 0){ 
+			vector_h[i][j] = 1.0; //In case the result of sign >= 0 .: h=1
+		}
+		else{
+			vector_h[i][j] = -1.0; //In case the result of sign < 0 .: h=-1
+		}
+	}
+}
+	
+//VERIFYING THE CLASSIFICATION ->  H(n)==Y(n)???
+
+for (int i=0; i<(vector_y.size) ; i++){
+	for (int j=0 ; j<=7 ; j++){
+		if (vector_h[i][j] == vector_y[i][j]){
+
+		}
+		else{
+
+		}
+	}
+}
+
+//UPDATING THE WEIGHTS -> W(t-1) = W(t) + Y(t)*X(t)
