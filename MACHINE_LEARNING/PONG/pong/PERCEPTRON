@@ -42,8 +42,8 @@ VECTOR B -> [1] PRESS DOWN
 
 DOUBTS HOW TO IMPLEMENT
 
-1. Is a function linear separable ??
-2. The number of weights are random?? (for 0 > 100...10000)
+1. Is a function linear separable ?? [WE DON'T KNOW]
+2. The number of weights are random?? (for 0 > 100...10000) [NO, ALL STARTS = '0' AND THEN THE CODE HAVE TO RECALCULATE WHICH ARE MISCLASIFIED]
 3. Can I just use the PLA or is it better to use the "Linear Regression" to have a initial condition to start my learning?? 
 
 *********************
@@ -127,7 +127,9 @@ for (int i=0; i<vector_x.size ; i++){
 	}
 }
 	
-//VERIFYING THE CLASSIFICATION ->  H(n)==Y(n)???
+//VERIFYING THE CLASSIFICATION RANDOMLY ->  H(n)==Y(n)???
+
+
 
 for (int i=0; i<(vector_y.size) ; i++){
 	for (int j=0 ; j<=7 ; j++){
@@ -140,4 +142,6 @@ for (int i=0; i<(vector_y.size) ; i++){
 	}
 }
 
-//UPDATING THE WEIGHTS -> W(t-1) = W(t) + Y(t)*X(t)
+//UPDATING THE WEIGHTS WHICH ARE MISCLASSIFIED-> W(t+1) = W(t) + Y(t)*X(t)
+
+
