@@ -28,8 +28,8 @@ public class CoordinateTest {
 	@Test
 	public final void testInicializacion() {
 		Coordinate c2 = new Coordinate(c);
-		assertEquals("c2.Row", c.getRow(), c2.getRow());
-		assertEquals("c2.Column", c.getColumn(), c2.getColumn());
+		assertEquals("c2.Row", c2.getRow(), c.getRow());
+		assertEquals("c2.Column", c2.getColumn(), c.getColumn());
 		
 	}
 	

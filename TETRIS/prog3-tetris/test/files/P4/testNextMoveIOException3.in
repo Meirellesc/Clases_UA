@@ -1,25 +1,13 @@
 put I
 rotate clockwise
+put J
 rotate counterclockwise
-move
+put L
+move right
+put O
 move left
+put S
 move down
-move down
-move down
-move down
-move down
-move down
-move down
-move down
-move down
-move down
-move down
-move down
-move down
-move down
-move down
-move down
-move down
-move down
-move down
-move down
+put T
+move
+put Z

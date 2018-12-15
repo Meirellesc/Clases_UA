@@ -11,7 +11,6 @@ import model.exceptions.FixedPieceMovementException;
 import model.exceptions.GameEndedMovementException;
 import model.exceptions.NoCurrentPieceException;
 import model.exceptions.OffBoardMovementException;
-import model.exceptions.TetrisException;
 import model.exceptions.WrongSizeException;
 import model.exceptions.io.TetrisIOException;
 
@@ -49,6 +48,10 @@ public class GamePlay {
 	 */
 	IVisualizer visualizer;
 	
+	private int rowsCleared;
+
+	private int duration;
+	
 	/** [ENG] Constructor that stores its two parameters in the attributes 'player' and 'visualizer' and creates a game with a board size (10x20).
 	 *  [SPA] Constructor que almacena sus dos parámetros en los atributos ‘player’ y ‘visualizer’ y crea un juego com un tamaño de tablero (10x20)
 	 * 
@@ -62,6 +65,10 @@ public class GamePlay {
 		
 		player = p;
 		visualizer = v;
+		
+		//HAVE TO SEE WHAT TO DO WITH "ROWSCLEARED AND DURATION"
+		rowsCleared = 0;
+		duration = 0;
 		
 		try {
 			Coordinate c = new Coordinate(TETRIS_BOARD_STANDARD_HEIGHT,TETRIS_BOARD_STANDARD_WIDTH);
@@ -141,5 +148,13 @@ public class GamePlay {
         }catch(IOException e) {  
         	throw new TetrisIOException("Error!");
         }
+	}
+	
+	public int getRowsCleared() {
+		return rowsCleared;
+	}
+
+	public int getDuration() {
+		return duration;
 	}
 }

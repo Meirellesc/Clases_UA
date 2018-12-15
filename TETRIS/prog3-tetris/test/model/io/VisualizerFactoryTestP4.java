@@ -7,15 +7,14 @@ import model.exceptions.io.TetrisIOException;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.rules.Timeout;
+import org.junit.Rule;
 
-/**
- * 
- * @author Lucas Meirelles
- * @version Oxygen 4.7
- * @date 23/11/2018
- *
- */
 public class VisualizerFactoryTestP4 {
+
+        @Rule
+        public Timeout globalTimeout = Timeout.seconds(5);
+
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -27,19 +26,13 @@ public class VisualizerFactoryTestP4 {
 
 	@Test
 	public void testCreateVisualizer() {
-	 //TODO Implementa el test que cree un VisualizerConsole y compruebe que:
-	 // - no es null
-     // - y que efectivamente es un objeto de la clase VisualizerConsole
-	 try {
-		 IVisualizer vf;
-		 vf = VisualizerFactory.createVisualizer("console"); 
-		 
-		 assertNotNull(vf);
-		 assertEquals(VisualizerConsole.class, vf.getClass());
-	 }catch(TetrisIOException e) {
-		 fail("Error: se lanzo la excepcion "+e.getClass().getSimpleName());
-	 }
-		
+		try {
+			IVisualizer iv=VisualizerFactory.createVisualizer("console");
+			assertNotNull(iv);
+			assertEquals("VisualizerConsole",iv.getClass().getSimpleName());
+		} catch (TetrisIOException e) {
+			fail("Error: se lanzo la excepcion "+e.getClass().getSimpleName());
+		}
 	}
 	
 	@Test(expected=TetrisIOException.class)
@@ -48,5 +41,3 @@ public class VisualizerFactoryTestP4 {
 	}
 
 }
-
-

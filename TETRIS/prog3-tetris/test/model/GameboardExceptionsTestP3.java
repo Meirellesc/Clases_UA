@@ -1,6 +1,9 @@
 package model;
 
 import static org.junit.Assert.*;
+import org.junit.rules.Timeout;
+import org.junit.Rule;
+
 import model.Coordinate;
 import model.Gameboard;
 import model.exceptions.*;
@@ -10,8 +13,10 @@ import org.junit.Test;
 
 public class GameboardExceptionsTestP3 {
     
-    Gameboard gb, gb1;
+	Gameboard gb, gb1;
 	
+	@Rule
+	public Timeout globalTimeout = Timeout.seconds(5);
 
 	@Before
 	public void setUp() throws Exception {

@@ -7,15 +7,13 @@ import model.exceptions.io.TetrisIOException;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.rules.Timeout;
+import org.junit.Rule;
 
-/**
- * 
- * @author Lucas Meirelles
- * @version Oxygen 4.7
- * @date 25/11/2018
- *
- */
 public class PlayerFactoryTestP4 {
+
+        @Rule
+        public Timeout globalTimeout = Timeout.seconds(10);
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -39,13 +37,11 @@ public class PlayerFactoryTestP4 {
 	
 	@Test
 	public void testCreatePlayerFile2() {
-		//TODO Implementa el test para que al crear un IPlayer con una cadena que contiene un 
-		//número con un caracter '/' genere un PlayerFile y no un PlayerRandom
 		
 		try {
-			IPlayer ip = PlayerFactory.createPlayer("12345/54321");
-			assertEquals("PlayerFile", ip.getClass().getSimpleName());
-		}catch(TetrisIOException e) {
+			IPlayer ip=PlayerFactory.createPlayer("12345/54321");
+			assertEquals("PlayerFile",ip.getClass().getSimpleName());
+		} catch (TetrisIOException e) {
 			fail("Error: se lanzo la excepcion "+e.getClass().getSimpleName());
 		}
 	}
@@ -74,26 +70,22 @@ public class PlayerFactoryTestP4 {
 	
 	@Test
 	public void testCreatePlayerRandom2() {
-		//TODO Implementa el test para que al crear un IPlayer con una cadena numérica que 
-		//tiene un símbolo '-' al principio genere un PlayerRandom
 		
 		try {
-			IPlayer ip = PlayerFactory.createPlayer("-67584902");
-			assertEquals("PlayerRandom", ip.getClass().getSimpleName());
-		}catch(TetrisIOException e) {
+			IPlayer ip=PlayerFactory.createPlayer("-567890");
+			assertEquals("PlayerRandom",ip.getClass().getSimpleName());
+		} catch (TetrisIOException e) {
 			fail("Error: se lanzo la excepcion "+e.getClass().getSimpleName());
 		}
 	}
 	
-	//Completa los 2 test siguientes  que comprueben que pasando como string una cadena que 
-	// no tenga ni ./\ ni un long, PlayerFactory.createPlayer genere un PlayerString
 	@Test
 	public void testCreatePlayerString() {
-		//TODO
+		
 		try {
-			IPlayer ip = PlayerFactory.createPlayer("IJLOSTZ↻↺→←↓");
-			assertEquals("PlayerString", ip.getClass().getSimpleName());
-		}catch(TetrisIOException e) {
+			IPlayer ip=PlayerFactory.createPlayer("IJLOSTZ");
+			assertEquals("PlayerString",ip.getClass().getSimpleName());
+		} catch (TetrisIOException e) {
 			fail("Error: se lanzo la excepcion "+e.getClass().getSimpleName());
 		}
 	}
@@ -101,21 +93,19 @@ public class PlayerFactoryTestP4 {
 	@Test
 	public void testCreatePlayerString2() {
 		
-		//TODO
 		try {
-			IPlayer ip = PlayerFactory.createPlayer("I↻J↺L→O←S↓T↓Z");
-			assertEquals("PlayerString", ip.getClass().getSimpleName());
-		}catch(TetrisIOException e) {
+			IPlayer ip=PlayerFactory.createPlayer(" ");
+			assertEquals("PlayerString",ip.getClass().getSimpleName());
+		} catch (TetrisIOException e) {
 			fail("Error: se lanzo la excepcion "+e.getClass().getSimpleName());
 		}
 	}
 	
 	@Test(expected=TetrisIOException.class)
 	public void testCreatePlayerTetrisIOException() throws TetrisIOException {
-		//TODO
-        //Crea un test para que lance una excepcion TetrisIOException cuando a createPlayer se pasa un
-        // fichero que no existe.
-		IPlayer ip = PlayerFactory.createPlayer("/test/noexist");
-		assertEquals("PlayerFile", ip.getClass().getSimpleName());
+		
+			IPlayer ip=PlayerFactory.createPlayer("/noexistefichero.in");
+			assertEquals("PlayerString",ip.getClass().getSimpleName());
 	}
+		
 }

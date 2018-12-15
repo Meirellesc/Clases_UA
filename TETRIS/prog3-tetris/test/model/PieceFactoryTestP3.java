@@ -18,43 +18,43 @@ public class PieceFactoryTestP3 {
 
 	@Test
 	public void testCreateIPiece() {
-		IPiece ip = (IPiece) PieceFactory.createPiece("I");
+		I ip = (I) PieceFactory.createPiece("I");
 		assertNotNull(ip);
 	}
 	
 	@Test
 	public void testCreateJPiece() {
-		JPiece jp = (JPiece) PieceFactory.createPiece("J");
+		J jp = (J) PieceFactory.createPiece("J");
 		assertNotNull(jp);
 	}
 	
 	@Test
 	public void testCreateLPiece() {
-		LPiece lp = (LPiece) PieceFactory.createPiece("L");
+		L lp = (L) PieceFactory.createPiece("L");
 		assertNotNull(lp);
 	}
 	
 	@Test
 	public void testCreateOPiece() {
-		OPiece op = (OPiece) PieceFactory.createPiece("O");
+		O op = (O) PieceFactory.createPiece("O");
 		assertNotNull(op);
 	}
 	
 	@Test
 	public void testCreateSPiece() {
-		SPiece sp = (SPiece) PieceFactory.createPiece("S");
+		S sp = (S) PieceFactory.createPiece("S");
 		assertNotNull(sp);
 	}
 	
 	@Test
 	public void testCreateTPiece() {
-		TPiece tp = (TPiece) PieceFactory.createPiece("T");
+		T tp = (T) PieceFactory.createPiece("T");
 		assertNotNull(tp);
 	}
 	
 	@Test
 	public void testCreateZPiece() {
-		ZPiece zp = (ZPiece) PieceFactory.createPiece("Z");
+		Z zp = (Z) PieceFactory.createPiece("Z");
 		assertNotNull(zp);
 	}
 	

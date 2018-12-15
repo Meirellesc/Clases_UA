@@ -54,7 +54,7 @@ public class GameboardTestP2 {
 	@Before
 	public void setUp() throws Exception {
 		c1=new Coordinate(10,7);
-		p1 = new IPiece();
+		p1 = new I();
 		gb1=new Gameboard(c1);
 		
 	}
@@ -78,7 +78,7 @@ public class GameboardTestP2 {
 	@Test
 	public final void testPutPieceD0() {
 		Coordinate c = new Coordinate(5,3);
-		Piece p = new IPiece();
+		Piece p = new I();
 		gb1.putPiece(c, p);
 		Coordinate caux;
 		for (int i=0; i<gb1.getWidth(); i++)
@@ -99,7 +99,7 @@ public class GameboardTestP2 {
 	@Test
 	public final void testPutPieceD270() {
 		Coordinate c = new Coordinate(5,3);
-		Piece p = new IPiece();
+		Piece p = new I();
 		p.setOrientation(Rotation.D270);
 		gb1.putPiece(c, p);
 		Coordinate caux;
@@ -121,7 +121,7 @@ public class GameboardTestP2 {
 	@Test
 	public final void testPutPieceD180() {
 		Coordinate c = new Coordinate(5,3);
-		Piece p = new IPiece();
+		Piece p = new I();
 		p.setOrientation(Rotation.D180);
 		gb1.putPiece(c, p);
  		Coordinate caux;
@@ -142,7 +142,7 @@ public class GameboardTestP2 {
 	@Test
 	public final void testPutPieceD90() {
 		Coordinate c = new Coordinate(5,3);
-		Piece p = new IPiece();
+		Piece p = new I();
 		p.setOrientation(Rotation.D90);
 		gb1.putPiece(c, p);
 		Coordinate caux;
@@ -164,7 +164,7 @@ public class GameboardTestP2 {
 	public final void testPutPieceInSmallBoard() throws WrongSizeException {
 		Gameboard gb2 = new Gameboard(new Coordinate(4,4));
 		Coordinate c = new Coordinate(0,0);
-		Piece p = new IPiece();
+		Piece p = new I();
 		gb2.putPiece(c, p);
 		Coordinate caux;
 		for (int i=0; i<gb2.getWidth(); i++)

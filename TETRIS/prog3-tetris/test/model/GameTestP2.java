@@ -1,6 +1,8 @@
 package model;
 
 import static org.junit.Assert.*;
+import org.junit.rules.Timeout;
+import org.junit.Rule;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -25,7 +27,10 @@ public class GameTestP2 {
 	StringBuilder sbIn = new StringBuilder();
 	StringBuilder sbOut = new StringBuilder();
 	PrintStream ps;
-	
+
+	@Rule
+	public Timeout globalTimeout = Timeout.seconds(5);
+    	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		

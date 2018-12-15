@@ -1,17 +1,16 @@
 package model.score;
 
 import java.util.Objects;
-
 import model.io.GamePlay;
 
 /**
  * 
  * @author Lucas Meirelles
  * @version Oxygen 4.7
- * @date --/--/2018
+ * @date 14/12/2018
  *
  */
-public abstract class Score {
+public abstract class Score implements Comparable<Score> {
 
 	protected GamePlay gamePlay;
 	
@@ -42,8 +41,23 @@ public abstract class Score {
 	public abstract int getScoring();
 	
 	public int compareTo(Score sc) {
-		//HAVE TO USE "COMPARABLE" ??
-		return 0;
+		/*
+		 * If score > sc = -1
+		 * If score < sc = +1
+		 * If score == sc = name.compareTo(other.name) [Use the player's name to compare] 
+		*/
+		
+		if (score > sc.getScoring()) {
+			return (-1);
+		}
+		else if(score < sc.getScoring()){
+			return (1);
+		}
+		else {
+			return name.compareTo(sc.getName());
+		}
+		
+		
 	}
 
 	@Override

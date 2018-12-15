@@ -146,7 +146,7 @@ public class Game {
 	 * @throws GameEndedMovementException 
 	 * @throws FixedPieceMovementException 
 	 */
-	public void moveCurrentPieceDown() throws NoCurrentPieceException, GameEndedMovementException, FixedPieceMovementException {
+	public int moveCurrentPieceDown() throws NoCurrentPieceException, GameEndedMovementException, FixedPieceMovementException {
 		
 		if (currentPiece == null) { // If the first piece has not been put on the board
 			throw new NoCurrentPieceException();
@@ -160,6 +160,7 @@ public class Game {
 		
 		Coordinate cadd = new Coordinate(1,0);
 		Coordinate caux = currentPosition;
+		int rows = 0;
 		
 		board.removePiece(currentPiece); //remove the piece of the board.
 		currentPosition = currentPosition.add(cadd); //update the currentPosition (increasing)
@@ -175,13 +176,14 @@ public class Game {
 				int row = board.firstRowFullFromBottom(); //receiving the last row.
 				board.clearRow(row); //erasing the last row.
 				board.makeUpperRowsFall(row); //moving all the rows down.
+				rows += 1; //Counting how many rows were cleared.
 			}
 		}
 		else { //How the next position is Valid and Free the Piece is falling.
 			board.putPiece(currentPosition, currentPiece); //put piece updated (the piece is falling).
 			currentPiece.setFixed(false); //set piece Not Fixed.
 		}
-		
+		return rows;
 	}
 		
 	

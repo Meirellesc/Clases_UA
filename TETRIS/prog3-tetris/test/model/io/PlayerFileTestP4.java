@@ -9,18 +9,17 @@ import model.exceptions.io.TetrisIOException;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.rules.Timeout;
+import org.junit.Rule;
 
-/**
- * 
- * @author Lucas Meirelles
- * @version Oxygen 4.7
- * @date 24/11/2018
- *
- */
 public class PlayerFileTestP4 {
 	BufferedReader bin;
 	PlayerFile pf;
 	String m2, m1; 
+
+        @Rule
+        public Timeout globalTimeout = Timeout.seconds(10);
+
 	@Before
 	public void setUp() throws Exception {
 		m1=new String("I↻↻J↺L→→→→O←S↓↓↓↓←←↓↓↓↓T↓↓→↓↓Z↺↺");
@@ -29,10 +28,8 @@ public class PlayerFileTestP4 {
 
 	}
 	
-	
-	
 	@Test
-	public void testNextMove(){
+	public void testNextMove() {
 		NewPlayerFile("test/files/P4/testNextMove.in");
 	
 		try {
@@ -47,95 +44,77 @@ public class PlayerFileTestP4 {
 	
 	@Test
 	public void testNextMoveConEspacios() {
-		//TODO Copia el fichero del test anterior "test/files/P4/testNextMove.in" en "test/files/P4/testNextMoveConEspacios.in"
-		// Edita este último y añade espacios entre las ordenes put, move, rotation y las piezas y movimientos. 
-		// Crea un PlayerFile 'pf' a partir del fichero con espacios y comprueba en un bucle sobre la cadena m1, que pf.nextMove() 
-		// devuelve la misma sucesión de caracteres que la que está en m1.
-		// Por supuesto, no se lanza excepción.
-	    
 		NewPlayerFile("test/files/P4/testNextMoveConEspacios.in");
-	    
-	    try {
-	    	for(int i=0; i<m1.length(); i++) {
-	    		assertEquals(m1.charAt(i), pf.nextMove());
-	    	}
-	    	assertEquals(IPlayer.LAST_MOVE, pf.nextMove());
-	    }catch(TetrisIOException e) {
-	    	fail("Error, se lanzó la excepción "+e.getClass().getSimpleName());
-	    }
-	}
 	
+		try {
+			for (int i=0; i<m1.length(); i++) {
+				assertEquals(m1.charAt(i),pf.nextMove());
+			}
+			assertEquals(IPlayer.LAST_MOVE,pf.nextMove());
+		} catch (TetrisIOException e) {
+			fail ("Error, se lanzó la excepción "+e.getClass().getSimpleName());
+		}
+	}
 	
 	@Test
 	public void testNextMoveIOException1() {
-		//TODO Crea un fichero "test/files/P4/testNextMoveIOException1.in", con lineas donde se pongan piezas y realicen 
-		// movimientos. Pon una linea donde ponga una pieza incorrecta: 'put M'
-		// Crea un PlayerFile 'pf' a partir del fichero y comprueba que tras las sucesivas ejecuciones de nextMove() 
-		// al llegar a esta línea (y solo en ésta) lanza la excepción TetrisIOException
-		
 		NewPlayerFile("test/files/P4/testNextMoveIOException1.in");
-	    try {
-	    	for(int i=0; i<27; i++) {
-	    		pf.nextMove();
-	    	}
-	    	fail("Error,no se lanzó la excepción TetrisIOException");
-	    }catch(TetrisIOException e) {
-	    	
-	    }
+		char c=' ';
+		try {
+			for (int i=0; i<m2.length(); i++) {
+				c =pf.nextMove();
+				assertEquals(m2.charAt(i),c);
+			}
+			fail ("Error. No se lanzó la excepción TetrisIOException");
+		} catch (TetrisIOException e) {
+			assertEquals('↓',c);
+		}
+	
 	}
 	
 	@Test
 	public void testNextMoveIOException2() {
-		//TODO Crea un fichero "test/files/P4/testNextMoveIOException2.in", con lineas donde se pongan piezas y realicen 
-		// movimientos correctos. Pon una linea que contenga 'Move right'
-		// Crea un PlayerFile 'pf' a partir del fichero comprueba que tras las sucesivas ejecuciones de nextMove() al 
-		// llegar a esta línea (y solo en esta) lanza la excepción TetrisIOException
 		NewPlayerFile("test/files/P4/testNextMoveIOException2.in");
-	    
-	    try {
-	    	for(int i=0; i<25; i++) {
-	    		pf.nextMove();
-	    	}
-	    	fail("Error,no se lanzó la excepción TetrisIOException");
-	    }catch(TetrisIOException e) {
-	    	
-	    }
+		char c=' ';
+		try {
+			for (int i=0; i<m2.length(); i++) {
+				c =pf.nextMove();
+				assertEquals(m2.charAt(i),c);
+			}
+			fail ("Error. No se lanzó la excepción TetrisIOException");
+		} catch (TetrisIOException e) {
+			assertEquals('S',c);
+		}
 	}
 	
 	@Test
 	public void testNextMoveIOException3() {
-		//TODO Crea un fichero "test/files/P4/testNextMoveIOException3.in", con lineas donde se pongan piezas y realicen 
-		// movimientos correctos. Pon una linea que ponga sólo 'move'
-		// Crea un PlayerFile 'pf' a partir del fichero y comprueba que tras las sucesivas ejecuciones de nextMove() al 
-		// llegar a esta línea (y solo en esta) lanza la excepción TetrisIOException
 		NewPlayerFile("test/files/P4/testNextMoveIOException3.in");
-	    
-	    try {
-	    	for(int i=0; i<25; i++) {
-	    		pf.nextMove();
-	    	}
-	    	fail("Error,no se lanzó la excepción TetrisIOException");
-	    }catch(TetrisIOException e) {
-	    	
-	    }
+		char c=' ';
+		try {
+			for (int i=0; i<m2.length(); i++) {
+				c =pf.nextMove();
+				assertEquals(m2.charAt(i),c);
+			}
+			fail ("Error. No se lanzó la excepción TetrisIOException");
+		} catch (TetrisIOException e) {
+			assertEquals('T',c);
+		}
 	}
 	
 	@Test
 	public void testNextMoveIOException4() {
-		//TODO Crea un fichero "test/files/P4/testNextMoveIOException2.in", con lineas donde se pongan piezas y realicen 
-		// movimientos correctos. Pon una linea que contenga 'move left right'
-		// Crea un PlayerFile 'pf' a partir del fichero y comprueba que tras las sucesivas ejecuciones de nextMove() al llegar a esta línea (y solo en esta) lanza
-		// la excepción TetrisIOException
 		NewPlayerFile("test/files/P4/testNextMoveIOException4.in");
-	    
-	    try {
-	    	for(int i=0; i<25; i++) {
-	    		pf.nextMove();
-	    	}
-	    	fail("Error,no se lanzó la excepción TetrisIOException");
-	    }catch(TetrisIOException e) {
-	    	
-	    }
+		char c=' ';
+		try {
+			for (int i=0; i<m2.length(); i++) {
+				c =pf.nextMove();
+				assertEquals(m2.charAt(i),c);
+			}
+			fail ("Error. No se lanzó la excepción TetrisIOException");
+		} catch (TetrisIOException e) {
+			assertEquals('O',c);
+		}
 	}
 	
 	@Test(expected=NullPointerException.class)

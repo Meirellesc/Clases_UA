@@ -5,6 +5,14 @@ import java.util.TreeSet;
 
 import model.exceptions.score.RankingException;
 
+
+/**
+ * 
+ * @author Lucas Meirelles
+ * @version Oxygen 4.7
+ * @date 14/12/2018
+ *
+ */
 public class Ranking<ScoreType extends Score> {
 		
 	private SortedSet<ScoreType> gamePlays;
@@ -14,7 +22,7 @@ public class Ranking<ScoreType extends Score> {
 	}
 
 	public void addScore(ScoreType st) {
-		gamePlays.add(st); //IS IT RIGHT??
+		gamePlays.add(st); //I have to call 'compareTo' or this already doing implicit??
 	}
 	
 	public ScoreType getWinner() throws RankingException{
@@ -22,13 +30,10 @@ public class Ranking<ScoreType extends Score> {
 		if(gamePlays.isEmpty()) {
 			throw new RankingException();
 		}
-		else {
-			return gamePlays.first();
-		}
+		return gamePlays.first();
 	}
 	
 	public SortedSet<ScoreType> getSortedRanking(){
-		//DON'T UNDERSTAND WHAT I HAVE TO RETURN!!
-		return null;
+		return gamePlays;
 	}
 }
