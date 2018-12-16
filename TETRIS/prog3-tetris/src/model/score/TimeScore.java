@@ -16,7 +16,7 @@ public class TimeScore extends Score{
 	}
 	
 	public int getScoring() {
-		return 0;
+		return gamePlay.getDuration();
 	}
 
 }

@@ -29,11 +29,11 @@ public class PieceFactory {
 		
 		c = Objects.requireNonNull(c,"El parametro 'createPiece(c)' no puede ser null!");
 		
-		Piece temp = null;
+		Piece temp = null; //creating a temporary null piece.
 		
 		try {
 			
-			temp = (Piece) Class.forName("/home/meirelles/Clases_UA/TETRIS/prog3-tetris/src/model").newInstance();
+			temp = (Piece) Class.forName("model." + c.toString()).newInstance(); //calling a class from model."c" and creating a object from it.
 			
 		} catch (InstantiationException e) {
 			e.printStackTrace();

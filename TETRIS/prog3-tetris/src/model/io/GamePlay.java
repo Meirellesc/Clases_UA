@@ -2,6 +2,7 @@ package model.io;
 
 import java.io.IOException;
 import java.util.Objects;
+import java.util.Date;
 
 import model.Coordinate;
 import model.Game;
@@ -66,9 +67,10 @@ public class GamePlay {
 		player = p;
 		visualizer = v;
 		
-		//HAVE TO SEE WHAT TO DO WITH "ROWSCLEARED AND DURATION"
+		//CHECK IF ITS RIGHT
 		rowsCleared = 0;
 		duration = 0;
+		
 		
 		try {
 			Coordinate c = new Coordinate(TETRIS_BOARD_STANDARD_HEIGHT,TETRIS_BOARD_STANDARD_WIDTH);
@@ -89,9 +91,16 @@ public class GamePlay {
 		
 		char move;
 		
+		//IS THIS INITIAZLIZE HERE OR IN GAMEPLAY??
+		long t0 = new Date().getTime();
+		
 		try {
 			visualizer.show();
 	        move = player.nextMove();
+	                
+		    // codigo actual de GamePlay.play
+		    long t1 = new Date().getTime();
+		    duration = (int)(t1 - t0);
 	        
 	        //Condition that happens while has instructions to be read.
 	        while (move != IPlayer.LAST_MOVE) {
@@ -126,7 +135,7 @@ public class GamePlay {
 	        			game.moveCurrentPieceRight();
 	        		}
 	        		else if (move == IPlayer.MOVE_DOWN) {
-						game.moveCurrentPieceDown();
+						rowsCleared = game.moveCurrentPieceDown();
 					}
 	        		else if (move == IPlayer.ROTATE_CLOCKWISE) {
 	        			game.rotateCurrentPieceClockwise();
