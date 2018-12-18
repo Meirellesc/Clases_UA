@@ -33,7 +33,7 @@ public class PieceFactory {
 		
 		try {
 			
-			temp = (Piece) Class.forName("model." + c.toString()).newInstance(); //calling a class from model."c" and creating a object from it.
+			temp = (Piece) Class.forName("model." + c.toString()).newInstance(); //Calling a class from model."c" and creating a object from it.
 			
 		} catch (InstantiationException e) {
 			e.printStackTrace();

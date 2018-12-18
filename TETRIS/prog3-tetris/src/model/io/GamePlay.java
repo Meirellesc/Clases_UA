@@ -53,6 +53,7 @@ public class GamePlay {
 
 	private int duration;
 	
+	private long t0;
 	/** [ENG] Constructor that stores its two parameters in the attributes 'player' and 'visualizer' and creates a game with a board size (10x20).
 	 *  [SPA] Constructor que almacena sus dos parámetros en los atributos ‘player’ y ‘visualizer’ y crea un juego com un tamaño de tablero (10x20)
 	 * 
@@ -71,7 +72,8 @@ public class GamePlay {
 		rowsCleared = 0;
 		duration = 0;
 		
-		
+		t0 = new Date().getTime();
+				
 		try {
 			Coordinate c = new Coordinate(TETRIS_BOARD_STANDARD_HEIGHT,TETRIS_BOARD_STANDARD_WIDTH);
 			game = new Game(c);
@@ -92,12 +94,12 @@ public class GamePlay {
 		char move;
 		
 		//IS THIS INITIAZLIZE HERE OR IN GAMEPLAY??
-		long t0 = new Date().getTime();
+		//long t0 = new Date().getTime();
 		
 		try {
 			visualizer.show();
 	        move = player.nextMove();
-	                
+	        
 		    // codigo actual de GamePlay.play
 		    long t1 = new Date().getTime();
 		    duration = (int)(t1 - t0);
@@ -135,7 +137,7 @@ public class GamePlay {
 	        			game.moveCurrentPieceRight();
 	        		}
 	        		else if (move == IPlayer.MOVE_DOWN) {
-						rowsCleared = game.moveCurrentPieceDown();
+						rowsCleared += game.moveCurrentPieceDown(); //Counting how many rows were cleared.
 					}
 	        		else if (move == IPlayer.ROTATE_CLOCKWISE) {
 	        			game.rotateCurrentPieceClockwise();
