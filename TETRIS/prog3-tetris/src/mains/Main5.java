@@ -31,7 +31,7 @@ public class Main5 {
 				+ "O↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓", output,
 				"Sasha", rankingTime, rankingRows);
 		
-		//DON'T MAKE SENSE THE TIME RANKING WITH AMANDA
+		//DON'T MAKE SENSE THE TIME RANKING FOR AMANDA
 		playTheGame("I↺→↻→→→↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓I←←←←↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓"
 				+ "I↺→↻→→→↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓I←←←←↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓"
 				+ "O↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓"

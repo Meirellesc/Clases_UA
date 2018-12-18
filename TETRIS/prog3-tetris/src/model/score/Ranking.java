@@ -1,10 +1,10 @@
 package model.score;
 
+import java.util.Objects;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
 import model.exceptions.score.RankingException;
-
 
 /**
  * 
@@ -22,6 +22,9 @@ public class Ranking<ScoreType extends Score> {
 	}
 
 	public void addScore(ScoreType st) {
+		
+		st = Objects.requireNonNull(st, "El parametro 'addScore (st)' no puede ser null.");
+		
 		gamePlays.add(st); //I have to call 'compareTo' or this already doing implicit??
 	}
 	

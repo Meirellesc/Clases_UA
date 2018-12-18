@@ -166,6 +166,7 @@ public class GamePlay {
 	}
 
 	public int getDuration() {
+		System.out.println("DURATION: " + duration);
 		return duration;
 	}
 }

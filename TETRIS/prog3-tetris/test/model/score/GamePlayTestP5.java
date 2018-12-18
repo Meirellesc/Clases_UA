@@ -19,6 +19,12 @@ import org.junit.Test;
 import org.junit.rules.Timeout;
 import org.junit.Rule;
 
+/**
+ * 
+ * @author Lucas Meirelles
+ * @version Oxygen 4.7
+ *
+ */
 public class GamePlayTestP5 {
 
 	static String splayMain1, splayFinal;
@@ -318,6 +324,28 @@ public class GamePlayTestP5 {
 		GamePlay gp = new GamePlay(ip,ivc);
 		gp.play();
 	}
+	
+	//----------PRACTICA 5----------
+	
+	//Testing the RowCleared Getter
+	@Test
+	public void testRowClearedGetters() throws TetrisIOException {
+		
+		try {
+			IPlayer ip = PlayerFactory.createPlayer("I↺→↻→→→↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓I←←←←↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓"
+					+ "I↺→↻→→→↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓I←←←←↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓"
+					+ "O↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓"
+					+ "I↺→↻→→→↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓I←←←←↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓"
+					+ "I↺→↻→→→↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓I←←←←↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓"
+					+ "O↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓");
+			GamePlay gp = new GamePlay(ip, ivc);
+			gp.play();
+			assertEquals("getRowsCleared",4, gp.getRowsCleared());
+		}catch(TetrisIOException e) {
+			fail("Error: se lanzo la excepcion "+e.getClass().getSimpleName()+" "+e.getMessage());
+		}
+	}
+	
 	
 	/*************************
 	 * FUNCIONES AUXILIARES
