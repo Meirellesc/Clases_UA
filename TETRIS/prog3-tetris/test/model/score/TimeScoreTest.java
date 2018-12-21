@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.rules.Timeout;
 
 import model.exceptions.io.TetrisIOException;
+import model.exceptions.score.RankingException;
 import model.io.GamePlay;
 import model.io.IPlayer;
 import model.io.IVisualizer;
@@ -23,21 +24,29 @@ import model.io.VisualizerFactory;
  */
 public class TimeScoreTest {
 
-	static String player1;
+	static String player1, player2;
+	static String name1, name2;
 	static IVisualizer visu;
-	static String name;
 	
 		@Rule
 	    public Timeout globalTimeout = Timeout.seconds(10);
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		player1="I↺→↻→→→↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓I←←←←↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓"
+		player1 = "I↺→↻→→→↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓I←←←←↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓"
+				+ "I↺→↻→→→↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓I←←←←↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓"
+				+ "O↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓"
+				+ "I↺→↻→→→↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓I←←←←↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓"
+				+ "I↺→↻→→→↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓I←←←←↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓"
+				+ "O↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓";
+		
+		player2 = "I↺→↻→→→↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓I←←←←↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓"
 				+ "I↺→↻→→→↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓I←←←←↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓"
 				+ "I←←←←↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓O↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓";
 		
 		visu=VisualizerFactory.createVisualizer("console");
-		name = "Lucas";
+		name1 = "Lucas";
+		name2 = "Amanda";
 	}
 	
 	@Before
@@ -50,7 +59,7 @@ public class TimeScoreTest {
 		try {
 			IPlayer pl = PlayerFactory.createPlayer(player1);
 			GamePlay gp = new GamePlay(pl, visu);
-			TimeScore ts = new TimeScore(name, gp);
+			TimeScore ts = new TimeScore(name1, gp);
 			gp.play();
 			
 			assertNotNull(ts);
@@ -60,20 +69,49 @@ public class TimeScoreTest {
 		}
 	}
 	
-	//Testing the duration of a game returned by getScoring.
+	//Testing who won a game using TimeSocore.getScoring().
 	@Test
-	public void getScoringtest() {
+	public void getScoringtest() throws RankingException {
 		try {
-			IPlayer pl = PlayerFactory.createPlayer(player1);
-			GamePlay gp = new GamePlay(pl, visu);
-			TimeScore ts = new TimeScore(name, gp);
-			gp.play();
+			Ranking<TimeScore> rt = new Ranking<>();
+			IPlayer pl1 = PlayerFactory.createPlayer(player1);
+			GamePlay gp1 = new GamePlay(pl1, visu);
+			gp1.play();
+			TimeScore ts1 = new TimeScore(name1, gp1);
+			rt.addScore(ts1);
 			
-			//HAVE TO CHECK WHAT IS THE DURATION OF THIS GAME
-			fail("HAVE TO CHECK WHAT IS THE DURATION OF THIS GAME");
+			IPlayer pl2 = PlayerFactory.createPlayer(player2);
+			GamePlay gp2 = new GamePlay(pl2, visu);
+			gp2.play();
+			TimeScore ts2 = new TimeScore(name2, gp2);
+			rt.addScore(ts2);
+					
+			assertEquals("Amanda", rt.getWinner().getName());
 			
-			assertEquals("getScoring", 0, ts.getScoring()); //The duration of the game has to be 2.
-		
+		}catch(TetrisIOException e) {
+			fail("Error: se lanzo la excepcion "+e.getClass().getSimpleName()+" "+e.getMessage());
+		}
+	}
+	
+	//Testing who won a game using TimeSocore.getScoring().
+	@Test
+	public void getScoringtest2() throws RankingException {
+		try {
+			Ranking<TimeScore> rt = new Ranking<>();
+			IPlayer pl1 = PlayerFactory.createPlayer(player1);
+			GamePlay gp1 = new GamePlay(pl1, visu);
+			gp1.play();
+			TimeScore ts1 = new TimeScore(name1, gp1);
+			rt.addScore(ts1);
+			
+			IPlayer pl2 = PlayerFactory.createPlayer(player2);
+			GamePlay gp2 = new GamePlay(pl2, visu);
+			gp2.play();
+			TimeScore ts2 = new TimeScore(name2, gp2);
+			rt.addScore(ts2);
+					
+			assertNotEquals("Lucas", rt.getWinner().getName());
+			
 		}catch(TetrisIOException e) {
 			fail("Error: se lanzo la excepcion "+e.getClass().getSimpleName()+" "+e.getMessage());
 		}

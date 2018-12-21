@@ -32,7 +32,7 @@ public class RowsClearedScoreTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		player1="I↺→↻→→→↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓I←←←←↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓"
+		player1 = "I↺→↻→→→↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓I←←←←↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓"
 				+ "I↺→↻→→→↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓I←←←←↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓"
 				+ "I←←←←↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓O↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓";
 		
@@ -70,6 +70,22 @@ public class RowsClearedScoreTest {
 			
 			assertEquals("getScoring", 2, rc.getScoring()); //The number of cleared rows has to be 2.
 		
+		}catch(TetrisIOException e) {
+			fail("Error: se lanzo la excepcion "+e.getClass().getSimpleName()+" "+e.getMessage());
+		}
+	}
+	
+	//Testing the number of cleared rows returned by getScoring.
+	@Test
+	public void getScoringtest2() throws TetrisIOException {
+		try {
+			IPlayer pl = PlayerFactory.createPlayer(player1);
+			GamePlay gp = new GamePlay(pl, visu);
+			RowsClearedScore rc = new RowsClearedScore(name, gp);
+			gp.play();
+			
+			assertNotEquals("getScoring", 3, rc.getScoring()); //The number of cleared rows isn't 3.
+			
 		}catch(TetrisIOException e) {
 			fail("Error: se lanzo la excepcion "+e.getClass().getSimpleName()+" "+e.getMessage());
 		}

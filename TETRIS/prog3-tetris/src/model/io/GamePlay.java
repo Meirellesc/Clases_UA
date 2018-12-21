@@ -53,7 +53,7 @@ public class GamePlay {
 
 	private int duration;
 	
-	private long t0;
+	
 	/** [ENG] Constructor that stores its two parameters in the attributes 'player' and 'visualizer' and creates a game with a board size (10x20).
 	 *  [SPA] Constructor que almacena sus dos parámetros en los atributos ‘player’ y ‘visualizer’ y crea un juego com un tamaño de tablero (10x20)
 	 * 
@@ -68,11 +68,8 @@ public class GamePlay {
 		player = p;
 		visualizer = v;
 		
-		//CHECK IF ITS RIGHT
 		rowsCleared = 0;
 		duration = 0;
-		
-		t0 = new Date().getTime();
 				
 		try {
 			Coordinate c = new Coordinate(TETRIS_BOARD_STANDARD_HEIGHT,TETRIS_BOARD_STANDARD_WIDTH);
@@ -93,16 +90,12 @@ public class GamePlay {
 		
 		char move;
 		
-		//IS THIS INITIAZLIZE HERE OR IN GAMEPLAY??
-		//long t0 = new Date().getTime();
+		//Initial time "t0".
+		long t0 = new Date().getTime();
 		
 		try {
 			visualizer.show();
 	        move = player.nextMove();
-	        
-		    // codigo actual de GamePlay.play
-		    long t1 = new Date().getTime();
-		    duration = (int)(t1 - t0);
 	        
 	        //Condition that happens while has instructions to be read.
 	        while (move != IPlayer.LAST_MOVE) {
@@ -152,10 +145,15 @@ public class GamePlay {
 	        	}catch(GameEndedMovementException e) {
 	        		return;
 	        	}
-	        		
+	        	
 	        	visualizer.show();
 	        	move = player.nextMove();
 	        }
+	        
+        //Updating the duration of the game.
+	    long t1 = new Date().getTime();
+	    duration = (int)(t1 - t0);
+	        
         }catch(IOException e) {  
         	throw new TetrisIOException("Error!");
         }
@@ -166,7 +164,6 @@ public class GamePlay {
 	}
 
 	public int getDuration() {
-		System.out.println("DURATION: " + duration);
 		return duration;
 	}
 }

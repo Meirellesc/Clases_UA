@@ -22,12 +22,12 @@ public abstract class Score implements Comparable<Score> {
 	Score(String s, GamePlay g){
 		
 		s = Objects.requireNonNull(s, "El parametro 'String(s)' no puede ser null!");
-		g = Objects.requireNonNull(g, "El parametro 'String(s)' no puede ser null!");
+		g = Objects.requireNonNull(g, "El parametro 'GamePlay(g)' no puede ser null!");
 		
 		name = s; //Player's name
 		gamePlay = g;
 		
-		score = getScoring();
+		score = getScoring(); //The class which implements getScoring() will define the value.
 	}
 	
 	public String toString() {
@@ -41,12 +41,6 @@ public abstract class Score implements Comparable<Score> {
 	public abstract int getScoring();
 	
 	public int compareTo(Score sc) {
-		/*
-		 * If score > sc = -1
-		 * If score < sc = +1
-		 * If score == sc = name.compareTo(other.name) [Use the player's name to compare] 
-		*/
-		
 		if (score > sc.getScoring()) {
 			return (-1);
 		}
@@ -56,8 +50,6 @@ public abstract class Score implements Comparable<Score> {
 		else {
 			return name.compareTo(sc.getName());
 		}
-		
-		
 	}
 
 	@Override
