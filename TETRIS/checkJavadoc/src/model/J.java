@@ -7,7 +7,7 @@ package model;
  * @date 07/11/2018
  *
  */
-public class JPiece extends Piece {
+public class J extends Piece {
 	
 	/**
 	 * @variable formato de la pieza "J"
@@ -39,7 +39,7 @@ public class JPiece extends Piece {
 	 *  [SPA] Constructor que crea la Pieza J.
 	 *  
 	 */
-	public JPiece() {		
+	public J() {		
 		super();
 		blockSymbol = '◪';
 	}
@@ -49,8 +49,8 @@ public class JPiece extends Piece {
 	 *  
 	 */
 	@Override
-	public JPiece copy() {
-		JPiece p = new JPiece();
+	public J copy() {
+		J p = new J();
 		p.copyAttributes(this);
 		return p;
 	}

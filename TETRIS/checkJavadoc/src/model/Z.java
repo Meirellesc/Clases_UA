@@ -7,57 +7,56 @@ package model;
  * @date 07/11/2018
  *
  */
-public class TPiece extends Piece {
+public class Z extends Piece {
 
 	/**
-	 * @variable formato de la pieza "T"
+	 * @variable formato de la pieza "Z"
 	 */
 	protected static int shape[][] = new int[][] {
 	      //D0
-		  { 0, 1, 0, 0, 
-	    	1, 1, 1, 0, 
+		  { 1, 1, 0, 0, 
+	    	0, 1, 1, 0, 
 	    	0, 0, 0, 0, 
 	    	0, 0, 0, 0 },
 	      //D270
-	      { 0, 1, 0, 0, 
+	      { 0, 0, 1, 0, 
 	    	0, 1, 1, 0, 
 	    	0, 1, 0, 0, 
 	    	0, 0, 0, 0 },
 	      //D180
 	      { 0, 0, 0, 0, 
-	    	1, 1, 1, 0, 
-	    	0, 1, 0, 0, 
+	    	1, 1, 0, 0, 
+	    	0, 1, 1, 0, 
 	    	0, 0, 0, 0 },
 	      //D90
 	      { 0, 1, 0, 0, 
 	    	1, 1, 0, 0, 
-	    	0, 1, 0, 0, 
+	    	1, 0, 0, 0, 
 	    	0, 0, 0, 0 } 
 	};
 	
-	/** [ENG] Constructor which create a Piece T.
-	 *  [SPA] Constructor que crea la Pieza T.
+	/** [ENG] Constructor which create a Piece Z.
+	 *  [SPA] Constructor que crea la Pieza Z.
 	 *  
 	 */
-	public TPiece() {		
+	public Z() {		
 		super();
-		blockSymbol = '▤';
+		blockSymbol = '◫';
 	}
 	
-	/** [ENG] Method that copy the piece T.
-	 *  [SPA] Método que copia la pieza T.
+	/** [ENG] Method that copy the piece Z.
+	 *  [SPA] Método que copia la pieza Z.
 	 *  
 	 */
 	@Override
-	public TPiece copy() {
-		TPiece p = new TPiece();
+	public Z copy() {
+		Z p = new Z();
 		p.copyAttributes(this);
 		return p;
 	}
-	
 
-	/** [ENG] Method that take the shape of piece T.
-	 *  [SPA] Método que coge la forma de la pieza T.
+	/** [ENG] Method that take the shape of piece Z.
+	 *  [SPA] Método que coge la forma de la pieza Z.
 	 *  
 	 */
 	@Override

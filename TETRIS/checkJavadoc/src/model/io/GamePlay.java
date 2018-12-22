@@ -2,6 +2,7 @@ package model.io;
 
 import java.io.IOException;
 import java.util.Objects;
+import java.util.Date;
 
 import model.Coordinate;
 import model.Game;
@@ -11,7 +12,6 @@ import model.exceptions.FixedPieceMovementException;
 import model.exceptions.GameEndedMovementException;
 import model.exceptions.NoCurrentPieceException;
 import model.exceptions.OffBoardMovementException;
-import model.exceptions.TetrisException;
 import model.exceptions.WrongSizeException;
 import model.exceptions.io.TetrisIOException;
 
@@ -49,6 +49,17 @@ public class GamePlay {
 	 */
 	IVisualizer visualizer;
 	
+	/**
+	 * @variable rowsCleared.
+	 */
+	private int rowsCleared;
+
+	/**
+	 * @variable duration.
+	 */
+	private int duration;
+	
+	
 	/** [ENG] Constructor that stores its two parameters in the attributes 'player' and 'visualizer' and creates a game with a board size (10x20).
 	 *  [SPA] Constructor que almacena sus dos parámetros en los atributos ‘player’ y ‘visualizer’ y crea un juego com un tamaño de tablero (10x20)
 	 * 
@@ -63,6 +74,9 @@ public class GamePlay {
 		player = p;
 		visualizer = v;
 		
+		rowsCleared = 0;
+		duration = 0;
+				
 		try {
 			Coordinate c = new Coordinate(TETRIS_BOARD_STANDARD_HEIGHT,TETRIS_BOARD_STANDARD_WIDTH);
 			game = new Game(c);
@@ -81,6 +95,9 @@ public class GamePlay {
 	public void play() throws TetrisIOException {
 		
 		char move;
+		
+		//Initial time "t0".
+		long t0 = new Date().getTime();
 		
 		try {
 			visualizer.show();
@@ -119,7 +136,7 @@ public class GamePlay {
 	        			game.moveCurrentPieceRight();
 	        		}
 	        		else if (move == IPlayer.MOVE_DOWN) {
-						game.moveCurrentPieceDown();
+						rowsCleared += game.moveCurrentPieceDown(); //Counting how many rows were cleared.
 					}
 	        		else if (move == IPlayer.ROTATE_CLOCKWISE) {
 	        			game.rotateCurrentPieceClockwise();
@@ -134,12 +151,37 @@ public class GamePlay {
 	        	}catch(GameEndedMovementException e) {
 	        		return;
 	        	}
-	        		
+	        	
 	        	visualizer.show();
 	        	move = player.nextMove();
 	        }
+	        
+        //Updating the duration of the game.
+	    long t1 = new Date().getTime();
+	    duration = (int)(t1 - t0);
+	        
         }catch(IOException e) {  
         	throw new TetrisIOException("Error!");
         }
+	}
+	
+	//----------PRACTICA 5----------
+	
+	/** [ENG] Method that return the number of rows eliminated in a game.
+	 *  [SPA] Método que devuelve el número de filas eliminadas de una partida.
+	 * 
+	 * @return = the number of rows eliminated in a game.
+	 */
+	public int getRowsCleared() {
+		return rowsCleared;
+	}
+
+	/** [ENG] Method that return the duration of a game.
+	 *  [SPA] Método que devuelve la duración de una partida.
+	 * 
+	 * @return = the duration of a game.
+	 */
+	public int getDuration() {
+		return duration;
 	}
 }

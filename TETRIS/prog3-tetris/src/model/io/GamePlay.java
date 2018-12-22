@@ -49,8 +49,14 @@ public class GamePlay {
 	 */
 	IVisualizer visualizer;
 	
+	/**
+	 * @variable rowsCleared.
+	 */
 	private int rowsCleared;
 
+	/**
+	 * @variable duration.
+	 */
 	private int duration;
 	
 	
@@ -159,10 +165,22 @@ public class GamePlay {
         }
 	}
 	
+	//----------PRACTICA 5----------
+	
+	/** [ENG] Method that return the number of rows eliminated in a game.
+	 *  [SPA] Método que devuelve el número de filas eliminadas de una partida.
+	 * 
+	 * @return = the number of rows eliminated in a game.
+	 */
 	public int getRowsCleared() {
 		return rowsCleared;
 	}
 
+	/** [ENG] Method that return the duration of a game.
+	 *  [SPA] Método que devuelve la duración de una partida.
+	 * 
+	 * @return = the duration of a game.
+	 */
 	public int getDuration() {
 		return duration;
 	}

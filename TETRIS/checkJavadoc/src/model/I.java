@@ -7,7 +7,7 @@ package model;
  * @date 07/11/2018
  *
  */
-public class IPiece extends Piece {
+public class I extends Piece {
 
 	/**
 	 * @variable formato de la pieza "I"
@@ -39,7 +39,7 @@ public class IPiece extends Piece {
 	 *  [SPA] Constructor que crea la Pieza I.
 	 *  
 	 */
-	public IPiece() {		
+	public I() {		
 		super();
 		blockSymbol = '▒';
 	}
@@ -49,8 +49,8 @@ public class IPiece extends Piece {
 	 *  
 	 */
 	@Override
-	public IPiece copy() {
-		IPiece p = new IPiece();
+	public I copy() {
+		I p = new I();
 		p.copyAttributes(this);
 		return p;
 	}

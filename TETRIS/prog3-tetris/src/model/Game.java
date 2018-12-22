@@ -142,9 +142,11 @@ public class Game {
 	/** [ENG] Method that move the piece down.
 	 * 	[SPA] Método que mueve la pieza hacia abajo.
 	 * 
+	 * @return = the number of rows eliminated in a game.
 	 * @throws NoCurrentPieceException 
 	 * @throws GameEndedMovementException 
-	 * @throws FixedPieceMovementException 
+	 * @throws FixedPieceMovementException = throw if the actual piece is not fixed yet.
+	 *
 	 */
 	public int moveCurrentPieceDown() throws NoCurrentPieceException, GameEndedMovementException, FixedPieceMovementException {
 		

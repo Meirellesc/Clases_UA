@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 /**
  * 
  * @author Lucas Meirelles
@@ -25,37 +27,22 @@ public class PieceFactory {
 	 */
 	public static Piece createPiece(String c) {
 		
-		if(c == "I") {
-			IPiece p = new IPiece();
-			return p;
-		}
-		else if (c == "J") {
-			JPiece p = new JPiece();
-			return p;
-		}
-		else if (c == "L") {
-			LPiece p = new LPiece();
-			return p;
-		}
-		else if (c == "O") {
-			OPiece p = new OPiece();
-			return p;
-		}
-		else if (c == "S") {
-			SPiece p = new SPiece();
-			return p;
-		}
-		else if (c == "T") {
-			TPiece p = new TPiece();
-			return p;
-		}
-		else if (c == "Z") {
-			ZPiece p = new ZPiece();
-			return p;
-		}
-		else {
-			return null;
-		}
+		c = Objects.requireNonNull(c,"El parametro 'createPiece(c)' no puede ser null!");
+		
+		Piece temp = null; //creating a temporary null piece.
+		
+		try {
+			
+			temp = (Piece) Class.forName("model." + c.toString()).newInstance(); //Calling a class from model."c" and creating a object from it.
+			
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} 	
+		
+		return temp;
 	}
-
 }
