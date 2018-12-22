@@ -25,7 +25,7 @@ public class Ranking<ScoreType extends Score> {
 		
 		st = Objects.requireNonNull(st, "El parametro 'addScore (st)' no puede ser null.");
 		
-		gamePlays.add(st); //Add call the 'compareTo' implicit.
+		gamePlays.add(st); //The function "add()" call the 'compareTo' implicit.
 	}
 	
 	public ScoreType getWinner() throws RankingException{

@@ -54,10 +54,36 @@ public class ScoreTest {
 	public void setUp() throws Exception {
 	}
 	
-	//Testing the default constructor.
+	//Testing the default constructor with RowsClearedScore.
 	@Test
-	public void testScore() {
-				
+	public void testScore_RCS() {
+		try {
+			IPlayer pl = PlayerFactory.createPlayer(player1);
+			GamePlay gp = new GamePlay(pl, visu);
+			gp.play();
+			RowsClearedScore rc = new RowsClearedScore(name1, gp);			
+			
+			assertNotNull(rc);
+			
+		}catch(TetrisIOException e) {
+			fail("Error: se lanzo la excepcion "+e.getClass().getSimpleName()+" "+e.getMessage());
+		}			
+	}
+	
+	//Testing the default constructor with TimeScore.
+	@Test
+	public void testScore_TS() {
+		try {
+			IPlayer pl = PlayerFactory.createPlayer(player1);
+			GamePlay gp = new GamePlay(pl, visu);
+			gp.play();
+			TimeScore ts = new TimeScore(name1, gp);
+			
+			assertNotNull(ts);
+			
+		}catch(TetrisIOException e) {
+			fail("Error: se lanzo la excepcion "+e.getClass().getSimpleName()+" "+e.getMessage());
+		}			
 	}
 	
 	//Testing toString.
@@ -70,6 +96,22 @@ public class ScoreTest {
 			RowsClearedScore rc = new RowsClearedScore(name1, gp);			
 			assertEquals("Lucas:4", rc.toString());
 			
+		}catch(TetrisIOException e) {
+			fail("Error: se lanzo la excepcion "+e.getClass().getSimpleName()+" "+e.getMessage());
+		}
+	}
+	
+	//Testing toString with TimeScore throwing TetrisIOException.
+	@Test
+	public void toStringTest_TS() {
+		try {
+			IPlayer pl = PlayerFactory.createPlayer(player1);
+			GamePlay gp = new GamePlay(pl, visu);
+			gp.play();
+			TimeScore ts = new TimeScore(name1, gp);			
+			
+			assertNotEquals("Lucas", ts.toString());
+					
 		}catch(TetrisIOException e) {
 			fail("Error: se lanzo la excepcion "+e.getClass().getSimpleName()+" "+e.getMessage());
 		}
@@ -169,72 +211,6 @@ public class ScoreTest {
 			RowsClearedScore rc2 = new RowsClearedScore(name2, gp2);
 			
 			assertEquals("Amanda",-11,rc2.compareTo(rc3)); //How rc3 == rc2 then compareTo have to return in alphabetical order.
-			
-		}catch (TetrisIOException e) {
-			fail("Error: se lanzo la excepcion "+e.getClass().getSimpleName()+" "+e.getMessage());
-		}
-	}
-	
-	//Testing compareTo with "this" < "parameter" with TimeScore.
-	@Test
-	public void compareTo1_TS() {
-		
-		try {
-			IPlayer pl1 = PlayerFactory.createPlayer(player1);
-			GamePlay gp1 = new GamePlay(pl1,visu);
-			gp1.play();
-			TimeScore ts1 = new TimeScore(name1, gp1);
-			
-			IPlayer pl2 = PlayerFactory.createPlayer(player2);
-			GamePlay gp2 = new GamePlay(pl2,visu);
-			gp2.play();
-			TimeScore ts2 = new TimeScore(name2, gp2);
-			
-			assertEquals("ts1 < ts2 .: 1",1,ts1.compareTo(ts2)); //How ts1 < ts2 then compareTo have to return "1".
-			
-		}catch (TetrisIOException e) {
-			fail("Error: se lanzo la excepcion "+e.getClass().getSimpleName()+" "+e.getMessage());
-		}
-	}
-	
-	//Testing compareTo with "this" > "parameter" with TimeScore.
-	@Test
-	public void compareTo2_TS() {
-		
-		try {
-			IPlayer pl1 = PlayerFactory.createPlayer(player1);
-			GamePlay gp1 = new GamePlay(pl1,visu);
-			gp1.play();
-			TimeScore ts1 = new TimeScore(name1, gp1);
-			
-			IPlayer pl2 = PlayerFactory.createPlayer(player2);
-			GamePlay gp2 = new GamePlay(pl2,visu);
-			gp2.play();
-			TimeScore ts2 = new TimeScore(name2, gp2);
-			
-			assertEquals("ts1 < ts2 .: -1",-1,ts2.compareTo(ts1)); //How ts1 < ts2 then compareTo have to return "-1".
-			
-		}catch (TetrisIOException e) {
-			fail("Error: se lanzo la excepcion "+e.getClass().getSimpleName()+" "+e.getMessage());
-		}
-	}
-	
-	//Testing compareTo with "this" == "parameter" with TimeScore.
-	@Test
-	public void compareTo3_TS() {
-		
-		try {
-			IPlayer pl3 = PlayerFactory.createPlayer(player3);
-			GamePlay gp3 = new GamePlay(pl3,visu);
-			gp3.play();
-			TimeScore ts3 = new TimeScore(name3, gp3);
-			
-			IPlayer pl2 = PlayerFactory.createPlayer(player2);
-			GamePlay gp2 = new GamePlay(pl2,visu);
-			gp2.play();
-			TimeScore ts2 = new TimeScore(name2, gp2);
-			
-			assertEquals("ts3 == ts2 .: -1",-1,ts2.compareTo(ts3)); //How ts3 == ts2 then compareTo have to return "-1".
 			
 		}catch (TetrisIOException e) {
 			fail("Error: se lanzo la excepcion "+e.getClass().getSimpleName()+" "+e.getMessage());
