@@ -5,17 +5,18 @@ import static org.junit.Assert.*;
 import model.exceptions.io.TetrisIOException;
 
 import org.junit.Test;
-import org.junit.rules.Timeout;
 import org.junit.Rule;
+import org.junit.rules.Timeout;
 
 public class PlayerRandomTestP4 {
 
 	static final String moves1="S↓↓↓↓↻↓↓→↓↓↓↓↓↓↓←↓↓↓↓↓↓↓●↺↻↓↓↺↺↓↓↓↓→↺↓↺→";
 	static final String moves2="T↓↓↓↓↓→↓↓↓↓↓→↓↓→→↓↓↺←↓↓↺←↓↓↓→↓●↓←↓↓↺↓↓↓↓";
 
+	
         @Rule
         public Timeout globalTimeout = Timeout.seconds(10);
-	
+        
 	@Test
 	public void testNextMove1() {
 		PlayerRandom plr= new PlayerRandom(54322);

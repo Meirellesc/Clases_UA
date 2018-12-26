@@ -8,6 +8,8 @@ import model.exceptions.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.rules.Timeout;
+import org.junit.Rule;
 
 public class GameExceptionsTestP3 {
 
@@ -15,6 +17,9 @@ public class GameExceptionsTestP3 {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
+
+        @Rule
+        public Timeout globalTimeout = Timeout.seconds(5);
 
 	@Before
 	public void setUp() throws Exception {

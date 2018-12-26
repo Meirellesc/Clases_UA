@@ -1,21 +1,20 @@
 package model;
 
 import static org.junit.Assert.*;
-import org.junit.rules.Timeout;
-import org.junit.Rule;
-
 
 import model.exceptions.WrongSizeException;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.rules.Timeout;
+import org.junit.Rule;
 
 public class GameboardTestP3 {
 	Gameboard gb;
 	Piece p[],ip, jp, lp, op, sp, tp, zp;
 
-	@Rule
-	public Timeout globalTimeout = Timeout.seconds(5);
+        @Rule
+        public Timeout globalTimeout = Timeout.seconds(5);
 
 	@Before
 	public void setUp() throws Exception {

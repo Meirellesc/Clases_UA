@@ -7,17 +7,17 @@ import model.exceptions.io.TetrisIOException;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.rules.Timeout;
 import org.junit.Rule;
+import org.junit.rules.Timeout;
 
 public class PlayerStringTestP4 {
-
-        @Rule
-        public Timeout globalTimeout = Timeout.seconds(10);
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
+
+        @Rule
+        public Timeout globalTimeout = Timeout.seconds(10);
 
 	@Before
 	public void setUp() throws Exception {

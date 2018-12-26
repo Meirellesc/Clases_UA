@@ -14,8 +14,8 @@ import model.exceptions.io.TetrisIOException;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.rules.Timeout;
 import org.junit.Rule;
+import org.junit.rules.Timeout;
 
 public class GamePlayTestP4 {
 	static String splayMain1, splayFinal;
@@ -34,10 +34,6 @@ public class GamePlayTestP4 {
 			"↓↓↓↓↓↓↓T↺←←↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓O↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓J↻←↓↓↓↓↓↓↓↓↓↓↓↓↓↓"+
 			"↓L↓↓↓↓↓↓↓↓↓↓↓↓↓I↓↓↓↓↓↓↓↓↓↓↓O↓↓↓↓↓↓↓↓↓↓Z↺↓↓↓↓↓↓↓↓L↻↓↓↓↓↓I↺↓J";
 	
-
-        @Rule
-        public Timeout globalTimeout = Timeout.seconds(10);
-
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		splayMain1="I↺→↻→→→↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓I←←←←↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓"
@@ -47,6 +43,9 @@ public class GamePlayTestP4 {
 		ivc=VisualizerFactory.createVisualizer("console");
 	}
 
+        @Rule
+        public Timeout globalTimeout = Timeout.seconds(10);
+        
 	@Before
 	public void setUp() throws Exception {
 	}

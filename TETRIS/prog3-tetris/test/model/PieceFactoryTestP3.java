@@ -60,6 +60,6 @@ public class PieceFactoryTestP3 {
 	
 	@Test
 	public void testCreatePieceNull() {
-		assertNull(PieceFactory.createPiece("Q"));
+		assertNull(PieceFactory.createPiece("-"));
 	}
 }

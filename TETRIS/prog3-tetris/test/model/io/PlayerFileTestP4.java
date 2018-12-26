@@ -9,17 +9,13 @@ import model.exceptions.io.TetrisIOException;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.rules.Timeout;
 import org.junit.Rule;
+import org.junit.rules.Timeout;
 
 public class PlayerFileTestP4 {
 	BufferedReader bin;
 	PlayerFile pf;
 	String m2, m1; 
-
-        @Rule
-        public Timeout globalTimeout = Timeout.seconds(10);
-
 	@Before
 	public void setUp() throws Exception {
 		m1=new String("I↻↻J↺L→→→→O←S↓↓↓↓←←↓↓↓↓T↓↓→↓↓Z↺↺");
@@ -28,6 +24,9 @@ public class PlayerFileTestP4 {
 
 	}
 	
+        @Rule
+        public Timeout globalTimeout = Timeout.seconds(10);
+        
 	@Test
 	public void testNextMove() {
 		NewPlayerFile("test/files/P4/testNextMove.in");

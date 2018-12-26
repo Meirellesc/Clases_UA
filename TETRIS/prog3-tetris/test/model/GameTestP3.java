@@ -1,8 +1,6 @@
 package model;
 
 import static org.junit.Assert.*;
-import org.junit.rules.Timeout;
-import org.junit.Rule;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,20 +12,22 @@ import model.exceptions.TetrisException;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.rules.Timeout;
+import org.junit.Rule;
 
 public class GameTestP3 {
-    	Game game;
-    	Piece p[];
-    	StringBuilder sbIn = new StringBuilder();
+    Game game;
+    Piece p[];
+    StringBuilder sbIn = new StringBuilder();
 	StringBuilder sbOut = new StringBuilder();
 	PrintStream ps;
-	
-	@Rule
-	public Timeout globalTimeout = Timeout.seconds(5);
-	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
+
+        @Rule
+        public Timeout globalTimeout = Timeout.seconds(5);
+
 
 	@Before
 	public void setUp() throws Exception {
