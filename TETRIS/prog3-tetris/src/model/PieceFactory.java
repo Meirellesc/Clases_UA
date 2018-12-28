@@ -36,11 +36,11 @@ public class PieceFactory {
 			temp = (Piece) Class.forName("model." + c.toString()).newInstance(); //Calling a class from model."c" and creating a object from it.
 			
 		} catch (InstantiationException e) {
-			e.printStackTrace();
+			return null;
 		} catch (IllegalAccessException e) {
-			e.printStackTrace();
+			return null;
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			return null;
 		} 	
 		
 		return temp;
