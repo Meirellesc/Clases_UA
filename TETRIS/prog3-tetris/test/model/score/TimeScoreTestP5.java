@@ -57,11 +57,11 @@ public class TimeScoreTestP5 {
 	public void testToString() {
 		int t0=0, d=0;
 		try {
-			t0=(int)new Date().getTime();
+			//t0=(int)new Date().getTime();
 			gp2.play();
-			d = -((int)(new Date().getTime())-t0);
+			//d = -((int)(new Date().getTime())-t0);
 			sc2=new TimeScore("Gabriel",gp2);
-			assertEquals("Gabriel:"+d,sc2.toString());
+			assertEquals("Gabriel:"+(-gp2.getDuration()),sc2.toString());
 		} catch (TetrisIOException e) {
 			fail("Error: no debió lanzarse la excepcion: "+e.getClass().getSimpleName());
 		}
@@ -84,7 +84,7 @@ public class TimeScoreTestP5 {
 			gp1.play();
 			d = (int)(new Date().getTime())-t0;
 			sc1=new TimeScore("Gabriel",gp1);
-			assertEquals(-d,sc1.getScoring(),1);
+			assertEquals(-d,sc1.getScoring(),10);
 		} catch (TetrisIOException e) {
 			fail("Error: no debió lanzarse la excepcion: "+e.getClass().getSimpleName());
 		}
@@ -98,7 +98,7 @@ public class TimeScoreTestP5 {
 			gp2.play();
 			d = (int)(new Date().getTime())-t0;
 			sc2=new TimeScore("Gabino",gp2);
-			assertEquals(-d,sc2.getScoring(),1);
+			assertEquals(-d,sc2.getScoring(),10);
 		} catch (TetrisIOException e) {
 			fail("Error: no debió lanzarse la excepcion: "+e.getClass().getSimpleName());
 		}

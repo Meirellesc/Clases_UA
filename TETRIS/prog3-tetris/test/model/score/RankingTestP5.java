@@ -111,7 +111,7 @@ public class RankingTestP5 {
 			assertEquals(1,sset.size());
 			assertSame(stime,sset.first());
 			assertEquals("Andrés",stime.getName());
-			assertEquals(d,stime.getScoring(),2);
+			assertEquals(d,stime.getScoring(),10);
 
 		} catch (TetrisIOException e) {
 			fail("Error: no debió lanzarse la excepcion: "+e.getClass().getSimpleName());
@@ -144,11 +144,11 @@ public class RankingTestP5 {
 			int value;
 			SortedMap<String,Integer>tset = getTimeScoreRanking();
 			assertEquals("PACO",rts.getWinner().getName());
-			assertEquals(tset.get("PACO").intValue(),rts.getWinner().getScoring());
+			assertEquals(tset.get("PACO").intValue(),rts.getWinner().getScoring(),10);
 			SortedSet<TimeScore> sset=rts.getSortedRanking();
 			for (TimeScore ts : sset){
 				value = tset.get(ts.getName());
-				assertEquals(value,ts.getScoring(),1);	
+				assertEquals(value,ts.getScoring(),10);	
 			}
 			System.out.println(rts.toString());
 		} catch (RankingException e) {

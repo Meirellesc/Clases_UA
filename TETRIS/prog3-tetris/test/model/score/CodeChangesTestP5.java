@@ -71,7 +71,7 @@ public class CodeChangesTestP5 {
 			int t0= (int)new Date().getTime();
 			g.play();
 			int d = (int) new Date().getTime()-t0;
-			assertEquals(d,g.getDuration(),1);
+			assertEquals(d,g.getDuration(),10);
 		} catch (TetrisIOException e) {
 		fail ("Error: no debía haberse producido la excepcion "+e.getClass().getSimpleName());
 		}
